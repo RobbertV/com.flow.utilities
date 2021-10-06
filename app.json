@@ -1,16 +1,16 @@
 {
-  "id": "com.athom.energytracker",
+  "id": "com.athom.deviceconsumption",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
   "name": {
-    "en": "Energy Tracker",
-    "nl": "Energy Tracker"
+    "en": "Device Consumption",
+    "nl": "Apparaat Verbruik"
   },
   "description": {
-    "en": "Check energy consumption and duration of devices",
-    "nl": "Check energie en tijdsduur van apparaten"
+    "en": "Check consumption and duration of devices",
+    "nl": "Check verbruik en tijdsduur van apparaten"
   },
   "tags": {
     "en": [
@@ -75,12 +75,12 @@
       {
         "id": "action_START_DATE",
         "title": {
-          "en": "Start energy check timer",
-          "nl": "Start ernergie check timer"
+          "en": "Start time consumption",
+          "nl": "Start tijdsverbruik"
         },
         "titleFormatted": {
-            "en": "Start energy check timer - [[name]]",
-            "nl": "Start ernergie check timer - [[name]]"
+            "en": "Start time consumption - [[name]]",
+            "nl": "Start tijdsverbruik - [[name]]"
         },
         "args": [
           {
@@ -96,12 +96,12 @@
       {
         "id": "action_END_DATE",
         "title": {
-          "en": "Stop energy check timer",
-          "nl": "Stop ernergie check timer"
+          "en": "Stop time consumption",
+          "nl": "Stop tijdsverbruik"
         },
         "titleFormatted": {
-            "en": "Stop energy check timer - [[name]]",
-            "nl": "Stop ernergie check timer - [[name]]"
+            "en": "Stop time consumption - [[name]]",
+            "nl": "Stop tijdsverbruik - [[name]]"
         },
         "args": [
           {

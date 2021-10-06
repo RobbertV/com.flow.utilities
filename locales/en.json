@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "title": "Notification Settings"
+  },
+  "helpers": {
+    "days": "d",
+    "hours": "h",
+    "minutes": "m"
+  }
+}

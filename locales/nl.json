@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "title": "Notificatie instellingen"
+  },
+  "helpers": {
+    "days": "d",
+    "hours": "u",
+    "minutes": "m"
+  }
+}

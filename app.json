@@ -94,6 +94,35 @@
         ]
       },
       {
+        "id": "action_START_DATE_COMPARE",
+        "title": {
+          "en": "Start time consumption and compare value",
+          "nl": "Start tijdsverbruik en vergelijk waarde"
+        },
+        "titleFormatted": {
+            "en": "Start time consumption - [[name]] and compare value [[value]]",
+            "nl": "Start tijdsverbruik - [[name]] en vergelijk waarde [[value]]"
+        },
+        "args": [
+          {
+            "name": "name",
+            "type": "text",
+            "placeholder": {
+              "en": "Name",
+              "nl": "Naam"
+            }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "Compare",
+              "nl": "Vergelijk"
+            }
+          }
+        ]
+      },
+      {
         "id": "action_END_DATE",
         "title": {
           "en": "Stop time consumption",
@@ -110,6 +139,35 @@
             "placeholder": {
               "en": "Name",
               "nl": "Naam"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_END_DATE_COMPARE",
+        "title": {
+          "en": "Stop time consumption and compare value",
+          "nl": "Stop tijdsverbruik en vergelijk waarde"
+        },
+        "titleFormatted": {
+            "en": "Stop time consumption - [[name]] and compare value [[value]]",
+            "nl": "Stop tijdsverbruik - [[name]] en vergelijk waarde [[value]]"
+        },
+        "args": [
+          {
+            "name": "name",
+            "type": "text",
+            "placeholder": {
+              "en": "Name",
+              "nl": "Naam"
+            }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "Compare",
+              "nl": "Vergelijk"
             }
           }
         ]

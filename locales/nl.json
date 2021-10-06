@@ -5,6 +5,7 @@
   "helpers": {
     "days": "d",
     "hours": "u",
-    "minutes": "m"
+    "minutes": "m",
+    "difference": "verschil"
   }
 }

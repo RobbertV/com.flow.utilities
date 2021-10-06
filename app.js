@@ -48,7 +48,7 @@ class App extends Homey.App {
       } else {
         this.log(`Initializing ${_settingsKey} with defaults`);
         await this.updateSettings({
-          CONVERSIONS: [],
+          DURATIONS: [],
           TOTALS: []
         });
       }
@@ -71,65 +71,74 @@ class App extends Homey.App {
 
   async initTokens() {
     const totals = this.appSettings.TOTALS;
-    totals.forEach(t => this.createToken(t.name, t.duration));
+    totals.forEach(t => {
+        this.createToken(t.name, t.duration);
+        
+        if(t.comparison !== null) {
+            this.createToken(`${t.name}-${this.homey.__("helpers.difference")}`, parseFloat(t.comparison), 'number');
+        }
+    });
   }
 
-  async createToken(name, duration = '') {
+  async createToken(name, value = null, type = 'string') {
     if(!this.TOKENS[name]) {
       this.TOKENS[name] = await this.homey.flow.createToken(name, {
-        type: "string",
+        type: type,
         title: name
       });
     }
 
-    await this.TOKENS[name].setValue(duration);
+    await this.TOKENS[name].setValue(value);
   }
 
 
 // -------------------- FUNCTIONS ----------------------
 
-  async action_START_DATE(name) {
+  async action_START_DATE(name, comparison = null) {
     const date = new Date('2021-10-05');
-    const newSettings = this.appSettings.CONVERSIONS.filter(setting => setting.name !== name);
+    const newSettings = this.appSettings.DURATIONS.filter(setting => setting.name !== name);
 
     await this.updateSettings({
       ...this.appSettings,
-      CONVERSIONS: [...newSettings, {name, date}]
+      DURATIONS: [...newSettings, {name, date, comparison}]
     });
 
     await this.createToken(name);
+    if(comparison !== null) await this.createToken(`${name}-${this.homey.__("helpers.difference")}`, parseFloat(comparison), 'number');
   }
   
-  async action_END_DATE(name) {
+  async action_END_DATE(name, compare = null) {
     const date = new Date();
-    const existing_conversion = this.appSettings.CONVERSIONS.find(x => x.name === name);
+    const existing_conversion = this.appSettings.DURATIONS.find(x => x.name === name);
 
     if(!existing_conversion) {
       throw new Error(`No conversion start found for ${name}`);
     }
 
-    const duration = await this.calculateDiff(existing_conversion.date, date);
+    const duration = await this.calculateDuration(existing_conversion.date, date);
+    const comparison = compare ? this.calculateComparison(existing_conversion.comparison, compare) : null
 
-    const conversions = this.appSettings.CONVERSIONS.filter(conversion => conversion.name !== name);
+    const DURATIONS = this.appSettings.DURATIONS.filter(conversion => conversion.name !== name);
     const totals = this.appSettings.TOTALS.filter(total => total.name !== name);
 
     await this.updateSettings({
       ...this.appSettings,
-      CONVERSIONS: conversions,
-      TOTALS: [...totals, {name, duration}]
+      DURATIONS: DURATIONS,
+      TOTALS: [...totals, {name, duration, comparison}]
     });
 
     await this.createToken(name, duration);
+    if(comparison) await this.createToken(`${name}-${this.homey.__("helpers.difference")}`, parseFloat(comparison), 'number');
   }
 
-  calculateDiff(start, end) {
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-   
-    const diffInMilliseconds = Math.abs(startDate- endDate) / 1000;
-    const total = hoursMinutes(diffInMilliseconds, this.homey.__);
+  calculateDuration(startDate, endDate) {   
+    const diffInMilliseconds = Math.abs(startDate - endDate) / 1000;
+    return hoursMinutes(diffInMilliseconds, this.homey.__);
+  }
 
-    return total;
+  calculateComparison(start, end) {
+      const comparison = parseFloat(end) - parseFloat(start);
+      return comparison ? comparison.toFixed(2) : 0;
   }
 }
 

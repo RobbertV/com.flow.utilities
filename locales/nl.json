@@ -3,9 +3,11 @@
     "title": "Notificatie instellingen"
   },
   "helpers": {
-    "days": "d",
-    "hours": "u",
-    "minutes": "m",
+    "Locale": "nl-NL",
+    "day": "dag",
+    "days": "dagen",
+    "hours": "uur",
+    "minutes": "min",
     "difference": "verschil"
   }
 }

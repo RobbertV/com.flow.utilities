@@ -31,9 +31,7 @@
       "Devices"
     ]
   },
-  "category": [
-    "energy"
-  ],
+  "category": ["energy"],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -41,13 +39,17 @@
   },
   "author": {
     "name": "Martijn Poppen",
-    "email": "energytracker@martijnpoppen.nl"
+    "email": "deviceconsumption@martijnpoppen.nl"
   },
   "contributors": {
     "developers": [
       {
         "name": "Martijn Poppen",
-        "email": "energytracker@martijnpoppen.nl"
+        "email": "deviceconsumption@martijnpoppen.nl"
+      },
+      {
+        "name": "Robbert Vis",
+        "email": "deviceconsumption@robbertvis.nl"
       }
     ],
     "translators": [
@@ -55,7 +57,13 @@
         "name": "🇬🇧 Martijn Poppen"
       },
       {
+        "name": "🇬🇧 Robbert Vis"
+      },
+      {
         "name": "🇳🇱 Martijn Poppen"
+      },
+      {
+        "name": "🇳🇱 Robbert Vis"
       }
     ]
   },
@@ -98,12 +106,12 @@
       {
         "id": "action_START_DATE_COMPARE",
         "title": {
-          "en": "Start time consumption and compare value",
-          "nl": "Start tijdsverbruik en vergelijk waarde"
+          "en": "Start consumption time and compare value",
+          "nl": "Start verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-            "en": "Start time consumption - [[name]] and compare value [[value]]",
-            "nl": "Start tijdsverbruik - [[name]] en vergelijk waarde [[value]]"
+          "en": "Start consumption time for - [[name]] and compare value [[value]]",
+          "nl": "Start verbruik tijd voor - [[name]] en vergelijk waarde [[value]]"
         },
         "args": [
           {
@@ -148,12 +156,12 @@
       {
         "id": "action_END_DATE_COMPARE",
         "title": {
-          "en": "Stop time consumption and compare value",
-          "nl": "Stop tijdsverbruik en vergelijk waarde"
+          "en": "Stop consumption time and compare value",
+          "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-            "en": "Stop time consumption - [[name]] and compare value [[value]]",
-            "nl": "Stop tijdsverbruik - [[name]] en vergelijk waarde [[value]]"
+          "en": "Stop consumption time for - [[name]] and compare value [[value]]",
+          "nl": "Stop verbruik tijd voor - [[name]] en vergelijk waarde [[value]]"
         },
         "args": [
           {

@@ -1,9 +1,6 @@
 {
-  "settings": {
-    "title": "Notificatie instellingen"
-  },
   "helpers": {
-    "Locale": "nl-NL",
+    "locale": "nl-NL",
     "day": "dag",
     "days": "dagen",
     "hours": "uur",

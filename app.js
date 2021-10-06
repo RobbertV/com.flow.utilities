@@ -25,7 +25,7 @@ class App extends Homey.App {
 
         this.log('[onInit] - Loaded settings', this.appSettings);
 
-        await flowActions.init(this.homey);
+        await flowActions.init(this);
     }
 
     // -------------------- SETTINGS ----------------------
@@ -73,26 +73,38 @@ class App extends Homey.App {
             this.createToken(t.name, t.duration);
 
             if (t.comparison !== null) {
-                this.createToken(`${t.name}-${this.homey.__('helpers.difference')}`, parseFloat(t.comparison), 'number');
+                this.createToken(t.name, parseFloat(t.comparison), 'number');
             }
         });
     }
 
     async createToken(name, value = null, type = 'string') {
-        if (!this.TOKENS[name]) {
-            this.TOKENS[name] = await this.homey.flow.createToken(name, {
-                type: type,
-                title: name,
+        const title = type === 'number' ? `${name}-${this.homey.__('helpers.difference')}` : name;
+
+        if (!this.TOKENS[title]) {
+            this.TOKENS[title] = await this.homey.flow.createToken(title, {
+                type,
+                title
             });
         }
 
-        await this.TOKENS[name].setValue(value);
+        await this.TOKENS[title].setValue(value);
+    }
+
+    async removeToken(name) {
+        const titles = [name, `${name}-${this.homey.__('helpers.difference')}`];
+
+        titles.forEach(async t => {
+            if (this.TOKENS[t]) {
+                await this.TOKENS[t].unregister();
+            }
+        })
     }
 
     // -------------------- FUNCTIONS ----------------------
 
     async action_START_DATE(name, comparison = null) {
-        const date = new Date('2021-10-05');
+        const date = new Date();
         const newSettings = this.appSettings.DURATIONS.filter((setting) => setting.name !== name);
 
         await this.updateSettings({
@@ -102,7 +114,7 @@ class App extends Homey.App {
 
         await this.createToken(name);
         if (comparison !== null) {
-            await this.createToken(`${name}-${this.homey.__('helpers.difference')}`, parseFloat(comparison), 'number');
+            await this.createToken(name, parseFloat(comparison), 'number');
         }
     }
 
@@ -128,8 +140,22 @@ class App extends Homey.App {
 
         await this.createToken(name, duration);
         if (comparison) {
-            await this.createToken(`${name}-${this.homey.__('helpers.difference')}`, parseFloat(comparison), 'number');
+            await this.createToken(name, parseFloat(comparison), 'number');
         }
+    }
+
+    async action_REMOVE_PREVIOUS(name) {
+        this.homey.app.log('[action_REMOVE_PREVIOUS] - remove: ', name);
+        const durations = this.appSettings.DURATIONS.filter(d => d.name !== name);
+        const totals = this.appSettings.TOTALS.filter(t => t.name !== name);
+
+        await this.updateSettings({
+            ...this.appSettings,
+            DURATIONS: durations,
+            TOTALS: totals,
+        });
+
+        await this.removeToken(name);
     }
 
     calculateDuration(startDate, endDate) {

@@ -1,9 +1,6 @@
 {
-  "settings": {
-    "title": "Notification Settings"
-  },
   "helpers": {
-    "Locale": "en-EN",
+    "locale": "en-EN",
     "day": "day",
     "days": "days",
     "hours": "hours",

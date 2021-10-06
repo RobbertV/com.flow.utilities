@@ -3,8 +3,10 @@
     "title": "Notification Settings"
   },
   "helpers": {
-    "days": "d",
-    "hours": "h",
-    "minutes": "m"
+    "Locale": "en-EN",
+    "day": "day",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes"
   }
 }

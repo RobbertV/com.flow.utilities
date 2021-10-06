@@ -31,7 +31,9 @@
       "Devices"
     ]
   },
-  "category": ["energy"],
+  "category": [
+    "energy"
+  ],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -75,20 +77,20 @@
       {
         "id": "action_START_DATE",
         "title": {
-          "en": "Start time consumption",
-          "nl": "Start tijdsverbruik"
+          "en": "Start consumption time for",
+          "nl": "Start verbruik tijd voor"
         },
         "titleFormatted": {
-            "en": "Start time consumption - [[name]]",
-            "nl": "Start tijdsverbruik - [[name]]"
+          "en": "Start consumption time for - [[name]]",
+          "nl": "Start verbruik tijd voor - [[name]]"
         },
         "args": [
           {
             "name": "name",
             "type": "text",
             "placeholder": {
-              "en": "Name",
-              "nl": "Naam"
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
             }
           }
         ]
@@ -96,20 +98,20 @@
       {
         "id": "action_END_DATE",
         "title": {
-          "en": "Stop time consumption",
-          "nl": "Stop tijdsverbruik"
+          "en": "Stop consumption time for",
+          "nl": "Stop verbruik tijd voor"
         },
         "titleFormatted": {
-            "en": "Stop time consumption - [[name]]",
-            "nl": "Stop tijdsverbruik - [[name]]"
+          "en": "Stop consumption time for - [[name]]",
+          "nl": "Stop verbruik tijd voor - [[name]]"
         },
         "args": [
           {
             "name": "name",
             "type": "text",
             "placeholder": {
-              "en": "Name",
-              "nl": "Naam"
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
             }
           }
         ]

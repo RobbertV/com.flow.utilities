@@ -5,6 +5,7 @@
     "days": "days",
     "hours": "hours",
     "minutes": "minutes",
-    "difference": "difference"
+    "difference": "Difference",
+    "duration": "Duration"
   }
 }

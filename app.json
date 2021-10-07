@@ -106,7 +106,86 @@
         ]
       },
       {
+        "id": "action_END",
+        "title": {
+          "en": "Stop consumption time for",
+          "nl": "Stop verbruik tijd voor"
+        },
+        "titleFormatted": {
+          "en": "Stop consumption time for [[name]]",
+          "nl": "Stop verbruik tijd voor [[name]]"
+        },
+        "args": [
+          {
+            "name": "name",
+            "type": "text",
+            "placeholder": {
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
+            }
+          }
+        ]
+      },
+      {
         "id": "action_START_COMPARE",
+        "title": {
+          "en": "Start compare value",
+          "nl": "Start vergelijk waarde"
+        },
+        "titleFormatted": {
+            "en": "Start compare value for [[name]] with value [[value]]",
+            "nl": "Start vergelijk waarde voor [[name]] met waarde [[value]]"
+        },
+        "args": [
+          {
+            "name": "name",
+            "type": "text",
+            "placeholder": {
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
+            }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "Compare value",
+              "nl": "Vergelijk waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_END_COMPARE",
+        "title": {
+          "en": "Stop compare value",
+          "nl": "Stop vergelijk waarde"
+        },
+        "titleFormatted": {
+          "en": "Stop compare value for [[name]] with value [[value]]",
+          "nl": "Stop vergelijk waarde voor [[name]] met waarde [[value]]"
+        },
+        "args": [
+          {
+            "name": "name",
+            "type": "text",
+            "placeholder": {
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
+            }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "Compare value",
+              "nl": "Vergelijk waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_START_COMBINED",
         "title": {
           "en": "Start consumption time and compare value",
           "nl": "Start verbruik tijd en vergelijk waarde"
@@ -135,28 +214,7 @@
         ]
       },
       {
-        "id": "action_END",
-        "title": {
-          "en": "Stop consumption time for",
-          "nl": "Stop verbruik tijd voor"
-        },
-        "titleFormatted": {
-          "en": "Stop consumption time for [[name]]",
-          "nl": "Stop verbruik tijd voor [[name]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "text",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_COMPARE",
+        "id": "action_END_COMBINED",
         "title": {
           "en": "Stop consumption time and compare value",
           "nl": "Stop verbruik tijd en vergelijk waarde"

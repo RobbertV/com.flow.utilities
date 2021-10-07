@@ -6,7 +6,7 @@
   "brandColor": "#000000",
   "name": {
     "en": "Device Consumption",
-    "nl": "Apparaat Verbruik"
+    "nl": "Device Consumption"
   },
   "description": {
     "en": "Check consumption and duration of devices",
@@ -85,7 +85,7 @@
   "flow": {
     "actions": [
       {
-        "id": "action_START_DATE",
+        "id": "action_START",
         "title": {
           "en": "Start consumption time for",
           "nl": "Start verbruik tijd voor"
@@ -106,7 +106,7 @@
         ]
       },
       {
-        "id": "action_START_DATE_COMPARE",
+        "id": "action_START_COMPARE",
         "title": {
           "en": "Start consumption time and compare value",
           "nl": "Start verbruik tijd en vergelijk waarde"
@@ -135,7 +135,7 @@
         ]
       },
       {
-        "id": "action_END_DATE",
+        "id": "action_END",
         "title": {
           "en": "Stop consumption time for",
           "nl": "Stop verbruik tijd voor"
@@ -156,7 +156,7 @@
         ]
       },
       {
-        "id": "action_END_DATE_COMPARE",
+        "id": "action_END_COMPARE",
         "title": {
           "en": "Stop consumption time and compare value",
           "nl": "Stop verbruik tijd en vergelijk waarde"

@@ -47,7 +47,7 @@ class App extends Homey.App {
             } else {
                 this.log(`Initializing ${_settingsKey} with defaults`);
                 await this.updateSettings({
-                    DURATIONS: [],
+                    COMPARISONS: [],
                     TOTALS: [],
                 });
             }
@@ -68,7 +68,8 @@ class App extends Homey.App {
     }
 
     async initTokens() {
-        const totals = this.appSettings.TOTALS;
+        const totals = [...this.appSettings.TOTALS, ...this.appSettings.COMPARISONS];
+
         totals.forEach((t) => {
             this.createToken(t.name, t.duration);
 
@@ -79,13 +80,19 @@ class App extends Homey.App {
     }
 
     async createToken(name, value = null, type = 'string') {
-        const title = type === 'number' ? `${name}-${this.homey.__('helpers.difference')}` : name;
+        this.log('[createToken] - creating Token for', name, value, type);
+        const comparison = this.homey.__('helpers.difference');
+        const duration = this.homey.__('helpers.duration');
+
+        const title = type === 'number' ? `${name}-${comparison}` : `${name}-${duration}`;
 
         if (!this.TOKENS[title]) {
             this.TOKENS[title] = await this.homey.flow.createToken(title, {
                 type,
                 title
             });
+        } else {
+            this.log('[createToken] - Token already exists!', name);
         }
 
         await this.TOKENS[title].setValue(value);
@@ -103,13 +110,13 @@ class App extends Homey.App {
 
     // -------------------- FUNCTIONS ----------------------
 
-    async action_START_DATE(name, comparison = null) {
-        const date = new Date();
-        const newSettings = this.appSettings.DURATIONS.filter((setting) => setting.name !== name);
+    async action_START(name, dateStart = null, comparison = null) {
+        const date = dateStart ? new Date() : dateStart;
+        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== name);
 
         await this.updateSettings({
             ...this.appSettings,
-            DURATIONS: [...newSettings, { name, date, comparison }],
+            COMPARISONS: [...newSettings, { name, date, comparison }],
         });
 
         await this.createToken(name);
@@ -118,23 +125,23 @@ class App extends Homey.App {
         }
     }
 
-    async action_END_DATE(name, compare = null) {
-        const date = new Date();
-        const existing_conversion = this.appSettings.DURATIONS.find((x) => x.name === name);
+    async action_END(name, dateEnd = null, compare = null) {
+        const date = dateEnd ? new Date() : dateEnd;
+        const existing_conversion = this.appSettings.COMPARISONS.find((x) => x.name === name);
 
         if (!existing_conversion) {
             throw new Error(`No conversion start found for ${name}`);
         }
 
-        const duration = await this.calculateDuration(existing_conversion.date, date);
+        const duration = date ? this.calculateDuration(existing_conversion.date, date) : null;
         const comparison = compare ? this.calculateComparison(existing_conversion.comparison, compare) : null;
 
-        const DURATIONS = this.appSettings.DURATIONS.filter((conversion) => conversion.name !== name);
+        const comparisons = this.appSettings.COMPARISONS.filter((conversion) => conversion.name !== name);
         const totals = this.appSettings.TOTALS.filter((total) => total.name !== name);
 
         await this.updateSettings({
             ...this.appSettings,
-            DURATIONS: DURATIONS,
+            COMPARISONS: comparisons,
             TOTALS: [...totals, { name, duration, comparison }],
         });
 
@@ -146,12 +153,12 @@ class App extends Homey.App {
 
     async action_REMOVE_PREVIOUS(name) {
         this.homey.app.log('[action_REMOVE_PREVIOUS] - remove: ', name);
-        const durations = this.appSettings.DURATIONS.filter(d => d.name !== name);
+        const comparisons = this.appSettings.COMPARISONS.filter(d => d.name !== name);
         const totals = this.appSettings.TOTALS.filter(t => t.name !== name);
 
         await this.updateSettings({
             ...this.appSettings,
-            DURATIONS: durations,
+            COMPARISONS: comparisons,
             TOTALS: totals,
         });
 

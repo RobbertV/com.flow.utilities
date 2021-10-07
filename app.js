@@ -48,7 +48,7 @@ class App extends Homey.App {
                 this.log(`Initializing ${_settingsKey} with defaults`);
                 await this.updateSettings({
                     COMPARISONS: [],
-                    TOTALS: [],
+                    TOTALS: []
                 });
             }
         } catch (err) {
@@ -89,7 +89,7 @@ class App extends Homey.App {
         if (!this.TOKENS[title]) {
             this.TOKENS[title] = await this.homey.flow.createToken(title, {
                 type,
-                title,
+                title
             });
         } else {
             this.log('[createToken] - Token already exists!', name);
@@ -116,7 +116,7 @@ class App extends Homey.App {
 
         await this.updateSettings({
             ...this.appSettings,
-            COMPARISONS: [...newSettings, { name, date, comparison }],
+            COMPARISONS: [...newSettings, { name, date, comparison }]
         });
 
         await this.createToken(name);
@@ -143,7 +143,7 @@ class App extends Homey.App {
         await this.updateSettings({
             ...this.appSettings,
             COMPARISONS: comparisons,
-            TOTALS: [...totals, { name, duration, comparison }],
+            TOTALS: [...totals, { name, duration, comparison }]
         });
 
         await this.createToken(name, duration);
@@ -160,7 +160,7 @@ class App extends Homey.App {
         await this.updateSettings({
             ...this.appSettings,
             COMPARISONS: comparisons,
-            TOTALS: totals,
+            TOTALS: totals
         });
 
         await this.removeToken(name);

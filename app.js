@@ -84,7 +84,7 @@ class App extends Homey.App {
         const comparison = this.homey.__('helpers.difference');
         const duration = this.homey.__('helpers.duration');
 
-        const title = type === 'number' ? `${name}-${comparison}` : `${name}-${duration}`;
+        const title = type === 'number' ? `${name} (${comparison})` : `${name} (${duration})`;
 
         if (!this.TOKENS[title]) {
             this.TOKENS[title] = await this.homey.flow.createToken(title, {

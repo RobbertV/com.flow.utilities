@@ -31,7 +31,9 @@
       "Devices"
     ]
   },
-  "category": ["energy"],
+  "category": [
+    "energy"
+  ],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -75,11 +77,11 @@
     }
   },
   "bugs": {
-    "url": "https://community.athom.com/t/app-flowchecker/50986"
+    "url": "https://community.athom.com/t/app-deviceconsumption/50986"
   },
-  "source": "https://github.com/martijnpoppen/com.athom.flowchecker",
+  "source": "https://github.com/martijnpoppen/com.athom.deviceconsumption",
   "homeyCommunityTopicId": 50986,
-  "support": "https://community.athom.com/t/app-flowchecker/50986",
+  "support": "https://community.athom.com/t/app-deviceconsumption/50986",
   "flow": {
     "actions": [
       {
@@ -118,16 +120,16 @@
             "name": "name",
             "type": "text",
             "placeholder": {
-              "en": "Name",
-              "nl": "Naam"
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
             }
           },
           {
             "name": "value",
             "type": "number",
             "placeholder": {
-              "en": "Compare",
-              "nl": "Vergelijk"
+              "en": "Compare value",
+              "nl": "Vergelijk waarde"
             }
           }
         ]
@@ -168,16 +170,16 @@
             "name": "name",
             "type": "text",
             "placeholder": {
-              "en": "Name",
-              "nl": "Naam"
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
             }
           },
           {
             "name": "value",
             "type": "number",
             "placeholder": {
-              "en": "Compare",
-              "nl": "Vergelijk"
+              "en": "Compare value",
+              "nl": "Vergelijk waarde"
             }
           }
         ]

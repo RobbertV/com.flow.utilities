@@ -118,7 +118,7 @@
         "args": [
           {
             "name": "name",
-            "type": "text",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"
@@ -168,7 +168,7 @@
         "args": [
           {
             "name": "name",
-            "type": "text",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"
@@ -191,8 +191,8 @@
           "nl": "Start verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Start consumption time for [[name]] and compare value [[value]]",
-          "nl": "Start verbruik tijd voor [[name]] en vergelijk waarde [[value]]"
+          "en": "Start consumption time for [[name]] and set start compare value [[value]]",
+          "nl": "Start verbruik tijd voor [[name]] en zet begin vergelijk waarde [[value]]"
         },
         "args": [
           {
@@ -226,7 +226,7 @@
         "args": [
           {
             "name": "name",
-            "type": "text",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"

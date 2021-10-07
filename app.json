@@ -147,7 +147,7 @@
         "args": [
           {
             "name": "name",
-            "type": "text",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"
@@ -206,6 +206,57 @@
               "en": "Devicename",
               "nl": "Apparaatnaam"
             }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_CURRENCY",
+        "title": {
+          "en": "Convert number to local currency and put it to a variable",
+          "nl": "Maak nummer naar locale valuta en zet het in variable"
+        },
+        "titleFormatted": {
+          "en": "Convert [[number]] to currency [[currency]] and put it in [[droptoken]]",
+          "nl": "Zet [[number]] om naar valuta [[currency]] en zet het in [[droptoken]]"
+        },
+        "droptoken": [
+          "string"
+        ],
+        "args": [
+          {
+            "name": "number",
+            "type": "number",
+            "placeholder": {
+              "en": "10.0",
+              "nl": "10.0"
+            }
+          },
+          {
+            "name": "currency",
+            "type": "dropdown",
+            "title": {
+              "en": "Select currency"
+            },
+            "values": [
+              {
+                "id": "EUR",
+                "label": {
+                  "en": "€ Euro"
+                }
+              },
+              {
+                "id": "USD",
+                "label": {
+                  "en": "$ US Dollar"
+                }
+              },
+              {
+                "id": "GBP",
+                "label": {
+                  "en": "£ GBP"
+                }
+              }
+            ]
           }
         ]
       }

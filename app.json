@@ -89,8 +89,8 @@
           "nl": "Start verbruik tijd voor"
         },
         "titleFormatted": {
-          "en": "Start consumption time for - [[name]]",
-          "nl": "Start verbruik tijd voor - [[name]]"
+          "en": "Start consumption time for [[name]]",
+          "nl": "Start verbruik tijd voor [[name]]"
         },
         "args": [
           {
@@ -110,8 +110,8 @@
           "nl": "Start verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Start consumption time for - [[name]] and compare value [[value]]",
-          "nl": "Start verbruik tijd voor - [[name]] en vergelijk waarde [[value]]"
+          "en": "Start consumption time for [[name]] and compare value [[value]]",
+          "nl": "Start verbruik tijd voor [[name]] en vergelijk waarde [[value]]"
         },
         "args": [
           {
@@ -139,8 +139,8 @@
           "nl": "Stop verbruik tijd voor"
         },
         "titleFormatted": {
-          "en": "Stop consumption time for - [[name]]",
-          "nl": "Stop verbruik tijd voor - [[name]]"
+          "en": "Stop consumption time for [[name]]",
+          "nl": "Stop verbruik tijd voor [[name]]"
         },
         "args": [
           {
@@ -160,8 +160,8 @@
           "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Stop consumption time for - [[name]] and compare value [[value]]",
-          "nl": "Stop verbruik tijd voor - [[name]] en vergelijk waarde [[value]]"
+          "en": "Stop consumption time for [[name]] and compare value [[value]]",
+          "nl": "Stop verbruik tijd voor [[name]] en vergelijk waarde [[value]]"
         },
         "args": [
           {
@@ -181,6 +181,31 @@
             }
           }
         ]
+      },
+      {
+        "id": "action_REMOVE_PREVIOUS",
+        "title": {
+          "en": "Remove previous checks",
+          "nl": "Verwijder vorige checks"
+        },
+        "titleFormatted": {
+            "en": "Remove previous checks - [[name]]",
+            "nl": "Verwijder vorige checks - [[name]]"
+        },
+        "args": [
+            {
+              "type": "autocomplete",
+              "name": "name",
+              "title": {
+                "en": "Devicename",
+                "nl": "Apparaatnaam"
+              },
+              "placeholder": {
+                "en": "Devicename",
+                "nl": "Apparaatnaam"
+              }
+            }
+          ]
       }
     ]
   }

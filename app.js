@@ -166,7 +166,7 @@ class App extends Homey.App {
     }
 
     async action_SET_CURRENCY(number, currency) {
-        const setLocalCurrency = number.toLocaleString(i18n('helpers.locale'), { style: 'currency', currency: currency });
+        const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
     }
 

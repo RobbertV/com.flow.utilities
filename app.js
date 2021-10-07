@@ -127,6 +127,7 @@ class App extends Homey.App {
 
     async action_END(name, dateEnd = null, compare = null) {
         const date = dateEnd ? new Date() : dateEnd;
+        this.homey.app.log('[action_END]: ', name);
         const existing_conversion = this.appSettings.COMPARISONS.find((x) => x.name === name);
 
         if (!existing_conversion) {
@@ -166,7 +167,7 @@ class App extends Homey.App {
     }
 
     async action_SET_CURRENCY(number, currency) {
-        const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
+        const setLocalCurrency = number.toLocaleString(this.homey.__i18n('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
     }
 

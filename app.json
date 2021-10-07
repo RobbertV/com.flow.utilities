@@ -133,8 +133,8 @@
           "nl": "Start vergelijk waarde"
         },
         "titleFormatted": {
-            "en": "Start compare value for [[name]] with value [[value]]",
-            "nl": "Start vergelijk waarde voor [[name]] met waarde [[value]]"
+          "en": "Start compare value for [[name]] with value [[value]]",
+          "nl": "Start vergelijk waarde voor [[name]] met waarde [[value]]"
         },
         "args": [
           {
@@ -197,7 +197,7 @@
         "args": [
           {
             "name": "name",
-            "type": "text",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"
@@ -220,8 +220,8 @@
           "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Stop consumption time for [[name]] and compare value [[value]]",
-          "nl": "Stop verbruik tijd voor [[name]] en vergelijk waarde [[value]]"
+          "en": "Stop consumption time for [[name]] and set end comparison value [[value]]",
+          "nl": "Stop verbruik tijd voor [[name]] en zet eind vergelijk waarde [[value]]"
         },
         "args": [
           {
@@ -249,23 +249,74 @@
           "nl": "Verwijder vorige checks"
         },
         "titleFormatted": {
-            "en": "Remove previous checks - [[name]]",
-            "nl": "Verwijder vorige checks - [[name]]"
+          "en": "Remove previous checks - [[name]]",
+          "nl": "Verwijder vorige checks - [[name]]"
         },
         "args": [
-            {
-              "type": "autocomplete",
-              "name": "name",
-              "title": {
-                "en": "Devicename",
-                "nl": "Apparaatnaam"
-              },
-              "placeholder": {
-                "en": "Devicename",
-                "nl": "Apparaatnaam"
-              }
+          {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
+            },
+            "placeholder": {
+              "en": "Devicename",
+              "nl": "Apparaatnaam"
             }
-          ]
+          }
+        ]
+      },
+      {
+        "id": "action_SET_CURRENCY",
+        "title": {
+          "en": "Convert number to local currency and put it to a variable",
+          "nl": "Maak nummer naar locale valuta en zet het in variable"
+        },
+        "titleFormatted": {
+          "en": "Convert [[number]] to currency [[currency]] and put it in [[droptoken]]",
+          "nl": "Zet [[number]] om naar valuta [[currency]] en zet het in [[droptoken]]"
+        },
+        "droptoken": [
+          "string"
+        ],
+        "args": [
+          {
+            "name": "number",
+            "type": "number",
+            "placeholder": {
+              "en": "10.0",
+              "nl": "10.0"
+            }
+          },
+          {
+            "name": "currency",
+            "type": "dropdown",
+            "title": {
+              "en": "Select currency"
+            },
+            "values": [
+              {
+                "id": "EUR",
+                "label": {
+                  "en": "€ Euro"
+                }
+              },
+              {
+                "id": "USD",
+                "label": {
+                  "en": "$ US Dollar"
+                }
+              },
+              {
+                "id": "GBP",
+                "label": {
+                  "en": "£ GBP"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   }

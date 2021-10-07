@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { hoursMinutes, splitTime } = require('./lib/helpers');
+const { splitTime } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -89,7 +89,7 @@ class App extends Homey.App {
         if (!this.TOKENS[title]) {
             this.TOKENS[title] = await this.homey.flow.createToken(title, {
                 type,
-                title
+                title,
             });
         } else {
             this.log('[createToken] - Token already exists!', name);
@@ -101,11 +101,11 @@ class App extends Homey.App {
     async removeToken(name) {
         const titles = [name, `${name}-${this.homey.__('helpers.difference')}`];
 
-        titles.forEach(async t => {
+        titles.forEach(async (t) => {
             if (this.TOKENS[t]) {
                 await this.TOKENS[t].unregister();
             }
-        })
+        });
     }
 
     // -------------------- FUNCTIONS ----------------------
@@ -153,8 +153,8 @@ class App extends Homey.App {
 
     async action_REMOVE_PREVIOUS(name) {
         this.homey.app.log('[action_REMOVE_PREVIOUS] - remove: ', name);
-        const comparisons = this.appSettings.COMPARISONS.filter(d => d.name !== name);
-        const totals = this.appSettings.TOTALS.filter(t => t.name !== name);
+        const comparisons = this.appSettings.COMPARISONS.filter((d) => d.name !== name);
+        const totals = this.appSettings.TOTALS.filter((t) => t.name !== name);
 
         await this.updateSettings({
             ...this.appSettings,
@@ -163,6 +163,11 @@ class App extends Homey.App {
         });
 
         await this.removeToken(name);
+    }
+
+    async action_SET_CURRENCY(number, currency) {
+        const setLocalCurrency = number.toLocaleString(i18n('helpers.locale'), { style: 'currency', currency: currency });
+        this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
     }
 
     calculateDuration(startDate, endDate) {

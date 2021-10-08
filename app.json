@@ -186,14 +186,80 @@
         ]
       },
       {
+        "id": "action_START_COMPARE",
+        "title": {
+          "en": "Set start compare value",
+          "nl": "Maak start vergelijk waarde"
+        },
+        "titleFormatted": {
+          "en": "Start comparison with [[value]] for [[variable]]",
+          "nl": "Begin vergelijking met [[value]] voor [[variable]]"
+        },
+        "hint": {
+          "en": "Set Start value for comparison, this can be used in the end card",
+          "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart"
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "start value",
+              "nl": "begin waarde"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_END_COMPARE",
+        "title": {
+          "en": "Stop compare value",
+          "nl": "Stop vergelijk waarde"
+        },
+        "titleFormatted": {
+          "en": "Compare with end value [[value]] for [[variable]]",
+          "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]"
+        },
+        "hint": {
+          "en": "Make sure the start value card has been set before, with the end value the comparison is made and stored in a variable",
+          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt de vergelijking gemaakt en terug gegeven als variabele"
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "end value",
+              "nl": "eind waarde"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele"
+            }
+          }
+        ]
+      },
+      {
         "id": "action_SET_CURRENCY",
         "title": {
           "en": "Convert number to local currency and put it to a variable",
-          "nl": "Maak nummer naar locale valuta en zet het in variable"
+          "nl": "Maak nummer naar locale valuta en zet het in variabele"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to [[currency]] add to [[device]]",
-          "nl": "Zet [[value]] om in [[currency]] voeg in [[device]]"
+          "en": "Convert [[value]] to [[currency]] add to [[variable]] currency",
+          "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]] valuta"
         },
         "hint": {
           "en": "Convert a number value to currency, place this in a variable to use in your flow",
@@ -205,14 +271,15 @@
             "type": "number",
             "placeholder": {
               "en": "number",
-              "nl": "number"
+              "nl": "nummer"
             }
           },
           {
             "name": "currency",
             "type": "dropdown",
             "title": {
-              "en": "Select currency"
+              "en": "currency",
+              "nl": "valuta"
             },
             "values": [
               {
@@ -236,10 +303,11 @@
             ]
           },
           {
-            "name": "device",
+            "name": "variable",
             "type": "autocomplete",
             "title": {
-              "en": "Select tag"
+              "en": "variable",
+              "nl": "variabele"
             }
           }
         ]

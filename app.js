@@ -150,20 +150,6 @@ class App extends Homey.App {
         }
     }
 
-    async action_REMOVE_PREVIOUS(name) {
-        this.homey.app.log('[action_REMOVE_PREVIOUS] - remove: ', name);
-        const comparisons = this.appSettings.COMPARISONS.filter((d) => d.name !== name);
-        const totals = this.appSettings.TOTALS.filter((t) => t.name !== name);
-
-        await this.updateSettings({
-            ...this.appSettings,
-            COMPARISONS: comparisons,
-            TOTALS: totals
-        });
-
-        await this.removeToken(name);
-    }
-
     async action_SET_CURRENCY(token, number, currency) {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);

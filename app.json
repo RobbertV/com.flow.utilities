@@ -186,35 +186,6 @@
         ]
       },
       {
-        "id": "action_REMOVE_PREVIOUS",
-        "title": {
-          "en": "Remove previous checks",
-          "nl": "Verwijder vorige checks"
-        },
-        "titleFormatted": {
-          "en": "Remove previous checks - [[device]]",
-          "nl": "Verwijder vorige checks - [[device]]"
-        },
-        "hint": {
-          "en": "Will download new .ics files to update current events",
-          "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
-        },
-        "args": [
-          {
-            "type": "autocomplete",
-            "name": "device",
-            "title": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            },
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          }
-        ]
-      },
-      {
         "id": "action_SET_CURRENCY",
         "title": {
           "en": "Convert number to local currency and put it to a variable",

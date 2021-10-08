@@ -95,7 +95,7 @@ class App extends Homey.App {
             });
             this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type} - Value: ${value}`);
         } else {
-            this.log('[createToken] - Token already exists!', name);
+            this.log('[createToken] - Token already exists! =>', title);
         }
 
         await this.TOKENS[title].setValue(value);

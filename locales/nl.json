@@ -1,5 +1,6 @@
 {
   "settings": {
+    "intro": "Voor elke toegveoegde varibele worden 3 tags gemaakt: <ul><li>{variabele} Tijdsduur</li><li>{variabele} Valuta</li><li>{variabele} Verschil</li></ul><br /> Deze worden door de verschillende flow kaartjes gevuld en kunnen daarna gebruikt worden.",
     "variables": "Variabelen",
     "set_variable": "Maak variabele"
   },

@@ -87,13 +87,17 @@
       {
         "id": "action_START",
         "title": {
-          "en": "Start consumption time for",
-          "nl": "Start verbruik tijd voor"
+          "en": "Start consumption time and compare value",
+          "nl": "Start verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Start consumption time for [[name]]",
-          "nl": "Start verbruik tijd voor [[name]]"
+          "en": "Start comparison for [[name]] with [[duration]] and set START value [[value]]",
+          "nl": "Start vergelijking voor [[name]] met [[duration]] en zet START waarde [[value]]"
         },
+        "hint": {
+            "en": "Will download new .ics files to update current events",
+            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+          },
         "args": [
           {
             "name": "name",
@@ -102,127 +106,56 @@
               "en": "Devicename",
               "nl": "Apparaatnaam"
             }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "required": false,
+            "placeholder": {
+              "en": "value",
+              "nl": "waarde"
+            }
+          },
+          {
+            "name": "duration",
+            "type": "dropdown",
+            "title": {
+              "en": "With duration check",
+              "nl": "Met vrbruikstijd check"
+            },
+            "values": [
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "With duration check",
+                    "nl": "Met verbruikstijd check"
+                  }
+                },
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Without duration check",
+                    "nl": "Zonder verbruikstijd check"
+                  }
+                }
+              ]
           }
         ]
       },
       {
         "id": "action_END",
         "title": {
-          "en": "Stop consumption time for",
-          "nl": "Stop verbruik tijd voor"
-        },
-        "titleFormatted": {
-          "en": "Stop consumption time for [[name]]",
-          "nl": "Stop verbruik tijd voor [[name]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_START_COMPARE",
-        "title": {
-          "en": "Start compare value",
-          "nl": "Start vergelijk waarde"
-        },
-        "titleFormatted": {
-          "en": "Start compare value for [[name]] with value [[value]]",
-          "nl": "Start vergelijk waarde voor [[name]] met waarde [[value]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "text",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          },
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_COMPARE",
-        "title": {
-          "en": "Stop compare value",
-          "nl": "Stop vergelijk waarde"
-        },
-        "titleFormatted": {
-          "en": "Stop compare value for [[name]] with value [[value]]",
-          "nl": "Stop vergelijk waarde voor [[name]] met waarde [[value]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          },
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_START_COMBINED",
-        "title": {
-          "en": "Start consumption time and compare value",
-          "nl": "Start verbruik tijd en vergelijk waarde"
-        },
-        "titleFormatted": {
-          "en": "Start consumption time for [[name]] and set start compare value [[value]]",
-          "nl": "Start verbruik tijd voor [[name]] en zet begin vergelijk waarde [[value]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          },
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_COMBINED",
-        "title": {
           "en": "Stop consumption time and compare value",
           "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Stop consumption time for [[name]] and set end comparison value [[value]]",
-          "nl": "Stop verbruik tijd voor [[name]] en zet eind vergelijk waarde [[value]]"
+            "en": "Stop comparison for [[name]] with STOP value [[value]]",
+            "nl": "Stop vergelijking voor [[name]] met STOP waarde [[value]]"
         },
+        "hint": {
+            "en": "Will download new .ics files to update current events",
+            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+          },
         "args": [
           {
             "name": "name",
@@ -235,9 +168,10 @@
           {
             "name": "value",
             "type": "number",
+            "required": false,
             "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
+              "en": "value",
+              "nl": "waarde"
             }
           }
         ]
@@ -252,6 +186,10 @@
           "en": "Remove previous checks - [[name]]",
           "nl": "Verwijder vorige checks - [[name]]"
         },
+        "hint": {
+            "en": "Will download new .ics files to update current events",
+            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+          },
         "args": [
           {
             "type": "autocomplete",
@@ -277,6 +215,10 @@
           "en": "Convert [[value]] to currency [[currency]] and put it in [[tag]]",
           "nl": "Zet [[value]] om naar valuta [[currency]] en zet het in [[tag]]"
         },
+        "hint": {
+            "en": "Will download new .ics files to update current events",
+            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+          },
         "args": [
           {
             "name": "value",

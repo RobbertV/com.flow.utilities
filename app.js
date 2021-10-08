@@ -137,17 +137,19 @@ class App extends Homey.App {
         }
     }
 
-    async action_END(name, dateEnd = null, compare = null) {
-        const date = dateEnd ? new Date() : dateEnd;
+    async action_END(name, value = null) {
         this.homey.app.log('[action_END]: ', name);
         const existing_conversion = this.appSettings.COMPARISONS.find((x) => x.name === name);
+        const date = existing_conversion.date ? new Date() : null;
 
         if (!existing_conversion) {
             throw new Error(`No conversion start found for ${name}`);
+        } else {
+            this.homey.app.log('[action_END]: found existiong comparison', existing_conversion);
         }
 
         const duration = date ? this.calculateDuration(existing_conversion.date, date) : null;
-        const comparison = compare ? this.calculateComparison(existing_conversion.comparison, compare) : null;
+        const comparison = value ? this.calculateComparison(existing_conversion.comparison, value) : null;
 
         const comparisons = this.appSettings.COMPARISONS.filter((conversion) => conversion.name !== name);
         const totals = this.appSettings.TOTALS.filter((total) => total.name !== name);

@@ -6,6 +6,7 @@
     "hours": "hours",
     "minutes": "minutes",
     "difference": "Difference",
-    "duration": "Duration"
+    "duration": "Duration",
+    "currency": "Currency"
   }
 }

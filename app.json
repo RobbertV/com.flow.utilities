@@ -274,15 +274,12 @@
           "nl": "Maak nummer naar locale valuta en zet het in variable"
         },
         "titleFormatted": {
-          "en": "Convert [[number]] to currency [[currency]] and put it in [[droptoken]]",
-          "nl": "Zet [[number]] om naar valuta [[currency]] en zet het in [[droptoken]]"
+          "en": "Convert [[value]] to currency [[currency]] and put it in [[tag]]",
+          "nl": "Zet [[value]] om naar valuta [[currency]] en zet het in [[tag]]"
         },
-        "droptoken": [
-          "string"
-        ],
         "args": [
           {
-            "name": "number",
+            "name": "value",
             "type": "number",
             "placeholder": {
               "en": "10.0",
@@ -312,6 +309,36 @@
                 "id": "GBP",
                 "label": {
                   "en": "£ GBP"
+                }
+              }
+            ]
+          },
+          {
+            "name": "tag",
+            "type": "dropdown",
+            "title": {
+              "en": "Select tag"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Currency 1",
+                  "nl": "Valuta 1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Currency 2",
+                  "nl": "Valuta 2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Currency 3",
+                  "nl": "Valuta 3"
                 }
               }
             ]

@@ -1,16 +1,19 @@
 {
-  "id": "com.athom.deviceconsumption",
+  "id": "com.athom.comparison",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
+  "permissions": [
+    "homey:manager:api"
+  ],
   "name": {
-    "en": "Device Consumption",
-    "nl": "Device Consumption"
+    "en": "Comparison",
+    "nl": "Comparison"
   },
   "description": {
-    "en": "Check consumption and duration of devices",
-    "nl": "Check verbruik en tijdsduur van apparaten"
+    "en": "Compare start and end values & check duration of devices",
+    "nl": "Vergelijk start en eind waardes en check tijdsverbruik van apparaten"
   },
   "tags": {
     "en": [
@@ -41,17 +44,17 @@
   },
   "author": {
     "name": "Martijn Poppen",
-    "email": "deviceconsumption@martijnpoppen.nl"
+    "email": "comparison@martijnpoppen.nl"
   },
   "contributors": {
     "developers": [
       {
         "name": "Martijn Poppen",
-        "email": "deviceconsumption@martijnpoppen.nl"
+        "email": "comparison@martijnpoppen.nl"
       },
       {
         "name": "Robbert Vis",
-        "email": "deviceconsumption@robbertvis.nl"
+        "email": "comparison@robbertvis.nl"
       }
     ],
     "translators": [
@@ -77,155 +80,94 @@
     }
   },
   "bugs": {
-    "url": "https://community.athom.com/t/app-deviceconsumption/50986"
+    "url": "https://community.athom.com/t/app-comparison/50986"
   },
-  "source": "https://github.com/martijnpoppen/com.athom.deviceconsumption",
+  "source": "https://github.com/martijnpoppen/com.athom.comparison",
   "homeyCommunityTopicId": 50986,
-  "support": "https://community.athom.com/t/app-deviceconsumption/50986",
+  "support": "https://community.athom.com/t/app-comparison/50986",
+  "api": {
+    "settings": {
+      "method": "put",
+      "path": "/settings/"
+    }
+  },
   "flow": {
     "actions": [
       {
         "id": "action_START",
         "title": {
-          "en": "Start consumption time for",
-          "nl": "Start verbruik tijd voor"
+          "en": "Start consumption time and compare value",
+          "nl": "Start verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Start consumption time for [[name]]",
-          "nl": "Start verbruik tijd voor [[name]]"
+          "en": "Start comparison for [[device]] with [[duration]] and set START value [[value]]",
+          "nl": "Begin vergelijking voor [[device]] met [[duration]] en zet START waarde [[value]]"
+        },
+        "hint": {
+          "en": "Will download new .ics files to update current events",
+          "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
         },
         "args": [
           {
-            "name": "name",
-            "type": "text",
+            "name": "device",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"
             }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "required": false,
+            "placeholder": {
+              "en": "value (optional)",
+              "nl": "waarde (optioneel)"
+            }
+          },
+          {
+            "name": "duration",
+            "type": "dropdown",
+            "title": {
+              "en": "With duration check",
+              "nl": "Met verbruikstijd check"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "With duration check",
+                  "nl": "Met verbruikstijd check"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Without duration check",
+                  "nl": "Zonder verbruikstijd check"
+                }
+              }
+            ]
           }
         ]
       },
       {
         "id": "action_END",
         "title": {
-          "en": "Stop consumption time for",
-          "nl": "Stop verbruik tijd voor"
-        },
-        "titleFormatted": {
-          "en": "Stop consumption time for [[name]]",
-          "nl": "Stop verbruik tijd voor [[name]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_START_COMPARE",
-        "title": {
-          "en": "Start compare value",
-          "nl": "Start vergelijk waarde"
-        },
-        "titleFormatted": {
-          "en": "Start compare value for [[name]] with value [[value]]",
-          "nl": "Start vergelijk waarde voor [[name]] met waarde [[value]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "text",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          },
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_COMPARE",
-        "title": {
-          "en": "Stop compare value",
-          "nl": "Stop vergelijk waarde"
-        },
-        "titleFormatted": {
-          "en": "Stop compare value for [[name]] with value [[value]]",
-          "nl": "Stop vergelijk waarde voor [[name]] met waarde [[value]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          },
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_START_COMBINED",
-        "title": {
-          "en": "Start consumption time and compare value",
-          "nl": "Start verbruik tijd en vergelijk waarde"
-        },
-        "titleFormatted": {
-          "en": "Start consumption time for [[name]] and set start compare value [[value]]",
-          "nl": "Start verbruik tijd voor [[name]] en zet begin vergelijk waarde [[value]]"
-        },
-        "args": [
-          {
-            "name": "name",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            }
-          },
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_COMBINED",
-        "title": {
           "en": "Stop consumption time and compare value",
           "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Stop consumption time for [[name]] and set end comparison value [[value]]",
-          "nl": "Stop verbruik tijd voor [[name]] en zet eind vergelijk waarde [[value]]"
+          "en": "Stop comparison for [[device]] with STOP value [[value]]",
+          "nl": "Stop vergelijking voor [[device]] met STOP waarde [[value]]"
+        },
+        "hint": {
+          "en": "Will download new .ics files to update current events",
+          "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
         },
         "args": [
           {
-            "name": "name",
+            "name": "device",
             "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
@@ -235,34 +177,10 @@
           {
             "name": "value",
             "type": "number",
+            "required": false,
             "placeholder": {
-              "en": "Compare value",
-              "nl": "Vergelijk waarde"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_REMOVE_PREVIOUS",
-        "title": {
-          "en": "Remove previous checks",
-          "nl": "Verwijder vorige checks"
-        },
-        "titleFormatted": {
-          "en": "Remove previous checks - [[name]]",
-          "nl": "Verwijder vorige checks - [[name]]"
-        },
-        "args": [
-          {
-            "type": "autocomplete",
-            "name": "name",
-            "title": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
-            },
-            "placeholder": {
-              "en": "Devicename",
-              "nl": "Apparaatnaam"
+              "en": "value",
+              "nl": "waarde"
             }
           }
         ]
@@ -274,16 +192,20 @@
           "nl": "Maak nummer naar locale valuta en zet het in variable"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to currency [[currency]] and put it in [[tag]]",
-          "nl": "Zet [[value]] om naar valuta [[currency]] en zet het in [[tag]]"
+          "en": "Convert [[value]] to [[currency]] add to [[tag]]",
+          "nl": "Zet [[value]] om in [[currency]] voeg in [[tag]]"
+        },
+        "hint": {
+          "en": "Convert a number value to currency, place this in a variable to use in your flow",
+          "nl": "Conventeer een nummer waarde in valuta en plaats deze in een variable om te gebruiken in je flow"
         },
         "args": [
           {
             "name": "value",
             "type": "number",
             "placeholder": {
-              "en": "10.0",
-              "nl": "10.0"
+              "en": "number",
+              "nl": "number"
             }
           },
           {
@@ -314,34 +236,11 @@
             ]
           },
           {
-            "name": "tag",
-            "type": "dropdown",
+            "name": "device",
+            "type": "autocomplete",
             "title": {
               "en": "Select tag"
-            },
-            "values": [
-              {
-                "id": "1",
-                "label": {
-                  "en": "Currency 1",
-                  "nl": "Valuta 1"
-                }
-              },
-              {
-                "id": "2",
-                "label": {
-                  "en": "Currency 2",
-                  "nl": "Valuta 2"
-                }
-              },
-              {
-                "id": "3",
-                "label": {
-                  "en": "Currency 3",
-                  "nl": "Valuta 3"
-                }
-              }
-            ]
+            }
           }
         ]
       }

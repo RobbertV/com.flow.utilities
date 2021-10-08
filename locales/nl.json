@@ -1,11 +1,15 @@
 {
+  "settings": {
+    "variables": "Variabelen",
+    "set_variable": "Maak variabele"
+  },
   "helpers": {
     "locale": "nl-NL",
     "day": "dag",
     "days": "dagen",
     "hours": "uur",
     "minutes": "min",
-    "difference": "Verschil",
+    "comparison": "Verschil",
     "duration": "Tijdsduur",
     "currency": "Valuta"
   }

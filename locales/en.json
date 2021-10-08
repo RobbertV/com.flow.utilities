@@ -1,11 +1,15 @@
 {
+  "settings": {
+      "variables": "Variables",
+      "set_variable": "Create variable"
+  },
   "helpers": {
     "locale": "en-EN",
     "day": "day",
     "days": "days",
     "hours": "hours",
     "minutes": "minutes",
-    "difference": "Difference",
+    "comparison": "Comparison",
     "duration": "Duration",
     "currency": "Currency"
   }

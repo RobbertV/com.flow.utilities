@@ -6,6 +6,7 @@
     "hours": "uur",
     "minutes": "min",
     "difference": "Verschil",
-    "duration": "Tijdsduur"
+    "duration": "Tijdsduur",
+    "currency": "Valuta"
   }
 }

@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { splitTime } = require('./lib/helpers');
+const { splitTime, formatToken } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -48,7 +48,7 @@ class App extends Homey.App {
                 this.log(`Initializing ${_settingsKey} with defaults`);
                 await this.updateSettings({
                     COMPARISONS: [],
-                    TOTALS: [],
+                    TOTALS: []
                 });
             }
         } catch (err) {
@@ -77,20 +77,32 @@ class App extends Homey.App {
                 this.createToken(t.name, parseFloat(t.comparison), 'number');
             }
         });
+
+        for (var i=0; i < 3; i++){
+            this.createToken(i+1, null, 'string', 'currency');
+        }
     }
 
-    async createToken(name, value = null, type = 'string') {
-        this.log('[createToken] - creating Token for', name, value, type);
+    async createToken(name, value = null, type = 'string', src = null) {
         const comparison = this.homey.__('helpers.difference');
         const duration = this.homey.__('helpers.duration');
+        const currency = this.homey.__('helpers.currency');
+        let title = name;
+        
+        this.log('[createToken] - creating Token for', name, value, type, src);
 
-        const title = type === 'number' ? `${name} (${comparison})` : `${name} (${duration})`;
+        if(!src && type === 'number') title = `${name} (${comparison})` 
+        if(!src && type === 'string') title = `${name} (${duration})`;
+        if(src === 'currency' && type === 'string') title = `${currency} ${name}`;
+
+        const tokenId = formatToken(title)
 
         if (!this.TOKENS[title]) {
-            this.TOKENS[title] = await this.homey.flow.createToken(title, {
+            this.TOKENS[title] = await this.homey.flow.createToken(tokenId, {
                 type,
-                title,
+                title
             });
+            this.log('[createToken] - created Token', tokenId, title, type);
         } else {
             this.log('[createToken] - Token already exists!', name);
         }
@@ -116,7 +128,7 @@ class App extends Homey.App {
 
         await this.updateSettings({
             ...this.appSettings,
-            COMPARISONS: [...newSettings, { name, date, comparison }],
+            COMPARISONS: [...newSettings, { name, date, comparison }]
         });
 
         await this.createToken(name);
@@ -143,7 +155,7 @@ class App extends Homey.App {
         await this.updateSettings({
             ...this.appSettings,
             COMPARISONS: comparisons,
-            TOTALS: [...totals, { name, duration, comparison }],
+            TOTALS: [...totals, { name, duration, comparison }]
         });
 
         await this.createToken(name, duration);
@@ -160,15 +172,17 @@ class App extends Homey.App {
         await this.updateSettings({
             ...this.appSettings,
             COMPARISONS: comparisons,
-            TOTALS: totals,
+            TOTALS: totals
         });
 
         await this.removeToken(name);
     }
 
-    async action_SET_CURRENCY(number, currency) {
-        const setLocalCurrency = number.toLocaleString(this.homey.__i18n('helpers.locale'), { style: 'currency', currency: currency });
+    async action_SET_CURRENCY(token, number, currency) {
+        const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
+
+        await this.createToken(token, setLocalCurrency, 'string', 'currency');
     }
 
     calculateDuration(startDate, endDate) {

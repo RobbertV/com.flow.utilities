@@ -101,12 +101,12 @@
         },
         "titleFormatted": {
           "en": "Start comparison for [[device]] with [[duration]] and set START value [[value]]",
-          "nl": "Start vergelijking voor [[device]] met [[duration]] en zet START waarde [[value]]"
+          "nl": "Begin vergelijking voor [[device]] met [[duration]] en zet START waarde [[value]]"
         },
         "hint": {
-            "en": "Will download new .ics files to update current events",
-            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
-          },
+          "en": "Will download new .ics files to update current events",
+          "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+        },
         "args": [
           {
             "name": "device",
@@ -121,8 +121,8 @@
             "type": "number",
             "required": false,
             "placeholder": {
-              "en": "value",
-              "nl": "waarde"
+              "en": "value (optional)",
+              "nl": "waarde (optioneel)"
             }
           },
           {
@@ -133,21 +133,21 @@
               "nl": "Met verbruikstijd check"
             },
             "values": [
-                {
-                  "id": "1",
-                  "label": {
-                    "en": "With duration check",
-                    "nl": "Met verbruikstijd check"
-                  }
-                },
-                {
-                  "id": "0",
-                  "label": {
-                    "en": "Without duration check",
-                    "nl": "Zonder verbruikstijd check"
-                  }
+              {
+                "id": "1",
+                "label": {
+                  "en": "With duration check",
+                  "nl": "Met verbruikstijd check"
                 }
-              ]
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Without duration check",
+                  "nl": "Zonder verbruikstijd check"
+                }
+              }
+            ]
           }
         ]
       },
@@ -158,13 +158,13 @@
           "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-            "en": "Stop comparison for [[device]] with STOP value [[value]]",
-            "nl": "Stop vergelijking voor [[device]] met STOP waarde [[value]]"
+          "en": "Stop comparison for [[device]] with STOP value [[value]]",
+          "nl": "Stop vergelijking voor [[device]] met STOP waarde [[value]]"
         },
         "hint": {
-            "en": "Will download new .ics files to update current events",
-            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
-          },
+          "en": "Will download new .ics files to update current events",
+          "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+        },
         "args": [
           {
             "name": "device",
@@ -196,9 +196,9 @@
           "nl": "Verwijder vorige checks - [[device]]"
         },
         "hint": {
-            "en": "Will download new .ics files to update current events",
-            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
-          },
+          "en": "Will download new .ics files to update current events",
+          "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
+        },
         "args": [
           {
             "type": "autocomplete",
@@ -221,20 +221,20 @@
           "nl": "Maak nummer naar locale valuta en zet het in variable"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to currency [[currency]] and put it in [[device]]",
-          "nl": "Zet [[value]] om naar valuta [[currency]] en zet het in [[device]]"
+          "en": "Convert [[value]] to [[currency]] add to [[tag]]",
+          "nl": "Zet [[value]] om in [[currency]] voeg in [[tag]]"
         },
         "hint": {
-            "en": "Will download new .ics files to update current events",
-            "nl": "Nieuw .ics bestand wordt gedownload om de IcalCalendar app bij te werken"
-          },
+          "en": "Convert a number value to currency, place this in a variable to use in your flow",
+          "nl": "Conventeer een nummer waarde in valuta en plaats deze in een variable om te gebruiken in je flow"
+        },
         "args": [
           {
             "name": "value",
             "type": "number",
             "placeholder": {
-              "en": "10.0",
-              "nl": "10.0"
+              "en": "number",
+              "nl": "number"
             }
           },
           {

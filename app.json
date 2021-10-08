@@ -192,8 +192,8 @@
           "nl": "Maak nummer naar locale valuta en zet het in variable"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to [[currency]] add to [[tag]]",
-          "nl": "Zet [[value]] om in [[currency]] voeg in [[tag]]"
+          "en": "Convert [[value]] to [[currency]] add to [[device]]",
+          "nl": "Zet [[value]] om in [[currency]] voeg in [[device]]"
         },
         "hint": {
           "en": "Convert a number value to currency, place this in a variable to use in your flow",

@@ -1,6 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
+const HomeyAPI = require('athom-api').HomeyAPI;
 const flowActions = require('./lib/flows/actions');
 const { splitTime, formatToken } = require('./lib/helpers');
 
@@ -25,6 +26,10 @@ class App extends Homey.App {
 
         this.log('[onInit] - Loaded settings', this.appSettings);
 
+        this._api = await HomeyAPI.forCurrentHomey(this.homey);
+
+        await this.setHomeyDevices();
+        await this.setHomeyDevicesInterval();
         await flowActions.init(this);
     }
 
@@ -78,8 +83,8 @@ class App extends Homey.App {
             }
         });
 
-        for (var i=0; i < 3; i++){
-            this.createToken(i+1, null, 'string', 'currency');
+        for (var i = 0; i < 3; i++) {
+            this.createToken(i + 1, null, 'string', 'currency');
         }
     }
 
@@ -88,14 +93,14 @@ class App extends Homey.App {
         const duration = this.homey.__('helpers.duration');
         const currency = this.homey.__('helpers.currency');
         let title = name;
-        
+
         this.log('[createToken] - creating Token for', name, value, type, src);
 
-        if(!src && type === 'number') title = `${name} (${comparison})` 
-        if(!src && type === 'string') title = `${name} (${duration})`;
-        if(src === 'currency' && type === 'string') title = `${currency} ${name}`;
+        if (!src && type === 'number') title = `${name} (${comparison})`;
+        if (!src && type === 'string') title = `${name} (${duration})`;
+        if (src === 'currency' && type === 'string') title = `${currency} ${name}`;
 
-        const tokenId = formatToken(title)
+        const tokenId = formatToken(title);
 
         if (!this.TOKENS[title]) {
             this.TOKENS[title] = await this.homey.flow.createToken(tokenId, {
@@ -118,6 +123,20 @@ class App extends Homey.App {
                 await this.TOKENS[t].unregister();
             }
         });
+    }
+
+    async setHomeyDevices() {
+        this.DEVICES = Object.values(await this._api.devices.getDevices({ online: true }));
+        this.DEVICES = this.DEVICES.map((c) => ({ name: c.name })).sort((a, b) => a.name.localeCompare(b.name));
+
+        this.log(`[setHomeyDevices] this.DEVICES: `, this.DEVICES);
+    }
+
+    async setHomeyDevicesInterval() {
+        const REFRESH_INTERVAL = 1000 * (10 * 60);
+
+        this.log(`[setHomeyDevicesInterval] -  start interval`);
+        this.onPollInterval = this.homey.setInterval(this.setHomeyDevices.bind(this), REFRESH_INTERVAL);
     }
 
     // -------------------- FUNCTIONS ----------------------

@@ -1,16 +1,19 @@
 {
-  "id": "com.athom.deviceconsumption",
+  "id": "com.athom.comparison",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
+  "permissions": [
+    "homey:manager:api"
+  ],
   "name": {
-    "en": "Device Consumption",
-    "nl": "Device Consumption"
+    "en": "Comparison",
+    "nl": "Comparison"
   },
   "description": {
-    "en": "Check consumption and duration of devices",
-    "nl": "Check verbruik en tijdsduur van apparaten"
+    "en": "Compare start and end values & check duration of devices",
+    "nl": "Vergelijk start en eind waardes en check tijdsverbruik van apparaten"
   },
   "tags": {
     "en": [
@@ -41,17 +44,17 @@
   },
   "author": {
     "name": "Martijn Poppen",
-    "email": "deviceconsumption@martijnpoppen.nl"
+    "email": "comparison@martijnpoppen.nl"
   },
   "contributors": {
     "developers": [
       {
         "name": "Martijn Poppen",
-        "email": "deviceconsumption@martijnpoppen.nl"
+        "email": "comparison@martijnpoppen.nl"
       },
       {
         "name": "Robbert Vis",
-        "email": "deviceconsumption@robbertvis.nl"
+        "email": "comparison@robbertvis.nl"
       }
     ],
     "translators": [
@@ -77,11 +80,11 @@
     }
   },
   "bugs": {
-    "url": "https://community.athom.com/t/app-deviceconsumption/50986"
+    "url": "https://community.athom.com/t/app-comparison/50986"
   },
-  "source": "https://github.com/martijnpoppen/com.athom.deviceconsumption",
+  "source": "https://github.com/martijnpoppen/com.athom.comparison",
   "homeyCommunityTopicId": 50986,
-  "support": "https://community.athom.com/t/app-deviceconsumption/50986",
+  "support": "https://community.athom.com/t/app-comparison/50986",
   "flow": {
     "actions": [
       {
@@ -91,8 +94,8 @@
           "nl": "Start verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-          "en": "Start comparison for [[name]] with [[duration]] and set START value [[value]]",
-          "nl": "Start vergelijking voor [[name]] met [[duration]] en zet START waarde [[value]]"
+          "en": "Start comparison for [[device]] with [[duration]] and set START value [[value]]",
+          "nl": "Start vergelijking voor [[device]] met [[duration]] en zet START waarde [[value]]"
         },
         "hint": {
             "en": "Will download new .ics files to update current events",
@@ -100,8 +103,8 @@
           },
         "args": [
           {
-            "name": "name",
-            "type": "text",
+            "name": "device",
+            "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
               "nl": "Apparaatnaam"
@@ -121,7 +124,7 @@
             "type": "dropdown",
             "title": {
               "en": "With duration check",
-              "nl": "Met vrbruikstijd check"
+              "nl": "Met verbruikstijd check"
             },
             "values": [
                 {
@@ -149,8 +152,8 @@
           "nl": "Stop verbruik tijd en vergelijk waarde"
         },
         "titleFormatted": {
-            "en": "Stop comparison for [[name]] with STOP value [[value]]",
-            "nl": "Stop vergelijking voor [[name]] met STOP waarde [[value]]"
+            "en": "Stop comparison for [[device]] with STOP value [[value]]",
+            "nl": "Stop vergelijking voor [[device]] met STOP waarde [[value]]"
         },
         "hint": {
             "en": "Will download new .ics files to update current events",
@@ -158,7 +161,7 @@
           },
         "args": [
           {
-            "name": "name",
+            "name": "device",
             "type": "autocomplete",
             "placeholder": {
               "en": "Devicename",
@@ -183,8 +186,8 @@
           "nl": "Verwijder vorige checks"
         },
         "titleFormatted": {
-          "en": "Remove previous checks - [[name]]",
-          "nl": "Verwijder vorige checks - [[name]]"
+          "en": "Remove previous checks - [[device]]",
+          "nl": "Verwijder vorige checks - [[device]]"
         },
         "hint": {
             "en": "Will download new .ics files to update current events",
@@ -193,7 +196,7 @@
         "args": [
           {
             "type": "autocomplete",
-            "name": "name",
+            "name": "device",
             "title": {
               "en": "Devicename",
               "nl": "Apparaatnaam"

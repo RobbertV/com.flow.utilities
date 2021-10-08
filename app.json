@@ -85,6 +85,12 @@
   "source": "https://github.com/martijnpoppen/com.athom.comparison",
   "homeyCommunityTopicId": 50986,
   "support": "https://community.athom.com/t/app-comparison/50986",
+  "api": {
+    "settings": {
+      "method": "put",
+      "path": "/settings/"
+    }
+  },
   "flow": {
     "actions": [
       {
@@ -215,8 +221,8 @@
           "nl": "Maak nummer naar locale valuta en zet het in variable"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to currency [[currency]] and put it in [[tag]]",
-          "nl": "Zet [[value]] om naar valuta [[currency]] en zet het in [[tag]]"
+          "en": "Convert [[value]] to currency [[currency]] and put it in [[device]]",
+          "nl": "Zet [[value]] om naar valuta [[currency]] en zet het in [[device]]"
         },
         "hint": {
             "en": "Will download new .ics files to update current events",
@@ -259,34 +265,11 @@
             ]
           },
           {
-            "name": "tag",
-            "type": "dropdown",
+            "name": "device",
+            "type": "autocomplete",
             "title": {
               "en": "Select tag"
-            },
-            "values": [
-              {
-                "id": "1",
-                "label": {
-                  "en": "Currency 1",
-                  "nl": "Valuta 1"
-                }
-              },
-              {
-                "id": "2",
-                "label": {
-                  "en": "Currency 2",
-                  "nl": "Valuta 2"
-                }
-              },
-              {
-                "id": "3",
-                "label": {
-                  "en": "Currency 3",
-                  "nl": "Valuta 3"
-                }
-              }
-            ]
+            }
           }
         ]
       }

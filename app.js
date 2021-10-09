@@ -121,9 +121,9 @@ class App extends Homey.App {
 
     async action_START(paramOptions) {
         const options = { ...this.defaultOptions, ...paramOptions };
-        const date = options.dateStart ? new Date() : options.dateStart;
-        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== options.name);
-        const { name, comparison } = options;
+        const { name, dateStart, comparison } = options;
+        const date = dateStart ? new Date() : dateStart;
+        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== name);
 
         await this.updateSettings({
             ...this.appSettings,

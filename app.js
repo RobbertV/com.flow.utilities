@@ -41,6 +41,12 @@ class App extends Homey.App {
 
             this.TOKENS = {};
 
+            this.defaultOptions = {
+                name: null,
+                dateStart: null,
+                comparison: null
+            };
+
             if (settingsInitialized) {
                 this.log('[initSettings] - Found settings key', _settingsKey);
                 this.appSettings = this.homey.settings.get(_settingsKey);
@@ -64,7 +70,7 @@ class App extends Homey.App {
 
             await this.homey.settings.set(_settingsKey, this.appSettings);
 
-            if(update) {
+            if (update) {
                 await this.initTokens();
             }
         } catch (err) {
@@ -77,7 +83,7 @@ class App extends Homey.App {
 
         variables.forEach((t) => {
             this.createToken(t, 'duration');
-            this.createToken(t, 'currency', null, 'string', );
+            this.createToken(t, 'currency', null, 'string');
             this.createToken(t, 'comparison', null, 'number');
         });
     }
@@ -113,9 +119,11 @@ class App extends Homey.App {
 
     // -------------------- FUNCTIONS ----------------------
 
-    async action_START(name, dateStart = null, comparison = null) {
-        const date = dateStart ? new Date() : dateStart;
-        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== name);
+    async action_START(paramOptions) {
+        const options = { ...this.defaultOptions, ...paramOptions };
+        const date = options.dateStart ? new Date() : options.dateStart;
+        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== options.name);
+        const { name, comparison } = options;
 
         await this.updateSettings({
             ...this.appSettings,
@@ -154,7 +162,7 @@ class App extends Homey.App {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
 
-        await this.createToken(token,  'currency', setLocalCurrency);
+        await this.createToken(token, 'currency', setLocalCurrency);
     }
 
     calculateDuration(startDate, endDate) {

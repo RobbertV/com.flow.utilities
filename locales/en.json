@@ -1,6 +1,6 @@
 {
   "settings": {
-    "intro": "For every added variable 3 tags will be made: <ul><li>{variabele} duration</li><li>{variabele} comparison</li><li>{variabele} currency</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
+    "intro": "For every added variable 3 tags will be made: <ul><li>{variable} duration</li><li>{variable} comparison</li><li>{variable} currency</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
     "variables": "Variables",
     "set_variable": "Create variable"
   },

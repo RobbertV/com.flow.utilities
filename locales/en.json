@@ -12,6 +12,7 @@
     "days": "days",
     "hours": "hours",
     "minutes": "minutes",
+    "seconds": "sec",
     "comparison": "comparison",
     "duration": "duration",
     "currency": "currency",

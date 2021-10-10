@@ -93,8 +93,8 @@
       {
         "id": "action_START_DURATION",
         "title": {
-          "en": "Start duration",
-          "nl": "Start looptijd"
+          "en": "Start duration for variable",
+          "nl": "Start looptijd voor variabele"
         },
         "titleFormatted": {
           "en": "Start duration for [[variable]]",
@@ -143,8 +143,8 @@
       {
         "id": "action_START_COMPARE",
         "title": {
-          "en": "Set start compare value",
-          "nl": "Maak start vergelijk waarde"
+          "en": "Set start value for comparison",
+          "nl": "Maak begin waarde voor vergelijking"
         },
         "titleFormatted": {
           "en": "Start comparison with [[value]] for [[variable]]",
@@ -176,8 +176,8 @@
       {
         "id": "action_END_COMPARE",
         "title": {
-          "en": "Stop compare value",
-          "nl": "Stop vergelijk waarde"
+          "en": "Set end vanlue and compare",
+          "nl": "Maak eind waarde en vergelijk"
         },
         "titleFormatted": {
           "en": "Compare with end value [[value]] for [[variable]]",
@@ -209,12 +209,12 @@
       {
         "id": "action_SET_CURRENCY",
         "title": {
-          "en": "Convert number to local currency and put it to a variable",
-          "nl": "Maak nummer naar locale valuta en zet het in variabele"
+          "en": "Convert number to currency",
+          "nl": "Zet nummer naar valuta"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to [[currency]] add to [[variable]] currency",
-          "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]] valuta"
+          "en": "Convert [[value]] to [[currency]] add to [[variable]]",
+          "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]]"
         },
         "hint": {
           "en": "Convert a number value to currency, place this in a variable to use in your flow",

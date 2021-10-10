@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { splitTime, formatToken, calculationType } = require('./lib/helpers');
+const { calculateDuration, calculateComparison, formatToken, calculationType } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -20,11 +20,13 @@ class App extends Homey.App {
     async onInit() {
         this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
+        this.TOKENS = {};
+
         await this.initSettings();
-        await this.setTokens(this.appSettings.VARIABLES);
 
         this.log('[onInit] - Loaded settings', this.appSettings);
 
+        await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
     }
 
@@ -38,8 +40,6 @@ class App extends Homey.App {
                     settingsInitialized = true;
                 }
             });
-
-            this.TOKENS = {};
 
             if (settingsInitialized) {
                 this.log('[initSettings] - Found settings key', _settingsKey);
@@ -73,6 +73,19 @@ class App extends Homey.App {
         }
     }
 
+    async removeSettings(token) {
+        const COMPARISONS = this.appSettings.COMPARISONS.filter((setting) => setting.token !== token);
+        const TOTALS = this.appSettings.TOTALS.filter((setting) => setting.token !== token);
+
+        this.log('[removeSettings] - Remove settings for', token);
+
+        await this.updateSettings({
+            ...this.appSettings,
+            COMPARISONS,
+            TOTALS
+        });
+    }
+
     async setTokens(newSettings, oldSettings = []) {
         newSettings.forEach((t) => {
             this.createToken(t, { src: 'duration' });
@@ -88,6 +101,7 @@ class App extends Homey.App {
                 this.removeToken(d, 'currency');
                 this.removeToken(d, 'comparison');
                 this.removeToken(d, 'calculation');
+                this.removeSettings(d);
             });
         }
     }
@@ -146,7 +160,7 @@ class App extends Homey.App {
     }
 
     async action_END(token, value = null) {
-        this.homey.app.log('[action_END] - ', token);
+        this.homey.app.log('[action_END] -', token);
         const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
 
         if (!existing_comparison) {
@@ -155,8 +169,8 @@ class App extends Homey.App {
         this.homey.app.log('[action_END] - found existing comparison', existing_comparison);
 
         const date = existing_comparison.date ? new Date() : null;
-        const duration = date ? this.calculateDuration(existing_comparison.date, date) : null;
-        const comparison = value ? this.calculateComparison(existing_comparison.comparison, value) : null;
+        const duration = date ? calculateDuration(existing_comparison.date, date, this.homey.__, this.homey.app.log) : null;
+        const comparison = value ? calculateComparison(existing_comparison.comparison, value) : null;
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
@@ -183,17 +197,6 @@ class App extends Homey.App {
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
         await this.createToken(token, { src: 'calculation', value: calculation });
-    }
-
-    calculateDuration(startDate, endDate) {
-        const diffInMilliseconds = Math.abs((endDate - startDate) / 1000);
-        this.homey.app.log('[calculateDuration]', diffInMilliseconds);
-        return splitTime(diffInMilliseconds, this.homey.__, this.homey.app.log);
-    }
-
-    calculateComparison(start, end) {
-        const comparison = parseFloat(end) - parseFloat(start);
-        return comparison ? comparison.toFixed(2) : 0;
     }
 }
 

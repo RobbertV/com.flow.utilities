@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { splitTime, formatToken } = require('./lib/helpers');
+const { splitTime, formatToken, calculationType } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -71,7 +71,7 @@ class App extends Homey.App {
 
             await this.homey.settings.set(_settingsKey, this.appSettings);
 
-            if(update) {
+            if (update) {
                 await this.setTokens(settings.VARIABLES, oldSettings.VARIABLES);
             }
         } catch (err) {
@@ -84,15 +84,17 @@ class App extends Homey.App {
             this.createToken(t, 'duration');
             this.createToken(t, 'currency', null, 'string');
             this.createToken(t, 'comparison', null, 'number');
+            this.createToken(t, 'calculation', null, 'number');
         });
 
-        if(oldSettings.length) {
-            const difference = oldSettings.filter(x => !newSettings.includes(x));
-            difference.forEach(d => {
+        if (oldSettings.length) {
+            const difference = oldSettings.filter((x) => !newSettings.includes(x));
+            difference.forEach((d) => {
                 this.removeToken(d, 'duration');
                 this.removeToken(d, 'currency');
                 this.removeToken(d, 'comparison');
-            })
+                this.removeToken(d, 'calculation');
+            });
         }
     }
 
@@ -167,9 +169,16 @@ class App extends Homey.App {
 
     async action_SET_CURRENCY(token, number, currency) {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
-        this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
+        this.homey.app.log('action_SET_CURRENCY - args', token, number, currency, setLocalCurrency);
 
         await this.createToken(token, 'currency', setLocalCurrency);
+    }
+
+    async action_CALCULATION(token, calcType, number1, number2) {
+        const calculation = calculationType(calcType, number1, number2);
+        this.homey.app.log('action_CALCULATION - args', token, calcType, number1, number2, calculation);
+
+        await this.createToken(token, 'calculation', calculation);
     }
 
     calculateDuration(startDate, endDate) {

@@ -1,6 +1,6 @@
 {
   "settings": {
-    "intro": "Voor elke toegevoegde variabele worden 3 tags gemaakt: <ul><li>{variabele naam} looptijd</li><li>{variabele naam} verschil</li><li>{variabele naam} valuta</li></ul> Deze worden door de verschillende flow kaartjes gevuld en kunnen daarna gebruikt worden in de flows.",
+    "intro": "Voor elke toegevoegde variabele worden 4 tags gemaakt: <ul><li>{variabele naam} looptijd</li><li>{variabele naam} verschil</li><li>{variabele naam} valuta</li><li>{variabele naam} berekening</li></ul> Deze worden door de verschillende flow kaartjes gevuld en kunnen daarna gebruikt worden in de flows.",
     "variables": "Variabelen",
     "set_variable": "Maak variabele",
     "add": "Maak",
@@ -14,6 +14,7 @@
     "minutes": "min",
     "comparison": "verschil",
     "duration": "looptijd",
-    "currency": "valuta"
+    "currency": "valuta",
+    "calculation": "berekening"
   }
 }

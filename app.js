@@ -21,7 +21,7 @@ class App extends Homey.App {
         this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
         await this.initSettings();
-        await this.initTokens();
+        await this.setTokens(this.appSettings.VARIABLES);
 
         this.log('[onInit] - Loaded settings', this.appSettings);
 
@@ -66,26 +66,34 @@ class App extends Homey.App {
     async updateSettings(settings, update = false) {
         try {
             this.log('[updateSettings] - New settings:', settings);
+            const oldSettings = this.appSettings;
             this.appSettings = settings;
 
             await this.homey.settings.set(_settingsKey, this.appSettings);
 
-            if (update) {
-                await this.initTokens();
+            if(update) {
+                await this.setTokens(settings.VARIABLES, oldSettings.VARIABLES);
             }
         } catch (err) {
             this.error(err);
         }
     }
 
-    async initTokens() {
-        const variables = this.appSettings.VARIABLES;
-
-        variables.forEach((t) => {
+    async setTokens(newSettings, oldSettings = []) {
+        newSettings.forEach((t) => {
             this.createToken(t, 'duration');
             this.createToken(t, 'currency', null, 'string');
             this.createToken(t, 'comparison', null, 'number');
         });
+
+        if(oldSettings.length) {
+            const difference = oldSettings.filter(x => !newSettings.includes(x));
+            difference.forEach(d => {
+                this.removeToken(d, 'duration');
+                this.removeToken(d, 'currency');
+                this.removeToken(d, 'comparison');
+            })
+        }
     }
 
     async createToken(name, src = null, value = null, type = 'string') {
@@ -94,27 +102,26 @@ class App extends Homey.App {
 
         const id = formatToken(title);
 
-        if (!this.TOKENS[title]) {
-            this.TOKENS[title] = await this.homey.flow.createToken(id, {
+        if (!this.TOKENS[id]) {
+            this.TOKENS[id] = await this.homey.flow.createToken(id, {
                 type,
                 title
             });
             this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type} - Value: ${value}`);
-        } else {
-            this.log('[createToken] - Token already exists! =>', title);
         }
 
-        await this.TOKENS[title].setValue(value);
+        await this.TOKENS[id].setValue(value);
     }
 
-    async removeToken(name) {
-        const titles = [name, `${name}-${this.homey.__('helpers.difference')}`];
+    async removeToken(name, src) {
+        const suffix = this.homey.__(`helpers.${src}`);
+        let title = `${name} ${suffix}`;
+        const id = formatToken(title);
 
-        titles.forEach(async (t) => {
-            if (this.TOKENS[t]) {
-                await this.TOKENS[t].unregister();
-            }
-        });
+        if (this.TOKENS[id]) {
+            await this.TOKENS[id].unregister();
+            this.log(`[removeToken] - removed Token => ID: ${id} - Title: ${title}`);
+        }
     }
 
     // -------------------- FUNCTIONS ----------------------

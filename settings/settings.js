@@ -26,6 +26,8 @@ function initializeSettings(err, data) {
 
     document.getElementById("variables_overview").innerHTML = variableMapper(data["VARIABLES"]);
 
+    window.VARIABLES = data["VARIABLES"];
+
     initSave(data);
     initClear(data);
 
@@ -40,10 +42,15 @@ function initializeSettings(err, data) {
 function variableMapper(variables) {
     let html = '';
     variables.sort((a,b) =>  a.localeCompare(b)).forEach((f) => {
-        html += `<div class="row"><label>${f}</a></label</div>`;
+        html += `<div id="row-${f}" class="row"><label>${f}</label><button onClick="remove(\`` + f + `\`)">X</button></div>`;
     });
 
     return html;
+}
+
+function remove(name) {
+    window.VARIABLES = window.VARIABLES.filter(f => f !== name);
+    document.getElementById("save").click();
 }
 
 function initSave(_settings) {
@@ -52,10 +59,14 @@ function initSave(_settings) {
         const loading = document.getElementById('loading');
         const success = document.getElementById('success');
 
-        const variable = document.getElementById('set_variable').value;
-        if(!variable) return false;
+        const existingVariables = window.VARIABLES;
+        let variables = [...existingVariables];
+        let newVariable = document.getElementById('set_variable').value;
 
-        const variables = [..._settings['VARIABLES'], variable];
+        if(newVariable){
+            newVariable = newVariable.toLowerCase();
+            variables = [...existingVariables, newVariable];
+        }        
 
         const settings = {
             ..._settings,

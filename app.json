@@ -1,12 +1,9 @@
 {
   "id": "com.athom.comparison",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
-  "permissions": [
-    "homey:manager:api"
-  ],
   "name": {
     "en": "Comparison",
     "nl": "Comparison"

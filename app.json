@@ -266,6 +266,85 @@
             }
           }
         ]
+      },
+      {
+        "id": "action_CALCULATION",
+        "title": {
+          "en": "Calculate 2 values",
+          "nl": "Bereken 2 waardes"
+        },
+        "titleFormatted": {
+          "en": "Calculate [[value1]] [[calctype]] [[value2]] add to [[variable]]",
+          "nl": "Bereken [[value1]] [[calctype]] [[value2]] voeg in [[variable]]"
+        },
+        "hint": {
+          "en": "For example use the difference of energy device and multiply with kWh price.",
+          "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten."
+        },
+        "args": [
+          {
+            "name": "value1",
+            "type": "number",
+            "placeholder": {
+              "en": "number 2",
+              "nl": "nummer 1"
+            }
+          },
+          {
+            "name": "calctype",
+            "type": "dropdown",
+            "title": {
+              "en": "selecet calculation",
+              "nl": "kies berekening"
+            },
+            "values": [
+              {
+                "id": "+",
+                "label": {
+                  "en": "plus",
+                  "nl": "plus"
+                }
+              },
+              {
+                "id": "-",
+                "label": {
+                  "en": "minus",
+                  "nl": "minus"
+                }
+              },
+              {
+                "id": "*",
+                "label": {
+                  "en": "multiply by",
+                  "nl": "vermenigvuldigd met"
+                }
+              },
+              {
+                "id": "/",
+                "label": {
+                  "en": "divide by",
+                  "nl": "delen door"
+                }
+              }
+            ]
+          },
+          {
+            "name": "value2",
+            "type": "number",
+            "placeholder": {
+              "en": "number 2",
+              "nl": "nummer 2"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele"
+            }
+          }
+        ]
       }
     ]
   }

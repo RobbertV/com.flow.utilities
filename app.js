@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { splitTime, formatToken } = require('./lib/helpers');
+const { splitTime, formatToken, calculationType } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -41,12 +41,6 @@ class App extends Homey.App {
 
             this.TOKENS = {};
 
-            this.defaultOptions = {
-                name: null,
-                dateStart: null,
-                comparison: null
-            };
-
             if (settingsInitialized) {
                 this.log('[initSettings] - Found settings key', _settingsKey);
                 this.appSettings = this.homey.settings.get(_settingsKey);
@@ -71,7 +65,7 @@ class App extends Homey.App {
 
             await this.homey.settings.set(_settingsKey, this.appSettings);
 
-            if(update) {
+            if (update) {
                 await this.setTokens(settings.VARIABLES, oldSettings.VARIABLES);
             }
         } catch (err) {
@@ -81,22 +75,31 @@ class App extends Homey.App {
 
     async setTokens(newSettings, oldSettings = []) {
         newSettings.forEach((t) => {
-            this.createToken(t, 'duration');
-            this.createToken(t, 'currency', null, 'string');
-            this.createToken(t, 'comparison', null, 'number');
+            this.createToken(t, { src: 'duration' });
+            this.createToken(t, { src: 'currency', type: 'string' });
+            this.createToken(t, { src: 'comparison', type: 'number' });
+            this.createToken(t, { src: 'calculation', type: 'number' });
         });
 
-        if(oldSettings.length) {
-            const difference = oldSettings.filter(x => !newSettings.includes(x));
-            difference.forEach(d => {
+        if (oldSettings.length) {
+            const difference = oldSettings.filter((x) => !newSettings.includes(x));
+            difference.forEach((d) => {
                 this.removeToken(d, 'duration');
                 this.removeToken(d, 'currency');
                 this.removeToken(d, 'comparison');
-            })
+                this.removeToken(d, 'calculation');
+            });
         }
     }
 
-    async createToken(name, src = null, value = null, type = 'string') {
+    async createToken(name, paramOptions) {
+        const defaultOptions = {
+            src: null,
+            value: null,
+            type: 'string'
+        };
+        const options = { ...defaultOptions, ...paramOptions };
+        const { src, value, type } = options;
         const suffix = this.homey.__(`helpers.${src}`);
         let title = `${name} ${suffix}`;
 
@@ -126,25 +129,29 @@ class App extends Homey.App {
 
     // -------------------- FUNCTIONS ----------------------
 
-    async action_START(paramOptions) {
-        const options = { ...this.defaultOptions, ...paramOptions };
-        const { name, dateStart, comparison } = options;
+    async action_START(token, paramOptions) {
+        const defaultOptions = {
+            dateStart: null,
+            comparison: null
+        };
+        const options = { ...defaultOptions, ...paramOptions };
+        const { dateStart, comparison } = options;
         const date = dateStart ? new Date() : dateStart;
-        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== name);
+        const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.name !== token);
 
         await this.updateSettings({
             ...this.appSettings,
-            COMPARISONS: [...newSettings, { name, date, comparison }]
+            COMPARISONS: [...newSettings, { token, date, comparison }]
         });
     }
 
-    async action_END(name, value = null) {
-        this.homey.app.log('[action_END]: ', name);
-        const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.name === name);
+    async action_END(token, value = null) {
+        this.homey.app.log('[action_END]: ', token);
+        const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.name === token);
         const date = existing_comparison.date ? new Date() : null;
 
         if (!existing_comparison) {
-            throw new Error(`No comparison found for ${name}`);
+            throw new Error(`No comparison found for ${token}`);
         } else {
             this.homey.app.log('[action_END]: found existing comparison', existing_comparison);
         }
@@ -152,24 +159,31 @@ class App extends Homey.App {
         const duration = date ? this.calculateDuration(existing_comparison.date, date) : null;
         const comparison = value ? this.calculateComparison(existing_comparison.comparison, value) : null;
 
-        const totals = this.appSettings.TOTALS.filter((total) => total.name !== name);
+        const totals = this.appSettings.TOTALS.filter((total) => total.name !== token);
 
         await this.updateSettings({
             ...this.appSettings,
-            TOTALS: [...totals, { name, duration, comparison }]
+            TOTALS: [...totals, { token, duration, comparison }]
         });
 
-        await this.createToken(name, 'duration', duration);
+        await this.createToken(token, { src: 'duration', value: duration });
         if (comparison) {
-            await this.createToken(name, 'comparison', parseFloat(comparison), 'number');
+            await this.createToken(token, { src: 'comparison', value: parseFloat(comparison), type: 'number' });
         }
     }
 
     async action_SET_CURRENCY(token, number, currency) {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
-        this.homey.app.log('action_SET_CURRENCY - args', number, currency, setLocalCurrency);
+        this.homey.app.log('action_SET_CURRENCY - args', token, number, currency, setLocalCurrency);
 
-        await this.createToken(token, 'currency', setLocalCurrency);
+        await this.createToken(token, { src: 'currency', value: setLocalCurrency });
+    }
+
+    async action_CALCULATION(token, calcType, number1, number2) {
+        const calculation = calculationType(calcType, number1, number2);
+        this.homey.app.log('action_CALCULATION - args', token, calcType, number1, number2, calculation);
+
+        await this.createToken(token, { src: 'calculation', value: calculation });
     }
 
     calculateDuration(startDate, endDate) {

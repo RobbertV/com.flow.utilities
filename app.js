@@ -75,10 +75,10 @@ class App extends Homey.App {
 
     async setTokens(newSettings, oldSettings = []) {
         newSettings.forEach((t) => {
-            this.createToken(t, 'duration');
-            this.createToken(t, 'currency', null, 'string');
-            this.createToken(t, 'comparison', null, 'number');
-            this.createToken(t, 'calculation', null, 'number');
+            this.createToken(t, { src: 'duration' });
+            this.createToken(t, { src: 'currency', type: 'string' });
+            this.createToken(t, { src: 'comparison', type: 'number' });
+            this.createToken(t, { src: 'calculation', type: 'number' });
         });
 
         if (oldSettings.length) {

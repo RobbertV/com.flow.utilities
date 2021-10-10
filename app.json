@@ -294,36 +294,32 @@
             "name": "calctype",
             "type": "dropdown",
             "title": {
-              "en": "selecet calculation",
+              "en": "select calculation",
               "nl": "kies berekening"
             },
             "values": [
               {
                 "id": "+",
                 "label": {
-                  "en": "plus",
-                  "nl": "plus"
+                  "en": "+"
                 }
               },
               {
                 "id": "-",
                 "label": {
-                  "en": "minus",
-                  "nl": "minus"
+                  "en": "-"
                 }
               },
               {
                 "id": "*",
                 "label": {
-                  "en": "multiply by",
-                  "nl": "vermenigvuldigd met"
+                  "en": "*"
                 }
               },
               {
                 "id": "/",
                 "label": {
-                  "en": "divide by",
-                  "nl": "delen door"
+                  "en": "/"
                 }
               }
             ]

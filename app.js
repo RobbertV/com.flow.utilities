@@ -147,7 +147,7 @@ class App extends Homey.App {
 
     async action_END(token, value = null) {
         this.homey.app.log('[action_END]: ', token);
-        const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.name === token);
+        const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
         const date = existing_comparison.date ? new Date() : null;
 
         if (!existing_comparison) {
@@ -156,10 +156,10 @@ class App extends Homey.App {
             this.homey.app.log('[action_END]: found existing comparison', existing_comparison);
         }
 
-        const duration = date ? this.calculateDuration(existing_comparison.date, date) : null;
+        const duration = date ? this.calculateDuration(new Date(existing_comparison.date), date) : null;
         const comparison = value ? this.calculateComparison(existing_comparison.comparison, value) : null;
 
-        const totals = this.appSettings.TOTALS.filter((total) => total.name !== token);
+        const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
         await this.updateSettings({
             ...this.appSettings,
@@ -187,8 +187,9 @@ class App extends Homey.App {
     }
 
     calculateDuration(startDate, endDate) {
-        const diffInMilliseconds = Math.abs(startDate - endDate) / 1000;
-        return splitTime(diffInMilliseconds, this.homey.__);
+        const diffInMilliseconds = Math.floor((endDate - startDate) / 1000);
+        this.homey.app.log('calculateDuration', diffInMilliseconds);
+        return splitTime(diffInMilliseconds, this.homey.__, this.homey.app.log);
     }
 
     calculateComparison(start, end) {

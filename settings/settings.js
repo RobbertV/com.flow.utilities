@@ -128,5 +128,5 @@ function initClear(_settings) {
 }
 
 function capitalize(value) {
-    return value.toLowerCase().value.charAt(0).toUpperCase() + value.slice(1);
+    return value.toLowerCase().charAt(0).toUpperCase() + value.slice(1);
 }

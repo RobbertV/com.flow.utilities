@@ -146,17 +146,16 @@ class App extends Homey.App {
     }
 
     async action_END(token, value = null) {
-        this.homey.app.log('[action_END]: ', token);
+        this.homey.app.log('[action_END] - ', token);
         const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
-        const date = existing_comparison.date ? new Date() : null;
 
         if (!existing_comparison) {
             throw new Error(`No comparison found for ${token}`);
-        } else {
-            this.homey.app.log('[action_END]: found existing comparison', existing_comparison);
         }
+        this.homey.app.log('[action_END] - found existing comparison', existing_comparison);
 
-        const duration = date ? this.calculateDuration(new Date(existing_comparison.date), date) : null;
+        const date = existing_comparison.date ? new Date() : null;
+        const duration = date ? this.calculateDuration(existing_comparison.date, date) : null;
         const comparison = value ? this.calculateComparison(existing_comparison.comparison, value) : null;
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
@@ -174,21 +173,21 @@ class App extends Homey.App {
 
     async action_SET_CURRENCY(token, number, currency) {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
-        this.homey.app.log('action_SET_CURRENCY - args', token, number, currency, setLocalCurrency);
+        this.homey.app.log('[action_SET_CURRENCY] - args', token, number, currency, setLocalCurrency);
 
         await this.createToken(token, { src: 'currency', value: setLocalCurrency });
     }
 
     async action_CALCULATION(token, calcType, number1, number2) {
         const calculation = calculationType(calcType, number1, number2);
-        this.homey.app.log('action_CALCULATION - args', token, calcType, number1, number2, calculation);
+        this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
         await this.createToken(token, { src: 'calculation', value: calculation });
     }
 
     calculateDuration(startDate, endDate) {
-        const diffInMilliseconds = Math.floor((endDate - startDate) / 1000);
-        this.homey.app.log('calculateDuration', diffInMilliseconds);
+        const diffInMilliseconds = Math.abs((endDate - startDate) / 1000);
+        this.homey.app.log('[calculateDuration]', diffInMilliseconds);
         return splitTime(diffInMilliseconds, this.homey.__, this.homey.app.log);
     }
 

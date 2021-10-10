@@ -64,7 +64,7 @@ function initSave(_settings) {
         let newVariable = document.getElementById('set_variable').value;
 
         if(newVariable){
-            newVariable = newVariable.toLowerCase();
+            newVariable = capitalize(newVariable);
             variables = [...existingVariables, newVariable];
         }        
 
@@ -125,4 +125,8 @@ function initClear(_settings) {
             }
         });
     });
+}
+
+function capitalize(value) {
+    return value.toLowerCase().value.charAt(0).toUpperCase() + value.slice(1);
 }

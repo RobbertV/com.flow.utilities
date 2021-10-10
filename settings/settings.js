@@ -7,9 +7,11 @@ function onHomeyReady(Homey) {
             // remove all listneres on update.
             const save = document.getElementById('save');
             const clear = document.getElementById('clear');
+            const input = document.getElementById('set_variable');
             
             save.replaceWith(save.cloneNode(true));
-            clear.replaceWith(clear.cloneNode(true));            
+            clear.replaceWith(clear.cloneNode(true));
+            set_variable.replaceWith(set_variable.cloneNode(true));
 
             Homey.get(_settingsKey, initializeSettings);
         }

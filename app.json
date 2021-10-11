@@ -341,6 +341,31 @@
             }
           }
         ]
+      },
+      {
+        "id": "action_TIMELINE_NOTIFICATION",
+        "title": {
+          "en": "Make timeline notification after comparisons",
+          "nl": "Maak tijdlijn notificatie na vergelijkingen"
+        },
+        "titleFormatted": {
+          "en": "Set timeline notification with [[message]] after comparisons",
+          "nl": "Maak tijdlijn notificatie met [[message]] na vergelijkingen"
+        },
+        "hint": {
+          "en": "Make notification after calculations has been made for all compare cards.",
+          "nl": "Maak notificatie nadat de berekeningen zijn gemaakt van eerdere vergelijk kaartjes."
+        },
+        "args": [
+          {
+            "name": "message",
+            "type": "text",
+            "placeholder": {
+              "en": "message",
+              "nl": "bericht"
+            }
+          }
+        ]
       }
     ]
   }

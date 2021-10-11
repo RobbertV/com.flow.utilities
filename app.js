@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { calculateDuration, calculateComparison, formatToken, calculationType } = require('./lib/helpers');
+const { sleep, calculateDuration, calculateComparison, formatToken, calculationType } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -198,6 +198,16 @@ class App extends Homey.App {
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
         await this.createToken(token, { src: 'calculation', value: calculation });
+    }
+
+    async action_TIMELINE_NOTIFICATION(message, delay) {
+        this.homey.app.log('[action_TIMELINE_NOTIFICATION] - args', message, delay);
+
+        await sleep(delay);
+
+        await this.homey.notifications.createNotification({
+            excerpt: message
+        });
     }
 }
 

@@ -197,7 +197,7 @@ class App extends Homey.App {
         const calculation = calculationType(calcType, number1, number2);
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
-        await this.createToken(token, { src: 'calculation', value: calculation });
+        await this.createToken(token, { src: 'calculation', value: calculation, type: 'number' });
     }
 
     async action_TIMELINE_NOTIFICATION(message, delay) {

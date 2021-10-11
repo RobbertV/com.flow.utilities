@@ -1,6 +1,6 @@
 {
   "id": "com.athom.comparison",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
@@ -40,7 +40,7 @@
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "Martijn Poppen",
+    "name": "Robbert Vis & Martijn Poppen",
     "email": "comparison@martijnpoppen.nl"
   },
   "contributors": {

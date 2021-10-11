@@ -166,10 +166,11 @@ class App extends Homey.App {
         if (!existing_comparison) {
             throw new Error(`No comparison found for ${token}`);
         }
-        this.homey.app.log('[action_END] - found existing comparison', existing_comparison);
+        this.homey.app.log('[action_END] - found existing comparison', existing_comparison, 'type', typeof existing_comparison.date);
 
         const date = existing_comparison.date ? new Date() : null;
-        const duration = date ? calculateDuration(existing_comparison.date, date, this.homey.__, this.homey.app.log) : null;
+        const existingDate = typeof existing_comparison.date === 'string' ? new Date(existing_comparison.date) : existing_comparison.date;
+        const duration = date ? calculateDuration(existingDate, date, this.homey.__, this.homey.app.log) : null;
         const comparison = value ? calculateComparison(existing_comparison.comparison, value) : null;
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);

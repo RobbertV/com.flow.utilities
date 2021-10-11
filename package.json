@@ -1,12 +1,9 @@
 {
-  "name": "com.athom.deviceconsumption",
+  "name": "com.athom.comparison",
   "version": "1.0.0",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/martijnpoppen/com.athom.deviceconsumption"
-  },
-  "dependencies": {
-    "athom-api": "^3.6.5"
+    "url": "https://github.com/martijnpoppen/com.athom.comparison"
   }
 }

@@ -40,39 +40,39 @@
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "Robbert Vis & Martijn Poppen",
-    "email": "comparison@martijnpoppen.nl"
+    "name": "Robbert Vis",
+    "email": "comparison@robbertvis.nl"
   },
   "contributors": {
     "developers": [
       {
-        "name": "Martijn Poppen",
-        "email": "comparison@martijnpoppen.nl"
-      },
-      {
         "name": "Robbert Vis",
         "email": "comparison@robbertvis.nl"
+      },
+      {
+        "name": "Martijn Poppen",
+        "email": "comparison@martijnpoppen.nl"
       }
     ],
     "translators": [
       {
-        "name": "🇬🇧 Martijn Poppen"
-      },
-      {
         "name": "🇬🇧 Robbert Vis"
       },
       {
-        "name": "🇳🇱 Martijn Poppen"
+        "name": "🇬🇧 Martijn Poppen"
       },
       {
         "name": "🇳🇱 Robbert Vis"
+      },
+      {
+        "name": "🇳🇱 Martijn Poppen"
       }
     ]
   },
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "martijnpoppen"
+        "username": "robbertvis"
       }
     }
   },

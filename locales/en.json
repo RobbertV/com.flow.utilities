@@ -1,6 +1,6 @@
 {
   "settings": {
-    "intro": "For every added variable 4 tags will be made: <ul><li>{variable} duration</li><li>{variable} comparison</li><li>{variable} currency</li><li>{variable} calculation</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
+    "intro": "For every added variable 4 tags will be made: <ul><li>{variable} duration</li><li>{variable} difference</li><li>{variable} currency</li><li>{variable} calculation</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
     "variables": "Variables",
     "set_variable": "Create variable",
     "add": "Add",
@@ -13,7 +13,7 @@
     "hours": "hours",
     "minutes": "minutes",
     "seconds": "sec",
-    "comparison": "comparison",
+    "comparison": "difference",
     "duration": "duration",
     "currency": "currency",
     "calculation": "calculation"

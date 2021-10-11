@@ -126,8 +126,8 @@
           "nl": "Stop looptijd voor [[variable]]"
         },
         "hint": {
-          "en": "Make comparison with the start value set earlier, the outcome will be set in the preset variable and is available in the flow.",
-          "nl": "Maak een vergelijking met de eerder gezette start waarde, deze wordt toegevoegd in de vooraf gedefineerde variable naam en is hierna beschikbaar in de flow."
+          "en": "Make comparison with the start value set earlier. The outcome will be set in \"{variable} duration\".",
+          "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\"."
         },
         "args": [
           {
@@ -184,8 +184,8 @@
           "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]"
         },
         "hint": {
-          "en": "Make sure the start value card has been set before, with the end value the comparison is made and stored in a variable",
-          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt de vergelijking gemaakt en terug gegeven als variabele"
+          "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
+          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\"."
         },
         "args": [
           {
@@ -217,8 +217,8 @@
           "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]]"
         },
         "hint": {
-          "en": "Convert a number value to currency, place this in a variable to use in your flow",
-          "nl": "Conventeer een nummer waarde in valuta en plaats deze in een variable om te gebruiken in je flow"
+          "en": "Convert a number value to selected currency. Outcome wil be stored in \"{variable} currency\".",
+          "nl": "Conventeer een nummer waarde in geselcteerde valuta. Resultaat wordt opgeslsgen in \"{variable} valuta\"."
         },
         "args": [
           {
@@ -278,8 +278,8 @@
           "nl": "Bereken [[value1]] [[calctype]] [[value2]] voeg in [[variable]]"
         },
         "hint": {
-          "en": "For example use the difference of energy device and multiply with kWh price.",
-          "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten."
+          "en": "For example use the difference of energy device and multiply with kWh price. Will be stored in \"{variable} calculation\".",
+          "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten. Resultaat wordt opgeslagen in \"{variable} berekening\"."
         },
         "args": [
           {

@@ -7,6 +7,6 @@ Current features:
 - Start/Stop duration (Calculate time in between)
 - Start/Stop comparison with value - (Calculate difference of numbers)
 - Convert number to currency
-- Calculation with 2 numbers (+-/*)
+- Calculation with 2 numbers ([+] [-] [/] [*])
 - Timeline notification after the comparison
 

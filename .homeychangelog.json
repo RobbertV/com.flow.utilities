@@ -13,5 +13,8 @@
   },
   "0.0.5": {
     "en": "Bugfixes calculations and add final text copy"
+  },
+  "0.1.0": {
+    "en": "Rename app to reflect better on function."
   }
 }

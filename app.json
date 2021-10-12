@@ -1,6 +1,6 @@
 {
-  "id": "com.athom.flow.utilities",
-  "version": "0.1.1",
+  "id": "com.flow.utilities",
+  "version": "0.2.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#ea951c",
@@ -79,7 +79,7 @@
   "bugs": {
     "url": "https://community.athom.com/t/app-pro-flow-utilities/53027"
   },
-  "source": "https://github.com/RobbertV/com.athom.flow.utilities",
+  "source": "https://github.com/RobbertV/com.flow.utilities",
   "homeyCommunityTopicId": 53027,
   "support": "https://community.athom.com/t/app-pro-flow-utilities/53027",
   "api": {

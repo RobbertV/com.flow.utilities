@@ -1,5 +1,5 @@
 function onHomeyReady(Homey) {
-    const _settingsKey = `com.athom.flow.utilities.settings`;
+    const _settingsKey = `com.flow.utilities.settings`;
 
     Homey.get(_settingsKey, initializeSettings);
     Homey.on('settings.set', (key, data) => {

@@ -16,6 +16,7 @@
     "comparison": "difference",
     "duration": "duration",
     "currency": "currency",
-    "calculation": "calculation"
+    "calculation": "calculation",
+    "decimals": "decimals"
   }
 }

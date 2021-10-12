@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { sleep, calculateDuration, calculateComparison, formatToken, calculationType } = require('./lib/helpers');
+const { sleep, calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -92,6 +92,7 @@ class App extends Homey.App {
             this.createToken(t, { src: 'currency', type: 'string' });
             this.createToken(t, { src: 'comparison', type: 'number' });
             this.createToken(t, { src: 'calculation', type: 'number' });
+            this.createToken(t, { src: 'decimals', type: 'number' });
         });
 
         if (oldSettings.length) {
@@ -101,6 +102,7 @@ class App extends Homey.App {
                 this.removeToken(d, 'currency');
                 this.removeToken(d, 'comparison');
                 this.removeToken(d, 'calculation');
+                this.removeToken(d, 'decimals');
                 this.removeSettings(d);
             });
         }
@@ -198,6 +200,13 @@ class App extends Homey.App {
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
         await this.createToken(token, { src: 'calculation', value: calculation, type: 'number' });
+    }
+
+    async action_CONVERT_NUMBER(token, number, decimals) {
+        const calculation = convertNumber(number, decimals);
+        this.homey.app.log('[action_CONVERT_NUMBER] - args', token, number, decimals);
+
+        await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }
 
     async action_TIMELINE_NOTIFICATION(message, delay) {

@@ -343,6 +343,47 @@
         ]
       },
       {
+        "id": "action_CONVERT_NUMBER",
+        "title": {
+          "en": "Convert number to number with decimals",
+          "nl": "Converteer nummer naar nummer met decimalen"
+        },
+        "titleFormatted": {
+          "en": "Convert [[number]] to number with [[decimals]] decimals and add to[[variable]]",
+          "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]"
+        },
+        "hint": {
+          "en": "For exmaple to convert numbers with 4 decimals to a number with only 2 decimals",
+          "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen."
+        },
+        "args": [
+          {
+            "name": "number",
+            "type": "number",
+            "placeholder": {
+              "en": "number",
+              "nl": "nummer"
+            }
+          },
+          {
+            "name": "decimals",
+            "type": "number",
+            "placeholder": {
+              "en": "decimals",
+              "nl": "decimalen"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele"
+            }
+          }
+        ]
+      },
+      {
         "id": "action_TIMELINE_NOTIFICATION",
         "title": {
           "en": "Make timeline notification after comparisons",

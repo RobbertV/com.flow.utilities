@@ -16,6 +16,7 @@
     "comparison": "verschil",
     "duration": "looptijd",
     "currency": "valuta",
-    "calculation": "berekening"
+    "calculation": "berekening",
+    "decimals": "decimalen"
   }
 }

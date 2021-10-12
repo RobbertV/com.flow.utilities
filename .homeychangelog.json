@@ -16,5 +16,8 @@
   },
   "0.1.0": {
     "en": "Rename app to reflect better on function."
+  },
+  "0.1.1": {
+    "en": "Add link to community pages."
   }
 }

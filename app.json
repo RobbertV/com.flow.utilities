@@ -353,8 +353,8 @@
           "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]"
         },
         "hint": {
-          "en": "For example to convert numbers with 4 decimals to a number with only 2 decimals",
-          "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen."
+          "en": "For example to convert numbers with 5 decimals to a number with only 2 decimals",
+          "nl": "Bijv. om een nummer met 5 decimalen te converteren naar een nummer met 2 decimalen."
         },
         "args": [
           {

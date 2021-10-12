@@ -1,12 +1,12 @@
 {
-  "id": "com.athom.comparison",
-  "version": "0.0.4",
+  "id": "com.athom.flow.utilities",
+  "version": "0.0.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#000000",
   "name": {
-    "en": "Comparison",
-    "nl": "Comparison"
+    "en": "Flow Utilities",
+    "nl": "Flow Utilities"
   },
   "description": {
     "en": "Get more out of data for in flows",
@@ -32,7 +32,7 @@
     ]
   },
   "category": [
-    "energy"
+    "tools"
   ],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
@@ -41,17 +41,17 @@
   },
   "author": {
     "name": "Robbert Vis",
-    "email": "comparison@robbertvis.nl"
+    "email": "flowutils@robbertvis.nl"
   },
   "contributors": {
     "developers": [
       {
         "name": "Robbert Vis",
-        "email": "comparison@robbertvis.nl"
+        "email": "flowutils@robbertvis.nl"
       },
       {
         "name": "Martijn Poppen",
-        "email": "comparison@martijnpoppen.nl"
+        "email": "flowutils@martijnpoppen.nl"
       }
     ],
     "translators": [
@@ -77,11 +77,11 @@
     }
   },
   "bugs": {
-    "url": "https://community.athom.com/t/app-comparison/50986"
+    "url": "https://community.athom.com/t/app-flow-utilities/50986"
   },
-  "source": "https://github.com/RobbertV/com.athom.comparison",
+  "source": "https://github.com/RobbertV/com.athom.flow-utilities",
   "homeyCommunityTopicId": 50986,
-  "support": "https://community.athom.com/t/app-comparison/50986",
+  "support": "https://community.athom.com/t/app-flow-utilities/50986",
   "api": {
     "settings": {
       "method": "put",
@@ -101,8 +101,8 @@
           "nl": "Begin looptijd voor [[variable]]"
         },
         "hint": {
-          "en": "Set the begin value for the furation comparison.",
-          "nl": "Sla begin tijd op voor vergelijking in de eind kaart."
+          "en": "Set the begin value for the duration comparison.",
+          "nl": "Sla begin tijd op voor de looptijd in de eind kaart."
         },
         "args": [
           {

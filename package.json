@@ -1,9 +1,9 @@
 {
-  "name": "com.athom.comparison",
-  "version": "1.0.0",
+  "name": "com.athom.flow-utilities",
+  "version": "0.0.5",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RobbertV/com.athom.comparison"
+    "url": "https://github.com/RobbertV/com.athom.flow.utilities"
   }
 }

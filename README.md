@@ -1,4 +1,4 @@
-# Comparison
+# Flow Utilities
 
 Compare time an number values. where results are stored in homey tags to be used in flows.
 

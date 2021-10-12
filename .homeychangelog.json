@@ -10,5 +10,8 @@
   },
   "0.0.4": {
     "en": "NEW: Comparison - release"
+  },
+  "0.0.5": {
+    "en": "Bugfixes calculations and add final text copy"
   }
 }

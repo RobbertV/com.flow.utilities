@@ -19,5 +19,11 @@
   },
   "0.1.1": {
     "en": "Add link to community pages."
+  },
+  "0.2.0": {
+    "en": "Add new flow card for number decimals"
+  },
+  "1.0.0": {
+    "en": "Launch version of the app"
   }
 }

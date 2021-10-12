@@ -349,11 +349,11 @@
           "nl": "Converteer nummer naar nummer met decimalen"
         },
         "titleFormatted": {
-          "en": "Convert [[number]] to number with [[decimals]] decimals and add to[[variable]]",
+          "en": "Convert [[number]] to number with [[decimals]] decimals and add to [[variable]]",
           "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]"
         },
         "hint": {
-          "en": "For exmaple to convert numbers with 4 decimals to a number with only 2 decimals",
+          "en": "For example to convert numbers with 4 decimals to a number with only 2 decimals",
           "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen."
         },
         "args": [

@@ -11,7 +11,7 @@ function onHomeyReady(Homey) {
 
             save.replaceWith(save.cloneNode(true));
             clear.replaceWith(clear.cloneNode(true));
-            set_variable.replaceWith(set_variable.cloneNode(true));
+            input.replaceWith(input.cloneNode(true));
 
             Homey.get(_settingsKey, initializeSettings);
         }

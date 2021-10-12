@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
-  "brandColor": "#000000",
+  "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
     "nl": "Flow Utilities"

@@ -19,5 +19,8 @@
   },
   "0.1.1": {
     "en": "Add link to community pages."
+  },
+  "0.2.0": {
+    "en": "NEW: convert number to number with chosen decimals"
   }
 }

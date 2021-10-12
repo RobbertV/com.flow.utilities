@@ -1,6 +1,6 @@
 {
   "id": "com.athom.flow.utilities",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#ea951c",

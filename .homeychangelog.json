@@ -22,5 +22,8 @@
   },
   "0.2.0": {
     "en": "NEW: convert number to number with chosen decimals"
+  },
+  "1.0.0": {
+    "en": "Launch version of the app"
   }
 }

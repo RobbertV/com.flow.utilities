@@ -1,5 +1,3 @@
-Flow functies
-
 Altijd al willen weten hoe lang je apparaat actief is of hoeveel energy deze heeft verbruikt?
 Met deze app vergelijk je deze (of eigenlijk alle soorten nummer) waarden in Homey.
 

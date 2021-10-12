@@ -77,11 +77,11 @@
     }
   },
   "bugs": {
-    "url": "https://community.athom.com/t/app-flow-utilities/50986"
+    "url": "https://community.athom.com/t/app-pro-flow-utilities/53027"
   },
-  "source": "https://github.com/RobbertV/com.athom.flow-utilities",
-  "homeyCommunityTopicId": 50986,
-  "support": "https://community.athom.com/t/app-flow-utilities/50986",
+  "source": "https://github.com/RobbertV/com.athom.flow.utilities",
+  "homeyCommunityTopicId": 53027,
+  "support": "https://community.athom.com/t/app-pro-flow-utilities/53027",
   "api": {
     "settings": {
       "method": "put",

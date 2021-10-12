@@ -1,5 +1,3 @@
-Flow utilities 
-
 Always wanted to know how long your device is running or how much energy it used?
 With this app you can compare these (or basically any kind of number) data in Homey.
 

@@ -34,5 +34,8 @@
   },
   "1.1.2": {
     "en": "Add German translation. Special thanks to Dirk Göbel"
+  },
+  "1.1.3": {
+    "en": "Minor fixes"
   }
 }

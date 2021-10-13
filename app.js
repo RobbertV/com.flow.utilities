@@ -21,6 +21,7 @@ class App extends Homey.App {
         this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
         this.TOKENS = {};
+        this.TOKENS_VALUES = {};
 
         await this.initSettings();
 
@@ -154,10 +155,11 @@ class App extends Homey.App {
         const { dateStart, comparison } = options;
         const date = dateStart ? new Date() : dateStart;
         const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.token !== token);
+        const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
 
         await this.updateSettings({
             ...this.appSettings,
-            COMPARISONS: [...newSettings, { token, date, comparison }]
+            COMPARISONS: [...newSettings, { ...existing_comparison, token, ...(date && {date}), ...(comparison && {comparison}) }]
         });
     }
 

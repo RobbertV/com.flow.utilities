@@ -56,16 +56,10 @@
     ],
     "translators": [
       {
-        "name": "🇬🇧 Robbert Vis"
+        "name": "🇬🇧 Robbert Vis & Martijn Poppen"
       },
       {
-        "name": "🇬🇧 Martijn Poppen"
-      },
-      {
-        "name": "🇳🇱 Robbert Vis"
-      },
-      {
-        "name": "🇳🇱 Martijn Poppen"
+        "name": "🇳🇱 Robbert Vis & Martijn Poppen"
       }
     ]
   },
@@ -379,31 +373,6 @@
             "title": {
               "en": "variable",
               "nl": "variabele"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_TIMELINE_NOTIFICATION",
-        "title": {
-          "en": "Make timeline notification after comparisons",
-          "nl": "Maak tijdlijn notificatie na vergelijkingen"
-        },
-        "titleFormatted": {
-          "en": "Set timeline notification with [[message]] after comparisons",
-          "nl": "Maak tijdlijn notificatie met [[message]] na vergelijkingen"
-        },
-        "hint": {
-          "en": "Make notification after calculations has been made for all compare cards.",
-          "nl": "Maak notificatie nadat de berekeningen zijn gemaakt van eerdere vergelijk kaartjes."
-        },
-        "args": [
-          {
-            "name": "message",
-            "type": "text",
-            "placeholder": {
-              "en": "message",
-              "nl": "bericht"
             }
           }
         ]

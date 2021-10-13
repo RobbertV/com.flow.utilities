@@ -208,16 +208,6 @@ class App extends Homey.App {
 
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }
-
-    async action_TIMELINE_NOTIFICATION(message, delay) {
-        this.homey.app.log('[action_TIMELINE_NOTIFICATION] - args', message, delay);
-
-        await sleep(delay);
-
-        await this.homey.notifications.createNotification({
-            excerpt: message
-        });
-    }
 }
 
 module.exports = App;

@@ -6,4 +6,4 @@ Aktuelle Features:
 - Start/Stopp Vergleich mit Werten - (Berechnung der Differenz von Zahlen)
 - Zahl in Währung umrechnen
 - Berechnung mit 2 Zahlen ([+] [-] [/] [*])
-- Benachrichtigung über die Timeline nach dem Vergleich
+- Konvertiere Zahl in Zahl mit Dezimalstellen

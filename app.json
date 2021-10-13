@@ -237,7 +237,7 @@
         },
         "hint": {
           "en": "Convert a number value to selected currency. Outcome will be stored in \"{variable} currency\".",
-          "nl": "Conventeer een nummer waarde in geselcteerde valuta. Resultaat wordt opgeslsgen in \"{variable} valuta\".",
+          "nl": "Conventeer een nummer waarde in geselecteerde valuta. Resultaat wordt opgeslagen in \"{variable} valuta\".",
           "de": "Rechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\"."
         },
         "args": [

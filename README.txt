@@ -6,5 +6,5 @@ Current features:
 - Start/Stop comparison with value - (Calculate difference of numbers)
 - Convert number to currency
 - Calculation with 2 numbers ([+] [-] [/] [*])
-- Timeline notification after the comparison
+- Convert number to number with decimals
 

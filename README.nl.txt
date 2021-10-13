@@ -6,4 +6,4 @@ Huidige mogelijkheden:
 - Start/Stop vergelijking met waarde - (bereken verschil van nummer values)
 - Vertaal nummer waarde naar valuta schijfwijze
 - Voer berekening uit met 2 nummer waardes ([+] [-] [/] [*] )
-- Tijdlijn notificatie na verglijkingen
+- Converteer nummer naar nummer met decimalen

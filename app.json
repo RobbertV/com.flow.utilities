@@ -65,7 +65,6 @@
       },
       {
         "name": "🇩🇪 Dirk Göbel"
-        
       }
     ]
   },
@@ -388,7 +387,7 @@
         "hint": {
           "en": "For example to convert numbers with 4 decimals to a number with only 2 decimals",
           "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen.",
-          "de": "Z.B. eine Zahl mit 4 Dezimalstellen in eine Zahl mit 2 Dezimalstellen umwandeln.
+          "de": "Z.B. eine Zahl mit 4 Dezimalstellen in eine Zahl mit 2 Dezimalstellen umwandeln."
         },
         "args": [
           {

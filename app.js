@@ -21,7 +21,6 @@ class App extends Homey.App {
         this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
         this.TOKENS = {};
-        this.TOKENS_VALUES = {};
 
         await this.initSettings();
 

@@ -6,11 +6,13 @@
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
-    "nl": "Flow Utilities"
+    "nl": "Flow Utilities",
+    "de": "Flow Utilities"
   },
   "description": {
     "en": "Get more out of data for in flows",
-    "nl": "Haal meer uit data voor in flows"
+    "nl": "Haal meer uit data voor in flows",
+    "de": "Holen Sie mehr aus Flow Daten heraus"
   },
   "tags": {
     "en": [
@@ -66,7 +68,9 @@
       },
       {
         "name": "🇳🇱 Martijn Poppen"
-      }
+      },
+      {
+        "name": "🇩🇪 Dirk Göbel"
     ]
   },
   "contributing": {
@@ -94,15 +98,18 @@
         "id": "action_START_DURATION",
         "title": {
           "en": "Start duration for variable",
-          "nl": "Start looptijd voor variabele"
+          "nl": "Start looptijd voor variabele",
+          "de": "Start Laufzeit für Variable"
         },
         "titleFormatted": {
           "en": "Start duration for [[variable]]",
-          "nl": "Begin looptijd voor [[variable]]"
+          "nl": "Begin looptijd voor [[variable]]",
+          "de": "Start Laufzeit für [[variable]]"
         },
         "hint": {
           "en": "Set the begin value for the duration comparison.",
-          "nl": "Sla begin tijd op voor de looptijd in de eind kaart."
+          "nl": "Sla begin tijd op voor de looptijd in de eind kaart.",
+          "de": "Anfangswert für den Laufzeitvergleich festlegen."
         },
         "args": [
           {
@@ -110,7 +117,8 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -119,15 +127,18 @@
         "id": "action_END_DURATION",
         "title": {
           "en": "Stop duration time and compare with start value",
-          "nl": "Stop looptijd en vergelijk met start waarde"
+          "nl": "Stop looptijd en vergelijk met start waarde",
+          "de": "Stopp Laufzeit und vergleiche mit Startwert"
         },
         "titleFormatted": {
           "en": "Stop duration for [[variable]]",
-          "nl": "Stop looptijd voor [[variable]]"
+          "nl": "Stop looptijd voor [[variable]]",
+          "de": "Stopp Laufzeit für [[variable]]"
         },
         "hint": {
           "en": "Make comparison with the start value set earlier. The outcome will be set in \"{variable} duration\".",
-          "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\"."
+          "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\".",
+          "de": "Führe einen Vergleich mit dem zuvor festgelegten Startwert durch. Ergebnis wird eingefügt in \"{variable} Laufzeit\"."
         },
         "args": [
           {
@@ -135,7 +146,8 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -144,15 +156,18 @@
         "id": "action_START_COMPARE",
         "title": {
           "en": "Set start value for comparison",
-          "nl": "Maak begin waarde voor vergelijking"
+          "nl": "Maak begin waarde voor vergelijking",
+          "de": "Startwert für den Vergleich festlegen."
         },
         "titleFormatted": {
           "en": "Start comparison with [[value]] for [[variable]]",
-          "nl": "Begin vergelijking met [[value]] voor [[variable]]"
+          "nl": "Begin vergelijking met [[value]] voor [[variable]]",
+          "de": "Start Vergleich mit [[value]] für [[variable]]"
         },
         "hint": {
           "en": "Set Start value for comparison, this can be used in the end card",
-          "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart"
+          "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart",
+          "de": "Startwert für Vergleich festlegen, dieser kann in der Endkarte verwendet werden."
         },
         "args": [
           {
@@ -160,7 +175,8 @@
             "type": "number",
             "placeholder": {
               "en": "start value",
-              "nl": "begin waarde"
+              "nl": "begin waarde",
+              "de": "Startwert"
             }
           },
           {
@@ -168,7 +184,8 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -176,16 +193,19 @@
       {
         "id": "action_END_COMPARE",
         "title": {
-          "en": "Set end vanlue and compare",
-          "nl": "Maak eind waarde en vergelijk"
+          "en": "Set end value and compare",
+          "nl": "Maak eind waarde en vergelijk",
+          "de": "Endwert festlegen und vergleichen"
         },
         "titleFormatted": {
           "en": "Compare with end value [[value]] for [[variable]]",
-          "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]"
+          "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]",
+          "de": "Vergleiche mit Endwert [[value]] für [[variable]]"
         },
         "hint": {
           "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
-          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\"."
+          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\".",
+          "de": "Stellen Sie sicher, dass die Startwertkarte vorher festgelegt wurde, mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\"."
         },
         "args": [
           {
@@ -193,7 +213,8 @@
             "type": "number",
             "placeholder": {
               "en": "end value",
-              "nl": "eind waarde"
+              "nl": "eind waarde",
+              "de": "Endwert"
             }
           },
           {
@@ -201,7 +222,8 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -210,15 +232,18 @@
         "id": "action_SET_CURRENCY",
         "title": {
           "en": "Convert number to currency",
-          "nl": "Zet nummer naar valuta"
+          "nl": "Zet nummer naar valuta",
+          "de": "Zahl in Währung umrechnen"
         },
         "titleFormatted": {
           "en": "Convert [[value]] to [[currency]] add to [[variable]]",
-          "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]]"
+          "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]]",
+          "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]"
         },
         "hint": {
-          "en": "Convert a number value to selected currency. Outcome wil be stored in \"{variable} currency\".",
-          "nl": "Conventeer een nummer waarde in geselcteerde valuta. Resultaat wordt opgeslsgen in \"{variable} valuta\"."
+          "en": "Convert a number value to selected currency. Outcome will be stored in \"{variable} currency\".",
+          "nl": "Conventeer een nummer waarde in geselcteerde valuta. Resultaat wordt opgeslsgen in \"{variable} valuta\".",
+          "de": "Rechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\"."
         },
         "args": [
           {
@@ -226,7 +251,8 @@
             "type": "number",
             "placeholder": {
               "en": "number",
-              "nl": "nummer"
+              "nl": "nummer",
+              "de": "Zahl"
             }
           },
           {
@@ -234,7 +260,8 @@
             "type": "dropdown",
             "title": {
               "en": "currency",
-              "nl": "valuta"
+              "nl": "valuta",
+              "de": "Währung"
             },
             "values": [
               {
@@ -262,7 +289,8 @@
             "type": "autocomplete",
             "title": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -271,23 +299,27 @@
         "id": "action_CALCULATION",
         "title": {
           "en": "Calculate 2 values",
-          "nl": "Bereken 2 waardes"
+          "nl": "Bereken 2 waardes",
+          "de": "Berechne 2 Werte"
         },
         "titleFormatted": {
           "en": "Calculate [[value1]] [[calctype]] [[value2]] add to [[variable]]",
-          "nl": "Bereken [[value1]] [[calctype]] [[value2]] voeg in [[variable]]"
+          "nl": "Bereken [[value1]] [[calctype]] [[value2]] voeg in [[variable]]",
+          "de": "Berechne [[value1]] [[calctype]] [[value2]] und füge ein in [[variable]]"
         },
         "hint": {
           "en": "For example use the difference of energy device and multiply with kWh price. Will be stored in \"{variable} calculation\".",
-          "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten. Resultaat wordt opgeslagen in \"{variable} berekening\"."
+          "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten. Resultaat wordt opgeslagen in \"{variable} berekening\".",
+          "de": "Verwende z.B. die Differenz eines Energiegeräts und multiplizieren diese mit den Stromkosten pro kWh. Das Ergebnis wird gespeichert in \"{variable} Berechnung\"."
         },
         "args": [
           {
             "name": "value1",
             "type": "number",
             "placeholder": {
-              "en": "number 2",
-              "nl": "nummer 1"
+              "en": "number 1",
+              "nl": "nummer 1",
+              "de": "Zahl 1"
             }
           },
           {
@@ -295,7 +327,8 @@
             "type": "dropdown",
             "title": {
               "en": "select calculation",
-              "nl": "kies berekening"
+              "nl": "kies berekening",
+              "de": "Berechnung wählen"
             },
             "values": [
               {
@@ -329,7 +362,8 @@
             "type": "number",
             "placeholder": {
               "en": "number 2",
-              "nl": "nummer 2"
+              "nl": "nummer 2",
+              "de": "Zahl 2"
             }
           },
           {
@@ -337,7 +371,8 @@
             "type": "autocomplete",
             "title": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -346,15 +381,18 @@
         "id": "action_CONVERT_NUMBER",
         "title": {
           "en": "Convert number to number with decimals",
-          "nl": "Converteer nummer naar nummer met decimalen"
+          "nl": "Converteer nummer naar nummer met decimalen",
+          "de": "Konvertiere Zahl in Zahl mit Dezimalstellen"
         },
         "titleFormatted": {
           "en": "Convert [[number]] to number with [[decimals]] decimals and add to [[variable]]",
-          "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]"
+          "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]",
+          "de": "Konvertiere [[number]] in Zahl mit [[decimals]] Dezimalstellen und füge ein in [[variable]]"
         },
         "hint": {
           "en": "For example to convert numbers with 4 decimals to a number with only 2 decimals",
-          "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen."
+          "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen.",
+          "de": "Z.B. eine Zahl mit 4 Dezimalstellen in eine Zahl mit 2 Dezimalstellen umwandeln.
         },
         "args": [
           {
@@ -362,7 +400,8 @@
             "type": "number",
             "placeholder": {
               "en": "number",
-              "nl": "nummer"
+              "nl": "nummer",
+              "de": "Zahl"
             }
           },
           {
@@ -370,7 +409,8 @@
             "type": "number",
             "placeholder": {
               "en": "decimals",
-              "nl": "decimalen"
+              "nl": "decimalen",
+              "de": "Dezimalstellen"
             }
           },
           {
@@ -378,7 +418,8 @@
             "type": "autocomplete",
             "title": {
               "en": "variable",
-              "nl": "variabele"
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -387,15 +428,18 @@
         "id": "action_TIMELINE_NOTIFICATION",
         "title": {
           "en": "Make timeline notification after comparisons",
-          "nl": "Maak tijdlijn notificatie na vergelijkingen"
+          "nl": "Maak tijdlijn notificatie na vergelijkingen",
+          "de": "Timeline-Benachrichtigung nach Berechnung"
         },
         "titleFormatted": {
           "en": "Set timeline notification with [[message]] after comparisons",
-          "nl": "Maak tijdlijn notificatie met [[message]] na vergelijkingen"
+          "nl": "Maak tijdlijn notificatie met [[message]] na vergelijkingen",
+          "de": "Timeline-Benachrichtigung mit [[message]] nach Berechnung erstellen"
         },
         "hint": {
           "en": "Make notification after calculations has been made for all compare cards.",
-          "nl": "Maak notificatie nadat de berekeningen zijn gemaakt van eerdere vergelijk kaartjes."
+          "nl": "Maak notificatie nadat de berekeningen zijn gemaakt van eerdere vergelijk kaartjes.",
+          "de": "Timeline-Benachrichtigung nachdem die Berechnungen aller Vergleichskarten durchgeführt wurden."
         },
         "args": [
           {
@@ -403,7 +447,8 @@
             "type": "text",
             "placeholder": {
               "en": "message",
-              "nl": "bericht"
+              "nl": "bericht",
+              "de": "Nachricht"
             }
           }
         ]

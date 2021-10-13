@@ -154,10 +154,11 @@ class App extends Homey.App {
         const { dateStart, comparison } = options;
         const date = dateStart ? new Date() : dateStart;
         const newSettings = this.appSettings.COMPARISONS.filter((setting) => setting.token !== token);
+        const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
 
         await this.updateSettings({
             ...this.appSettings,
-            COMPARISONS: [...newSettings, { token, date, comparison }]
+            COMPARISONS: [...newSettings, { ...existing_comparison, token, ...(date && {date}), ...(comparison && {comparison}) }]
         });
     }
 
@@ -207,16 +208,6 @@ class App extends Homey.App {
         this.homey.app.log('[action_CONVERT_NUMBER] - args', token, number, decimals);
 
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
-    }
-
-    async action_TIMELINE_NOTIFICATION(message, delay) {
-        this.homey.app.log('[action_TIMELINE_NOTIFICATION] - args', message, delay);
-
-        await sleep(delay);
-
-        await this.homey.notifications.createNotification({
-            excerpt: message
-        });
     }
 }
 

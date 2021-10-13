@@ -1,6 +1,6 @@
 {
   "id": "com.flow.utilities",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#ea951c",
@@ -58,19 +58,15 @@
     ],
     "translators": [
       {
-        "name": "🇬🇧 Robbert Vis"
+        "name": "🇬🇧 Robbert Vis & Martijn Poppen"
       },
       {
-        "name": "🇬🇧 Martijn Poppen"
-      },
-      {
-        "name": "🇳🇱 Robbert Vis"
-      },
-      {
-        "name": "🇳🇱 Martijn Poppen"
+        "name": "🇳🇱 Robbert Vis & Martijn Poppen"
       },
       {
         "name": "🇩🇪 Dirk Göbel"
+        
+      }
     ]
   },
   "contributing": {
@@ -420,35 +416,6 @@
               "en": "variable",
               "nl": "variabele",
               "de": "Variable"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_TIMELINE_NOTIFICATION",
-        "title": {
-          "en": "Make timeline notification after comparisons",
-          "nl": "Maak tijdlijn notificatie na vergelijkingen",
-          "de": "Timeline-Benachrichtigung nach Berechnung"
-        },
-        "titleFormatted": {
-          "en": "Set timeline notification with [[message]] after comparisons",
-          "nl": "Maak tijdlijn notificatie met [[message]] na vergelijkingen",
-          "de": "Timeline-Benachrichtigung mit [[message]] nach Berechnung erstellen"
-        },
-        "hint": {
-          "en": "Make notification after calculations has been made for all compare cards.",
-          "nl": "Maak notificatie nadat de berekeningen zijn gemaakt van eerdere vergelijk kaartjes.",
-          "de": "Timeline-Benachrichtigung nachdem die Berechnungen aller Vergleichskarten durchgeführt wurden."
-        },
-        "args": [
-          {
-            "name": "message",
-            "type": "text",
-            "placeholder": {
-              "en": "message",
-              "nl": "bericht",
-              "de": "Nachricht"
             }
           }
         ]

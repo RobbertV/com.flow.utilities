@@ -25,5 +25,11 @@
   },
   "1.0.0": {
     "en": "Launch version of the app"
+  },
+  "1.1.0": {
+    "en": "BREAK: Remove notification card"
+  },
+  "1.1.1": {
+    "en": "Tweaks and bugfixes"
   }
 }

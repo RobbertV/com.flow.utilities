@@ -1,0 +1,22 @@
+{
+  "settings": {
+    "intro": "Für jede hinzugefügte Variable werden 5 Tags erstellt: <ul><li>{variable} Laufzeit</li><li>{variable} Differenz</li><li>{variable} Währung</li><li>{variable} Berechnung</li><li>{variable} Dezimalstellen</li></ul> Diese werden von den verschiedenen Flow Karten gefüllt und können dann in den Flows verwendet werden.",
+    "variables": "Variablen",
+    "set_variable": "variable erstellen",
+    "add": "Hinzufügen",
+    "clear": "Alles löschen"
+  },
+  "helpers": {
+    "locale": "de-DE",
+    "day": "tag",
+    "days": "tage",
+    "hours": "stunden",
+    "minutes": "minuten",
+    "seconds": "sekunde",
+    "comparison": "differenz",
+    "duration": "laufzeit",
+    "currency": "währung",
+    "calculation": "berechnung",
+    "decimals": "dezimalstellen"
+  }
+}

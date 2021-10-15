@@ -4,7 +4,12 @@
     "variables": "Variablen",
     "set_variable": "variable erstellen",
     "add": "Hinzufügen",
-    "clear": "Alles löschen"
+    "clear": "Alles löschen",
+    "delete-confirm": "Sind Sie sicher, dass Sie diese Aktion ausführen?",
+    "loading": "Wird geladen...",
+    "saved": "Gelagert",
+    "removed": "Gelöscht",
+    "cleared": "Alle gelöscht"
   },
   "helpers": {
     "locale": "de-DE",

@@ -53,11 +53,14 @@ function variableMapper(variables) {
 }
 
 function remove(name) {
-    const removeThis = Homey.confirm('Are you sure to execute this action?');
-    if (removeThis) {
-        window.VARIABLES = window.VARIABLES.filter((f) => f !== name);
-        document.getElementById('save').click();
-    }
+    const clearSingle = Homey.confirm(Homey.__('settings.delete-confirm'));
+    clearSingle.then((confirmResult) => {
+        if (confirmResult) {
+            window.VARIABLES = window.VARIABLES.filter((f) => f !== name);
+            document.getElementById('save').click();
+            success.innerHTML = Homey.__('settings.removed');
+        }
+    });
 }
 
 function initSave(_settings) {
@@ -82,7 +85,7 @@ function initSave(_settings) {
 
         // ----------------------------------------------
 
-        loading.innerHTML = '<i class="fa fa-spinner fa-spin fa-fw"></i>Saving...';
+        loading.innerHTML = `<i class="fa fa-spinner fa-spin fa-fw"></i>${Homey.__('settings.loading')}`;
         error.innerHTML = '';
         success.innerHTML = '';
 
@@ -95,7 +98,7 @@ function initSave(_settings) {
             } else {
                 loading.innerHTML = '';
                 error.innerHTML = '';
-                success.innerHTML = 'Saved.';
+                success.innerHTML = Homey.__('settings.saved');
 
                 document.getElementById('set_variable').value = '';
             }
@@ -105,34 +108,36 @@ function initSave(_settings) {
 
 function initClear(_settings) {
     document.getElementById('clear').addEventListener('click', function (e) {
-        const clearAll = Homey.confirm('Are you sure to execute this action?');
-        if (clearAll) {
-            error = document.getElementById('error');
-            loading = document.getElementById('loading');
-            success = document.getElementById('success');
+        const clearAll = Homey.confirm(Homey.__('settings.delete-confirm'));
+        clearAll.then((confirmResult) => {
+            if (confirmResult) {
+                error = document.getElementById('error');
+                loading = document.getElementById('loading');
+                success = document.getElementById('success');
 
-            document.getElementById('variables_overview').innerHTML = '';
-            document.getElementById('set_variable').value = '';
+                document.getElementById('variables_overview').innerHTML = '';
+                document.getElementById('set_variable').value = '';
 
-            const settings = {
-                COMPARISONS: [],
-                TOTALS: [],
-                VARIABLES: []
-            };
+                const settings = {
+                    COMPARISONS: [],
+                    TOTALS: [],
+                    VARIABLES: []
+                };
 
-            Homey.api('PUT', '/settings', settings, function (err, result) {
-                if (err) {
-                    error.innerHTML = err;
-                    loading.innerHTML = '';
-                    success.innerHTML = '';
-                    return Homey.alert(err);
-                } else {
-                    loading.innerHTML = '';
-                    error.innerHTML = '';
-                    success.innerHTML = 'Cleared & Saved.';
-                }
-            });
-        }
+                Homey.api('PUT', '/settings', settings, function (err, result) {
+                    if (err) {
+                        error.innerHTML = err;
+                        loading.innerHTML = '';
+                        success.innerHTML = '';
+                        return Homey.alert(err);
+                    } else {
+                        loading.innerHTML = '';
+                        error.innerHTML = '';
+                        success.innerHTML = Homey.__('settings.cleared');
+                    }
+                });
+            }
+        });
     });
 }
 

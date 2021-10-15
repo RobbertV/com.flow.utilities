@@ -53,8 +53,11 @@ function variableMapper(variables) {
 }
 
 function remove(name) {
-    window.VARIABLES = window.VARIABLES.filter((f) => f !== name);
-    document.getElementById('save').click();
+    const removeThis = Homey.confirm('Are you sure to execute this action?');
+    if (removeThis) {
+        window.VARIABLES = window.VARIABLES.filter((f) => f !== name);
+        document.getElementById('save').click();
+    }
 }
 
 function initSave(_settings) {

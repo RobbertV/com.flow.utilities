@@ -4,7 +4,12 @@
     "variables": "Variabelen",
     "set_variable": "Maak variabele",
     "add": "Voeg toe",
-    "clear": "Verwijder alles"
+    "clear": "Verwijder alles",
+    "delete-confirm": "Weet je zekere dat je wilt verwijderen?",
+    "loading": "Laden...",
+    "saved": "Opgeslagen",
+    "removed": "Verwijderd",
+    "cleared": "Alles verwijderd"
   },
   "helpers": {
     "locale": "nl-NL",

@@ -87,7 +87,7 @@ class App extends Homey.App {
     }
 
     async setTokens(newSettings, oldSettings = []) {
-        newSettings.forEach((t) => {
+        await newSettings.forEach((t) => {
             this.createToken(t, { src: 'duration' });
             this.createToken(t, { src: 'currency', type: 'string' });
             this.createToken(t, { src: 'comparison', type: 'number' });
@@ -121,14 +121,16 @@ class App extends Homey.App {
 
         const id = formatToken(title);
 
+        this.log(`[createToken] - Pre create - ${id}, ${!!this.TOKENS[id]}`);
+
         if (!this.TOKENS[id]) {
             this.TOKENS[id] = await this.homey.flow.createToken(id, {
                 type,
                 title
             });
-            this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type} - Value: ${value}`);
+            this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type}`);
         }
-
+        this.log(`[createToken] - set token value => ID: ${id} - Value: ${value}`);
         await this.TOKENS[id].setValue(value);
     }
 
@@ -139,7 +141,10 @@ class App extends Homey.App {
 
         if (this.TOKENS[id]) {
             await this.TOKENS[id].unregister();
-            this.log(`[removeToken] - removed Token => ID: ${id} - Title: ${title}`);
+            // Remove token from list, since unregister doesn't do this.
+            delete this.TOKENS[id];
+
+            this.log(`[removeToken] - removed Token => ID: ${id} - Title: ${title} - ${!!this.TOKENS[id]}`);
         }
     }
 
@@ -158,7 +163,7 @@ class App extends Homey.App {
 
         await this.updateSettings({
             ...this.appSettings,
-            COMPARISONS: [...newSettings, { ...existing_comparison, token, ...(date && {date}), ...(comparison && {comparison}) }]
+            COMPARISONS: [...newSettings, { ...existing_comparison, token, ...(date && { date }), ...(comparison && { comparison }) }]
         });
     }
 

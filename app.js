@@ -183,6 +183,8 @@ class App extends Homey.App {
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
+        const trigger = comparison ? 'COMPARISON' : '' || duration ? 'DURATION' : '';
+
         await this.updateSettings({
             ...this.appSettings,
             TOTALS: [...totals, { token, duration, comparison }]
@@ -192,6 +194,12 @@ class App extends Homey.App {
         if (comparison) {
             await this.createToken(token, { src: 'comparison', value: parseFloat(comparison), type: 'number' });
         }
+
+        await this.homey.flow
+            .getTriggerCard(`trigger_${trigger}_SET`)
+            .trigger({ comparison: comparison })
+            .catch(this.error)
+            .then(this.log(`[action_END] ${trigger} - Triggered: "${comparison} | ${duration}"`));
     }
 
     async action_SET_CURRENCY(token, number, currency) {

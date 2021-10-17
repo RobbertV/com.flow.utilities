@@ -88,6 +88,27 @@
     }
   },
   "flow": {
+    "triggers": [
+      {
+        "id": "trigger_COMPARISON_SET",
+        "title": {
+          "en": "Comparison is set",
+          "nl": "Vergelijking is berekend",
+          "de": "Comparison is set"
+        },
+        "tokens": [
+          {
+            "name": "comparison",
+            "type": "string",
+            "title": {
+              "en": "Comparison",
+              "nl": "Vergelijking",
+              "de": "Vergleich"
+            }
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "action_START_DURATION",

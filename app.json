@@ -33,9 +33,7 @@
       "Devices"
     ]
   },
-  "category": [
-    "tools"
-  ],
+  "category": ["tools"],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -98,6 +96,15 @@
         },
         "tokens": [
           {
+            "name": "token",
+            "type": "string",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          },
+          {
             "name": "comparison",
             "type": "number",
             "title": {
@@ -106,30 +113,15 @@
               "de": "Vergleich"
             }
           }
-        ]
-      }
-    ],
-    "conditions": [
-      {
-        "id": "condition_COMPARISON",
-        "title": {
-          "en": "Calculation is for",
-          "nl": "Brekening is voor",
-          "de": ""
-        },
-        "titleFormatted": {
-          "en": "Calculation is for [[variable]]",
-          "nl": "Brekening is voor [[variable]]",
-          "de": "Start Laufzeit für [[variable]]"
-        },
+        ],
         "args": [
           {
             "name": "variable",
             "type": "autocomplete",
             "placeholder": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable"
+              "en": "variable (optional)",
+              "nl": "variabele (optioneel)",
+              "de": "Variable (optional)"
             }
           }
         ]

@@ -119,9 +119,9 @@
             "name": "variable",
             "type": "autocomplete",
             "placeholder": {
-              "en": "variable (optional)",
-              "nl": "variabele (optioneel)",
-              "de": "Variable (optional)"
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]
@@ -158,9 +158,9 @@
             "name": "variable",
             "type": "autocomplete",
             "placeholder": {
-              "en": "variable (optional)",
-              "nl": "variabele (optioneel)",
-              "de": "Variable (optional)"
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]

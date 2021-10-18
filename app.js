@@ -2,7 +2,8 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { sleep, calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
+const flowConditions = require('./lib/flows/conditions');
+const { calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -28,6 +29,7 @@ class App extends Homey.App {
 
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
+        await flowConditions.init(this);
     }
 
     // -------------------- SETTINGS ----------------------
@@ -183,8 +185,6 @@ class App extends Homey.App {
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
-        const trigger = comparison ? 'COMPARISON' : '' || duration ? 'DURATION' : '';
-
         await this.updateSettings({
             ...this.appSettings,
             TOTALS: [...totals, { token, duration, comparison }]
@@ -193,13 +193,13 @@ class App extends Homey.App {
         await this.createToken(token, { src: 'duration', value: duration });
         if (comparison) {
             await this.createToken(token, { src: 'comparison', value: parseFloat(comparison), type: 'number' });
-        }
 
-        await this.homey.flow
-            .getTriggerCard(`trigger_${trigger}_SET`)
-            .trigger({ comparison: comparison })
-            .catch(this.error)
-            .then(this.log(`[action_END] ${trigger} - Triggered: "${comparison} | ${duration}"`));
+            await this.homey.flow
+                .getTriggerCard(`trigger_COMPARISON`)
+                .trigger({ token: token, comparison: comparison })
+                .catch(this.error)
+                .then(this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
+        }
     }
 
     async action_SET_CURRENCY(token, number, currency) {

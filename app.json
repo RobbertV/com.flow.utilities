@@ -90,20 +90,46 @@
   "flow": {
     "triggers": [
       {
-        "id": "trigger_COMPARISON_SET",
+        "id": "trigger_COMPARISON",
         "title": {
-          "en": "Comparison is set",
+          "en": "Comparison is made",
           "nl": "Vergelijking is berekend",
-          "de": "Comparison is set"
+          "de": "Comparison is made"
         },
         "tokens": [
           {
             "name": "comparison",
-            "type": "string",
+            "type": "number",
             "title": {
               "en": "Comparison",
               "nl": "Vergelijking",
               "de": "Vergleich"
+            }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "condition_COMPARISON",
+        "title": {
+          "en": "Calculation is for",
+          "nl": "Brekening is voor",
+          "de": ""
+        },
+        "titleFormatted": {
+          "en": "Calculation is for [[variable]]",
+          "nl": "Brekening is voor [[variable]]",
+          "de": "Start Laufzeit für [[variable]]"
+        },
+        "args": [
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
             }
           }
         ]

@@ -191,7 +191,14 @@ class App extends Homey.App {
             TOTALS: [...totals, { token, duration, comparison }]
         });
 
-        await this.createToken(token, { src: 'duration', value: duration });
+        if (duration) {
+            await this.createToken(token, { src: 'duration', value: duration });
+            this.homey.app.trigger_DURATION
+                .trigger({ token, duration }, { token })
+                .catch(this.error)
+                .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration}"`));
+        }
+
         if (comparison) {
             await this.createToken(token, { src: 'comparison', value: parseFloat(comparison), type: 'number' });
 

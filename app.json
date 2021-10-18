@@ -125,6 +125,45 @@
             }
           }
         ]
+      },
+      {
+        "id": "trigger_DURATION",
+        "title": {
+          "en": "Duration is set",
+          "nl": "Looptijd is berekend",
+          "de": "Laufzeit wird berechnet"
+        },
+        "tokens": [
+          {
+            "name": "token",
+            "type": "string",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          },
+          {
+            "name": "duration",
+            "type": "string",
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Laufzeit"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable (optional)",
+              "nl": "variabele (optioneel)",
+              "de": "Variable (optional)"
+            }
+          }
+        ]
       }
     ],
     "actions": [

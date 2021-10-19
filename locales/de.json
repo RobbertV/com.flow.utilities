@@ -6,6 +6,7 @@
     "add": "Hinzufügen",
     "clear": "Alles löschen",
     "delete-confirm": "Sind Sie sicher, dass Sie diese Aktion ausführen?",
+    "delete-confirm-single": "Sind Sie sicher, dass Sie diese Aktion ausführen?? Löschen ' __var__ '",
     "loading": "Wird geladen...",
     "saved": "Gelagert",
     "removed": "Gelöscht",
@@ -22,6 +23,7 @@
     "duration": "laufzeit",
     "currency": "währung",
     "calculation": "berechnung",
-    "decimals": "dezimalstellen"
+    "decimals": "dezimalstellen",
+    "all": "-Alle Variablen-"
   }
 }

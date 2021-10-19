@@ -2,7 +2,8 @@
 
 const Homey = require('homey');
 const flowActions = require('./lib/flows/actions');
-const { sleep, calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
+const flowTriggers = require('./lib/flows/triggers');
+const { calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -28,6 +29,7 @@ class App extends Homey.App {
 
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
+        await flowTriggers.init(this);
     }
 
     // -------------------- SETTINGS ----------------------
@@ -88,11 +90,13 @@ class App extends Homey.App {
 
     async setTokens(newSettings, oldSettings = []) {
         await newSettings.forEach((t) => {
-            this.createToken(t, { src: 'duration' });
-            this.createToken(t, { src: 'currency', type: 'string' });
-            this.createToken(t, { src: 'comparison', type: 'number' });
-            this.createToken(t, { src: 'calculation', type: 'number' });
-            this.createToken(t, { src: 'decimals', type: 'number' });
+            if (!this.TOKENS[t]) {
+                this.createToken(t, { src: 'duration' });
+                this.createToken(t, { src: 'currency', type: 'string' });
+                this.createToken(t, { src: 'comparison', type: 'number' });
+                this.createToken(t, { src: 'calculation', type: 'number' });
+                this.createToken(t, { src: 'decimals', type: 'number' });
+            }
         });
 
         if (oldSettings.length) {
@@ -121,8 +125,6 @@ class App extends Homey.App {
 
         const id = formatToken(title);
 
-        this.log(`[createToken] - Pre create - ${id}, ${!!this.TOKENS[id]}`);
-
         if (!this.TOKENS[id]) {
             this.TOKENS[id] = await this.homey.flow.createToken(id, {
                 type,
@@ -130,6 +132,7 @@ class App extends Homey.App {
             });
             this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type}`);
         }
+
         this.log(`[createToken] - set token value => ID: ${id} - Value: ${value}`);
         await this.TOKENS[id].setValue(value);
     }
@@ -167,7 +170,7 @@ class App extends Homey.App {
         });
     }
 
-    async action_END(token, value = null) {
+    async action_END(token, src, value = null) {
         this.homey.app.log('[action_END] -', token);
         const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
 
@@ -188,9 +191,21 @@ class App extends Homey.App {
             TOTALS: [...totals, { token, duration, comparison }]
         });
 
-        await this.createToken(token, { src: 'duration', value: duration });
-        if (comparison) {
-            await this.createToken(token, { src: 'comparison', value: parseFloat(comparison), type: 'number' });
+        if (src === 'duration' && duration) {
+            await this.createToken(token, { src, value: duration });
+            this.homey.app.trigger_DURATION
+                .trigger({ token, duration }, { token })
+                .catch(this.error)
+                .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration}"`));
+        }
+
+        if (src === 'comparison' && comparison) {
+            await this.createToken(token, { src, value: parseFloat(comparison), type: 'number' });
+
+            this.homey.app.trigger_COMPARISON
+                .trigger({ token, comparison }, { token })
+                .catch(this.error)
+                .then(this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
         }
     }
 

@@ -33,9 +33,7 @@
       "Devices"
     ]
   },
-  "category": [
-    "tools"
-  ],
+  "category": ["tools"],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -88,6 +86,96 @@
     }
   },
   "flow": {
+    "triggers": [
+      {
+        "id": "trigger_COMPARISON",
+        "title": {
+          "en": "Comparison is made",
+          "nl": "Vergelijking is berekend",
+          "de": "Comparison is made"
+        },
+        "titleFormatted": {
+          "en": "Comparison is made for [[variable]]",
+          "nl": "Vergelijking is berekend voor [[variable]]",
+          "de": "Gleichung wird berechnet für [[variable]]"
+        },
+        "tokens": [
+          {
+            "name": "token",
+            "type": "string",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          },
+          {
+            "name": "comparison",
+            "type": "number",
+            "title": {
+              "en": "Comparison",
+              "nl": "Vergelijking",
+              "de": "Vergleich"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          }
+        ]
+      },
+      {
+        "id": "trigger_DURATION",
+        "title": {
+          "en": "Duration is set",
+          "nl": "Looptijd is berekend",
+          "de": "Laufzeit wird berechnet"
+        },
+        "titleFormatted": {
+          "en": "Duration is set for [[variable]]",
+          "nl": "Looptijd is berekend voor [[variable]]",
+          "de": "Laufzeit wird berechnet für [[variable]]"
+        },
+        "tokens": [
+          {
+            "name": "token",
+            "type": "string",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          },
+          {
+            "name": "duration",
+            "type": "string",
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Laufzeit"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "action_START_DURATION",
@@ -98,7 +186,7 @@
         },
         "titleFormatted": {
           "en": "Start duration for [[variable]]",
-          "nl": "Begin looptijd voor [[variable]]",
+          "nl": "Start looptijd voor [[variable]]",
           "de": "Start Laufzeit für [[variable]]"
         },
         "hint": {

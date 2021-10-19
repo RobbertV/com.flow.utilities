@@ -53,7 +53,7 @@ function variableMapper(variables) {
 }
 
 function remove(name) {
-    const clearSingle = Homey.confirm(Homey.__('settings.delete-confirm'));
+    const clearSingle = Homey.confirm(Homey.__('settings.delete-confirm-single', {var: name}));
     clearSingle.then((confirmResult) => {
         if (confirmResult) {
             window.VARIABLES = window.VARIABLES.filter((f) => f !== name);

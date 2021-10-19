@@ -94,6 +94,11 @@
           "nl": "Vergelijking is berekend",
           "de": "Comparison is made"
         },
+        "titleFormatted": {
+          "en": "Comparison is made for [[variable]]",
+          "nl": "Vergelijking is berekend voor [[variable]]",
+          "de": "Gleichung wird berechnet für [[variable]]"
+        },
         "tokens": [
           {
             "name": "token",
@@ -132,6 +137,11 @@
           "en": "Duration is set",
           "nl": "Looptijd is berekend",
           "de": "Laufzeit wird berechnet"
+        },
+        "titleFormatted": {
+          "en": "Duration is set for [[variable]]",
+          "nl": "Looptijd is berekend voor [[variable]]",
+          "de": "Laufzeit wird berechnet für [[variable]]"
         },
         "tokens": [
           {
@@ -176,7 +186,7 @@
         },
         "titleFormatted": {
           "en": "Start duration for [[variable]]",
-          "nl": "Begin looptijd voor [[variable]]",
+          "nl": "Start looptijd voor [[variable]]",
           "de": "Start Laufzeit für [[variable]]"
         },
         "hint": {

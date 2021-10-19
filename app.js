@@ -170,7 +170,7 @@ class App extends Homey.App {
         });
     }
 
-    async action_END(token, value = null) {
+    async action_END(token, src, value = null) {
         this.homey.app.log('[action_END] -', token);
         const existing_comparison = this.appSettings.COMPARISONS.find((x) => x.token === token);
 
@@ -191,16 +191,16 @@ class App extends Homey.App {
             TOTALS: [...totals, { token, duration, comparison }]
         });
 
-        if (duration) {
-            await this.createToken(token, { src: 'duration', value: duration });
+        if (src === 'duration' && duration) {
+            await this.createToken(token, { src, value: duration });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration }, { token })
                 .catch(this.error)
                 .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration}"`));
         }
 
-        if (comparison) {
-            await this.createToken(token, { src: 'comparison', value: parseFloat(comparison), type: 'number' });
+        if (src === 'comparison' && comparison) {
+            await this.createToken(token, { src, value: parseFloat(comparison), type: 'number' });
 
             this.homey.app.trigger_COMPARISON
                 .trigger({ token, comparison }, { token })

@@ -199,7 +199,7 @@ class App extends Homey.App {
                 .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration}"`));
         }
 
-        if (src === 'comparison' && comparison) {
+        if (src === 'comparison' && comparison !== null) {
             await this.createToken(token, { src, value: parseFloat(comparison), type: 'number' });
 
             this.homey.app.trigger_COMPARISON

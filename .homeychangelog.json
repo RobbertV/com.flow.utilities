@@ -46,5 +46,8 @@
   },
   "1.2.0": {
     "en": "Add trigger cards for duration and comparison"
+  },
+  "1.2.1": {
+    "en": "FIX: comparison when value is 0"
   }
 }

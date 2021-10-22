@@ -49,5 +49,8 @@
   },
   "1.2.1": {
     "en": "FIX: comparison when value is 0"
+  },
+  "1.2.2": {
+    "en": "Update of German translation"
   }
 }

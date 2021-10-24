@@ -52,5 +52,8 @@
   },
   "1.2.2": {
     "en": "Update of German translation"
+  },
+  "1.2.3": {
+    "en": "Added support for singular or plurar text in duration result"
   }
 }

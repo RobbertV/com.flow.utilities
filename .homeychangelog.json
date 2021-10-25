@@ -55,5 +55,8 @@
   },
   "1.2.3": {
     "en": "Added support for singular or plurar text in duration result"
+  },
+  "1.2.4": {
+    "en": "FIX Translation corrections"
   }
 }

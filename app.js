@@ -189,7 +189,6 @@ class App extends Homey.App {
         let zoneChanges = this.appSettings.ZONES;
 
         if (isOn && !this.appSettings.ZONES[zone]) {
-
             await this.updateSettings({
                 ...this.appSettings,
                 ZONES: { ...zoneChanges, [zone]: isOn }
@@ -200,7 +199,6 @@ class App extends Homey.App {
                 .catch(this.error)
                 .then(this.log(`[trigger_ZONE_CHANGE] - Triggered - ${zone} - true`));
         } else if (isOff && !!this.appSettings.ZONES[zone]) {
-
             await this.updateSettings({
                 ...this.appSettings,
                 ZONES: { ...zoneChanges, [zone]: !isOff }

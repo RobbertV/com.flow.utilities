@@ -186,9 +186,9 @@
           "de": "Devices in zone turned on/off"
         },
         "titleFormatted": {
-            "en": "Devices in [[zone]] changed to [[onoff]]",
-            "nl": "Apparaten in [[zone]] zijn [[onoff]] gezet",
-            "de": "Devices in [[zone]] changed to [[onoff]]"
+          "en": "Devices in [[zone]] changed to [[onoff]]",
+          "nl": "Apparaten in [[zone]] zijn [[onoff]] gezet",
+          "de": "Devices in [[zone]] changed to [[onoff]]"
         },
         "args": [
           {
@@ -204,9 +204,9 @@
             "name": "onoff",
             "type": "dropdown",
             "title": {
-                "en": "On/Off",
-                "nl": "Aan/Uit",
-                "de": "An/Aus"
+              "en": "On/Off",
+              "nl": "Aan/Uit",
+              "de": "An/Aus"
             },
             "values": [
               {
@@ -578,9 +578,9 @@
             "name": "value",
             "type": "dropdown",
             "title": {
-                "en": "On/Off",
-                "nl": "Aan/Uit",
-                "de": "An/Aus"
+              "en": "On/Off",
+              "nl": "Aan/Uit",
+              "de": "An/Aus"
             },
             "values": [
               {
@@ -613,9 +613,9 @@
             "name": "devicetype",
             "type": "dropdown",
             "title": {
-                "en": "Devicetype",
-                "nl": "Apparaattype",
-                "de": "Devicetype"
+              "en": "Devicetype",
+              "nl": "Apparaattype",
+              "de": "Devicetype"
             },
             "values": [
               {
@@ -672,7 +672,7 @@
             "name": "type",
             "type": "dropdown",
             "title": {
-                "en": "Type"
+              "en": "Type"
             },
             "values": [
               {

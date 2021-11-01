@@ -1,6 +1,6 @@
 {
   "id": "com.flow.utilities",
-  "version": "1.2.0",
+  "version": "1.2.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#ea951c",
@@ -94,12 +94,12 @@
         "title": {
           "en": "Comparison is made",
           "nl": "Vergelijking is berekend",
-          "de": "Comparison is made"
+          "de": "Vergleich wurde durchgeführt"
         },
         "titleFormatted": {
           "en": "Comparison is made for [[variable]]",
           "nl": "Vergelijking is berekend voor [[variable]]",
-          "de": "Gleichung wird berechnet für [[variable]]"
+          "de": "Vergleich wird berechnet für [[variable]]"
         },
         "tokens": [
           {
@@ -192,9 +192,9 @@
           "de": "Start Laufzeit für [[variable]]"
         },
         "hint": {
-          "en": "Set the begin value for the duration comparison.",
-          "nl": "Sla begin tijd op voor de looptijd in de eind kaart.",
-          "de": "Anfangswert für den Laufzeitvergleich festlegen."
+          "en": "Set the begin value for the duration comparison",
+          "nl": "Sla begin tijd op voor de looptijd in de eind kaart",
+          "de": "Anfangswert für den Laufzeitvergleich festlegen"
         },
         "args": [
           {
@@ -252,7 +252,7 @@
         "hint": {
           "en": "Set Start value for comparison, this can be used in the end card",
           "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart",
-          "de": "Startwert für Vergleich festlegen, dieser kann in der Endkarte verwendet werden."
+          "de": "Startwert für Vergleich festlegen, dieser kann in der Endwertkarte verwendet werden."
         },
         "args": [
           {
@@ -290,7 +290,7 @@
         "hint": {
           "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
           "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\".",
-          "de": "Stellen Sie sicher, dass die Startwertkarte vorher festgelegt wurde, mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\"."
+          "de": "Stellen Sie sicher, dass die Startwertkarte vorher ausgeführt wurde. Mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\"."
         },
         "args": [
           {
@@ -328,7 +328,7 @@
         "hint": {
           "en": "Convert a number value to selected currency. Outcome will be stored in \"{variable} currency\".",
           "nl": "Conventeer een nummer waarde in geselecteerde valuta. Resultaat wordt opgeslagen in \"{variable} valuta\".",
-          "de": "Rechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\"."
+          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\"."
         },
         "args": [
           {
@@ -413,7 +413,7 @@
             "title": {
               "en": "select calculation",
               "nl": "kies berekening",
-              "de": "Berechnung wählen"
+              "de": "Art der Berechnung wählen"
             },
             "values": [
               {

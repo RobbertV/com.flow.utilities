@@ -46,5 +46,17 @@
   },
   "1.2.0": {
     "en": "Add trigger cards for duration and comparison"
+  },
+  "1.2.1": {
+    "en": "FIX: comparison when value is 0"
+  },
+  "1.2.2": {
+    "en": "Update of German translation"
+  },
+  "1.2.3": {
+    "en": "Added support for singular or plurar text in duration result"
+  },
+  "1.2.4": {
+    "en": "FIX Translation corrections"
   }
 }

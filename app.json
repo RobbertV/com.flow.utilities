@@ -3,6 +3,7 @@
   "version": "1.2.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "permissions": ["homey:manager:api"],
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
@@ -30,12 +31,12 @@
       "Homey",
       "Athom",
       "Apps",
-      "Devices"
+      "Devices",
+      "Zone",
+      "Zones"
     ]
   },
-  "category": [
-    "tools"
-  ],
+  "category": ["tools"],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -505,6 +506,153 @@
               "en": "variable",
               "nl": "variabele",
               "de": "Variable"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_ONOFF",
+        "title": {
+          "en": "Set Zone onoff",
+          "nl": "Set Zone onoff",
+          "de": "Set Zone onoff"
+        },
+        "titleFormatted": {
+          "en": "Set Zone onoff [[value]] [[zone]]",
+          "nl": "Set Zone onoff [[value]] [[zone]]",
+          "de": "Set Zone onoff [[value]] [[zone]]"
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "On"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Off"
+                }
+              }
+            ]
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_PERCENTAGE",
+        "title": {
+          "en": "Set Zone Percentage",
+          "nl": "Set Zone Percentage",
+          "de": "Set Zone Percentage"
+        },
+        "titleFormatted": {
+          "en": "Set Zone Percentage [[type]] [[percentage]] [[zone]]",
+          "nl": "Set Zone Percentage [[type]] [[percentage]] [[zone]]",
+          "de": "Set Zone Percentage [[type]] [[percentage]] [[zone]]"
+        },
+        "args": [
+          {
+            "name": "type",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "dim",
+                "label": {
+                  "en": "Dim",
+                  "nl": "Dim"
+                }
+              },
+              {
+                "id": "light_temperature",
+                "label": {
+                  "en": "White Level",
+                  "nl": "White Level"
+                }
+              },
+              {
+                "id": "volume_set",
+                "label": {
+                  "en": "Volume",
+                  "nl": "Volume"
+                }
+              },
+              {
+                "id": "windowcoverings_set",
+                "label": {
+                  "en": "Window Coverings",
+                  "nl": "Window Coverings"
+                }
+              }
+            ]
+          },
+          {
+            "name": "percentage",
+            "type": "number",
+            "placeholder": {
+              "en": "Percentage",
+              "nl": "Percentage",
+              "de": "Percentage"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_COLOR",
+        "title": {
+          "en": "Set Zone color",
+          "nl": "Set Zone color",
+          "de": "Set Zone color"
+        },
+        "titleFormatted": {
+          "en": "Set Zone color [[color]] [[zone]]",
+          "nl": "Set Zone color [[color]] [[zone]]",
+          "de": "Set Zone color [[color]] [[zone]]"
+        },
+        "args": [
+          {
+            "name": "color",
+            "type": "color",
+            "placeholder": {
+              "en": "Color",
+              "nl": "Color",
+              "de": "Color"
+            }
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
             }
           }
         ]

@@ -1,8 +1,8 @@
 'use strict';
 
 const Homey = require('homey');
-const HomeyAPI = require("athom-api").HomeyAPI;
-const tinycolor = require("tinycolor2");
+const HomeyAPI = require('athom-api').HomeyAPI;
+const tinycolor = require('tinycolor2');
 const flowActions = require('./lib/flows/actions');
 const flowTriggers = require('./lib/flows/triggers');
 const { calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
@@ -235,12 +235,12 @@ class App extends Homey.App {
     }
 
     async action_SET_ZONE_ONOFF(zoneId, value) {
-        this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, 'onoff', value);
+        this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, 'onoff', !!parseInt(value));
 
         const devices = await this._api.devices.getDevices();
-        for(const device of Object.values(devices)) {
-            if(device.zone === zoneId && device.capabilities.includes('onoff')) {
-                await device.setCapabilityValue('onoff', !!parseInt(value)); 
+        for (const device of Object.values(devices)) {
+            if (device.zone === zoneId && device.capabilities.includes('onoff')) {
+                await device.setCapabilityValue('onoff', !!parseInt(value));
             }
         }
     }
@@ -249,9 +249,9 @@ class App extends Homey.App {
         this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, type, percentage);
 
         const devices = await this._api.devices.getDevices();
-        for(const device of Object.values(devices)) {
-            if(device.zone === zoneId && device.capabilities.includes(type)) {
-                await device.setCapabilityValue(type, (percentage / 100)); 
+        for (const device of Object.values(devices)) {
+            if (device.zone === zoneId && device.capabilities.includes(type)) {
+                await device.setCapabilityValue(type, percentage / 100);
             }
         }
     }
@@ -265,13 +265,13 @@ class App extends Homey.App {
         this.homey.app.log('[action_SET_ZONE_COLOR] - setting color to ', hsv.s, hue);
 
         const devices = await this._api.devices.getDevices();
-        for(const device of Object.values(devices)) {
-            if(device.zone === zoneId && device.capabilities.includes('light_hue')) {
-                await device.setCapabilityValue('light_hue', hue); 
+        for (const device of Object.values(devices)) {
+            if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
+                await device.setCapabilityValue('light_hue', hue);
             }
 
-            if(device.zone === zoneId && device.capabilities.includes('light_saturation')) {
-                await device.setCapabilityValue('light_saturation', hsv.s); 
+            if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
+                await device.setCapabilityValue('light_saturation', hsv.s);
             }
         }
     }

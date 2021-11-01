@@ -181,14 +181,14 @@
       {
         "id": "trigger_ZONE_CHANGE",
         "title": {
-          "en": "trigger_ZONE_CHANGE",
-          "nl": "trigger_ZONE_CHANGE",
-          "de": "trigger_ZONE_CHANGE"
+          "en": "Devices in zone turned on/off",
+          "nl": "Apparaten in zone zijn aan/uit gezet",
+          "de": "Devices in zone turned on/off"
         },
         "titleFormatted": {
-            "en": "trigger_ZONE_CHANGE [[zone]] [[onoff]]",
-            "nl": "trigger_ZONE_CHANGE [[zone]] [[onoff]]",
-            "de": "trigger_ZONE_CHANGE [[zone]] [[onoff]]"
+            "en": "Devices in [[zone]] changed to [[onoff]]",
+            "nl": "Apparaten in [[zone]] zijn [[onoff]] gezet",
+            "de": "Devices in [[zone]] changed to [[onoff]]"
         },
         "args": [
           {
@@ -208,14 +208,16 @@
                 "id": "1",
                 "label": {
                   "en": "On",
-                  "nl": "On"
+                  "nl": "Aan",
+                  "de": "An"
                 }
               },
               {
                 "id": "0",
                 "label": {
                   "en": "Off",
-                  "nl": "Off"
+                  "nl": "Uit",
+                  "de": "aus"
                 }
               }
             ]
@@ -557,14 +559,14 @@
       {
         "id": "action_SET_ZONE_ONOFF",
         "title": {
-          "en": "Set zone onoff",
+          "en": "Set zone on/off",
           "nl": "Zet zone aan/uit",
-          "de": "Set Zone onoff"
+          "de": "Set Zone on/off"
         },
         "titleFormatted": {
-          "en": "Set [[zone]] [[value]]",
-          "nl": "Zet [[zone]] [[value]]",
-          "de": "Set [[zone]] [[value]]"
+          "en": "Set [[zone]] on/off [[value]]",
+          "nl": "Zet [[zone]] aan/uit [[value]]",
+          "de": "Set [[zone]] on/off [[value]]"
         },
         "args": [
           {
@@ -576,7 +578,7 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "On"
+                  "de": "An"
                 }
               },
               {
@@ -584,7 +586,7 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Off"
+                  "de": "Aus"
                 }
               },
               {
@@ -592,7 +594,7 @@
                 "label": {
                   "en": "Turn on or off",
                   "nl": "Schakel aan of uit",
-                  "de": "Turn on or off"
+                  "de": "An oder Aus"
                 }
               }
             ]
@@ -611,14 +613,14 @@
       {
         "id": "action_SET_ZONE_PERCENTAGE",
         "title": {
-          "en": "Set Zone Percentage",
-          "nl": "Set Zone Percentage",
-          "de": "Set Zone Percentage"
+          "en": "Set device percentage in zone",
+          "nl": "Zet apparaat percentage in zone",
+          "de": "Set device percentage in zone"
         },
         "titleFormatted": {
-          "en": "Set Zone Percentage [[type]] [[percentage]] [[zone]]",
-          "nl": "Set Zone Percentage [[type]] [[percentage]] [[zone]]",
-          "de": "Set Zone Percentage [[type]] [[percentage]] [[zone]]"
+          "en": "Set [[type]] percentage to [[percentage]]% in [[zone]]",
+          "nl": "Zet [[type]] percentage naar [[percentage]]% in [[zone]]",
+          "de": "Set [[type]] percentage to [[percentage]]% in [[zone]]"
         },
         "args": [
           {
@@ -653,7 +655,7 @@
                 "id": "windowcoverings_set",
                 "label": {
                   "en": "Window Coverings",
-                  "nl": "Window Coverings",
+                  "nl": "Gordijnen",
                   "de": "Window Coverings"
                 }
               }
@@ -690,9 +692,9 @@
           "de": "Set Zone color"
         },
         "titleFormatted": {
-          "en": "Set [[zone]] color [[color]]",
-          "nl": "Maak [[zone]] kleur [[color]]",
-          "de": "Set [[zone]] color [[color]]"
+          "en": "Set light color to [[color]] in [[zone]]",
+          "nl": "Zet lamp kleur naar [[color]] in [[zone]]",
+          "de": "Set light color to [[color]] in [[zone]]"
         },
         "args": [
           {

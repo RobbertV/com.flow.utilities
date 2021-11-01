@@ -34,7 +34,7 @@ class App extends Homey.App {
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
         await flowTriggers.init(this);
-        await this.setZonecheckInterval();
+        await this.setCheckZoneOnOffInterval();
     }
 
     // -------------------- SETTINGS ----------------------
@@ -166,45 +166,53 @@ class App extends Homey.App {
 
     // -------------------- FUNCTIONS ----------------------
 
-    async setZonecheckInterval(clear = false) {
-        this.REFRESH_INTERVAL = 1000 * (0.2 * 60);
-        if (clear) {
-            this.log(`[onPollInterval] - Clearinterval`);
-            this.homey.clearInterval(this.onPollInterval);
-        }
-
-        this.onPollInterval = this.homey.setInterval(this.checkZoneOnOff.bind(this), this.REFRESH_INTERVAL);
-    }
-
-    async checkZoneOnOff() {
-        let devices = [];
+    async setCheckZoneOnOffInterval() {
+        const devices = Object.values(await this._api.devices.getDevices());
         const zones = Object.keys(this.appSettings.ZONES);
-
-        if (zones.length) {
-            devices = Object.values(await this._api.devices.getDevices());
-        }
-
-        for (const zone of zones) {
-            const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff);
-            const isOn = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === true);
-            const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
-
-            let zoneChanges = this.appSettings.ZONES;
-
-            if (isOn && !this.appSettings.ZONES[zone]) {
-                await this.updateSettings({
-                    ...this.appSettings,
-                    ZONES: { ...zoneChanges, [zone]: isOn }
+        const that = this;
+        for (const device of devices) {
+            if (device.capabilitiesObj.onoff && zones.includes(device.zone)) {
+                device.makeCapabilityInstance('onoff', () => {
+                    that.checkZoneOnOff(device.zone);
                 });
-                this.homey.app.trigger_ZONE_CHANGE.trigger({}, { zone, onoff: true }).catch(this.error).then(this.log(`[trigger_ZONE_CHANGE] - Triggered`));
-            } else if (isOff && this.appSettings.ZONES[zone]) {
-                await this.updateSettings({
-                    ...this.appSettings,
-                    ZONES: { ...zoneChanges, [zone]: !isOff }
-                });
-                this.homey.app.trigger_ZONE_CHANGE.trigger({}, { zone, onoff: false }).catch(this.error).then(this.log(`[trigger_ZONE_CHANGE] - Triggered`));
             }
         }
+    }
+
+    async checkZoneOnOff(zone) {
+        const devices = Object.values(await this._api.devices.getDevices());
+
+        const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
+        const isOn = onoffDevice.some((v) => v.settings && v.capabilitiesObj.onoff.value === true);
+        const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
+
+        let zoneChanges = this.appSettings.ZONES;
+
+        if (isOn && !this.appSettings.ZONES[zone]) {
+
+            await this.updateSettings({
+                ...this.appSettings,
+                ZONES: { ...zoneChanges, [zone]: isOn }
+            });
+
+            this.homey.app.trigger_ZONE_CHANGE
+                .trigger({}, { zone, onoff: true })
+                .catch(this.error)
+                .then(this.log(`[trigger_ZONE_CHANGE] - Triggered - ${zone} - true`));
+        } else if (isOff && !!this.appSettings.ZONES[zone]) {
+
+            await this.updateSettings({
+                ...this.appSettings,
+                ZONES: { ...zoneChanges, [zone]: !isOff }
+            });
+
+            this.homey.app.trigger_ZONE_CHANGE
+                .trigger({}, { zone, onoff: false })
+                .catch(this.error)
+                .then(this.log(`[trigger_ZONE_CHANGE] - Triggered - ${zone} - false`));
+        }
+
+        this.setCheckZoneOnOffInterval();
     }
 
     async action_START(token, paramOptions) {

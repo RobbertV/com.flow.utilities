@@ -540,6 +540,13 @@
                   "en": "Off",
                   "nl": "Off"
                 }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Turn on or off",
+                  "nl": "Schakel aan of uit"
+                }
               }
             ]
           },

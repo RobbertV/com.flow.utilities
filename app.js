@@ -234,13 +234,18 @@ class App extends Homey.App {
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }
 
-    async action_SET_ZONE_ONOFF(zoneId, value) {
-        this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, 'onoff', !!parseInt(value));
+    async action_SET_ZONE_ONOFF(zoneId, valueString) {
+        this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString);
 
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes('onoff')) {
-                await device.setCapabilityValue('onoff', !!parseInt(value));
+                const value = parseInt(valueString);
+                const onOff = value === 2 ? !device.capabilitiesObj.onoff.value : !!value
+
+                this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
+
+                device.setCapabilityValue('onoff', onOff);
             }
         }
     }
@@ -251,7 +256,7 @@ class App extends Homey.App {
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes(type)) {
-                await device.setCapabilityValue(type, percentage / 100);
+                device.setCapabilityValue(type, percentage / 100);
             }
         }
     }
@@ -267,11 +272,11 @@ class App extends Homey.App {
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
-                await device.setCapabilityValue('light_hue', hue);
+                device.setCapabilityValue('light_hue', hue);
             }
 
             if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
-                await device.setCapabilityValue('light_saturation', hsv.s);
+                device.setCapabilityValue('light_saturation', hsv.s);
             }
         }
     }

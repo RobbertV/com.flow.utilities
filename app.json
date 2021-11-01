@@ -513,14 +513,14 @@
       {
         "id": "action_SET_ZONE_ONOFF",
         "title": {
-          "en": "Set Zone onoff",
-          "nl": "Set Zone onoff",
+          "en": "Set zone onoff",
+          "nl": "Zet zone aan/uit",
           "de": "Set Zone onoff"
         },
         "titleFormatted": {
-          "en": "Set Zone onoff [[value]] [[zone]]",
-          "nl": "Set Zone onoff [[value]] [[zone]]",
-          "de": "Set Zone onoff [[value]] [[zone]]"
+          "en": "Set [[zone]] [[value]]",
+          "nl": "Zet [[zone]] [[value]]",
+          "de": "Set [[zone]] [[value]]"
         },
         "args": [
           {
@@ -531,21 +531,24 @@
                 "id": "1",
                 "label": {
                   "en": "On",
-                  "nl": "On"
+                  "nl": "Aan",
+                  "de": "On"
                 }
               },
               {
                 "id": "0",
                 "label": {
                   "en": "Off",
-                  "nl": "Off"
+                  "nl": "Uit",
+                  "de": "Off"
                 }
               },
               {
                 "id": "2",
                 "label": {
                   "en": "Turn on or off",
-                  "nl": "Schakel aan of uit"
+                  "nl": "Schakel aan of uit",
+                  "de": "Turn on or off"
                 }
               }
             ]
@@ -582,28 +585,32 @@
                 "id": "dim",
                 "label": {
                   "en": "Dim",
-                  "nl": "Dim"
+                  "nl": "Dim",
+                  "de": "Dim"
                 }
               },
               {
                 "id": "light_temperature",
                 "label": {
-                  "en": "White Level",
-                  "nl": "White Level"
+                  "en": "Temperature",
+                  "nl": "Temperatuur",
+                  "de": "Temperature"
                 }
               },
               {
                 "id": "volume_set",
                 "label": {
                   "en": "Volume",
-                  "nl": "Volume"
+                  "nl": "Volume",
+                  "de": "Volume"
                 }
               },
               {
                 "id": "windowcoverings_set",
                 "label": {
                   "en": "Window Coverings",
-                  "nl": "Window Coverings"
+                  "nl": "Window Coverings",
+                  "de": "Window Coverings"
                 }
               }
             ]
@@ -635,13 +642,13 @@
         "id": "action_SET_ZONE_COLOR",
         "title": {
           "en": "Set Zone color",
-          "nl": "Set Zone color",
+          "nl": "Maak zone kleur",
           "de": "Set Zone color"
         },
         "titleFormatted": {
-          "en": "Set Zone color [[color]] [[zone]]",
-          "nl": "Set Zone color [[color]] [[zone]]",
-          "de": "Set Zone color [[color]] [[zone]]"
+          "en": "Set [[zone]] color [[color]]",
+          "nl": "Maak [[zone]] kleur [[color]]",
+          "de": "Set [[zone]] color [[color]]"
         },
         "args": [
           {
@@ -649,7 +656,7 @@
             "type": "color",
             "placeholder": {
               "en": "Color",
-              "nl": "Color",
+              "nl": "Kleur",
               "de": "Color"
             }
           },

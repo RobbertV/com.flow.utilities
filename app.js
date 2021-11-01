@@ -292,14 +292,14 @@ class App extends Homey.App {
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }
 
-    async action_SET_ZONE_ONOFF(zoneId, valueString) {
+    async action_SET_ZONE_ONOFF(zoneId, valueString, deviceType) {
         this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString);
 
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {
-            if (device.zone === zoneId && device.capabilities.includes('onoff')) {
+            if (device.zone === zoneId && device.capabilities.includes('onoff') && (deviceType === '__any' || device.virtualClass === deviceType || device.class === deviceType)) {
                 const value = parseInt(valueString);
-                const onOff = value === 2 ? !device.capabilitiesObj.onoff.value : !!value;
+                const onOff = valueString === '2' ? !device.capabilitiesObj.onoff.value : !!value;
 
                 this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
 

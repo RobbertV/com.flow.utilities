@@ -203,6 +203,11 @@
           {
             "name": "onoff",
             "type": "dropdown",
+            "title": {
+                "en": "On/Off",
+                "nl": "Aan/Uit",
+                "de": "An/Aus"
+            },
             "values": [
               {
                 "id": "1",
@@ -559,19 +564,24 @@
       {
         "id": "action_SET_ZONE_ONOFF",
         "title": {
-          "en": "Set zone on/off",
-          "nl": "Zet zone aan/uit",
-          "de": "Set Zone on/off"
+          "en": "Set devices in zone on/off",
+          "nl": "Zet apparaten in zone aan/uit",
+          "de": "Set devices in zone on/off"
         },
         "titleFormatted": {
-          "en": "Set [[zone]] on/off [[value]]",
-          "nl": "Zet [[zone]] aan/uit [[value]]",
-          "de": "Set [[zone]] on/off [[value]]"
+          "en": "Set [[devicetype]] [[value]] in [[zone]]",
+          "nl": "Zet [[devicetype]] [[value]] in [[zone]]",
+          "de": "Set [[devicetype]] [[value]] in [[zone]]"
         },
         "args": [
           {
             "name": "value",
             "type": "dropdown",
+            "title": {
+                "en": "On/Off",
+                "nl": "Aan/Uit",
+                "de": "An/Aus"
+            },
             "values": [
               {
                 "id": "1",
@@ -595,6 +605,41 @@
                   "en": "Turn on or off",
                   "nl": "Schakel aan of uit",
                   "de": "An oder Aus"
+                }
+              }
+            ]
+          },
+          {
+            "name": "devicetype",
+            "type": "dropdown",
+            "title": {
+                "en": "Devicetype",
+                "nl": "Apparaattype",
+                "de": "Devicetype"
+            },
+            "values": [
+              {
+                "id": "__any",
+                "label": {
+                  "en": "All Devices",
+                  "nl": "Alle Apparaten",
+                  "de": "All Devices"
+                }
+              },
+              {
+                "id": "socket",
+                "label": {
+                  "en": "All Sockets",
+                  "nl": "Alle Schakeldozen",
+                  "de": "All Sockets"
+                }
+              },
+              {
+                "id": "light",
+                "label": {
+                  "en": "All Lights",
+                  "nl": "Alle Lampen",
+                  "de": "All Lights"
                 }
               }
             ]
@@ -626,6 +671,9 @@
           {
             "name": "type",
             "type": "dropdown",
+            "title": {
+                "en": "Type"
+            },
             "values": [
               {
                 "id": "dim",

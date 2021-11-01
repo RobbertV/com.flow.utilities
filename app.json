@@ -177,6 +177,50 @@
             }
           }
         ]
+      },
+      {
+        "id": "trigger_ZONE_CHANGE",
+        "title": {
+          "en": "trigger_ZONE_CHANGE",
+          "nl": "trigger_ZONE_CHANGE",
+          "de": "trigger_ZONE_CHANGE"
+        },
+        "titleFormatted": {
+            "en": "trigger_ZONE_CHANGE [[zone]] [[onoff]]",
+            "nl": "trigger_ZONE_CHANGE [[zone]] [[onoff]]",
+            "de": "trigger_ZONE_CHANGE [[zone]] [[onoff]]"
+        },
+        "args": [
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          },
+          {
+            "name": "onoff",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "On"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Off"
+                }
+              }
+            ]
+          }
+        ]
       }
     ],
     "actions": [

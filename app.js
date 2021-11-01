@@ -34,6 +34,7 @@ class App extends Homey.App {
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
         await flowTriggers.init(this);
+        await this.setZonecheckInterval();
     }
 
     // -------------------- SETTINGS ----------------------
@@ -50,12 +51,20 @@ class App extends Homey.App {
             if (settingsInitialized) {
                 this.log('[initSettings] - Found settings key', _settingsKey);
                 this.appSettings = this.homey.settings.get(_settingsKey);
+
+                if (!('ZONES' in this.appSettings)) {
+                    await this.updateSettings({
+                        ...this.appSettings,
+                        ZONES: {}
+                    });
+                }
             } else {
                 this.log(`Initializing ${_settingsKey} with defaults`);
                 await this.updateSettings({
                     VARIABLES: [],
                     COMPARISONS: [],
-                    TOTALS: []
+                    TOTALS: [],
+                    ZONES: {}
                 });
             }
         } catch (err) {
@@ -157,6 +166,47 @@ class App extends Homey.App {
 
     // -------------------- FUNCTIONS ----------------------
 
+    async setZonecheckInterval(clear = false) {
+        this.REFRESH_INTERVAL = 1000 * (0.2 * 60);
+        if (clear) {
+            this.log(`[onPollInterval] - Clearinterval`);
+            this.homey.clearInterval(this.onPollInterval);
+        }
+
+        this.onPollInterval = this.homey.setInterval(this.checkZoneOnOff.bind(this), this.REFRESH_INTERVAL);
+    }
+
+    async checkZoneOnOff() {
+        let devices = [];
+        const zones = Object.keys(this.appSettings.ZONES);
+
+        if (zones.length) {
+            devices = Object.values(await this._api.devices.getDevices());
+        }
+
+        for (const zone of zones) {
+            const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff);
+            const isOn = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === true);
+            const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
+
+            let zoneChanges = this.appSettings.ZONES;
+
+            if (isOn && !this.appSettings.ZONES[zone]) {
+                await this.updateSettings({
+                    ...this.appSettings,
+                    ZONES: { ...zoneChanges, [zone]: isOn }
+                });
+                this.homey.app.trigger_ZONE_CHANGE.trigger({}, { zone, onoff: true }).catch(this.error).then(this.log(`[trigger_ZONE_CHANGE] - Triggered`));
+            } else if (isOff && this.appSettings.ZONES[zone]) {
+                await this.updateSettings({
+                    ...this.appSettings,
+                    ZONES: { ...zoneChanges, [zone]: !isOff }
+                });
+                this.homey.app.trigger_ZONE_CHANGE.trigger({}, { zone, onoff: false }).catch(this.error).then(this.log(`[trigger_ZONE_CHANGE] - Triggered`));
+            }
+        }
+    }
+
     async action_START(token, paramOptions) {
         const defaultOptions = {
             dateStart: null,
@@ -241,7 +291,7 @@ class App extends Homey.App {
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes('onoff')) {
                 const value = parseInt(valueString);
-                const onOff = value === 2 ? !device.capabilitiesObj.onoff.value : !!value
+                const onOff = value === 2 ? !device.capabilitiesObj.onoff.value : !!value;
 
                 this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
 

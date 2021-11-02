@@ -1,9 +1,11 @@
 {
   "id": "com.flow.utilities",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
-  "permissions": ["homey:manager:api"],
+  "permissions": [
+    "homey:manager:api"
+  ],
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
@@ -36,7 +38,9 @@
       "Zones"
     ]
   },
-  "category": ["tools"],
+  "category": [
+    "tools"
+  ],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -657,25 +661,25 @@
           "de": "Toggle [[devicetype]] an oder aus in [[zone]]"
         },
         "args": [
-            {
-                "name": "devicetype",
-                "type": "dropdown",
-                "title": {
-                  "en": "Devicetype",
-                  "nl": "Apparaattype",
-                  "de": "Devicetype"
-                },
-                "values": [
-                  {
-                    "id": "__any",
-                    "label": {
-                      "en": "All Devices",
-                      "nl": "Alle Apparaten",
-                      "de": "All Devices"
-                    }
-                  }
-                ]
-              },
+          {
+            "name": "devicetype",
+            "type": "dropdown",
+            "title": {
+              "en": "Devicetype",
+              "nl": "Apparaattype",
+              "de": "Devicetype"
+            },
+            "values": [
+              {
+                "id": "__any",
+                "label": {
+                  "en": "All Devices",
+                  "nl": "Alle Apparaten",
+                  "de": "All Devices"
+                }
+              }
+            ]
+          },
           {
             "name": "zone",
             "type": "autocomplete",

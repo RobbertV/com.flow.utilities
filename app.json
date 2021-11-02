@@ -3,6 +3,7 @@
   "version": "1.2.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "permissions": ["homey:manager:api"],
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
@@ -30,12 +31,12 @@
       "Homey",
       "Athom",
       "Apps",
-      "Devices"
+      "Devices",
+      "Zone",
+      "Zones"
     ]
   },
-  "category": [
-    "tools"
-  ],
+  "category": ["tools"],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -173,6 +174,54 @@
               "en": "variable",
               "nl": "variabele",
               "de": "Variable"
+            }
+          }
+        ]
+      },
+      {
+        "id": "trigger_ZONE_ON",
+        "title": {
+          "en": "Devices in zone turned on",
+          "nl": "Apparaten in zone zijn aangezet",
+          "de": "Devices in zone turned on"
+        },
+        "titleFormatted": {
+          "en": "Devices in [[zone]] turned on",
+          "nl": "Apparaten in [[zone]] zijn aangezet",
+          "de": "Devices in [[zone]] turned on"
+        },
+        "args": [
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "trigger_ZONE_OFF",
+        "title": {
+          "en": "Devices in zone turned off",
+          "nl": "Apparaten in zone zijn uitgezet",
+          "de": "Devices in zone turned off"
+        },
+        "titleFormatted": {
+          "en": "Devices in [[zone]] turned off",
+          "nl": "Apparaten in [[zone]] zijn uitgezet",
+          "de": "Devices in [[zone]] turned off"
+        },
+        "args": [
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
             }
           }
         ]
@@ -505,6 +554,245 @@
               "en": "variable",
               "nl": "variabele",
               "de": "Variable"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_ONOFF",
+        "title": {
+          "en": "Set devices in zone on/off",
+          "nl": "Zet apparaten in zone aan/uit",
+          "de": "Set devices in zone on/off"
+        },
+        "titleFormatted": {
+          "en": "Set [[devicetype]] [[value]] in [[zone]]",
+          "nl": "Zet [[devicetype]] [[value]] in [[zone]]",
+          "de": "Set [[devicetype]] [[value]] in [[zone]]"
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "dropdown",
+            "title": {
+              "en": "On/Off",
+              "nl": "Aan/Uit",
+              "de": "An/Aus"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "An"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              }
+            ]
+          },
+          {
+            "name": "devicetype",
+            "type": "dropdown",
+            "title": {
+              "en": "Devicetype",
+              "nl": "Apparaattype",
+              "de": "Devicetype"
+            },
+            "values": [
+              {
+                "id": "__any",
+                "label": {
+                  "en": "All Devices",
+                  "nl": "Alle Apparaten",
+                  "de": "All Devices"
+                }
+              },
+              {
+                "id": "socket",
+                "label": {
+                  "en": "All Sockets",
+                  "nl": "Alle Stekkers",
+                  "de": "All Sockets"
+                }
+              },
+              {
+                "id": "light",
+                "label": {
+                  "en": "All Lights",
+                  "nl": "Alle Lampen",
+                  "de": "All Lights"
+                }
+              }
+            ]
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_TOGGLE_ZONE_ONOFF",
+        "title": {
+          "en": "Set devices in zone on or off",
+          "nl": "Zet apparaten in zone aan of uit",
+          "de": "Set devices in zone an oder aus"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[devicetype]] on or off in [[zone]]",
+          "nl": "Schakel [[devicetype]] aan of uit in [[zone]]",
+          "de": "Toggle [[devicetype]] an oder aus in [[zone]]"
+        },
+        "args": [
+            {
+                "name": "devicetype",
+                "type": "dropdown",
+                "title": {
+                  "en": "Devicetype",
+                  "nl": "Apparaattype",
+                  "de": "Devicetype"
+                },
+                "values": [
+                  {
+                    "id": "__any",
+                    "label": {
+                      "en": "All Devices",
+                      "nl": "Alle Apparaten",
+                      "de": "All Devices"
+                    }
+                  }
+                ]
+              },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_PERCENTAGE",
+        "title": {
+          "en": "Set device percentage in zone",
+          "nl": "Zet apparaat percentage in zone",
+          "de": "Set device percentage in zone"
+        },
+        "titleFormatted": {
+          "en": "Set [[type]] percentage to [[percentage]]% in [[zone]]",
+          "nl": "Zet [[type]] percentage naar [[percentage]]% in [[zone]]",
+          "de": "Set [[type]] percentage to [[percentage]]% in [[zone]]"
+        },
+        "args": [
+          {
+            "name": "type",
+            "type": "dropdown",
+            "title": {
+              "en": "Type"
+            },
+            "values": [
+              {
+                "id": "dim",
+                "label": {
+                  "en": "Dim",
+                  "nl": "Dim",
+                  "de": "Dim"
+                }
+              },
+              {
+                "id": "light_temperature",
+                "label": {
+                  "en": "Temperature",
+                  "nl": "Temperatuur",
+                  "de": "Temperature"
+                }
+              },
+              {
+                "id": "volume_set",
+                "label": {
+                  "en": "Volume",
+                  "nl": "Volume",
+                  "de": "Volume"
+                }
+              },
+              {
+                "id": "windowcoverings_set",
+                "label": {
+                  "en": "Window Coverings",
+                  "nl": "Gordijnen",
+                  "de": "Window Coverings"
+                }
+              }
+            ]
+          },
+          {
+            "name": "percentage",
+            "type": "number",
+            "placeholder": {
+              "en": "Percentage",
+              "nl": "Percentage",
+              "de": "Percentage"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_COLOR",
+        "title": {
+          "en": "Set zone light color",
+          "nl": "Maak zone lichtkleur",
+          "de": "Set zone light color"
+        },
+        "titleFormatted": {
+          "en": "Set light color to [[color]] in [[zone]]",
+          "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
+          "de": "Set light color to [[color]] in [[zone]]"
+        },
+        "args": [
+          {
+            "name": "color",
+            "type": "color",
+            "placeholder": {
+              "en": "Color",
+              "nl": "Kleur",
+              "de": "Color"
+            }
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
             }
           }
         ]

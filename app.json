@@ -647,14 +647,14 @@
       {
         "id": "action_TOGGLE_ZONE_ONOFF",
         "title": {
-          "en": "Set devices in zone on/off",
-          "nl": "Zet apparaten in zone aan/uit",
-          "de": "Set devices in zone on/off"
+          "en": "Set devices in zone on or off",
+          "nl": "Zet apparaten in zone aan of uit",
+          "de": "Set devices in zone an oder aus"
         },
         "titleFormatted": {
-          "en": "Toggle [[devicetype]] On or Off in [[zone]]",
-          "nl": "Schakel [[devicetype]] Aan of Uit in [[zone]]",
-          "de": "Toggle [[devicetype]] An oder Aus in [[zone]]"
+          "en": "Toggle [[devicetype]] on or off in [[zone]]",
+          "nl": "Schakel [[devicetype]] aan of uit in [[zone]]",
+          "de": "Toggle [[devicetype]] an oder aus in [[zone]]"
         },
         "args": [
             {

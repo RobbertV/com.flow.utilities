@@ -179,16 +179,16 @@
         ]
       },
       {
-        "id": "trigger_ZONE_CHANGE",
+        "id": "trigger_ZONE_ON",
         "title": {
-          "en": "Devices in zone turned on/off",
-          "nl": "Apparaten in zone zijn aan/uit gezet",
-          "de": "Devices in zone turned on/off"
+          "en": "Devices in zone turned on",
+          "nl": "Apparaten in zone zijn aangezet",
+          "de": "Devices in zone turned on"
         },
         "titleFormatted": {
-          "en": "Devices in [[zone]] changed to [[onoff]]",
-          "nl": "Apparaten in [[zone]] zijn [[onoff]] gezet",
-          "de": "Devices in [[zone]] changed to [[onoff]]"
+          "en": "Devices in [[zone]] turned on",
+          "nl": "Apparaten in [[zone]] zijn aangezet",
+          "de": "Devices in [[zone]] turned on"
         },
         "args": [
           {
@@ -199,33 +199,30 @@
               "nl": "Zone",
               "de": "Zone"
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "trigger_ZONE_OFF",
+        "title": {
+          "en": "Devices in zone turned off",
+          "nl": "Apparaten in zone zijn uitgezet",
+          "de": "Devices in zone turned off"
+        },
+        "titleFormatted": {
+          "en": "Devices in [[zone]] turned off",
+          "nl": "Apparaten in [[zone]] zijn uitgezet",
+          "de": "Devices in [[zone]] turned off"
+        },
+        "args": [
           {
-            "name": "onoff",
-            "type": "dropdown",
-            "title": {
-              "en": "On/Off",
-              "nl": "Aan/Uit",
-              "de": "An/Aus"
-            },
-            "values": [
-              {
-                "id": "1",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "de": "An"
-                }
-              },
-              {
-                "id": "0",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "aus"
-                }
-              }
-            ]
+            "name": "zone",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
           }
         ]
       }
@@ -630,7 +627,7 @@
                 "id": "socket",
                 "label": {
                   "en": "All Sockets",
-                  "nl": "Alle Schakeldozen",
+                  "nl": "Alle Stekkers",
                   "de": "All Sockets"
                 }
               },
@@ -735,13 +732,13 @@
       {
         "id": "action_SET_ZONE_COLOR",
         "title": {
-          "en": "Set Zone color",
-          "nl": "Maak zone kleur",
-          "de": "Set Zone color"
+          "en": "Set zone light color",
+          "nl": "Maak zone lichtkleur",
+          "de": "Set zone light color"
         },
         "titleFormatted": {
           "en": "Set light color to [[color]] in [[zone]]",
-          "nl": "Zet lamp kleur naar [[color]] in [[zone]]",
+          "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
           "de": "Set light color to [[color]] in [[zone]]"
         },
         "args": [

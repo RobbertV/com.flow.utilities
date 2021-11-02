@@ -194,20 +194,20 @@ class App extends Homey.App {
                 ZONES: { ...zoneChanges, [zone]: isOn }
             });
 
-            this.homey.app.trigger_ZONE_CHANGE
+            this.homey.app.trigger_ZONE_ON
                 .trigger({}, { zone, onoff: true })
                 .catch(this.error)
-                .then(this.log(`[trigger_ZONE_CHANGE] - Triggered - ${zone} - true`));
+                .then(this.log(`[trigger_ZONE_ON] - Triggered - ${zone} - true`));
         } else if (isOff && !!this.appSettings.ZONES[zone]) {
             await this.updateSettings({
                 ...this.appSettings,
                 ZONES: { ...zoneChanges, [zone]: !isOff }
             });
 
-            this.homey.app.trigger_ZONE_CHANGE
+            this.homey.app.trigger_ZONE_OFF
                 .trigger({}, { zone, onoff: false })
                 .catch(this.error)
-                .then(this.log(`[trigger_ZONE_CHANGE] - Triggered - ${zone} - false`));
+                .then(this.log(`[trigger_ZONE_OFF] - Triggered - ${zone} - false`));
         }
 
         this.setCheckZoneOnOffInterval();
@@ -291,7 +291,7 @@ class App extends Homey.App {
     }
 
     async action_SET_ZONE_ONOFF(zoneId, valueString, deviceType) {
-        this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString);
+        this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString, 'deviceType', deviceType);
 
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {

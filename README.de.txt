@@ -7,3 +7,9 @@ Aktuelle Features:
 - Zahl in Währung umrechnen
 - Berechnung mit 2 Zahlen ([+] [-] [/] [*])
 - Konvertiere Zahl in Zahl mit Dezimalstellen
+- Trigger flow when duration or calculation is done
+- Turn (specific) devices in Zone on
+– Turn (specific) devices in Zone off
+– Toggle (all) devices in Zone on or off
+– Set Color of (all) devices in Zone
+– Set Percentage of (all) devices in Zone (Dim, Color temperature, Window coverings or Volume)

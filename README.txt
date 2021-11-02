@@ -7,4 +7,10 @@ Current features:
 - Convert number to currency
 - Calculation with 2 numbers ([+] [-] [/] [*])
 - Convert number to number with decimals
+- Trigger flow when duration or calculation is done
+- Turn (specific) devices in Zone on
+– Turn (specific) devices in Zone off
+– Toggle (all) devices in Zone on or off
+– Set Color of (all) devices in Zone
+– Set Percentage of (all) devices in Zone (Dim, Color temperature, Window coverings or Volume)
 

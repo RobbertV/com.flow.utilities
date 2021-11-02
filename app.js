@@ -187,30 +187,30 @@ class App extends Homey.App {
         const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
 
         let zoneChanges = this.appSettings.ZONES;
+        let key = null;
+        let value = null;
 
         if (isOn && !this.appSettings.ZONES[zone]) {
-            await this.updateSettings({
-                ...this.appSettings,
-                ZONES: { ...zoneChanges, [zone]: isOn }
-            });
-
-            this.homey.app.trigger_ZONE_ON
-                .trigger({}, { zone, onoff: true })
-                .catch(this.error)
-                .then(this.log(`[trigger_ZONE_ON] - Triggered - ${zone} - true`));
+            value = true;
+            key = 'ZONE_ON';
         } else if (isOff && !!this.appSettings.ZONES[zone]) {
-            await this.updateSettings({
-                ...this.appSettings,
-                ZONES: { ...zoneChanges, [zone]: !isOff }
-            });
-
-            this.homey.app.trigger_ZONE_OFF
-                .trigger({}, { zone, onoff: false })
-                .catch(this.error)
-                .then(this.log(`[trigger_ZONE_OFF] - Triggered - ${zone} - false`));
+            value = false;
+            key = 'ZONE_OFF';
         }
 
-        this.setCheckZoneOnOffInterval();
+        if (key) {
+            await this.updateSettings({
+                ...this.appSettings,
+                ZONES: { ...zoneChanges, [zone]: value }
+            });
+
+            this.homey.app[`trigger_${key}`]
+                .trigger({}, { zone })
+                .catch(this.error)
+                .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
+
+            this.setCheckZoneOnOffInterval();
+        }
     }
 
     async action_START(token, paramOptions) {
@@ -293,16 +293,34 @@ class App extends Homey.App {
     async action_SET_ZONE_ONOFF(zoneId, valueString, deviceType) {
         this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString, 'deviceType', deviceType);
 
-        const devices = await this._api.devices.getDevices();
-        for (const device of Object.values(devices)) {
-            if (device.zone === zoneId && device.capabilities.includes('onoff') && (deviceType === '__any' || device.virtualClass === deviceType || device.class === deviceType)) {
-                const value = parseInt(valueString);
-                const onOff = valueString === '2' ? !device.capabilitiesObj.onoff.value : !!value;
+        const devices = Object.values(await this._api.devices.getDevices()).filter(
+            (d) => d.zone === zoneId && d.capabilities.includes('onoff') && (deviceType === '__any' || d.virtualClass === deviceType || d.class === deviceType)
+        );
 
-                this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
+        for (const device of devices) {
+            const value = parseInt(valueString);
+            const onOff = !!value;
 
-                device.setCapabilityValue('onoff', onOff);
-            }
+            this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
+
+            device.setCapabilityValue('onoff', onOff);
+        }
+    }
+
+    async action_TOGGLE_ZONE_ONOFF(zoneId, deviceType) {
+        this.homey.app.log('[action_TOGGLE_ZONE_ONOFF] - args', zoneId, 'onoff', 'deviceType', deviceType);
+        const devices = Object.values(await this._api.insights.getLogs()).filter((d) => d.id === 'onoff' && d.uriObj && d.uriObj.meta && d.uriObj.meta.zoneId === zoneId);
+
+        for (const device of devices) {
+            const onOff = !device.lastValue;
+
+            this.homey.app.log('[action_TOGGLE_ZONE_ONOFF] - device: ', device.uriObj.name, '- onoff: ', onOff);
+
+            this._api.devices.setCapabilityValue({
+                capabilityId: 'onoff',
+                deviceId: device.uriObj.id,
+                value: onOff
+            });
         }
     }
 

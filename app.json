@@ -595,14 +595,6 @@
                   "nl": "Uit",
                   "de": "Aus"
                 }
-              },
-              {
-                "id": "2",
-                "label": {
-                  "en": "Turn on or off",
-                  "nl": "Schakel aan of uit",
-                  "de": "An oder Aus"
-                }
               }
             ]
           },
@@ -641,6 +633,49 @@
               }
             ]
           },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_TOGGLE_ZONE_ONOFF",
+        "title": {
+          "en": "Set devices in zone on/off",
+          "nl": "Zet apparaten in zone aan/uit",
+          "de": "Set devices in zone on/off"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[devicetype]] On or Off in [[zone]]",
+          "nl": "Schakel [[devicetype]] Aan of Uit in [[zone]]",
+          "de": "Toggle [[devicetype]] An oder Aus in [[zone]]"
+        },
+        "args": [
+            {
+                "name": "devicetype",
+                "type": "dropdown",
+                "title": {
+                  "en": "Devicetype",
+                  "nl": "Apparaattype",
+                  "de": "Devicetype"
+                },
+                "values": [
+                  {
+                    "id": "__any",
+                    "label": {
+                      "en": "All Devices",
+                      "nl": "Alle Apparaten",
+                      "de": "All Devices"
+                    }
+                  }
+                ]
+              },
           {
             "name": "zone",
             "type": "autocomplete",

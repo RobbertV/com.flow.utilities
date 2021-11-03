@@ -187,12 +187,12 @@
         "title": {
           "en": "Devices in zone turned on",
           "nl": "Apparaten in zone zijn aangezet",
-          "de": "Devices in zone turned on"
+          "de": "Geräte in Zone sind eingeschaltet"
         },
         "titleFormatted": {
           "en": "Devices in [[zone]] turned on",
           "nl": "Apparaten in [[zone]] zijn aangezet",
-          "de": "Devices in [[zone]] turned on"
+          "de": "Geräte in [[zone]] sind eingeschaltet"
         },
         "args": [
           {
@@ -211,12 +211,12 @@
         "title": {
           "en": "Devices in zone turned off",
           "nl": "Apparaten in zone zijn uitgezet",
-          "de": "Devices in zone turned off"
+          "de": "Geräte in Zone sind ausgeschaltet"
         },
         "titleFormatted": {
           "en": "Devices in [[zone]] turned off",
           "nl": "Apparaten in [[zone]] zijn uitgezet",
-          "de": "Devices in [[zone]] turned off"
+          "de": "Geräte in [[zone]] sind ausgeschaltet"
         },
         "args": [
           {
@@ -567,12 +567,12 @@
         "title": {
           "en": "Set devices in zone on/off",
           "nl": "Zet apparaten in zone aan/uit",
-          "de": "Set devices in zone on/off"
+          "de": "Geräte in Zone ein-/ausschalten"
         },
         "titleFormatted": {
           "en": "Set [[devicetype]] [[value]] in [[zone]]",
           "nl": "Zet [[devicetype]] [[value]] in [[zone]]",
-          "de": "Set [[devicetype]] [[value]] in [[zone]]"
+          "de": "Schalte [[devicetype]] [[value]] in [[zone]]"
         },
         "args": [
           {
@@ -608,7 +608,7 @@
             "title": {
               "en": "Devicetype",
               "nl": "Apparaattype",
-              "de": "Devicetype"
+              "de": "Gerätetyp"
             },
             "values": [
               {
@@ -616,7 +616,7 @@
                 "label": {
                   "en": "All Devices",
                   "nl": "Alle Apparaten",
-                  "de": "All Devices"
+                  "de": "Alle Geräte"
                 }
               },
               {
@@ -624,7 +624,7 @@
                 "label": {
                   "en": "All Sockets",
                   "nl": "Alle Stekkers",
-                  "de": "All Sockets"
+                  "de": "Alle Steckdosen"
                 }
               },
               {
@@ -632,7 +632,7 @@
                 "label": {
                   "en": "All Lights",
                   "nl": "Alle Lampen",
-                  "de": "All Lights"
+                  "de": "Alle Lampen"
                 }
               }
             ]
@@ -653,12 +653,12 @@
         "title": {
           "en": "Set devices in zone on or off",
           "nl": "Zet apparaten in zone aan of uit",
-          "de": "Set devices in zone an oder aus"
+          "de": "Schalte Gerät in Zone an oder aus"
         },
         "titleFormatted": {
           "en": "Toggle [[devicetype]] on or off in [[zone]]",
           "nl": "Schakel [[devicetype]] aan of uit in [[zone]]",
-          "de": "Toggle [[devicetype]] an oder aus in [[zone]]"
+          "de": "Schalte [[devicetype]] an oder aus in [[zone]]"
         },
         "args": [
           {
@@ -667,7 +667,7 @@
             "title": {
               "en": "Devicetype",
               "nl": "Apparaattype",
-              "de": "Devicetype"
+              "de": "Gerätetyp"
             },
             "values": [
               {
@@ -675,7 +675,7 @@
                 "label": {
                   "en": "All Devices",
                   "nl": "Alle Apparaten",
-                  "de": "All Devices"
+                  "de": "Alle Geräte"
                 }
               }
             ]
@@ -696,12 +696,12 @@
         "title": {
           "en": "Set device percentage in zone",
           "nl": "Zet apparaat percentage in zone",
-          "de": "Set device percentage in zone"
+          "de": "Geräteprozentsatz in Zone einstellen"
         },
         "titleFormatted": {
           "en": "Set [[type]] percentage to [[percentage]]% in [[zone]]",
           "nl": "Zet [[type]] percentage naar [[percentage]]% in [[zone]]",
-          "de": "Set [[type]] percentage to [[percentage]]% in [[zone]]"
+          "de": "Setze [[type]] Prozentsatz auf [[percentage]]% in [[zone]]"
         },
         "args": [
           {
@@ -724,7 +724,7 @@
                 "label": {
                   "en": "Temperature",
                   "nl": "Temperatuur",
-                  "de": "Temperature"
+                  "de": "Temperatur"
                 }
               },
               {
@@ -732,7 +732,7 @@
                 "label": {
                   "en": "Volume",
                   "nl": "Volume",
-                  "de": "Volume"
+                  "de": "Lautstärke"
                 }
               },
               {
@@ -740,7 +740,7 @@
                 "label": {
                   "en": "Window Coverings",
                   "nl": "Gordijnen",
-                  "de": "Window Coverings"
+                  "de": "Fensterabdeckungen"
                 }
               }
             ]
@@ -751,7 +751,7 @@
             "placeholder": {
               "en": "Percentage",
               "nl": "Percentage",
-              "de": "Percentage"
+              "de": "Prozent"
             },
             "min": 0,
             "max": 100,
@@ -773,12 +773,12 @@
         "title": {
           "en": "Set zone light color",
           "nl": "Maak zone lichtkleur",
-          "de": "Set zone light color"
+          "de": "Setze Farbe in Zone"
         },
         "titleFormatted": {
           "en": "Set light color to [[color]] in [[zone]]",
           "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
-          "de": "Set light color to [[color]] in [[zone]]"
+          "de": "Setze Farbe auf [[color]] in [[zone]]"
         },
         "args": [
           {
@@ -787,7 +787,7 @@
             "placeholder": {
               "en": "Color",
               "nl": "Kleur",
-              "de": "Color"
+              "de": "Farbe"
             }
           },
           {

@@ -7,9 +7,9 @@ Aktuelle Features:
 - Zahl in Währung umrechnen
 - Berechnung mit 2 Zahlen ([+] [-] [/] [*])
 - Konvertiere Zahl in Zahl mit Dezimalstellen
-- Trigger flow when duration or calculation is done
-- Turn (specific) devices in Zone on
-– Turn (specific) devices in Zone off
-– Toggle (all) devices in Zone on or off
-– Set Color of (all) devices in Zone
-– Set Percentage of (all) devices in Zone (Dim, Color temperature, Window coverings or Volume)
+- Starte Flow wenn Dauer oder Berechnung abgeschlossen ist
+- Schalte (bestimmtes) Gerät in Zone ein
+– Schalte (bestimmtes) Gerät in Zone aus
+– Schalte (alle) Geräte in Zone ein oder aus
+– Setze Farbe von (allen) Geräten in Zone
+- Setze Prozentsatz von (allen) Geräten in Zone (Dim, Farbe, Temperatur, Position oder Lautstärke)

@@ -751,7 +751,7 @@
             "placeholder": {
               "en": "Percentage",
               "nl": "Percentage",
-              "de": "Prozentsatz"
+              "de": "Prozent"
             },
             "min": 0,
             "max": 100,

@@ -658,7 +658,7 @@
         "titleFormatted": {
           "en": "Toggle [[devicetype]] on or off in [[zone]]",
           "nl": "Schakel [[devicetype]] aan of uit in [[zone]]",
-          "de": "Umschalten [[devicetype]] an oder aus in [[zone]]"
+          "de": "Schalte [[devicetype]] an oder aus in [[zone]]"
         },
         "args": [
           {
@@ -724,7 +724,7 @@
                 "label": {
                   "en": "Temperature",
                   "nl": "Temperatuur",
-                  "de": "Temperature"
+                  "de": "Temperatur"
                 }
               },
               {

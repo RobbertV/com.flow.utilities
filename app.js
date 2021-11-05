@@ -101,19 +101,33 @@ class App extends Homey.App {
         });
     }
 
-    async setTokens(newSettings, oldSettings = []) {
-        await newSettings.forEach((t) => {
+    async updateTotals(token, key, value) {
+        const currentTokenTotals = this.appSettings.TOTALS.find((total) => total.token === token);
+        const otherTotals = this.appSettings.TOTALS.filter((total) => total.token !== token);
+        const newTokenTotals = { ...currentTokenTotals, [key]: value };
+
+        await this.updateSettings({
+            ...this.appSettings,
+            TOTALS: [...otherTotals, newTokenTotals]
+        });
+    }
+
+    async setTokens(newVariables, oldVariables = []) {
+        await newVariables.forEach((t) => {
             if (!this.TOKENS[t]) {
-                this.createToken(t, { src: 'duration' });
-                this.createToken(t, { src: 'currency', type: 'string' });
-                this.createToken(t, { src: 'comparison', type: 'number' });
-                this.createToken(t, { src: 'calculation', type: 'number' });
-                this.createToken(t, { src: 'decimals', type: 'number' });
+                this.log('[SetTokens INIT]:', t, this.appSettings);
+                const existingVariableData = this.appSettings.TOTALS.find((x) => x.token === t);
+
+                this.createToken(t, { src: 'duration', value: existingVariableData && existingVariableData.duration || null });
+                this.createToken(t, { src: 'comparison', type: 'number', value: existingVariableData && existingVariableData.comparison || null });
+                this.createToken(t, { src: 'currency', type: 'string', value: existingVariableData && existingVariableData.currency || null});
+                this.createToken(t, { src: 'calculation', type: 'number', value: existingVariableData && existingVariableData.calculation || null });
+                this.createToken(t, { src: 'decimals', type: 'number', value: existingVariableData && existingVariableData.decimals || null });
             }
         });
 
-        if (oldSettings.length) {
-            const difference = oldSettings.filter((x) => !newSettings.includes(x));
+        if (oldVariables.length) {
+            const difference = oldVariables.filter((x) => !newVariables.includes(x));
             difference.forEach((d) => {
                 this.removeToken(d, 'duration');
                 this.removeToken(d, 'currency');
@@ -246,12 +260,8 @@ class App extends Homey.App {
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
-        await this.updateSettings({
-            ...this.appSettings,
-            TOTALS: [...totals, { token, duration, comparison }]
-        });
-
         if (src === 'duration' && duration) {
+            await this.updateTotals(token, 'duration', duration);
             await this.createToken(token, { src, value: duration });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration }, { token })
@@ -260,6 +270,7 @@ class App extends Homey.App {
         }
 
         if (src === 'comparison' && comparison !== null) {
+            await this.updateTotals(token, 'comparison', comparison);
             await this.createToken(token, { src, value: parseFloat(comparison), type: 'number' });
 
             this.homey.app.trigger_COMPARISON
@@ -272,6 +283,8 @@ class App extends Homey.App {
     async action_SET_CURRENCY(token, number, currency) {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('[action_SET_CURRENCY] - args', token, number, currency, setLocalCurrency);
+ 
+        await this.updateTotals(token, 'currency', setLocalCurrency);
 
         await this.createToken(token, { src: 'currency', value: setLocalCurrency });
     }
@@ -280,12 +293,16 @@ class App extends Homey.App {
         const calculation = calculationType(calcType, number1, number2);
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
+        await this.updateTotals(token, 'calculation', calculation);
+
         await this.createToken(token, { src: 'calculation', value: calculation, type: 'number' });
     }
 
     async action_CONVERT_NUMBER(token, number, decimals) {
         const calculation = convertNumber(number, decimals);
         this.homey.app.log('[action_CONVERT_NUMBER] - args', token, number, decimals);
+
+        await this.updateTotals(token, 'decimals', calculation);
 
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }

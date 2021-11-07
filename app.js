@@ -183,7 +183,7 @@ class App extends Homey.App {
         const devices = Object.values(await this._api.devices.getDevices());
 
         const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
-        const isOn = onoffDevice.some((v) => v.settings && v.capabilitiesObj.onoff.value === true);
+        const isOn = onoffDevice.every((v) => v.settings && v.capabilitiesObj.onoff.value === true);
         const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
 
         let zoneChanges = this.appSettings.ZONES;

@@ -25,6 +25,14 @@ class App extends Homey.App {
 
         this.TOKENS = {};
 
+        this.SRC_LIST = [
+            { name: 'duration', type: 'string' },
+            { name: 'currency', type: 'string' },
+            { name: 'comparison', type: 'number' },
+            { name: 'calculation', type: 'number' },
+            { name: 'decimals', type: 'number' }
+        ];
+
         this._api = await HomeyAPI.forCurrentHomey(this.homey);
 
         await this.initSettings();
@@ -104,7 +112,7 @@ class App extends Homey.App {
     async updateTotals(token, key, value) {
         const currentTokenTotals = this.appSettings.TOTALS.find((total) => total.token === token);
         const otherTotals = this.appSettings.TOTALS.filter((total) => total.token !== token);
-        const newTokenTotals = { ...currentTokenTotals, [key]: value };
+        const newTokenTotals = { token, ...currentTokenTotals, [key]: value };
 
         await this.updateSettings({
             ...this.appSettings,
@@ -114,26 +122,15 @@ class App extends Homey.App {
 
     async setTokens(newVariables, oldVariables = []) {
         await newVariables.forEach((t) => {
-            if (!this.TOKENS[t]) {
-                this.log('[SetTokens INIT]:', t, this.appSettings);
-                const existingVariableData = this.appSettings.TOTALS.find((x) => x.token === t);
+            const existingVariableData = this.appSettings.TOTALS.find((x) => x.token === t);
 
-                this.createToken(t, { src: 'duration', value: existingVariableData && existingVariableData.duration || null });
-                this.createToken(t, { src: 'comparison', type: 'number', value: existingVariableData && existingVariableData.comparison || null });
-                this.createToken(t, { src: 'currency', type: 'string', value: existingVariableData && existingVariableData.currency || null});
-                this.createToken(t, { src: 'calculation', type: 'number', value: existingVariableData && existingVariableData.calculation || null });
-                this.createToken(t, { src: 'decimals', type: 'number', value: existingVariableData && existingVariableData.decimals || null });
-            }
+            this.createTokenVariants(t, existingVariableData);
         });
 
         if (oldVariables.length) {
             const difference = oldVariables.filter((x) => !newVariables.includes(x));
-            difference.forEach((d) => {
-                this.removeToken(d, 'duration');
-                this.removeToken(d, 'currency');
-                this.removeToken(d, 'comparison');
-                this.removeToken(d, 'calculation');
-                this.removeToken(d, 'decimals');
+            difference.forEach(async(d) => {
+                await this.removeTokenVariants(d);
                 this.removeSettings(d);
             });
         }
@@ -176,6 +173,24 @@ class App extends Homey.App {
 
             this.log(`[removeToken] - removed Token => ID: ${id} - Title: ${title} - ${!!this.TOKENS[id]}`);
         }
+    }
+
+    async createTokenVariants(tokenID, existingVariableData) {
+        this.SRC_LIST.forEach((src) => {
+            const suffix = this.homey.__(`helpers.${src.name}`);
+            const title = `${tokenID} ${suffix}`;
+            const id = formatToken(title);
+
+            if (!this.TOKENS[id]) {
+                this.createToken(tokenID, { src: src.name, type: src.type, value: (existingVariableData && existingVariableData[src.name]) || null });
+            }
+        });
+    }
+
+    async removeTokenVariants(tokenID) {
+        this.SRC_LIST.forEach((src) => {
+            this.removeToken(tokenID, src.name);
+        });
     }
 
     // -------------------- FUNCTIONS ----------------------
@@ -283,7 +298,7 @@ class App extends Homey.App {
     async action_SET_CURRENCY(token, number, currency) {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('[action_SET_CURRENCY] - args', token, number, currency, setLocalCurrency);
- 
+
         await this.updateTotals(token, 'currency', setLocalCurrency);
 
         await this.createToken(token, { src: 'currency', value: setLocalCurrency });

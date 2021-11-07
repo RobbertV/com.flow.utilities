@@ -109,10 +109,10 @@ class App extends Homey.App {
         });
     }
 
-    async updateTotals(token, key, value) {
+    async updateTotals(token, newValueObj) {
         const currentTokenTotals = this.appSettings.TOTALS.find((total) => total.token === token);
         const otherTotals = this.appSettings.TOTALS.filter((total) => total.token !== token);
-        const newTokenTotals = { token, ...currentTokenTotals, [key]: value };
+        const newTokenTotals = { token, ...currentTokenTotals, ...newValueObj };
 
         await this.updateSettings({
             ...this.appSettings,
@@ -276,7 +276,7 @@ class App extends Homey.App {
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
         if (src === 'duration' && duration) {
-            await this.updateTotals(token, 'duration', duration);
+            await this.updateTotals(token, { duration });
             await this.createToken(token, { src, value: duration });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration }, { token })
@@ -285,7 +285,7 @@ class App extends Homey.App {
         }
 
         if (src === 'comparison' && comparison !== null) {
-            await this.updateTotals(token, 'comparison', comparison);
+            await this.updateTotals(token, { comparison });
             await this.createToken(token, { src, value: parseFloat(comparison), type: 'number' });
 
             this.homey.app.trigger_COMPARISON
@@ -299,7 +299,7 @@ class App extends Homey.App {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('[action_SET_CURRENCY] - args', token, number, currency, setLocalCurrency);
 
-        await this.updateTotals(token, 'currency', setLocalCurrency);
+        await this.updateTotals(token, { currency: setLocalCurrency });
 
         await this.createToken(token, { src: 'currency', value: setLocalCurrency });
     }
@@ -308,7 +308,7 @@ class App extends Homey.App {
         const calculation = calculationType(calcType, number1, number2);
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
 
-        await this.updateTotals(token, 'calculation', calculation);
+        await this.updateTotals(token, { calculation });
 
         await this.createToken(token, { src: 'calculation', value: calculation, type: 'number' });
     }
@@ -317,7 +317,7 @@ class App extends Homey.App {
         const calculation = convertNumber(number, decimals);
         this.homey.app.log('[action_CONVERT_NUMBER] - args', token, number, decimals);
 
-        await this.updateTotals(token, 'decimals', calculation);
+        await this.updateTotals(token, { decimals: calculation });
 
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }

@@ -322,40 +322,6 @@ class App extends Homey.App {
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
     }
 
-    async action_SET_ZONE_ONOFF(zoneId, valueString, deviceType) {
-        this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString, 'deviceType', deviceType);
-
-        const devices = Object.values(await this._api.devices.getDevices()).filter(
-            (d) => d.zone === zoneId && d.capabilities.includes('onoff') && (deviceType === '__any' || d.virtualClass === deviceType || d.class === deviceType)
-        );
-
-        for (const device of devices) {
-            const value = parseInt(valueString);
-            const onOff = !!value;
-
-            this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
-
-            device.setCapabilityValue('onoff', onOff);
-        }
-    }
-
-    async action_TOGGLE_ZONE_ONOFF(zoneId, deviceType) {
-        this.homey.app.log('[action_TOGGLE_ZONE_ONOFF] - args', zoneId, 'onoff', 'deviceType', deviceType);
-        const devices = Object.values(await this._api.insights.getLogs()).filter((d) => d.id === 'onoff' && d.uriObj && d.uriObj.meta && d.uriObj.meta.zoneId === zoneId);
-
-        for (const device of devices) {
-            const onOff = !device.lastValue;
-
-            this.homey.app.log('[action_TOGGLE_ZONE_ONOFF] - device: ', device.uriObj.name, '- onoff: ', onOff);
-
-            this._api.devices.setCapabilityValue({
-                capabilityId: 'onoff',
-                deviceId: device.uriObj.id,
-                value: onOff
-            });
-        }
-    }
-
     async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {
         this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, type, percentage);
 

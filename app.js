@@ -202,15 +202,13 @@ class App extends Homey.App {
         for (const device of devices) {
             if (device.capabilitiesObj.onoff && zones.includes(device.zone)) {
                 device.makeCapabilityInstance('onoff', () => {
-                    that.checkZoneOnOff(device.zone);
+                    that.checkZoneOnOff(devices, device.zone);
                 });
             }
         }
     }
 
-    async checkZoneOnOff(zone) {
-        const devices = Object.values(await this._api.devices.getDevices());
-
+    async checkZoneOnOff(devices, zone) {
         const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
         const isOn = onoffDevice.every((v) => v.settings && v.capabilitiesObj.onoff.value === true);
         const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
@@ -237,8 +235,6 @@ class App extends Homey.App {
                 .trigger({}, { zone })
                 .catch(this.error)
                 .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
-
-            this.setCheckZoneOnOffInterval();
         }
     }
 

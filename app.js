@@ -200,7 +200,7 @@ class App extends Homey.App {
         const zones = Object.keys(this.appSettings.ZONES);
         const that = this;
         for (const device of devices) {
-            if (device.capabilitiesObj.onoff && zones.includes(device.zone)) {
+            if (device.capabilitiesObj && device.capabilitiesObj.onoff && zones.includes(device.zone)) {
                 device.makeCapabilityInstance('onoff', () => {
                     that.checkZoneOnOff(devices, device.zone);
                 });

@@ -5,7 +5,7 @@ const HomeyAPI = require('athom-api').HomeyAPI;
 const tinycolor = require('tinycolor2');
 const flowActions = require('./lib/flows/actions');
 const flowTriggers = require('./lib/flows/triggers');
-const { calculateDuration, calculateComparison, formatToken, calculationType, convertNumber } = require('./lib/helpers');
+const { calculateDuration, calculateComparison, formatToken, calculationType, convertNumber, convertText } = require('./lib/helpers');
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 
@@ -30,7 +30,8 @@ class App extends Homey.App {
             { name: 'currency', type: 'string' },
             { name: 'comparison', type: 'number' },
             { name: 'calculation', type: 'number' },
-            { name: 'decimals', type: 'number' }
+            { name: 'decimals', type: 'number' },
+            { name: 'text', type: 'string' }
         ];
 
         this._api = await HomeyAPI.forCurrentHomey(this.homey);
@@ -316,6 +317,15 @@ class App extends Homey.App {
         await this.updateTotals(token, { decimals: calculation });
 
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
+    }
+
+    async action_CONVERT_TEXT(token, type, text) {
+        const result = convertText(type, text);
+        this.homey.app.log('[action_CONVERT_TEXT] - args', token, type, text);
+
+        await this.updateTotals(token, { string: type });
+
+        await this.createToken(token, { src: 'text', value: result, type: 'string' });
     }
 
     async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {

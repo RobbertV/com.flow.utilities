@@ -229,6 +229,100 @@
             }
           }
         ]
+      },
+      {
+        "id": "trigger_DEVICE_ZONE_ON",
+        "title": {
+          "en": "A Device in zone turned on",
+          "nl": "Apparaat in zone is aangezet",
+          "de": "Gerät in Zone ist eingeschaltet"
+        },
+        "titleFormatted": {
+          "en": "Device in [[zone]] turned on",
+          "nl": "Apparaat in [[zone]] is aangezet",
+          "de": "Gerät in [[zone]] ist eingeschaltet"
+        },
+        "tokens": [
+            {
+              "name": "name",
+              "type": "string",
+              "title": {
+                "en": "Name"
+              }
+            },
+            {
+              "name": "ison",
+              "type": "boolean",
+              "title": {
+                "en": "Is On"
+              }
+            },
+            {
+                "name": "zone",
+                "type": "string",
+                "title": {
+                  "en": "Zone"
+                }
+              }
+          ],
+        "args": [
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
+      },
+      {
+        "id": "trigger_DEVICE_ZONE_OFF",
+        "title": {
+          "en": "A Device in zone turned off",
+          "nl": "Apparaat in zone is uitgezet",
+          "de": "Gerät in Zone ist ausgeschaltet"
+        },
+        "titleFormatted": {
+          "en": "Device in [[zone]] turned off",
+          "nl": "Apparaat in [[zone]] is uitgezet",
+          "de": "Gerät in [[zone]] ist ausgeschaltet"
+        },
+        "tokens": [
+            {
+              "name": "name",
+              "type": "string",
+              "title": {
+                "en": "Name"
+              }
+            },
+            {
+              "name": "ison",
+              "type": "boolean",
+              "title": {
+                "en": "Is On"
+              }
+            },
+            {
+                "name": "zone",
+                "type": "string",
+                "title": {
+                  "en": "Zone"
+                }
+              }
+          ],
+        "args": [
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ]
       }
     ],
     "actions": [

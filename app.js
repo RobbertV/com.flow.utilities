@@ -129,7 +129,7 @@ class App extends Homey.App {
 
         if (oldVariables.length) {
             const difference = oldVariables.filter((x) => !newVariables.includes(x));
-            difference.forEach(async(d) => {
+            difference.forEach(async (d) => {
                 await this.removeTokenVariants(d);
                 this.removeSettings(d);
             });
@@ -195,16 +195,31 @@ class App extends Homey.App {
 
     // -------------------- FUNCTIONS ----------------------
 
-    async setCheckZoneOnOffInterval() {
+    async setCheckZoneOnOffInterval(oldZones = [], newZones = Object.keys(this.appSettings.ZONES)) {
         const devices = Object.values(await this._api.devices.getDevices());
-        const zones = Object.keys(this.appSettings.ZONES);
+        const newC = newZones.filter((d) => !oldZones.includes(d));
         const that = this;
         for (const device of devices) {
-            if (device.capabilitiesObj && device.capabilitiesObj.onoff && zones.includes(device.zone)) {
+            if (device.capabilitiesObj && device.capabilitiesObj.onoff && newC.includes(device.zone)) {
                 device.makeCapabilityInstance('onoff', () => {
                     that.checkZoneOnOff(devices, device.zone);
+                    that.checkDeviceOnOff(device, device.zone);
                 });
             }
+        }
+    }
+
+    async checkDeviceOnOff(device, zone) {
+        const onoffDevice = device.zone == zone && device.capabilitiesObj.onoff && !device.settings.energy_alwayson && !device.settings.override_onoff;
+
+        if (onoffDevice) {
+            const value = device.capabilitiesObj.onoff.value;
+            const key = value ? 'DEVICE_ZONE_ON' : 'DEVICE_ZONE_OFF';
+
+            this.homey.app[`trigger_${key}`]
+                .trigger({ name: device.name, zone: device.zoneName, ison: value }, { zone })
+                .catch(this.error)
+                .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
         }
     }
 

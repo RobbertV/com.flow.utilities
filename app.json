@@ -247,21 +247,27 @@
               "name": "name",
               "type": "string",
               "title": {
-                "en": "Name"
+                "en": "Name",
+                "nl": "Naam",
+                "de": "Name"
               }
             },
             {
               "name": "ison",
               "type": "boolean",
               "title": {
-                "en": "Is On"
+                "en": "Is on",
+                "nl": "Is aan",
+                "de": "Ist eingeschaltet"
               }
             },
             {
                 "name": "zone",
                 "type": "string",
                 "title": {
-                  "en": "Zone"
+                  "en": "Zone",
+                  "nl": "Zone",
+                  "de": "Zone"
                 }
               }
           ],
@@ -294,21 +300,27 @@
               "name": "name",
               "type": "string",
               "title": {
-                "en": "Name"
+                "en": "Name",
+                "nl": "Naam",
+                "de": "Name"
               }
             },
             {
-              "name": "ison",
+              "name": "isoff",
               "type": "boolean",
               "title": {
-                "en": "Is On"
+                "en": "Is off",
+                "nl": "Is uit",
+                "de": "Ist ausgeschaltet"
               }
             },
             {
                 "name": "zone",
                 "type": "string",
                 "title": {
-                  "en": "Zone"
+                  "en": "Zone",
+                  "nl": "Zone",
+                  "de": "Zone"
                 }
               }
           ],

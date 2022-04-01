@@ -58,5 +58,29 @@
   },
   "1.2.4": {
     "en": "FIX Translation corrections"
+  },
+  "1.3.0": {
+    "en": "New: change device settings for zones and trigger cards for zone changes"
+  },
+  "1.3.1": {
+    "en": "Updated readme files"
+  },
+  "1.3.2": {
+    "en": "Added German translation to new zone flow cards"
+  },
+  "1.3.3": {
+    "en": "Updated German ReadMe"
+  },
+  "1.3.4": {
+    "en": "Restore variable data on app restart"
+  },
+  "1.3.5": {
+    "en": "Remove action cards for On/Off/Toggle devices in a zone"
+  },
+  "1.3.6": {
+    "en": "FIX: Zone trigger functionality"
+  },
+  "1.3.7": {
+    "en": "FIX: App crashing on reboot"
   }
 }

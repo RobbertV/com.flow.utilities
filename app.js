@@ -25,6 +25,14 @@ class App extends Homey.App {
 
         this.TOKENS = {};
 
+        this.SRC_LIST = [
+            { name: 'duration', type: 'string' },
+            { name: 'currency', type: 'string' },
+            { name: 'comparison', type: 'number' },
+            { name: 'calculation', type: 'number' },
+            { name: 'decimals', type: 'number' }
+        ];
+
         this._api = await HomeyAPI.forCurrentHomey(this.homey);
 
         await this.initSettings();
@@ -101,25 +109,28 @@ class App extends Homey.App {
         });
     }
 
-    async setTokens(newSettings, oldSettings = []) {
-        await newSettings.forEach((t) => {
-            if (!this.TOKENS[t]) {
-                this.createToken(t, { src: 'duration' });
-                this.createToken(t, { src: 'currency', type: 'string' });
-                this.createToken(t, { src: 'comparison', type: 'number' });
-                this.createToken(t, { src: 'calculation', type: 'number' });
-                this.createToken(t, { src: 'decimals', type: 'number' });
-            }
+    async updateTotals(token, newValueObj) {
+        const currentTokenTotals = this.appSettings.TOTALS.find((total) => total.token === token);
+        const otherTotals = this.appSettings.TOTALS.filter((total) => total.token !== token);
+        const newTokenTotals = { token, ...currentTokenTotals, ...newValueObj };
+
+        await this.updateSettings({
+            ...this.appSettings,
+            TOTALS: [...otherTotals, newTokenTotals]
+        });
+    }
+
+    async setTokens(newVariables, oldVariables = []) {
+        await newVariables.forEach((t) => {
+            const existingVariableData = this.appSettings.TOTALS.find((x) => x.token === t);
+
+            this.createTokenVariants(t, existingVariableData);
         });
 
-        if (oldSettings.length) {
-            const difference = oldSettings.filter((x) => !newSettings.includes(x));
-            difference.forEach((d) => {
-                this.removeToken(d, 'duration');
-                this.removeToken(d, 'currency');
-                this.removeToken(d, 'comparison');
-                this.removeToken(d, 'calculation');
-                this.removeToken(d, 'decimals');
+        if (oldVariables.length) {
+            const difference = oldVariables.filter((x) => !newVariables.includes(x));
+            difference.forEach(async(d) => {
+                await this.removeTokenVariants(d);
                 this.removeSettings(d);
             });
         }
@@ -164,6 +175,24 @@ class App extends Homey.App {
         }
     }
 
+    async createTokenVariants(tokenID, existingVariableData) {
+        this.SRC_LIST.forEach((src) => {
+            const suffix = this.homey.__(`helpers.${src.name}`);
+            const title = `${tokenID} ${suffix}`;
+            const id = formatToken(title);
+
+            if (!this.TOKENS[id]) {
+                this.createToken(tokenID, { src: src.name, type: src.type, value: (existingVariableData && existingVariableData[src.name]) || null });
+            }
+        });
+    }
+
+    async removeTokenVariants(tokenID) {
+        this.SRC_LIST.forEach((src) => {
+            this.removeToken(tokenID, src.name);
+        });
+    }
+
     // -------------------- FUNCTIONS ----------------------
 
     async setCheckZoneOnOffInterval() {
@@ -171,17 +200,15 @@ class App extends Homey.App {
         const zones = Object.keys(this.appSettings.ZONES);
         const that = this;
         for (const device of devices) {
-            if (device.capabilitiesObj.onoff && zones.includes(device.zone)) {
+            if (device.capabilitiesObj && device.capabilitiesObj.onoff && zones.includes(device.zone)) {
                 device.makeCapabilityInstance('onoff', () => {
-                    that.checkZoneOnOff(device.zone);
+                    that.checkZoneOnOff(devices, device.zone);
                 });
             }
         }
     }
 
-    async checkZoneOnOff(zone) {
-        const devices = Object.values(await this._api.devices.getDevices());
-
+    async checkZoneOnOff(devices, zone) {
         const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
         const isOn = onoffDevice.every((v) => v.settings && v.capabilitiesObj.onoff.value === true);
         const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
@@ -208,8 +235,6 @@ class App extends Homey.App {
                 .trigger({}, { zone })
                 .catch(this.error)
                 .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
-
-            this.setCheckZoneOnOffInterval();
         }
     }
 
@@ -246,12 +271,8 @@ class App extends Homey.App {
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
-        await this.updateSettings({
-            ...this.appSettings,
-            TOTALS: [...totals, { token, duration, comparison }]
-        });
-
         if (src === 'duration' && duration) {
+            await this.updateTotals(token, { duration });
             await this.createToken(token, { src, value: duration });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration }, { token })
@@ -260,6 +281,7 @@ class App extends Homey.App {
         }
 
         if (src === 'comparison' && comparison !== null) {
+            await this.updateTotals(token, { comparison });
             await this.createToken(token, { src, value: parseFloat(comparison), type: 'number' });
 
             this.homey.app.trigger_COMPARISON
@@ -273,12 +295,16 @@ class App extends Homey.App {
         const setLocalCurrency = number.toLocaleString(this.homey.__('helpers.locale'), { style: 'currency', currency: currency });
         this.homey.app.log('[action_SET_CURRENCY] - args', token, number, currency, setLocalCurrency);
 
+        await this.updateTotals(token, { currency: setLocalCurrency });
+
         await this.createToken(token, { src: 'currency', value: setLocalCurrency });
     }
 
     async action_CALCULATION(token, calcType, number1, number2) {
         const calculation = calculationType(calcType, number1, number2);
         this.homey.app.log('[action_CALCULATION] - args', token, calcType, number1, number2, calculation);
+
+        await this.updateTotals(token, { calculation });
 
         await this.createToken(token, { src: 'calculation', value: calculation, type: 'number' });
     }
@@ -287,41 +313,9 @@ class App extends Homey.App {
         const calculation = convertNumber(number, decimals);
         this.homey.app.log('[action_CONVERT_NUMBER] - args', token, number, decimals);
 
+        await this.updateTotals(token, { decimals: calculation });
+
         await this.createToken(token, { src: 'decimals', value: calculation, type: 'number' });
-    }
-
-    async action_SET_ZONE_ONOFF(zoneId, valueString, deviceType) {
-        this.homey.app.log('[action_SET_ZONE_ONOFF] - args', zoneId, 'onoff', valueString, 'deviceType', deviceType);
-
-        const devices = Object.values(await this._api.devices.getDevices()).filter(
-            (d) => d.zone === zoneId && d.capabilities.includes('onoff') && (deviceType === '__any' || d.virtualClass === deviceType || d.class === deviceType)
-        );
-
-        for (const device of devices) {
-            const value = parseInt(valueString);
-            const onOff = !!value;
-
-            this.homey.app.log('[action_SET_ZONE_ONOFF] - device', device.name, 'onoff', onOff);
-
-            device.setCapabilityValue('onoff', onOff);
-        }
-    }
-
-    async action_TOGGLE_ZONE_ONOFF(zoneId, deviceType) {
-        this.homey.app.log('[action_TOGGLE_ZONE_ONOFF] - args', zoneId, 'onoff', 'deviceType', deviceType);
-        const devices = Object.values(await this._api.insights.getLogs()).filter((d) => d.id === 'onoff' && d.uriObj && d.uriObj.meta && d.uriObj.meta.zoneId === zoneId);
-
-        for (const device of devices) {
-            const onOff = !device.lastValue;
-
-            this.homey.app.log('[action_TOGGLE_ZONE_ONOFF] - device: ', device.uriObj.name, '- onoff: ', onOff);
-
-            this._api.devices.setCapabilityValue({
-                capabilityId: 'onoff',
-                deviceId: device.uriObj.id,
-                value: onOff
-            });
-        }
     }
 
     async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {

@@ -27,6 +27,7 @@
     "currency": "Währung",
     "calculation": "Berechnung",
     "decimals": "Dezimalstellen",
+    "text": "texte",
     "all": "-Alle Variablen-"
   }
 }

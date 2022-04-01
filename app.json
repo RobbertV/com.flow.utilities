@@ -657,6 +657,80 @@
         ]
       },
       {
+        "id": "action_CONVERT_TEXT",
+        "title": {
+          "en": "Transform text",
+          "nl": "Tekst transformeren",
+          "de": "Texte verwandeln"
+        },
+        "titleFormatted": {
+          "en": "Transform [[text]] to [[type]] add to [[variable]]",
+          "nl": "Transformeer [[text]] naar [[type]] voeg in [[variable]]",
+          "de": "Verwandeln [[text]] zu [[type]] und füge ein in [[variable]]"
+        },
+        "args": [
+          {
+            "name": "text",
+            "type": "text",
+            "placeholder": {
+              "en": "Text",
+              "nl": "Tekst",
+              "de": "Texte"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "title": {
+              "en": "Type"
+            },
+            "values": [
+              {
+                "id": "uppercase",
+                "label": {
+                  "en": "uppercase",
+                  "nl": "hoofdletters",
+                  "de": "Großbuchstaben"
+                }
+              },
+              {
+                "id": "lowercase",
+                "label": {
+                  "en": "lowercase",
+                  "nl": "kleine letters",
+                  "de": "Kleinbuchstaben"
+                }
+              },
+              {
+                "id": "capitalizeFirstLetter",
+                "label": {
+                  "en": "Capitalize first letter",
+                  "nl": "Hoofdletters eerste letter",
+                  "de": "Anfangsbuchstaben groß schreiben"
+                }
+              },
+              {
+                "id": "titleCase",
+                "label": {
+                  "en": "Capitalize first letter every word",
+                  "nl": "Begin elk woord met een hoofdletter",
+                  "de": "Anfangsbuchstaben jedes Wortes groß schreiben"
+                }
+              }
+            ]
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          }
+        ]
+      },
+      {
         "id": "action_SET_ZONE_PERCENTAGE",
         "title": {
           "en": "Set device percentage in zone",

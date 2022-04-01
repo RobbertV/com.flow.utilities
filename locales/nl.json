@@ -27,6 +27,7 @@
     "currency": "valuta",
     "calculation": "berekening",
     "decimals": "decimalen",
+    "text": "tekst",
     "all": "-Alle variabelen-"
   }
 }

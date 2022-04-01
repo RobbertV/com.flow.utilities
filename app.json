@@ -700,9 +700,9 @@
               {
                 "id": "uppercase",
                 "label": {
-                  "en": "uppercase",
-                  "nl": "hoofdletters",
-                  "de": "Großbuchstaben"
+                  "en": "UPPERCASE",
+                  "nl": "HOOFDLETTERS",
+                  "de": "GROßBUCHSTABEN"
                 }
               },
               {
@@ -717,15 +717,15 @@
                 "id": "capitalizeFirstLetter",
                 "label": {
                   "en": "Capitalize first letter",
-                  "nl": "Hoofdletters eerste letter",
+                  "nl": "Eerste letter hoofdletter",
                   "de": "Anfangsbuchstaben groß schreiben"
                 }
               },
               {
                 "id": "titleCase",
                 "label": {
-                  "en": "Capitalize first letter every word",
-                  "nl": "Begin elk woord met een hoofdletter",
+                  "en": "Capitalize First Letter Every Word",
+                  "nl": "Begin Elk Woord Met Hoofdletter",
                   "de": "Anfangsbuchstaben jedes Wortes groß schreiben"
                 }
               }

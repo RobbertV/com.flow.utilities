@@ -306,12 +306,12 @@
             }
           },
           {
-            "name": "isoff",
+            "name": "ison",
             "type": "boolean",
             "title": {
-              "en": "Is off",
-              "nl": "Is uit",
-              "de": "Ist ausgeschaltet"
+              "en": "Is on",
+              "nl": "Is aan",
+              "de": "Ist eingeschaltet"
             }
           },
           {

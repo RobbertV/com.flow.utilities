@@ -85,5 +85,8 @@
   },
   "1.4.0": {
     "en": "Added new trigger cards for single devices in zone & added Action cards for text conversion"
+  },
+  "1.4.1": {
+    "en": "FIX: Trigger card for devices off in zone"
   }
 }

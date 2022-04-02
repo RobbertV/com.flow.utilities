@@ -1,6 +1,6 @@
 {
   "id": "com.flow.utilities",
-  "version": "1.3.7",
+  "version": "1.4.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "permissions": [
@@ -243,28 +243,34 @@
           "de": "Gerät in [[zone]] ist eingeschaltet"
         },
         "tokens": [
-            {
-              "name": "name",
-              "type": "string",
-              "title": {
-                "en": "Name"
-              }
-            },
-            {
-              "name": "ison",
-              "type": "boolean",
-              "title": {
-                "en": "Is On"
-              }
-            },
-            {
-                "name": "zone",
-                "type": "string",
-                "title": {
-                  "en": "Zone"
-                }
-              }
-          ],
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            }
+          },
+          {
+            "name": "ison",
+            "type": "boolean",
+            "title": {
+              "en": "Is on",
+              "nl": "Is aan",
+              "de": "Ist eingeschaltet"
+            }
+          },
+          {
+            "name": "zone",
+            "type": "string",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ],
         "args": [
           {
             "name": "zone",
@@ -290,28 +296,34 @@
           "de": "Gerät in [[zone]] ist ausgeschaltet"
         },
         "tokens": [
-            {
-              "name": "name",
-              "type": "string",
-              "title": {
-                "en": "Name"
-              }
-            },
-            {
-              "name": "ison",
-              "type": "boolean",
-              "title": {
-                "en": "Is On"
-              }
-            },
-            {
-                "name": "zone",
-                "type": "string",
-                "title": {
-                  "en": "Zone"
-                }
-              }
-          ],
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            }
+          },
+          {
+            "name": "isoff",
+            "type": "boolean",
+            "title": {
+              "en": "Is off",
+              "nl": "Is uit",
+              "de": "Ist ausgeschaltet"
+            }
+          },
+          {
+            "name": "zone",
+            "type": "string",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone"
+            }
+          }
+        ],
         "args": [
           {
             "name": "zone",
@@ -644,6 +656,80 @@
               "nl": "decimalen",
               "de": "Dezimalstellen"
             }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_CONVERT_TEXT",
+        "title": {
+          "en": "Transform text",
+          "nl": "Tekst transformeren",
+          "de": "Texte verwandeln"
+        },
+        "titleFormatted": {
+          "en": "Transform [[text]] to [[type]] add to [[variable]]",
+          "nl": "Transformeer [[text]] naar [[type]] voeg in [[variable]]",
+          "de": "Verwandeln [[text]] zu [[type]] und füge ein in [[variable]]"
+        },
+        "args": [
+          {
+            "name": "text",
+            "type": "text",
+            "placeholder": {
+              "en": "Text",
+              "nl": "Tekst",
+              "de": "Texte"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "title": {
+              "en": "Type"
+            },
+            "values": [
+              {
+                "id": "uppercase",
+                "label": {
+                  "en": "UPPERCASE",
+                  "nl": "HOOFDLETTERS",
+                  "de": "GROßBUCHSTABEN"
+                }
+              },
+              {
+                "id": "lowercase",
+                "label": {
+                  "en": "lowercase",
+                  "nl": "kleine letters",
+                  "de": "Kleinbuchstaben"
+                }
+              },
+              {
+                "id": "capitalizeFirstLetter",
+                "label": {
+                  "en": "Capitalize first letter",
+                  "nl": "Eerste letter hoofdletter",
+                  "de": "Anfangsbuchstaben groß schreiben"
+                }
+              },
+              {
+                "id": "titleCase",
+                "label": {
+                  "en": "Capitalize First Letter Every Word",
+                  "nl": "Begin Elk Woord Met Hoofdletter",
+                  "de": "Anfangsbuchstaben jedes Wortes groß schreiben"
+                }
+              }
+            ]
           },
           {
             "name": "variable",

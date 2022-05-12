@@ -24,6 +24,7 @@
     "seconds": "seconds",
     "comparison": "difference",
     "duration": "duration",
+    "durationInSeconds": "duration in seconds",
     "currency": "currency",
     "calculation": "calculation",
     "decimals": "decimals",

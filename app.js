@@ -27,6 +27,7 @@ class App extends Homey.App {
 
         this.SRC_LIST = [
             { name: 'duration', type: 'string' },
+            { name: 'durationInSeconds', type: 'number' },
             { name: 'currency', type: 'string' },
             { name: 'comparison', type: 'number' },
             { name: 'calculation', type: 'number' },
@@ -282,18 +283,20 @@ class App extends Homey.App {
 
         const date = existing_comparison.date ? new Date() : null;
         const existingDate = typeof existing_comparison.date === 'string' ? new Date(existing_comparison.date) : existing_comparison.date;
-        const duration = date ? calculateDuration(existingDate, date, this.homey.__, this.homey.app.log) : null;
+        const duration = date ? calculateDuration(existingDate, date, false, this.homey.__, this.homey.app.log) : null;
+        const durationInSeconds = date ? calculateDuration(existingDate, date, true, this.homey.__, this.homey.app.log) : null;
         const comparison = value ? calculateComparison(existing_comparison.comparison, value) : null;
 
         const totals = this.appSettings.TOTALS.filter((total) => total.token !== token);
 
         if (src === 'duration' && duration) {
-            await this.updateTotals(token, { duration });
+            await this.updateTotals(token, { duration, durationInSeconds });
             await this.createToken(token, { src, value: duration });
+            await this.createToken(token, { src: 'durationInSeconds', value: durationInSeconds });
             this.homey.app.trigger_DURATION
-                .trigger({ token, duration }, { token })
+                .trigger({ token, duration, durationInSeconds }, { token })
                 .catch(this.error)
-                .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration}"`));
+                .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration} ${durationInSeconds}"`));
         }
 
         if (src === 'comparison' && comparison !== null) {

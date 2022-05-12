@@ -168,6 +168,15 @@
               "nl": "Looptijd",
               "de": "Laufzeit"
             }
+          },
+          {
+            "name": "durationInSeconds",
+            "type": "number",
+            "title": {
+              "en": "Duration in seconds",
+              "nl": "Looptijd in seconden",
+              "de": "Laufzeit in Sekunde"
+            }
           }
         ],
         "args": [

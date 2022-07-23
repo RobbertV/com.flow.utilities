@@ -91,5 +91,8 @@
   },
   "1.4.2": {
     "en": "NEW: Added duration in seconds to (global) tags "
+  },
+  "1.4.3": {
+    "en": "OPT: Add curency format for Norway, Sweden & Danmark"
   }
 }

@@ -489,13 +489,13 @@
           "de": "Zahl in Währung umrechnen"
         },
         "titleFormatted": {
-          "en": "Convert [[value]] to [[currency]] add to [[variable]]",
-          "nl": "Zet [[value]] om in [[currency]] voeg in [[variable]]",
+          "en": "Convert [[value]] to [[currency]] notation, add to [[variable]]",
+          "nl": "Zet [[value]] om in [[currency]] notatie, voeg in [[variable]]",
           "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]"
         },
         "hint": {
-          "en": "Convert a number value to selected currency. Outcome will be stored in \"{variable} currency\".",
-          "nl": "Conventeer een nummer waarde in geselecteerde valuta. Resultaat wordt opgeslagen in \"{variable} valuta\".",
+          "en": "Convert a number value to selected currency notation. Outcome will be stored in \"{variable} currency\".",
+          "nl": "Conventeer een nummer waarde in geselecteerde valuta notatie. Resultaat wordt opgeslagen in \"{variable} valuta\".",
           "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\"."
         },
         "args": [
@@ -533,6 +533,24 @@
                 "id": "GBP",
                 "label": {
                   "en": "£ GBP"
+                }
+              },
+              {
+                "id": "NOK",
+                "label": {
+                  "en": "NOK"
+                }
+              },
+              {
+                "id": "SEK",
+                "label": {
+                  "en": "SEK"
+                }
+              },
+              {
+                "id": "DKK",
+                "label": {
+                  "en": "DKK"
                 }
               }
             ]

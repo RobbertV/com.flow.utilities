@@ -1,0 +1,34 @@
+{
+  "settings": {
+    "intro": "For every added variable 5 tags will be made: <ul><li>{variable} duration</li><li>{variable} difference</li><li>{variable} currency</li><li>{variable} calculation</li><li>{variable} decimals</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
+    "variables": "Variables",
+    "set_variable": "Create variable",
+    "add": "Add",
+    "clear": "Remove all",
+    "delete-confirm": "Are you sure to execute this action?",
+    "delete-confirm-single": "Are you sure to execute this action? Delete ' __var__ '",
+    "loading": "Loading...",
+    "saved": "Saved",
+    "removed": "Removed",
+    "cleared": "Cleared & saved"
+  },
+  "helpers": {
+    "locale": "en-EN",
+    "day": "day",
+    "days": "days",
+    "hour": "hour",
+    "hours": "hours",
+    "minute": "minute",
+    "minutes": "minutes",
+    "second": "second",
+    "seconds": "seconds",
+    "comparison": "difference",
+    "duration": "duration",
+    "durationInSeconds": "duration in seconds",
+    "currency": "currency",
+    "calculation": "calculation",
+    "decimals": "decimals",
+    "text": "text",
+    "all": "-All variables-"
+  }
+}

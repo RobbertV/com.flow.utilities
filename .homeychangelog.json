@@ -97,5 +97,8 @@
   },
   "1.4.4": {
     "en": "NEW: Add support for Norwegian language"
+  },
+  "1.4.5": {
+    "en": "FIX: Language locales for Norway, Sweden & Danmark"
   }
 }

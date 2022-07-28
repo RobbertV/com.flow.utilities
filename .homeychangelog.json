@@ -94,5 +94,8 @@
   },
   "1.4.3": {
     "en": "OPT: Add curency format for Norway, Sweden & Danmark"
+  },
+  "1.4.4": {
+    "en": "NEW: Add support for Norwegian language"
   }
 }

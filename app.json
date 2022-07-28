@@ -10,12 +10,14 @@
   "name": {
     "en": "Flow Utilities",
     "nl": "Flow Utilities",
-    "de": "Flow Utilities"
+    "de": "Flow Utilities",
+    "no": "Flow Utilities"
   },
   "description": {
     "en": "Get more out of data for in flows",
     "nl": "Haal meer uit data voor in flows",
-    "de": "Holen Sie mehr aus Flow Daten heraus"
+    "de": "Holen Sie mehr aus Flow Daten heraus",
+    "no": "Get more out of data for in flows"
   },
   "tags": {
     "en": [
@@ -70,6 +72,9 @@
       },
       {
         "name": "🇩🇪 Dirk Göbel"
+      },
+      {
+        "name": "🇳🇴 Kai Engvik"
       }
     ]
   },
@@ -99,12 +104,14 @@
         "title": {
           "en": "Comparison is made",
           "nl": "Vergelijking is berekend",
-          "de": "Vergleich wurde durchgeführt"
+          "de": "Vergleich wurde durchgeführt",
+          "no": "Sammenligning blir gjort"
         },
         "titleFormatted": {
           "en": "Comparison is made for [[variable]]",
           "nl": "Vergelijking is berekend voor [[variable]]",
-          "de": "Vergleich wird berechnet für [[variable]]"
+          "de": "Vergleich wird berechnet für [[variable]]",
+          "no": "Sammenligning blir gjort for [[variable]]"
         },
         "tokens": [
           {
@@ -113,7 +120,8 @@
             "title": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           },
           {
@@ -122,7 +130,8 @@
             "title": {
               "en": "Comparison",
               "nl": "Vergelijking",
-              "de": "Vergleich"
+              "de": "Vergleich",
+              "no": "Sammenligning"
             }
           }
         ],
@@ -133,7 +142,8 @@
             "placeholder": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -143,12 +153,14 @@
         "title": {
           "en": "Duration is set",
           "nl": "Looptijd is berekend",
-          "de": "Laufzeit wird berechnet"
+          "de": "Laufzeit wird berechnet",
+          "no": "Varighet er innstilt"
         },
         "titleFormatted": {
           "en": "Duration is set for [[variable]]",
           "nl": "Looptijd is berekend voor [[variable]]",
-          "de": "Laufzeit wird berechnet für [[variable]]"
+          "de": "Laufzeit wird berechnet für [[variable]]",
+          "no": "Varighet er innstilt for [[variable]]"
         },
         "tokens": [
           {
@@ -157,7 +169,8 @@
             "title": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           },
           {
@@ -166,7 +179,8 @@
             "title": {
               "en": "Duration",
               "nl": "Looptijd",
-              "de": "Laufzeit"
+              "de": "Laufzeit",
+              "no": "Varighet"
             }
           },
           {
@@ -175,7 +189,8 @@
             "title": {
               "en": "Duration in seconds",
               "nl": "Looptijd in seconden",
-              "de": "Laufzeit in Sekunde"
+              "de": "Laufzeit in Sekunde",
+              "no": "Varighet i sekunder"
             }
           }
         ],
@@ -186,7 +201,8 @@
             "placeholder": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -196,12 +212,14 @@
         "title": {
           "en": "Devices in zone turned on",
           "nl": "Apparaten in zone zijn aangezet",
-          "de": "Geräte in Zone sind eingeschaltet"
+          "de": "Geräte in Zone sind eingeschaltet",
+          "no": "Enheter i sone slått på"
         },
         "titleFormatted": {
           "en": "Devices in [[zone]] turned on",
           "nl": "Apparaten in [[zone]] zijn aangezet",
-          "de": "Geräte in [[zone]] sind eingeschaltet"
+          "de": "Geräte in [[zone]] sind eingeschaltet",
+          "no": "Enheter i [[zone]] slått på"
         },
         "args": [
           {
@@ -210,7 +228,8 @@
             "placeholder": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ]
@@ -220,12 +239,14 @@
         "title": {
           "en": "Devices in zone turned off",
           "nl": "Apparaten in zone zijn uitgezet",
-          "de": "Geräte in Zone sind ausgeschaltet"
+          "de": "Geräte in Zone sind ausgeschaltet",
+          "no": "Enheter i sone slått av"
         },
         "titleFormatted": {
           "en": "Devices in [[zone]] turned off",
           "nl": "Apparaten in [[zone]] zijn uitgezet",
-          "de": "Geräte in [[zone]] sind ausgeschaltet"
+          "de": "Geräte in [[zone]] sind ausgeschaltet",
+          "no": "Enheter [[zone]] slått av"
         },
         "args": [
           {
@@ -234,7 +255,8 @@
             "placeholder": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ]
@@ -244,12 +266,14 @@
         "title": {
           "en": "A Device in zone turned on",
           "nl": "Apparaat in zone is aangezet",
-          "de": "Gerät in Zone ist eingeschaltet"
+          "de": "Gerät in Zone ist eingeschaltet",
+          "no": "En enhet i sone er slått på"
         },
         "titleFormatted": {
           "en": "Device in [[zone]] turned on",
           "nl": "Apparaat in [[zone]] is aangezet",
-          "de": "Gerät in [[zone]] ist eingeschaltet"
+          "de": "Gerät in [[zone]] ist eingeschaltet",
+          "no": "Enhet i [[zone]] slått på"
         },
         "tokens": [
           {
@@ -258,7 +282,8 @@
             "title": {
               "en": "Name",
               "nl": "Naam",
-              "de": "Name"
+              "de": "Name",
+              "no": "Navn"
             }
           },
           {
@@ -267,7 +292,8 @@
             "title": {
               "en": "Is on",
               "nl": "Is aan",
-              "de": "Ist eingeschaltet"
+              "de": "Ist eingeschaltet",
+              "no": "Er på"
             }
           },
           {
@@ -276,7 +302,8 @@
             "title": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ],
@@ -287,7 +314,8 @@
             "placeholder": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ]
@@ -297,12 +325,14 @@
         "title": {
           "en": "A Device in zone turned off",
           "nl": "Apparaat in zone is uitgezet",
-          "de": "Gerät in Zone ist ausgeschaltet"
+          "de": "Gerät in Zone ist ausgeschaltet",
+          "no": "En enhet i sone er slått av"
         },
         "titleFormatted": {
           "en": "Device in [[zone]] turned off",
           "nl": "Apparaat in [[zone]] is uitgezet",
-          "de": "Gerät in [[zone]] ist ausgeschaltet"
+          "de": "Gerät in [[zone]] ist ausgeschaltet",
+          "no": "En enhet i [[zone]] er slått av"
         },
         "tokens": [
           {
@@ -311,7 +341,8 @@
             "title": {
               "en": "Name",
               "nl": "Naam",
-              "de": "Name"
+              "de": "Name",
+              "no": "Navn"
             }
           },
           {
@@ -320,7 +351,8 @@
             "title": {
               "en": "Is on",
               "nl": "Is aan",
-              "de": "Ist eingeschaltet"
+              "de": "Ist eingeschaltet",
+              "no": "Er på"
             }
           },
           {
@@ -329,7 +361,8 @@
             "title": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ],
@@ -340,7 +373,8 @@
             "placeholder": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ]
@@ -352,17 +386,20 @@
         "title": {
           "en": "Start duration for variable",
           "nl": "Start looptijd voor variabele",
-          "de": "Start Laufzeit für Variable"
+          "de": "Start Laufzeit für Variable",
+          "no": "Start varighet for variabel"
         },
         "titleFormatted": {
           "en": "Start duration for [[variable]]",
           "nl": "Start looptijd voor [[variable]]",
-          "de": "Start Laufzeit für [[variable]]"
+          "de": "Start Laufzeit für [[variable]]",
+          "no": "Start varighet for [[variable]]"
         },
         "hint": {
           "en": "Set the begin value for the duration comparison",
           "nl": "Sla begin tijd op voor de looptijd in de eind kaart",
-          "de": "Anfangswert für den Laufzeitvergleich festlegen"
+          "de": "Anfangswert für den Laufzeitvergleich festlegen",
+          "no": "Sett startverdi for varighet sammenligning"
         },
         "args": [
           {
@@ -371,7 +408,8 @@
             "placeholder": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -381,17 +419,20 @@
         "title": {
           "en": "Stop duration time and compare with start value",
           "nl": "Stop looptijd en vergelijk met start waarde",
-          "de": "Stopp Laufzeit und vergleiche mit Startwert"
+          "de": "Stopp Laufzeit und vergleiche mit Startwert",
+          "no": "Stopp varighetstid og sammenlign med startverdi"
         },
         "titleFormatted": {
           "en": "Stop duration for [[variable]]",
           "nl": "Stop looptijd voor [[variable]]",
-          "de": "Stopp Laufzeit für [[variable]]"
+          "de": "Stopp Laufzeit für [[variable]]",
+          "no": "Stopp varighet for [[variable]]"
         },
         "hint": {
           "en": "Make comparison with the start value set earlier. The outcome will be set in \"{variable} duration\".",
           "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\".",
-          "de": "Führe einen Vergleich mit dem zuvor festgelegten Startwert durch. Ergebnis wird eingefügt in \"{variable} Laufzeit\"."
+          "de": "Führe einen Vergleich mit dem zuvor festgelegten Startwert durch. Ergebnis wird eingefügt in \"{variable} Laufzeit\".",
+          "no": "Gjør sammenligning med startverdien satt tidligere. utfallet blir satt i \"{variable} varighet\"."
         },
         "args": [
           {
@@ -400,7 +441,8 @@
             "placeholder": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -410,17 +452,20 @@
         "title": {
           "en": "Set start value for comparison",
           "nl": "Maak begin waarde voor vergelijking",
-          "de": "Startwert für den Vergleich festlegen."
+          "de": "Startwert für den Vergleich festlegen.",
+          "no": "Sett startverdi for sammenligning"
         },
         "titleFormatted": {
           "en": "Start comparison with [[value]] for [[variable]]",
           "nl": "Begin vergelijking met [[value]] voor [[variable]]",
-          "de": "Start Vergleich mit [[value]] für [[variable]]"
+          "de": "Start Vergleich mit [[value]] für [[variable]]",
+          "no": "Start sammenligning med [[value]] for [[variable]]"
         },
         "hint": {
           "en": "Set Start value for comparison, this can be used in the end card",
           "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart",
-          "de": "Startwert für Vergleich festlegen, dieser kann in der Endwertkarte verwendet werden."
+          "de": "Startwert für Vergleich festlegen, dieser kann in der Endwertkarte verwendet werden.",
+          "no": "Sett startverdi for sammenlingning, denne kan bli brukt i endekortet"
         },
         "args": [
           {
@@ -429,7 +474,8 @@
             "placeholder": {
               "en": "start value",
               "nl": "begin waarde",
-              "de": "Startwert"
+              "de": "Startwert",
+              "no": "startverdi"
             }
           },
           {
@@ -438,7 +484,8 @@
             "placeholder": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -448,17 +495,20 @@
         "title": {
           "en": "Set end value and compare",
           "nl": "Maak eind waarde en vergelijk",
-          "de": "Endwert festlegen und vergleichen"
+          "de": "Endwert festlegen und vergleichen",
+          "no": "Sett sluttverdi og sammenlign"
         },
         "titleFormatted": {
           "en": "Compare with end value [[value]] for [[variable]]",
           "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]",
-          "de": "Vergleiche mit Endwert [[value]] für [[variable]]"
+          "de": "Vergleiche mit Endwert [[value]] für [[variable]]",
+          "no": "Sammenlign med sluttverdi [[value]] for [[variable]]"
         },
         "hint": {
           "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
           "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\".",
-          "de": "Stellen Sie sicher, dass die Startwertkarte vorher ausgeführt wurde. Mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\"."
+          "de": "Stellen Sie sicher, dass die Startwertkarte vorher ausgeführt wurde. Mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\".",
+          "no": "Sørg for at startverdikortet har blitt satt tidligere, med endeverdien forskjellen blir skapt og lagret i \"{variable} difference\"."
         },
         "args": [
           {
@@ -467,7 +517,8 @@
             "placeholder": {
               "en": "end value",
               "nl": "eind waarde",
-              "de": "Endwert"
+              "de": "Endwert",
+              "no": "endeverdi"
             }
           },
           {
@@ -476,7 +527,8 @@
             "placeholder": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -486,17 +538,20 @@
         "title": {
           "en": "Convert number to currency",
           "nl": "Zet nummer naar valuta",
-          "de": "Zahl in Währung umrechnen"
+          "de": "Zahl in Währung umrechnen",
+          "no": "Konverter nummer til valuta"
         },
         "titleFormatted": {
           "en": "Convert [[value]] to [[currency]] notation, add to [[variable]]",
           "nl": "Zet [[value]] om in [[currency]] notatie, voeg in [[variable]]",
-          "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]"
+          "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]",
+          "no": "Konverter [[value]] til [[currency]] notering, legg til [[variable]]"
         },
         "hint": {
           "en": "Convert a number value to selected currency notation. Outcome will be stored in \"{variable} currency\".",
           "nl": "Conventeer een nummer waarde in geselecteerde valuta notatie. Resultaat wordt opgeslagen in \"{variable} valuta\".",
-          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\"."
+          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\".",
+          "no": "Konverter en nummerverdi til valgt valutanotering. Utfallet blir lagret i \"{variable} valuta\"."
         },
         "args": [
           {
@@ -505,7 +560,8 @@
             "placeholder": {
               "en": "number",
               "nl": "nummer",
-              "de": "Zahl"
+              "de": "Zahl",
+              "no": "nummer"
             }
           },
           {
@@ -514,7 +570,8 @@
             "title": {
               "en": "currency",
               "nl": "valuta",
-              "de": "Währung"
+              "de": "Währung",
+              "no": "valuta"
             },
             "values": [
               {
@@ -561,7 +618,8 @@
             "title": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -571,17 +629,20 @@
         "title": {
           "en": "Calculate 2 values",
           "nl": "Bereken 2 waardes",
-          "de": "Berechne 2 Werte"
+          "de": "Berechne 2 Werte",
+          "no": "Kalkuler 2 verdier"
         },
         "titleFormatted": {
           "en": "Calculate [[value1]] [[calctype]] [[value2]] add to [[variable]]",
           "nl": "Bereken [[value1]] [[calctype]] [[value2]] voeg in [[variable]]",
-          "de": "Berechne [[value1]] [[calctype]] [[value2]] und füge ein in [[variable]]"
+          "de": "Berechne [[value1]] [[calctype]] [[value2]] und füge ein in [[variable]]",
+          "no": "Kalkuler [[value1]] [[calctype]] [[value2]] legg til [[variable]]"
         },
         "hint": {
           "en": "For example use the difference of energy device and multiply with kWh price. Will be stored in \"{variable} calculation\".",
           "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten. Resultaat wordt opgeslagen in \"{variable} berekening\".",
-          "de": "Verwende z.B. die Differenz eines Energiegeräts und multiplizieren diese mit den Stromkosten pro kWh. Das Ergebnis wird gespeichert in \"{variable} Berechnung\"."
+          "de": "Verwende z.B. die Differenz eines Energiegeräts und multiplizieren diese mit den Stromkosten pro kWh. Das Ergebnis wird gespeichert in \"{variable} Berechnung\".",
+          "no": "For eksempel bruk forskjellen til en energienhet og multipliser med kWh pris. Blir lagret i \"{variable} kalkulering\"."
         },
         "args": [
           {
@@ -590,7 +651,8 @@
             "placeholder": {
               "en": "number 1",
               "nl": "nummer 1",
-              "de": "Zahl 1"
+              "de": "Zahl 1",
+              "no": "nummer 1"
             }
           },
           {
@@ -599,7 +661,8 @@
             "title": {
               "en": "select calculation",
               "nl": "kies berekening",
-              "de": "Art der Berechnung wählen"
+              "de": "Art der Berechnung wählen",
+              "no": "velg kalkulering"
             },
             "values": [
               {
@@ -634,7 +697,8 @@
             "placeholder": {
               "en": "number 2",
               "nl": "nummer 2",
-              "de": "Zahl 2"
+              "de": "Zahl 2",
+              "no": "nummer 2"
             }
           },
           {
@@ -643,7 +707,8 @@
             "title": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -653,17 +718,20 @@
         "title": {
           "en": "Convert number to number with decimals",
           "nl": "Converteer nummer naar nummer met decimalen",
-          "de": "Konvertiere Zahl in Zahl mit Dezimalstellen"
+          "de": "Konvertiere Zahl in Zahl mit Dezimalstellen",
+          "no": "Konverter nummer til nummer med desimaler"
         },
         "titleFormatted": {
           "en": "Convert [[number]] to number with [[decimals]] decimals and add to [[variable]]",
           "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]",
-          "de": "Konvertiere [[number]] in Zahl mit [[decimals]] Dezimalstellen und füge ein in [[variable]]"
+          "de": "Konvertiere [[number]] in Zahl mit [[decimals]] Dezimalstellen und füge ein in [[variable]]",
+          "no": "Konverter [[number]] til nummer med [[decimals]] desimaler og legg til [[variable]]"
         },
         "hint": {
           "en": "For example to convert numbers with 4 decimals to a number with only 2 decimals",
           "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen.",
-          "de": "Z.B. eine Zahl mit 4 Dezimalstellen in eine Zahl mit 2 Dezimalstellen umwandeln."
+          "de": "Z.B. eine Zahl mit 4 Dezimalstellen in eine Zahl mit 2 Dezimalstellen umwandeln.",
+          "no": "For eksempel å konvertere et nummer med 4 desimaler til et nummer med bare 2 desimaler"
         },
         "args": [
           {
@@ -672,7 +740,8 @@
             "placeholder": {
               "en": "number",
               "nl": "nummer",
-              "de": "Zahl"
+              "de": "Zahl",
+              "no": "nummer"
             }
           },
           {
@@ -681,7 +750,8 @@
             "placeholder": {
               "en": "decimals",
               "nl": "decimalen",
-              "de": "Dezimalstellen"
+              "de": "Dezimalstellen",
+              "no": "desimaler"
             }
           },
           {
@@ -690,7 +760,8 @@
             "title": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -700,12 +771,14 @@
         "title": {
           "en": "Transform text",
           "nl": "Tekst transformeren",
-          "de": "Texte verwandeln"
+          "de": "Texte verwandeln",
+          "no": "Transformere tekst"
         },
         "titleFormatted": {
           "en": "Transform [[text]] to [[type]] add to [[variable]]",
           "nl": "Transformeer [[text]] naar [[type]] voeg in [[variable]]",
-          "de": "Verwandeln [[text]] zu [[type]] und füge ein in [[variable]]"
+          "de": "Verwandeln [[text]] zu [[type]] und füge ein in [[variable]]",
+          "no": "Transformer [[text]] til [[type]] legg til [[variable]]"
         },
         "args": [
           {
@@ -714,7 +787,8 @@
             "placeholder": {
               "en": "Text",
               "nl": "Tekst",
-              "de": "Texte"
+              "de": "Texte",
+              "no": "Tekst"
             }
           },
           {
@@ -729,7 +803,8 @@
                 "label": {
                   "en": "UPPERCASE",
                   "nl": "HOOFDLETTERS",
-                  "de": "GROßBUCHSTABEN"
+                  "de": "GROßBUCHSTABEN",
+                  "no": "STORE BOKSTAVER"
                 }
               },
               {
@@ -737,7 +812,8 @@
                 "label": {
                   "en": "lowercase",
                   "nl": "kleine letters",
-                  "de": "Kleinbuchstaben"
+                  "de": "Kleinbuchstaben",
+                  "no": "små bokstaver"
                 }
               },
               {
@@ -745,7 +821,8 @@
                 "label": {
                   "en": "Capitalize first letter",
                   "nl": "Eerste letter hoofdletter",
-                  "de": "Anfangsbuchstaben groß schreiben"
+                  "de": "Anfangsbuchstaben groß schreiben",
+                  "no": "Stor forbokstav"
                 }
               },
               {
@@ -753,7 +830,8 @@
                 "label": {
                   "en": "Capitalize First Letter Every Word",
                   "nl": "Begin Elk Woord Met Hoofdletter",
-                  "de": "Anfangsbuchstaben jedes Wortes groß schreiben"
+                  "de": "Anfangsbuchstaben jedes Wortes groß schreiben",
+                  "no": "Stor forbokstav i hvert ord"
                 }
               }
             ]
@@ -764,7 +842,8 @@
             "title": {
               "en": "variable",
               "nl": "variabele",
-              "de": "Variable"
+              "de": "Variable",
+              "no": "variabel"
             }
           }
         ]
@@ -774,12 +853,14 @@
         "title": {
           "en": "Set device percentage in zone",
           "nl": "Zet apparaat percentage in zone",
-          "de": "Geräteprozentsatz in Zone einstellen"
+          "de": "Geräteprozentsatz in Zone einstellen",
+          "no": "Sett enhetsprosent i sone"
         },
         "titleFormatted": {
           "en": "Set [[type]] percentage to [[percentage]]% in [[zone]]",
           "nl": "Zet [[type]] percentage naar [[percentage]]% in [[zone]]",
-          "de": "Setze [[type]] Prozentsatz auf [[percentage]]% in [[zone]]"
+          "de": "Setze [[type]] Prozentsatz auf [[percentage]]% in [[zone]]",
+          "no": "Sett [[type]] prosent til [[percentage]]% i [[zone]]"
         },
         "args": [
           {
@@ -794,7 +875,8 @@
                 "label": {
                   "en": "Dim",
                   "nl": "Dim",
-                  "de": "Dim"
+                  "de": "Dim",
+                  "no": "Dim"
                 }
               },
               {
@@ -802,7 +884,8 @@
                 "label": {
                   "en": "Temperature",
                   "nl": "Temperatuur",
-                  "de": "Temperatur"
+                  "de": "Temperatur",
+                  "no": "Temperatur"
                 }
               },
               {
@@ -810,7 +893,8 @@
                 "label": {
                   "en": "Volume",
                   "nl": "Volume",
-                  "de": "Lautstärke"
+                  "de": "Lautstärke",
+                  "no": "lydstyrke"
                 }
               },
               {
@@ -818,7 +902,8 @@
                 "label": {
                   "en": "Window Coverings",
                   "nl": "Gordijnen",
-                  "de": "Fensterabdeckungen"
+                  "de": "Fensterabdeckungen",
+                  "no": "Window Coverings"
                 }
               }
             ]
@@ -829,7 +914,8 @@
             "placeholder": {
               "en": "Percentage",
               "nl": "Percentage",
-              "de": "Prozent"
+              "de": "Prozent",
+              "no": "prosent"
             },
             "min": 0,
             "max": 100,
@@ -841,7 +927,8 @@
             "title": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "Sone"
             }
           }
         ]
@@ -851,12 +938,14 @@
         "title": {
           "en": "Set zone light color",
           "nl": "Maak zone lichtkleur",
-          "de": "Setze Farbe in Zone"
+          "de": "Setze Farbe in Zone",
+          "no": "Sett lysfarge i sone"
         },
         "titleFormatted": {
           "en": "Set light color to [[color]] in [[zone]]",
           "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
-          "de": "Setze Farbe auf [[color]] in [[zone]]"
+          "de": "Setze Farbe auf [[color]] in [[zone]]",
+          "no": "Sett lysfarge til[[color]] i [[zone]]"
         },
         "args": [
           {
@@ -865,7 +954,8 @@
             "placeholder": {
               "en": "Color",
               "nl": "Kleur",
-              "de": "Farbe"
+              "de": "Farbe",
+              "no": "farge"
             }
           },
           {
@@ -874,7 +964,8 @@
             "title": {
               "en": "Zone",
               "nl": "Zone",
-              "de": "Zone"
+              "de": "Zone",
+              "no": "sone"
             }
           }
         ]

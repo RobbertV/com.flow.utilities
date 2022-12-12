@@ -140,8 +140,8 @@ class App extends Homey.App {
 
     async createToken(name, paramOptions) {
         const defaultOptions = {
-            src: null,
-            value: null,
+            src: '',
+            value: '',
             type: 'string'
         };
         const options = { ...defaultOptions, ...paramOptions };
@@ -160,7 +160,12 @@ class App extends Homey.App {
         }
 
         this.log(`[createToken] - set token value => ID: ${id} - Value: ${value}`);
-        await this.TOKENS[id].setValue(value);
+
+        try {
+            await this.TOKENS[id].setValue(value);
+        } catch (error) {
+            this.log(`[Error setToken] ${error}`);
+        }
     }
 
     async removeToken(name, src) {

@@ -100,5 +100,8 @@
   },
   "1.4.5": {
     "en": "FIX: Language locales for Norway, Sweden & Danmark"
+  },
+  "1.4.6": {
+    "en": "Fixed error handling setting flow tokens"
   }
 }

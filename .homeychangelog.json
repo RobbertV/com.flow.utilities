@@ -109,5 +109,8 @@
   },
   "1.4.8": {
     "en": "Revert Update homey api to latest specs thanks to Martijn Poppen"
+  },
+  "1.4.9": {
+    "en": "NEW: update to homey-api. (athom api is deprecated) & FIX: Token creation error for wrong type"
   }
 }

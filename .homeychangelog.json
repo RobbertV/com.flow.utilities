@@ -106,5 +106,8 @@
   },
   "1.4.7": {
     "en": "Update homey api to latest specs thanks to Martijn Poppen"
+  },
+  "1.4.8": {
+    "en": "Revert Update homey api to latest specs thanks to Martijn Poppen"
   }
 }

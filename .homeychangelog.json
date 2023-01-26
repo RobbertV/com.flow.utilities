@@ -103,5 +103,8 @@
   },
   "1.4.6": {
     "en": "Fixed error handling setting flow tokens"
+  },
+  "1.4.7": {
+    "en": "Update homey api to latest specs thanks to Martijn Poppen"
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const { HomeyAPIApp } = require('homey-api');
+const HomeyAPI = require('athom-api').HomeyAPI;
 const tinycolor = require('tinycolor2');
 const flowActions = require('./lib/flows/actions');
 const flowTriggers = require('./lib/flows/triggers');
@@ -35,10 +35,7 @@ class App extends Homey.App {
             { name: 'text', type: 'string' }
         ];
 
-        this._api = new HomeyAPIApp({
-            homey: this.homey,
-            debug: false,
-        });
+        this._api = await HomeyAPI.forCurrentHomey(this.homey);
 
         await this.initSettings();
 

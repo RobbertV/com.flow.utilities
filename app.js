@@ -190,9 +190,10 @@ class App extends Homey.App {
             const suffix = this.homey.__(`helpers.${src.name}`);
             const title = `${tokenID} ${suffix}`;
             const id = formatToken(title);
+            const fallbackValue = src.type === 'string' ? '' : 0;
 
             if (!this.TOKENS[id]) {
-                this.createToken(tokenID, { src: src.name, type: src.type, value: (existingVariableData && existingVariableData[src.name]) || null });
+                this.createToken(tokenID, { src: src.name, type: src.type, value: (existingVariableData && existingVariableData[src.name]) || fallbackValue });
             }
         });
     }

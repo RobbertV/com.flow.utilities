@@ -1,13 +1,13 @@
 {
   "name": "com.flow.utilities",
-  "version": "0.2.0",
+  "version": "1.4.9",
   "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/RobbertV/com.flow.utilities"
   },
   "dependencies": {
-    "homey-api": "^1.10.10",
+    "homey-api": "^1.10.20",
     "tinycolor2": "^1.4.2"
   }
 }

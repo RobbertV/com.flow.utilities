@@ -112,5 +112,8 @@
   },
   "1.4.9": {
     "en": "NEW: update to homey-api. (athom api is deprecated) & FIX: Token creation error for wrong type"
+  },
+  "1.4.10": {
+    "en": "Optimize check for on off devices in zones"
   }
 }

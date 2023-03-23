@@ -235,32 +235,34 @@ class App extends Homey.App {
     }
 
     async checkZoneOnOff(devices, zone) {
-        const onoffDevice = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
-        const isOn = onoffDevice.every((v) => v.settings && v.capabilitiesObj.onoff.value === true);
-        const isOff = onoffDevice.every((v) => v.capabilitiesObj.onoff.value === false);
+        const onoffDevices = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
+        if (onoffDevices) {
+            const isOn = onoffDevices.every((v) => v.settings && v.capabilitiesObj.onoff.value === true);
+            const isOff = onoffDevices.every((v) => v.capabilitiesObj.onoff.value === false);
 
-        let zoneChanges = this.appSettings.ZONES;
-        let key = null;
-        let value = null;
+            let zoneChanges = this.appSettings.ZONES;
+            let key = null;
+            let value = null;
 
-        if (isOn && !this.appSettings.ZONES[zone]) {
-            value = true;
-            key = 'ZONE_ON';
-        } else if (isOff && !!this.appSettings.ZONES[zone]) {
-            value = false;
-            key = 'ZONE_OFF';
-        }
+            if (isOn && !this.appSettings.ZONES[zone]) {
+                value = true;
+                key = 'ZONE_ON';
+            } else if (isOff && !!this.appSettings.ZONES[zone]) {
+                value = false;
+                key = 'ZONE_OFF';
+            }
 
-        if (key) {
-            await this.updateSettings({
-                ...this.appSettings,
-                ZONES: { ...zoneChanges, [zone]: value }
-            });
+            if (key) {
+                await this.updateSettings({
+                    ...this.appSettings,
+                    ZONES: { ...zoneChanges, [zone]: value }
+                });
 
-            this.homey.app[`trigger_${key}`]
-                .trigger({}, { zone })
-                .catch(this.error)
-                .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
+                this.homey.app[`trigger_${key}`]
+                    .trigger({}, { zone })
+                    .catch(this.error)
+                    .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
+            }
         }
     }
 

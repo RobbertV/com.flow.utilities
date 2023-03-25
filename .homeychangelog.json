@@ -115,5 +115,8 @@
   },
   "1.4.10": {
     "en": "Optimize check for on off devices in zones"
+  },
+  "1.4.11": {
+    "en": "OPT: Add extra error handling for setting zone devices"
   }
 }

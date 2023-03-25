@@ -363,7 +363,11 @@ class App extends Homey.App {
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes(type)) {
-                device.setCapabilityValue(type, percentage / 100);
+                try {
+                    device.setCapabilityValue(type, percentage / 100);
+                } catch (error) {
+                    this.error('[action_SET_ZONE_PERCENTAGE][setCapabilityValue]', error);
+                }
             }
         }
     }
@@ -379,11 +383,19 @@ class App extends Homey.App {
         const devices = await this._api.devices.getDevices();
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
-                device.setCapabilityValue('light_hue', hue);
+                try {
+                    device.setCapabilityValue('light_hue', hue);
+                } catch (error) {
+                    this.error('[action_SET_ZONE_COLOR][light_hue][setCapabilityValue]', error);
+                }
             }
 
             if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
-                device.setCapabilityValue('light_saturation', hsv.s);
+                try {
+                    device.setCapabilityValue('light_saturation', hsv.s);
+                } catch (error) {
+                    this.error('[action_SET_ZONE_COLOR][light_saturation][setCapabilityValue]', error);
+                }
             }
         }
     }

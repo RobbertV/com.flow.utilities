@@ -118,5 +118,8 @@
   },
   "1.4.11": {
     "en": "OPT: Add extra error handling for setting zone devices"
+  },
+  "1.4.12": {
+    "en": "OPT: Better error handling for setting device capability"
   }
 }

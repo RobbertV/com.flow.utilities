@@ -121,5 +121,8 @@
   },
   "1.4.12": {
     "en": "OPT: Better error handling for setting device capability"
+  },
+  "1.4.13": {
+    "en": "FIX device capability error handling"
   }
 }

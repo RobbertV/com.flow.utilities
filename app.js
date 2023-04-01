@@ -358,41 +358,45 @@ class App extends Homey.App {
     }
 
     async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {
-        try {
-            this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, type, percentage);
+        this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, type, percentage);
 
-            const devices = await this._api.devices.getDevices();
-            for (const device of Object.values(devices)) {
-                if (device.zone === zoneId && device.capabilities.includes(type)) {
+        const devices = await this._api.devices.getDevices();
+        for (const device of Object.values(devices)) {
+            if (device.zone === zoneId && device.capabilities.includes(type)) {
+                try {
                     device.setCapabilityValue(type, percentage / 100);
+                } catch (error) {
+                    this.error('[action_SET_ZONE_PERCENTAGE][setCapabilityValue]', error);
                 }
             }
-        } catch (error) {
-            this.error('[action_SET_ZONE_PERCENTAGE][setCapabilityValue]', error);
         }
     }
 
     async action_SET_ZONE_COLOR(zoneId, color) {
-        try {
-            this.homey.app.log('[action_SET_ZONE_COLOR] - args', zoneId, color);
+        this.homey.app.log('[action_SET_ZONE_COLOR] - args', zoneId, color);
 
-            const hsv = tinycolor(color).toHsv();
-            const hue = Number((hsv.h / 360).toFixed(2));
+        const hsv = tinycolor(color).toHsv();
+        const hue = Number((hsv.h / 360).toFixed(2));
 
-            this.homey.app.log('[action_SET_ZONE_COLOR] - setting color to ', hsv.s, hue);
+        this.homey.app.log('[action_SET_ZONE_COLOR] - setting color to ', hsv.s, hue);
 
-            const devices = await this._api.devices.getDevices();
-            for (const device of Object.values(devices)) {
-                if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
+        const devices = await this._api.devices.getDevices();
+        for (const device of Object.values(devices)) {
+            if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
+                try {
                     device.setCapabilityValue('light_hue', hue);
-                }
-
-                if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
-                    device.setCapabilityValue('light_saturation', hsv.s);
+                } catch (error) {
+                    this.error('[action_SET_ZONE_COLOR][light_hue][setCapabilityValue]', error);
                 }
             }
-        } catch (error) {
-            this.error('[action_SET_ZONE_COLOR][setCapabilityValue]', error);
+
+            if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
+                try {
+                    device.setCapabilityValue('light_saturation', hsv.s);
+                } catch (error) {
+                    this.error('[action_SET_ZONE_COLOR][light_saturation][setCapabilityValue]', error);
+                }
+            }
         }
     }
 }

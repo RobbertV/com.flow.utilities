@@ -364,7 +364,7 @@ class App extends Homey.App {
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes(type)) {
                 try {
-                    device.setCapabilityValue(type, percentage / 100);
+                    await device.setCapabilityValue(type, percentage / 100);
                 } catch (error) {
                     this.error('[action_SET_ZONE_PERCENTAGE][setCapabilityValue]', error);
                 }
@@ -384,7 +384,7 @@ class App extends Homey.App {
         for (const device of Object.values(devices)) {
             if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
                 try {
-                    device.setCapabilityValue('light_hue', hue);
+                    await device.setCapabilityValue('light_hue', hue);
                 } catch (error) {
                     this.error('[action_SET_ZONE_COLOR][light_hue][setCapabilityValue]', error);
                 }
@@ -392,7 +392,7 @@ class App extends Homey.App {
 
             if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
                 try {
-                    device.setCapabilityValue('light_saturation', hsv.s);
+                    await device.setCapabilityValue('light_saturation', hsv.s);
                 } catch (error) {
                     this.error('[action_SET_ZONE_COLOR][light_saturation][setCapabilityValue]', error);
                 }

@@ -29,6 +29,7 @@
     "calculation": "kalkulering",
     "decimals": "desimaler",
     "text": "tekst",
+    "replacementString": "erstattet tekst",
     "all": "-Alle varabler-"
   }
 }

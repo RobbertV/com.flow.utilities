@@ -29,6 +29,7 @@
     "calculation": "calculation",
     "decimals": "decimals",
     "text": "text",
+    "replacementString": "ersatt text",
     "all": "-All variables-"
   }
 }

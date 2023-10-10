@@ -29,6 +29,7 @@
     "calculation": "Berechnung",
     "decimals": "Dezimalstellen",
     "text": "texte",
+    "replacementString": "Text ersetzt",
     "all": "-Alle Variablen-"
   }
 }

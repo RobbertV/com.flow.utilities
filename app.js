@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const { HomeyAPIApp } = require('homey-api');
+const { HomeyAPI } = require('homey-api');
 const tinycolor = require('tinycolor2');
 const flowActions = require('./lib/flows/actions');
 const flowTriggers = require('./lib/flows/triggers');
@@ -32,10 +32,11 @@ class App extends Homey.App {
             { name: 'comparison', type: 'number' },
             { name: 'calculation', type: 'number' },
             { name: 'decimals', type: 'number' },
-            { name: 'text', type: 'string' }
+            { name: 'text', type: 'string' },
+            { name: 'replacementString', type: 'string' }
         ];
 
-        this._api = new HomeyAPIApp({
+        this._api = await HomeyAPI.createAppAPI({
             homey: this.homey,
             debug: false
         });
@@ -352,9 +353,9 @@ class App extends Homey.App {
         const result = convertText(type, text);
         this.homey.app.log('[action_CONVERT_TEXT] - args', token, type, text);
 
-        await this.updateTotals(token, { string: type });
+        await this.updateTotals(token, { string: result });
 
-        await this.createToken(token, { src: 'text', value: result, type: 'string' });
+        await this.createToken(token, { src: 'text', value: result });
     }
 
     async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {
@@ -397,6 +398,23 @@ class App extends Homey.App {
                     this.error('[action_SET_ZONE_COLOR][light_saturation][setCapabilityValue]', error);
                 }
             }
+        }
+    }
+
+    async action_REPLACE_STRING(token, stringContains, replacementString, inputString) {
+        if (typeof stringContains === 'string' && typeof replacementString === 'string' && typeof inputString === 'string') {
+            const result = inputString.replace(stringContains, replacementString);
+            this.homey.app.log('[action_REPLACE_STRING] - args', token, result);
+
+            try {
+                await this.updateTotals(token, { replacementString: result });
+
+                await this.createToken(token, { src: 'replacementString', value: result });
+            } catch (error) {
+                this.error('[action_REPLACE_STRING]', error);
+            }
+        } else {
+            this.error('Input format not string type');
         }
     }
 }

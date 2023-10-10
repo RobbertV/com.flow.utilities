@@ -969,6 +969,63 @@
             }
           }
         ]
+      },
+      {
+        "id": "action_REPLACE_STRING",
+        "title": {
+          "en": "Replace string content",
+          "nl": "Vervang tekst",
+          "de": "Ersetzen Sie den String-Inhalt",
+          "no": "Erstatt strenginnhold"
+        },
+        "titleFormatted": {
+          "en": "Replace [[stringContains]] for [[replacementString]] in [[inputString]] and add to [[variable]]",
+          "nl": "Vervang [[stringContains]] voor [[replacementString]] in [[inputString]] daarna voeg in [[variable]]",
+          "de": "Replace [[stringContains]] for [[replacementString]] in [[inputString]] and add to [[variable]]",
+          "no": "Replace [[stringContains]] for [[replacementString]] in [[inputString]] and add to [[variable]]"
+        },
+        "args": [
+          {
+            "name": "stringContains",
+            "type": "text",
+            "placeholder": {
+              "en": "Search text",
+              "nl": "Zoek tekst",
+              "de": "Search text",
+              "no": "Search text"
+            }
+          },
+          {
+            "name": "replacementString",
+            "type": "text",
+            "placeholder": {
+              "en": "Sentence",
+              "nl": "Zin",
+              "de": "Sentence",
+              "no": "Sentence"
+            }
+          },
+          {
+            "name": "inputString",
+            "type": "text",
+            "placeholder": {
+              "en": "Replacement text",
+              "nl": "Vervangende tekst",
+              "de": "Replacement text",
+              "no": "Replacement text"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
+            }
+          }
+        ]
       }
     ]
   }

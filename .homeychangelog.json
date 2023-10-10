@@ -124,5 +124,8 @@
   },
   "1.4.13": {
     "en": "FIX device capability error handling"
+  },
+  "1.5.0": {
+    "en": "New action card for string replace function"
   }
 }

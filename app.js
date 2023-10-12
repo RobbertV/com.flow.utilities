@@ -403,7 +403,7 @@ class App extends Homey.App {
 
     async action_REPLACE_STRING(token, stringContains, replacementString, inputString) {
         if (typeof stringContains === 'string' && typeof replacementString === 'string' && typeof inputString === 'string') {
-            const result = inputString.replace(stringContains, replacementString);
+            const result = inputString.replaceAll(stringContains, replacementString);
             this.homey.app.log('[action_REPLACE_STRING] - args', token, result);
 
             try {

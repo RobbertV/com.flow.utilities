@@ -28,7 +28,8 @@
     "currency": "currency",
     "calculation": "calculation",
     "decimals": "decimals",
-    "text": "text",
+    "text": "tekst",
+    "replacementString": "erstattet tekst",
     "all": "-All variables-"
   }
 }

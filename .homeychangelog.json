@@ -124,5 +124,11 @@
   },
   "1.4.13": {
     "en": "FIX device capability error handling"
+  },
+  "1.5.0": {
+    "en": "New action card for string replace function"
+  },
+  "1.5.1": {
+    "en": "OPT: Replace action card will replace all matching characters"
   }
 }

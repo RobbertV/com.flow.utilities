@@ -29,6 +29,7 @@
     "calculation": "berekening",
     "decimals": "decimalen",
     "text": "tekst",
+    "replacementString": "vervangen tekst",
     "all": "-Alle variabelen-"
   }
 }

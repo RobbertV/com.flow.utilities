@@ -2,6 +2,9 @@
   "id": "com.flow.utilities",
   "version": "1.5.2",
   "compatibility": ">=5.0.0",
+  "platforms": [
+    "local"
+  ],
   "sdk": 3,
   "permissions": [
     "homey:manager:api"

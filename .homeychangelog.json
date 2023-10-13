@@ -130,5 +130,8 @@
   },
   "1.5.1": {
     "en": "OPT: Replace action card will replace all matching characters"
+  },
+  "1.5.2": {
+    "en": "OPT: Helper functions"
   }
 }

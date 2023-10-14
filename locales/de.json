@@ -1,6 +1,6 @@
 {
   "settings": {
-    "intro": "Für jede hinzugefügte Variable werden 5 Tags erstellt: <ul><li>{variable} Laufzeit</li><li>{variable} Differenz</li><li>{variable} Währung</li><li>{variable} Berechnung</li><li>{variable} Dezimalstellen</li></ul> Diese werden von den verschiedenen Flow Karten gefüllt und können dann in den Flows verwendet werden.",
+    "intro": "Für jede hinzugefügte Variable werden 8 Tags erstellt: <ul><li>{variable} Laufzeit</li><li>{variable} Laufzeit in Sekunde</li><li>{variable} Differenz</li><li>{variable} Währung</li><li>{variable} Berechnung</li><li>{variable} Dezimalstellen</li><li>{variable} texte</li><li>{variable} Text ersetzt</li></ul> Diese werden von den verschiedenen Flow Karten gefüllt und können dann in den Flows verwendet werden.",
     "variables": "Variablen",
     "set_variable": "variable erstellen",
     "add": "Hinzufügen",
@@ -10,7 +10,11 @@
     "loading": "Wird geladen...",
     "saved": "Gespeichert",
     "removed": "Gelöscht",
-    "cleared": "Alle gelöscht"
+    "cleared": "Alle gelöscht",
+    "errors": {
+      "empty": "Leerer Variablenname",
+      "duplicate": "Der Variablenname ist bereits vorhanden"
+    }
   },
   "helpers": {
     "locale": "de-DE",

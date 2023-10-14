@@ -53,29 +53,35 @@ function variableMapper(variables) {
 }
 
 function remove(name) {
-    const clearSingle = Homey.confirm(Homey.__('settings.delete-confirm-single', {var: name}));
+    const clearSingle = Homey.confirm(Homey.__('settings.delete-confirm-single', { var: name }));
     clearSingle.then((confirmResult) => {
         if (confirmResult) {
             window.VARIABLES = window.VARIABLES.filter((f) => f !== name);
             document.getElementById('save').click();
-            success.innerHTML = Homey.__('settings.removed');
+            setNotification({ successMessage: Homey.__('settings.removed') });
         }
     });
 }
 
 function initSave(_settings) {
     document.getElementById('save').addEventListener('click', function (e) {
-        const error = document.getElementById('error');
-        const loading = document.getElementById('loading');
-        const success = document.getElementById('success');
-
+        const input = document.getElementById('set_variable');
         const existingVariables = window.VARIABLES;
         let variables = [...existingVariables];
-        let newVariable = document.getElementById('set_variable').value;
+        let newVariable = document.getElementById('set_variable').value.trim();
+
+        if (newVariable === '') {
+            return setNotification({ inputErrorMessage: Homey.__('settings.errors.empty') });
+        }
 
         if (newVariable) {
             newVariable = capitalize(newVariable);
-            variables = [...existingVariables, newVariable];
+            if (variables.includes(newVariable)) {
+                input.classList.add('error');
+                return setNotification({ inputErrorMessage: Homey.__('settings.errors.duplicate') });
+            } else {
+                variables = [...existingVariables, newVariable];
+            }
         }
 
         const settings = {
@@ -85,20 +91,14 @@ function initSave(_settings) {
 
         // ----------------------------------------------
 
-        loading.innerHTML = `<i class="fa fa-spinner fa-spin fa-fw"></i>${Homey.__('settings.loading')}`;
-        error.innerHTML = '';
-        success.innerHTML = '';
+        setNotification({ loadingMessage: `<i class="fa fa-spinner fa-spin fa-fw"></i>${Homey.__('settings.loading')}` });
 
         Homey.api('PUT', '/settings', settings, function (err, result) {
             if (err) {
-                error.innerHTML = err;
-                loading.innerHTML = '';
-                success.innerHTML = '';
+                setNotification({ errorMessage: err });
                 return Homey.alert(err);
             } else {
-                loading.innerHTML = '';
-                error.innerHTML = '';
-                success.innerHTML = Homey.__('settings.saved');
+                setNotification({ successMessage: Homey.__('settings.saved') });
 
                 document.getElementById('set_variable').value = '';
             }
@@ -111,10 +111,6 @@ function initClear(_settings) {
         const clearAll = Homey.confirm(Homey.__('settings.delete-confirm'));
         clearAll.then((confirmResult) => {
             if (confirmResult) {
-                error = document.getElementById('error');
-                loading = document.getElementById('loading');
-                success = document.getElementById('success');
-
                 document.getElementById('variables_overview').innerHTML = '';
                 document.getElementById('set_variable').value = '';
 
@@ -126,14 +122,10 @@ function initClear(_settings) {
 
                 Homey.api('PUT', '/settings', settings, function (err, result) {
                     if (err) {
-                        error.innerHTML = err;
-                        loading.innerHTML = '';
-                        success.innerHTML = '';
+                        setNotification({ errorMessage: err });
                         return Homey.alert(err);
                     } else {
-                        loading.innerHTML = '';
-                        error.innerHTML = '';
-                        success.innerHTML = Homey.__('settings.cleared');
+                        setNotification({ successMessage: Homey.__('settings.cleared') });
                     }
                 });
             }
@@ -143,4 +135,16 @@ function initClear(_settings) {
 
 function capitalize(value) {
     return value.toLowerCase().charAt(0).toUpperCase() + value.slice(1);
+}
+
+function setNotification({ inputErrorMessage = '', errorMessage = '', loadingMessage = '', successMessage = '' } = {}) {
+    inputError = document.getElementById('inputError');
+    error = document.getElementById('error');
+    loading = document.getElementById('loading');
+    success = document.getElementById('success');
+
+    inputError.innerHTML = inputErrorMessage;
+    error.innerHTML = errorMessage;
+    loading.innerHTML = loadingMessage;
+    success.innerHTML = successMessage;
 }

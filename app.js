@@ -156,20 +156,26 @@ class App extends Homey.App {
         const id = formatToken(title);
 
         if (!this.TOKENS[id]) {
-            this.TOKENS[id] = await this.homey.flow.createToken(id, {
-                type,
-                title
-            });
-            this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type}`);
+            try {
+                this.TOKENS[id] = await this.homey.flow.createToken(id, {
+                    type,
+                    title
+                });
+                this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type}`);
+            } catch (error) {
+                return this.log(`[Error creatingToken] ${error}`);
+            }
         }
 
-        this.log(`[createToken] - set token value => ID: ${id} - Value: ${value}`);
-
-        try {
-            await this.TOKENS[id].setValue(value);
-        } catch (error) {
-            this.log(`[Error setToken] ${error}`);
+        if (this.TOKENS[id]) {
+            try {
+                await this.TOKENS[id].setValue(value);
+                this.log(`[createToken] - set token value => ID: ${id} - Value: ${value}`);
+            } catch (error) {
+                return this.log(`[Error setToken value] ${error}`);
+            }
         }
+        
     }
 
     async removeToken(name, src) {

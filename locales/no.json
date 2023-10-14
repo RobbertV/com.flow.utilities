@@ -1,6 +1,6 @@
 {
   "settings": {
-    "intro": "For every added variable 5 tags will be made: <ul><li>{variable} duration</li><li>{variable} difference</li><li>{variable} currency</li><li>{variable} calculation</li><li>{variable} decimals</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
+    "intro": "For every added variable 8 tags will be made: <ul><li>{variable} duration</li><li>{variable} duration in seconds</li><li>{variable} difference</li><li>{variable} currency</li><li>{variable} calculation</li><li>{variable} decimals</li><<li>{variable} text</li><<li>{variable} replaced text</li></ul> These will be filled by the different flow cards and after that can be used inside flows.",
     "variables": "Variables",
     "set_variable": "Create variable",
     "add": "Add",
@@ -10,7 +10,11 @@
     "loading": "Loading...",
     "saved": "Saved",
     "removed": "Removed",
-    "cleared": "Cleared & saved"
+    "cleared": "Cleared & saved",
+    "errors": {
+      "empty": "Empty variable name",
+      "duplicate": "Variable name already excist"
+    }
   },
   "helpers": {
     "locale": "nn-NO",

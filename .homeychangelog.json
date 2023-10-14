@@ -133,5 +133,8 @@
   },
   "1.5.2": {
     "en": "OPT: Helper functions"
+  },
+  "1.5.3": {
+    "en": "OPT Prevent duplicate flow tokens + better settings error messages"
   }
 }

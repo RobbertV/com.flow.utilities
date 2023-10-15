@@ -102,7 +102,7 @@ class App extends Homey.App {
                 await this.setTokens(settings.VARIABLES, oldSettings.VARIABLES);
             }
         } catch (err) {
-            this.error(err);
+            this.error('[updateSettings]', err);
         }
     }
 
@@ -111,12 +111,15 @@ class App extends Homey.App {
         const TOTALS = this.appSettings.TOTALS.filter((setting) => setting.token !== token);
 
         this.log('[removeSettings] - Remove settings for', token);
-
-        await this.updateSettings({
-            ...this.appSettings,
-            COMPARISONS,
-            TOTALS
-        });
+        try {
+            await this.updateSettings({
+                ...this.appSettings,
+                COMPARISONS,
+                TOTALS
+            });
+        } catch (err) {
+            this.error('[removeSettings]', err);
+        }
     }
 
     async updateTotals(token, newValueObj) {
@@ -124,25 +127,33 @@ class App extends Homey.App {
         const otherTotals = this.appSettings.TOTALS.filter((total) => total.token !== token);
         const newTokenTotals = { token, ...currentTokenTotals, ...newValueObj };
 
-        await this.updateSettings({
-            ...this.appSettings,
-            TOTALS: [...otherTotals, newTokenTotals]
-        });
+        try {
+            await this.updateSettings({
+                ...this.appSettings,
+                TOTALS: [...otherTotals, newTokenTotals]
+            });
+        } catch (err) {
+            this.error('[updasteTotals]', err);
+        }
     }
 
     async setTokens(newVariables, oldVariables = []) {
-        await newVariables.forEach((t) => {
-            const existingVariableData = this.appSettings.TOTALS.find((x) => x.token === t);
+        try {
+            await newVariables.forEach((t) => {
+                const existingVariableData = this.appSettings.TOTALS.find((x) => x.token === t);
 
-            this.createTokenVariants(t, existingVariableData);
-        });
-
-        if (oldVariables.length) {
-            const difference = oldVariables.filter((x) => !newVariables.includes(x));
-            difference.forEach(async (d) => {
-                await this.removeTokenVariants(d);
-                this.removeSettings(d);
+                this.createTokenVariants(t, existingVariableData);
             });
+
+            if (oldVariables.length) {
+                const difference = oldVariables.filter((x) => !newVariables.includes(x));
+                difference.forEach(async (d) => {
+                    await this.removeTokenVariants(d);
+                    this.removeSettings(d);
+                });
+            }
+        } catch (err) {
+            this.error('[setTokens]', err);
         }
     }
 
@@ -167,7 +178,7 @@ class App extends Homey.App {
                 });
                 this.log(`[createToken] - created Token => ID: ${id} - Title: ${title} - Type: ${type}`);
             } catch (error) {
-                return this.log(`[Error creatingToken] ${error}`);
+                return this.error(`[creatingToken] ${error}`);
             }
         }
 
@@ -176,7 +187,7 @@ class App extends Homey.App {
                 await this.TOKENS[id].setValue(value);
                 this.log(`[createToken] - set token value => ID: ${id} - Value: ${value}`);
             } catch (error) {
-                return this.log(`[Error setToken value] ${error}`);
+                return this.error(`[setToken value] ${error}`);
             }
         }
     }
@@ -187,11 +198,15 @@ class App extends Homey.App {
         const id = formatToken(title);
 
         if (this.TOKENS[id]) {
-            await this.TOKENS[id].unregister();
-            // Remove token from list, since unregister doesn't do this.
-            delete this.TOKENS[id];
+            try {
+                await this.TOKENS[id].unregister();
+                // Remove token from list, since unregister doesn't do this.
+                delete this.TOKENS[id];
 
-            this.log(`[removeToken] - removed Token => ID: ${id} - Title: ${title} - ${!!this.TOKENS[id]}`);
+                this.log(`[removeToken] - removed Token => ID: ${id} - Title: ${title} - ${!!this.TOKENS[id]}`);
+            } catch (err) {
+                this.error('[removeToken]', err);
+            }
         }
     }
 
@@ -239,7 +254,7 @@ class App extends Homey.App {
 
             this.homey.app[`trigger_${key}`]
                 .trigger({ name: device.name, zone: device.zoneName, ison: value }, { zone })
-                .catch(this.error)
+                .catch(this.error(`[Device][trigger_${key}]`))
                 .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
         }
     }
@@ -270,7 +285,7 @@ class App extends Homey.App {
 
                 this.homey.app[`trigger_${key}`]
                     .trigger({}, { zone })
-                    .catch(this.error)
+                    .catch(this.error(`[Zone][trigger_${key}]`))
                     .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
             }
         }
@@ -316,7 +331,7 @@ class App extends Homey.App {
             await this.createToken(token, { src: 'durationInSeconds', value: durationInSeconds });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration, durationInSeconds }, { token })
-                .catch(this.error)
+                .catch(this.error('[trigger_DURATION]'))
                 .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration} ${durationInSeconds}"`));
         }
 
@@ -326,7 +341,7 @@ class App extends Homey.App {
 
             this.homey.app.trigger_COMPARISON
                 .trigger({ token, comparison }, { token })
-                .catch(this.error)
+                .catch(this.error('[trigger_COMPARISON]'))
                 .then(this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
         }
     }

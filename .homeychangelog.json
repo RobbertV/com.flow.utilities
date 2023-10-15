@@ -136,5 +136,8 @@
   },
   "1.5.3": {
     "en": "OPT Prevent duplicate flow tokens + better settings error messages"
+  },
+  "1.5.4": {
+    "en": "FIX Settings and error handling for tokens"
   }
 }

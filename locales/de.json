@@ -6,7 +6,7 @@
     "add": "Hinzufügen",
     "clear": "Alles löschen",
     "delete-confirm": "Sind Sie sicher, dass Sie alle Variablen löschen möchten?",
-    "delete-confirm-single": "Sind Sie sicher, dass Sie diese Variable löschen möchten? Löschen ' __var__ '",
+    "delete-confirm-single": "Sind Sie sicher, dass Sie diese Variable löschen möchten? Löschen '__var__'",
     "loading": "Wird geladen...",
     "saved": "Gespeichert",
     "removed": "Gelöscht",

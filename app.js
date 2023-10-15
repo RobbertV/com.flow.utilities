@@ -54,35 +54,39 @@ class App extends Homey.App {
     // -------------------- SETTINGS ----------------------
 
     async initSettings() {
-        try {
-            let settingsInitialized = false;
-            this.homey.settings.getKeys().forEach((key) => {
-                if (key == _settingsKey) {
-                    settingsInitialized = true;
-                }
-            });
+        let settingsInitialized = false;
+        this.homey.settings.getKeys().forEach((key) => {
+            if (key == _settingsKey) {
+                settingsInitialized = true;
+            }
+        });
 
-            if (settingsInitialized) {
-                this.log('[initSettings] - Found settings key', _settingsKey);
-                this.appSettings = this.homey.settings.get(_settingsKey);
+        if (settingsInitialized) {
+            this.log('[initSettings] - Found settings key', _settingsKey);
+            this.appSettings = this.homey.settings.get(_settingsKey);
 
-                if (!('ZONES' in this.appSettings)) {
+            if (!('ZONES' in this.appSettings)) {
+                try {
                     await this.updateSettings({
                         ...this.appSettings,
                         ZONES: {}
                     });
+                } catch (err) {
+                    this.error('[initSettings][ZONES]', err);
                 }
-            } else {
-                this.log(`Initializing ${_settingsKey} with defaults`);
+            }
+        } else {
+            this.log(`Initializing ${_settingsKey} with defaults`);
+            try {
                 await this.updateSettings({
                     VARIABLES: [],
                     COMPARISONS: [],
                     TOTALS: [],
                     ZONES: {}
                 });
+            } catch (err) {
+                this.error('[initSettings][init with defaults]', err);
             }
-        } catch (err) {
-            this.error(err);
         }
     }
 
@@ -175,7 +179,6 @@ class App extends Homey.App {
                 return this.log(`[Error setToken value] ${error}`);
             }
         }
-        
     }
 
     async removeToken(name, src) {

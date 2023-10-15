@@ -6,7 +6,7 @@
     "add": "Add",
     "clear": "Remove all",
     "delete-confirm": "Are you sure to execute this action?",
-    "delete-confirm-single": "Are you sure to execute this action? Delete ' __var__ '",
+    "delete-confirm-single": "Are you sure to execute this action? Delete '__var__'",
     "loading": "Loading...",
     "saved": "Saved",
     "removed": "Removed",

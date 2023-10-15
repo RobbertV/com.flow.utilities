@@ -6,7 +6,7 @@
     "add": "Voeg toe",
     "clear": "Verwijder alles",
     "delete-confirm": "Weet je zeker dat je wilt verwijderen?",
-    "delete-confirm-single": "Weet je zeker dat je ' __var__ ' wilt verwijderen?",
+    "delete-confirm-single": "Weet je zeker dat je '__var__' wilt verwijderen?",
     "loading": "Laden...",
     "saved": "Opgeslagen",
     "removed": "Verwijderd",

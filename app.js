@@ -252,15 +252,15 @@ class App extends Homey.App {
             const value = device.capabilitiesObj.onoff.value;
             const key = value ? 'DEVICE_ZONE_ON' : 'DEVICE_ZONE_OFF';
 
-            const zoneName = await device.getZone();
+            const zone = await device.getZone();
 
             const name = device.name ? device.name : 'Unknown';
-            const zone = zoneName ? zoneName.name : 'Unknown';
+            const zoneName = zone ? zone.name : 'Unknown';
 
             this.homey.app[`trigger_${key}`]
-                .trigger({ name, zone, ison: value }, { zoneId })
+                .trigger({ name, zone: zoneName, ison: value }, { zoneId })
                 .catch(this.error(`[Device][trigger_${key}]`))
-                .then(this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zone} - ${value}`));
+                .then(this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
         }
     }
 

@@ -44,11 +44,27 @@ class App extends Homey.App {
         await this.initSettings();
 
         this.log('[onInit] - Loaded settings', this.appSettings);
+        this.sendNotifications();
 
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
         await flowTriggers.init(this);
         await this.setCheckZoneOnOffInterval();
+    }
+    // -------------------- Notification updates ----------------------
+    async sendNotifications() {
+        try {
+            const ntfy2023101701 = `[Flow Utilities] (1/2) - Zone trigger & action cards are now deprecated.`;
+            const ntfy2023101702 = `[Flow Utilities] (2/2) - Visit forum for more info: https://t.ly/9NeAG`;
+            await this.homey.notifications.createNotification({
+                excerpt: ntfy2023101702
+            });
+            await this.homey.notifications.createNotification({
+                excerpt: ntfy2023101701
+            });
+        } catch (error) {
+            this.log('sendNotifications - error', console.error());
+        }
     }
 
     // -------------------- SETTINGS ----------------------
@@ -259,8 +275,8 @@ class App extends Homey.App {
 
             this.homey.app[`trigger_${key}`]
                 .trigger({ name, zone: zoneName, ison: value }, { zone: zoneId })
-                .catch(err => this.error(`[Device][trigger_${key}]`, err))
-                .then(res => this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
+                .catch((err) => this.error(`[Device][trigger_${key}]`, err))
+                .then((res) => this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
         }
     }
 
@@ -290,8 +306,8 @@ class App extends Homey.App {
 
                 this.homey.app[`trigger_${key}`]
                     .trigger({}, { zone })
-                    .catch(err => this.error(`[Zone][trigger_${key}]`, err))
-                    .then(res => this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
+                    .catch((err) => this.error(`[Zone][trigger_${key}]`, err))
+                    .then((res) => this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
             }
         }
     }
@@ -336,8 +352,8 @@ class App extends Homey.App {
             await this.createToken(token, { src: 'durationInSeconds', value: durationInSeconds });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration, durationInSeconds }, { token })
-                .catch(err => this.error('[trigger_DURATION]', err))
-                .then(res => this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration} ${durationInSeconds}"`));
+                .catch((err) => this.error('[trigger_DURATION]', err))
+                .then((res) => this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration} ${durationInSeconds}"`));
         }
 
         if (src === 'comparison' && comparison !== null) {
@@ -346,8 +362,8 @@ class App extends Homey.App {
 
             this.homey.app.trigger_COMPARISON
                 .trigger({ token, comparison }, { token })
-                .catch(err => this.error('[trigger_COMPARISON]', err))
-                .then(res => this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
+                .catch((err) => this.error('[trigger_COMPARISON]', err))
+                .then((res) => this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
         }
     }
 

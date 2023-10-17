@@ -212,6 +212,7 @@
       },
       {
         "id": "trigger_ZONE_ON",
+        "deprecated": true,
         "title": {
           "en": "Devices in zone turned on",
           "nl": "Apparaten in zone zijn aangezet",
@@ -239,6 +240,7 @@
       },
       {
         "id": "trigger_ZONE_OFF",
+        "deprecated": true,
         "title": {
           "en": "Devices in zone turned off",
           "nl": "Apparaten in zone zijn uitgezet",
@@ -266,6 +268,7 @@
       },
       {
         "id": "trigger_DEVICE_ZONE_ON",
+        "deprecated": true,
         "title": {
           "en": "A Device in zone turned on",
           "nl": "Apparaat in zone is aangezet",
@@ -325,6 +328,7 @@
       },
       {
         "id": "trigger_DEVICE_ZONE_OFF",
+        "deprecated": true,
         "title": {
           "en": "A Device in zone turned off",
           "nl": "Apparaat in zone is uitgezet",
@@ -853,6 +857,7 @@
       },
       {
         "id": "action_SET_ZONE_PERCENTAGE",
+        "deprecated": true,
         "title": {
           "en": "Set device percentage in zone",
           "nl": "Zet apparaat percentage in zone",
@@ -938,6 +943,7 @@
       },
       {
         "id": "action_SET_ZONE_COLOR",
+        "deprecated": true,
         "title": {
           "en": "Set zone light color",
           "nl": "Maak zone lichtkleur",

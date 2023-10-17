@@ -139,5 +139,8 @@
   },
   "1.5.4": {
     "en": "FIX Settings and error handling for tokens"
+  },
+  "1.5.5": {
+    "en": "FIX: Tokens not set correctly in trigger cards"
   }
 }

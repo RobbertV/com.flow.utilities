@@ -245,20 +245,22 @@ class App extends Homey.App {
         }
     }
 
-    async checkDeviceOnOff(device, zone) {
-        const onoffDevice = device.zone == zone && device.capabilitiesObj.onoff && !device.settings.energy_alwayson && !device.settings.override_onoff;
+    async checkDeviceOnOff(device, zoneId) {
+        const onoffDevice = device.zone == zoneId && device.capabilitiesObj.onoff && !device.settings.energy_alwayson && !device.settings.override_onoff;
 
         if (onoffDevice) {
             const value = device.capabilitiesObj.onoff.value;
             const key = value ? 'DEVICE_ZONE_ON' : 'DEVICE_ZONE_OFF';
 
-            const name = device.name ? device.name : "Unknown"
-            const zone = device.zoneName ? device.zoneName : "Unknown"
+            const zone = await device.getZone();
+
+            const name = device.name ? device.name : 'Unknown';
+            const zoneName = zone ? zone.name : 'Unknown';
 
             this.homey.app[`trigger_${key}`]
-                .trigger({ name, zone , ison: value }, { zone })
-                .catch(this.error(`[Device][trigger_${key}]`))
-                .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
+                .trigger({ name, zone: zoneName, ison: value }, { zone: zoneId })
+                .catch(err => this.error(`[Device][trigger_${key}]`, err))
+                .then(res => this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
         }
     }
 
@@ -288,8 +290,8 @@ class App extends Homey.App {
 
                 this.homey.app[`trigger_${key}`]
                     .trigger({}, { zone })
-                    .catch(this.error(`[Zone][trigger_${key}]`))
-                    .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
+                    .catch(err => this.error(`[Zone][trigger_${key}]`, err))
+                    .then(res => this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
             }
         }
     }
@@ -334,8 +336,8 @@ class App extends Homey.App {
             await this.createToken(token, { src: 'durationInSeconds', value: durationInSeconds });
             this.homey.app.trigger_DURATION
                 .trigger({ token, duration, durationInSeconds }, { token })
-                .catch(this.error('[trigger_DURATION]'))
-                .then(this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration} ${durationInSeconds}"`));
+                .catch(err => this.error('[trigger_DURATION]', err))
+                .then(res => this.log(`[trigger_DURATION] - Triggered: "${token}: ${duration} ${durationInSeconds}"`));
         }
 
         if (src === 'comparison' && comparison !== null) {
@@ -344,8 +346,8 @@ class App extends Homey.App {
 
             this.homey.app.trigger_COMPARISON
                 .trigger({ token, comparison }, { token })
-                .catch(this.error('[trigger_COMPARISON]'))
-                .then(this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
+                .catch(err => this.error('[trigger_COMPARISON]', err))
+                .then(res => this.log(`[trigger_COMPARISON] - Triggered: "${token}: ${comparison}"`));
         }
     }
 

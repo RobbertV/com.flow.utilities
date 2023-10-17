@@ -258,7 +258,7 @@ class App extends Homey.App {
             const zoneName = zone ? zone.name : 'Unknown';
 
             this.homey.app[`trigger_${key}`]
-                .trigger({ name, zone: zoneName, ison: value }, { zoneId })
+                .trigger({ name, zone: zoneName, ison: value }, { zone: zoneId })
                 .catch(err => this.error(`[Device][trigger_${key}]`, err))
                 .then(res => this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
         }

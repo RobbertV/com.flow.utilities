@@ -252,8 +252,11 @@ class App extends Homey.App {
             const value = device.capabilitiesObj.onoff.value;
             const key = value ? 'DEVICE_ZONE_ON' : 'DEVICE_ZONE_OFF';
 
+            const name = device.name ? device.name : "Unknown"
+            const zone = device.zoneName ? device.zoneName : "Unknown"
+
             this.homey.app[`trigger_${key}`]
-                .trigger({ name: device.name, zone: device.zoneName, ison: value }, { zone })
+                .trigger({ name, zone , ison: value }, { zone })
                 .catch(this.error(`[Device][trigger_${key}]`))
                 .then(this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
         }

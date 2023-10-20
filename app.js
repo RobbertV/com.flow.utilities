@@ -21,6 +21,9 @@ class App extends Homey.App {
     // -------------------- INIT ----------------------
 
     async onInit() {
+        // Fix Homey API bug for version <= 8
+        const myHomey = this.homey.platform ? this.homey : { ...this.homey, platform: 'local', platformVersion: 1 };
+
         this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
         this.TOKENS = {};
@@ -37,7 +40,7 @@ class App extends Homey.App {
         ];
 
         this._api = await HomeyAPI.createAppAPI({
-            homey: this.homey,
+            homey: myHomey,
             debug: false
         });
 

@@ -151,5 +151,8 @@
   },
   "1.6.1": {
     "en": "Fix HomeyApi error for homey version 8 or less"
+  },
+  "1.6.2": {
+    "en": "Remove notification for deprecated feature"
   }
 }

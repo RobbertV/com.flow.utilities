@@ -47,7 +47,7 @@ class App extends Homey.App {
         await this.initSettings();
 
         this.log('[onInit] - Loaded settings', this.appSettings);
-        this.sendNotifications();
+        // this.sendNotifications();
 
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);

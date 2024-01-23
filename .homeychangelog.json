@@ -160,5 +160,8 @@
   },
   "1.6.4": {
     "en": "FIX: Remmove typo in code"
+  },
+  "1.6.5": {
+    "en": "OPT: Update Homey API"
   }
 }

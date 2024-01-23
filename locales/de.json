@@ -32,7 +32,7 @@
     "currency": "Währung",
     "calculation": "Berechnung",
     "decimals": "Dezimalstellen",
-    "text": "texte",
+    "text": "formatierter Text",
     "replacementString": "Text ersetzt",
     "all": "-Alle Variablen-"
   }

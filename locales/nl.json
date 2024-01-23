@@ -32,7 +32,7 @@
     "currency": "valuta",
     "calculation": "berekening",
     "decimals": "decimalen",
-    "text": "tekst",
+    "text": "geformateerde tekst",
     "replacementString": "vervangen tekst",
     "all": "-Alle variabelen-"
   }

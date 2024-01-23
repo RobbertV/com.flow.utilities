@@ -32,7 +32,7 @@
     "currency": "currency",
     "calculation": "calculation",
     "decimals": "decimals",
-    "text": "text",
+    "text": "formaterad text",
     "replacementString": "ersatt text",
     "all": "-All variables-"
   }

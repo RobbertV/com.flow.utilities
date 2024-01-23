@@ -157,5 +157,8 @@
   },
   "1.6.3": {
     "en": "Optimized formatted text action variable label"
+  },
+  "1.6.4": {
+    "en": "FIX: Remmove typo in code"
   }
 }

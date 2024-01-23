@@ -1,6 +1,6 @@
 {
   "id": "com.flow.utilities",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"

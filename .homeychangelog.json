@@ -163,5 +163,8 @@
   },
   "1.6.5": {
     "en": "OPT: Update Homey API"
+  },
+  "1.7.0": {
+    "en": "NEW: Add Boolean & Number flow tag action cards"
   }
 }

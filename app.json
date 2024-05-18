@@ -1046,9 +1046,9 @@
         },
         "titleFormatted": {
           "en": "Create [[booleanInput]] as yes/no flow tag",
-          "nl": "Maak [[booleanInput]] aan als ja/ee flow tag",
-          "de": "Erstellen Sie [[booleanInput]] als flow tag",
-          "no": "Opprett [[booleanInput]] som flow tag"
+          "nl": "Maak [[booleanInput]] aan als ja/nee flow tag",
+          "de": "Erstellen Sie [[booleanInput]] als ja/nein flow tag",
+          "no": "Opprett [[booleanInput]] som ja/nei flow tag"
         },
         "args": [
           {
@@ -1086,8 +1086,8 @@
         "titleFormatted": {
           "en": "Create [[numberInput]] as number flow tag",
           "nl": "Maak [[numberInput]] aan als nummer flow tag",
-          "de": "Erstellen Sie [[numberInput]] als flow tag",
-          "no": "Opprett [[numberInput]] som flow tag"
+          "de": "Erstellen Sie [[numberInput]] als nummer flow tag",
+          "no": "Opprett [[numberInput]] som nummer flow tag"
         },
         "args": [
           {

@@ -166,5 +166,8 @@
   },
   "1.7.0": {
     "en": "NEW: Add Boolean & Number flow tag action cards"
+  },
+  "1.7.1": {
+    "en": "FIX: Flow card typo's"
   }
 }

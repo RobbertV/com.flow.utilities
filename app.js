@@ -249,7 +249,7 @@ class App extends Homey.App {
     }
 
     // -------------------- FUNCTIONS ----------------------
-
+    // ToDo: Remove deprecated
     async setCheckZoneOnOffInterval(oldZones = [], newZones = Object.keys(this.appSettings.ZONES)) {
         const devices = Object.values(await this._api.devices.getDevices());
         const newC = newZones.filter((d) => !oldZones.includes(d));
@@ -263,7 +263,7 @@ class App extends Homey.App {
             }
         }
     }
-
+    // ToDo: Remove deprecated
     async checkDeviceOnOff(device, zoneId) {
         const onoffDevice = device.zone == zoneId && device.capabilitiesObj.onoff && !device.settings.energy_alwayson && !device.settings.override_onoff;
 
@@ -282,7 +282,7 @@ class App extends Homey.App {
                 .then((res) => this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
         }
     }
-
+    // ToDo: Remove deprecated
     async checkZoneOnOff(devices, zone) {
         const onoffDevices = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
         if (onoffDevices) {
@@ -406,6 +406,7 @@ class App extends Homey.App {
         await this.createToken(token, { src: 'text', value: result });
     }
 
+    // ToDo: Remove deprecated
     async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {
         this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, type, percentage);
 
@@ -420,7 +421,7 @@ class App extends Homey.App {
             }
         }
     }
-
+    // ToDo: Remove deprecated
     async action_SET_ZONE_COLOR(zoneId, color) {
         this.homey.app.log('[action_SET_ZONE_COLOR] - args', zoneId, color);
 

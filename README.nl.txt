@@ -1,7 +1,7 @@
-Met deze extra voorzieningen, stelt je in staat meer geavanceerde functies te gebuiken in flows.
-Je data is lokaal opgeslgen en kan daardoor gebruikt worden in meerdere flows of zonder de noodzaak van "Advanced Flows".
+De extra voorzieningen die je met deze app beschikbaar krijgt, stellen je in staat meer geavanceerde functies te gebuiken in je flows.
+Je data is lokaal opgeslagen en kan daardoor gebruikt worden in meerdere flows of zonder de noodzaak van "Advanced Flows".
 
-Altijd al willen weten hoe lang je apparaat actief is of hoeveel energy deze heeft verbruikt?
+Altijd al willen weten hoe lang je apparaat actief is of hoeveel energie deze heeft verbruikt?
 Met deze app vergelijk je deze (of eigenlijk alle soorten nummer) waarden in Homey.
 
 Huidige mogelijkheden:

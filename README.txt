@@ -1,4 +1,4 @@
-With these extra utilities you will enable more advanced features in your flow.
+With the extra utilities enabled via this app, you will be able to do more advanced features in your flow.
 Your data is stored locally so you could use them in different flows or without the need of "Advanced Flows".
 
 Always wanted to know how long your device is running or how much energy it used?

@@ -169,5 +169,8 @@
   },
   "1.7.1": {
     "en": "FIX: Flow card typo's"
+  },
+  "1.7.2": {
+    "en": "CHORE: Update readme texts"
   }
 }

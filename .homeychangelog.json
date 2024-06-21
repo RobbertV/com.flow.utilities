@@ -172,5 +172,8 @@
   },
   "1.7.2": {
     "en": "CHORE: Update readme texts"
+  },
+  "1.7.3": {
+    "en": "Chore: update dependecies & homey api"
   }
 }

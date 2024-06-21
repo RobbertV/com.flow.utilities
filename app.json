@@ -1053,13 +1053,33 @@
         "args": [
           {
             "name": "booleanInput",
-            "type": "checkbox",
-            "placeholder": {
+            "type": "dropdown",
+            "title": {
               "en": "Yes/No",
               "nl": "Ja/Nee",
               "de": "Ja/Nein",
               "no": "Ja/Nei"
-            }
+            },
+            "values": [
+              {
+                "id": "yes",
+                "title": {
+                  "en": "Yes",
+                  "nl": "Ja",
+                  "de": "Ja",
+                  "no": "Ja"
+                }
+              },
+              {
+                "id": "no",
+                "title": {
+                  "en": "No",
+                  "nl": "Nee",
+                  "de": "Nein",
+                  "no": "Nei"
+                }
+              }
+            ]
           }
         ],
         "tokens": [
@@ -1110,7 +1130,8 @@
               "de": "Nummer flow Wert",
               "no": "Nummer flow verdi"
             },
-            "type": "number"
+            "type": "number",
+            "example": "0"
           }
         ]
       }

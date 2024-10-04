@@ -474,7 +474,15 @@ class App extends Homey.App {
         const widget = this.homey.dashboards.getWidget('flow-utilities-variables');
 
         widget.registerSettingAutocompleteListener('selectVariable', async (query, settings) => {
-            return this.appSettings.VARIABLES.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+            this.log('[setupWidget] - Autocomplete query:', query, this.appSettings.VARIABLES);
+            const variables = this.appSettings.VARIABLES.map((item) => {
+                return {
+                    id: item,
+                    name: item
+                };
+            });
+
+            return variables.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
         });
     }
 }

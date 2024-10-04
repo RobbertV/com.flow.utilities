@@ -26,6 +26,8 @@ class App extends Homey.App {
 
         this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
+        this.setupWidget();
+
         this.TOKENS = {};
 
         this.SRC_LIST = [
@@ -465,6 +467,15 @@ class App extends Homey.App {
         } else {
             this.error('Input format not string type');
         }
+    }
+
+
+    async setupWidget() {
+        const widget = this.homey.dashboards.getWidget('flow-utilities');
+
+        widget.registerSettingAutocompleteListener('selectVariable', async (query, settings) => {
+            return settings.VARIABLES.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+        });
     }
 }
 

@@ -482,7 +482,7 @@ class App extends Homey.App {
                 };
             });
 
-            return variables.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+            return variables.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
         });
     }
 }

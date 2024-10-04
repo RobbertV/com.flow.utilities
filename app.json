@@ -1141,9 +1141,106 @@
   "widgets": {
     "flow-utilities-variables": {
       "name": {
-        "en": "Flow Utilities variables"
+        "en": "Flow Utilities"
       },
-      "settings": [],
+      "settings": [
+        {
+          "id": "selectVariable",
+          "type": "autocomplete",
+          "title": {
+            "en": "Select variable",
+            "nl": "Selecteer variabele",
+            "de": "Variable auswählen",
+            "sv": "Välj variabel",
+            "no": "Velg variabel",
+            "da": "Vælg variabel"
+          }
+        },
+        {
+          "id": "showDuration",
+          "type": "checkbox",
+          "value": true,
+          "title": {
+            "en": "Show latest duration",
+            "nl": "Toon laatste looptijd",
+            "de": "Zeige letzte Dauer",
+            "sv": "Visa senaste varaktighet",
+            "no": "Vis siste varighet",
+            "da": "Vis seneste varighed"
+          },
+          "hint": {
+            "en": "Only one of the 4 values can be active",
+            "nl": "Slechts één van de 4 waarden kan actief zijn",
+            "de": "Nur einer der 4 Werte kann aktiv sein",
+            "sv": "Endast en av de 4 värden kan vara aktiv",
+            "no": "Bare en av de 4 verdiene kan være aktiv",
+            "da": "Kun en af de 4 værdier kan være aktiv"
+          }
+        },
+        {
+          "id": "showDifference",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show latest comparison",
+            "nl": "Toon laatste vergelijking",
+            "de": "Zeige letzten Vergleich",
+            "sv": "Visa senaste jämförelse",
+            "no": "Vis siste sammenligning",
+            "da": "Vis seneste sammenligning"
+          },
+          "hint": {
+            "en": "Only one of the 4 values can be active",
+            "nl": "Slechts één van de 4 waarden kan actief zijn",
+            "de": "Nur einer der 4 Werte kann aktiv sein",
+            "sv": "Endast en av de 4 värden kan vara aktiv",
+            "no": "Bare en av de 4 verdiene kan være aktiv",
+            "da": "Kun en af de 4 værdier kan være aktiv"
+          }
+        },
+        {
+          "id": "showCalculation",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show latest calculation",
+            "nl": "Toon laatste berekening",
+            "de": "Zeige letzte Berechnung",
+            "sv": "Visa senaste beräkning",
+            "no": "Vis siste beregning",
+            "da": "Vis seneste beregning"
+          },
+          "hint": {
+            "en": "Only one of the 4 values can be active",
+            "nl": "Slechts één van de 4 waarden kan actief zijn",
+            "de": "Nur einer der 4 Werte kann aktiv sein",
+            "sv": "Endast en av de 4 värden kan vara aktiv",
+            "no": "Bare en av de 4 verdiene kan være aktiv",
+            "da": "Kun en af de 4 værdier kan være aktiv"
+          }
+        },
+        {
+          "id": "showCurrency",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show latest currency",
+            "nl": "Toon laatste valuta",
+            "de": "Zeige letzte Währung",
+            "sv": "Visa senaste valuta",
+            "no": "Vis siste valuta",
+            "da": "Vis seneste valuta"
+          },
+          "hint": {
+            "en": "Only one of the 4 values can be active",
+            "nl": "Slechts één van de 4 waarden kan actief zijn",
+            "de": "Nur einer der 4 Werte kann aktiv sein",
+            "sv": "Endast en av de 4 värden kan vara aktiv",
+            "no": "Bare en av de 4 verdiene kan være aktiv",
+            "da": "Kun en af de 4 værdier kan være aktiv"
+          }
+        }
+      ],
       "api": {
         "getSettings": {
           "method": "GET",

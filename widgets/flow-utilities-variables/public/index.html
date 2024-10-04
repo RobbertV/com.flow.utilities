@@ -1,18 +1,11 @@
 <html>
+
   <head>
     <link rel="stylesheet" crossorigin href="./index.css">
   </head>
 
-  <body class="homey-widget">
-    <table class="homey-table homey-text-align-left">
-      <!-- <thead>
-                        <tr>
-                          <th data-i18n="settings.variables"></th>
-                          <th data-i18n="settings.loading"></th>
-                        </tr>
-                      </thead> -->
-      <tbody></tbody>
-    </table>
+  <body class="homey-widget-full-width">
+    <div id="results" class="container"></div>
     <script>
       function onHomeyReady(Homey) {
         console.log('Widget settings:', Homey.getSettings());
@@ -28,37 +21,64 @@
 
         Homey.api("GET", "/").then((response) => {
           const appSettings = response;
-          const data = getAppSetting(appSettings, "TOTALS");
-
-          // render table  in tbody based on data
-          const tbody = document.querySelector('tbody')
-          tbody.innerHTML = ''
-
-          for (const row of data) {
-            const tr = document.createElement('tr')
-            tbody.appendChild(tr)
-
-            const td = document.createElement('td')
-            td.innerHTML = `<p class="homey-text-bold">${row.token}</p>`
-            // tr.appendChild(tdName)
-
-            // const tdValue = document.createElement('td')
-            for (k in row) {
-              if (k !== 'token') {
-                td.innerHTML += `
-                <div class="homey-text-small-light container">
-                  <div>${Homey.__(`helpers.${k}`)}: </div> <div class="text-left">${row[k]}</div>
-                </div>`;
-              }
+          const totals = getAppSetting(appSettings, "TOTALS");
+          const row = totals.find(total => widgetSettings.selectVariable.id === total.token);
+          const showValues = [
+            {
+              "token": row.token,
+              "id": "duration",
+              "text": Homey.__(`helpers.duration`),
+              "show": widgetSettings.showDuration,
+              "value": row.duration || '',
+              "type": "string"
+            },
+            {
+              "token": row.token,
+              "id": "comparison",
+              "text": Homey.__(`helpers.comparison`),
+              "show": widgetSettings.showDifference,
+              "value": row.comparison || 0,
+              "type": "number"
+            },
+            {
+              "token": row.token,
+              "id": "calculation",
+              "text": Homey.__(`helpers.calculation`),
+              "show": widgetSettings.showCalculation,
+              "value": row.calculation || 0,
+              "type": "number"
+            },
+            {
+              "token": row.token,
+              "id": "currency",
+              "text": Homey.__(`helpers.currency`),
+              "show": widgetSettings.showCurrency,
+              "value": row.currency || '',
+              "type": "string"
             }
-            tr.appendChild(td)
-          }
+          ];
 
-          Homey.ready({ height: 580 });
+          const results = document.querySelector('#results');
+          // results.innerHTML = JSON.stringify(showValues);
+          showValues.forEach((k) => {
+            if (k.show) {
+              results.innerHTML += `
+                <div class="var-item">
+                  <div class="var">
+                    <div class="key homey-text-small-light">${k.text}</div> 
+                    <div class="value">${k.value}</div>
+                  </div>
+                  <div class="type ${k.type}"></div>
+                </div>`;
+            }
+          })
+
+          Homey.ready({ height: results.offsetHeight });
         }).catch((error) => {
           console.error(error);
         });
       }
     </script>
   </body>
+
 </html>

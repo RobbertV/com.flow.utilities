@@ -1,7 +1,67 @@
+.homey-widget-full-width {
+    background-color: transparent!important;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}    
+    gap: var(--homey-su-3);
+}
+
+.var-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--homey-su-2);
+    border-radius: var(--homey-border-radius-default);
+    border: 1px solid var(--homey-line-color-light);
+}
+
+.var-item .key {
+    width: 96px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.var-item .value {
+    font-weight: var(--homey-font-weight-medium);
+    font-size: var(--homey-font-size-small);
+    width: 96px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.var {}
+
+.type {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px 10px;
+    background-color: white;
+    color: white;
+    font-size: var(--homey-font-size-small);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.type.string {
+    background-color: #75D600;
+}
+.type.string:after {
+     content: 'a'
+}
+.type.number {
+    background-color: #2FB0FF;
+}
+.type.number:after {
+     content: '#'
+}
 
 .text-left {
     text-align: left;

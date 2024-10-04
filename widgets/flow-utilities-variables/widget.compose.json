@@ -39,7 +39,7 @@
     {
       "id": "showDifference",
       "type": "checkbox",
-      "value": true,
+      "value": false,
       "title": {
         "en": "Show latest comparison",
         "nl": "Toon laatste vergelijking",

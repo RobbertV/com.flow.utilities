@@ -4,9 +4,21 @@
   },
   "settings": [
     {
+        "id": "selectVariable",
+        "type": "autocomplete",
+        "title": {
+          "en": "Select variable",
+          "nl": "Selecteer variabele",
+          "de": "Variable auswählen",
+          "sv": "Välj variabel",
+          "no": "Velg variabel",
+          "da": "Vælg variabel"
+        }
+      },
+    {
       "id": "showDuration",
       "type": "checkbox",
-      "value": false,
+      "value": true,
       "title": {
         "en": "Show latest duration",
         "nl": "Toon laatste looptijd",

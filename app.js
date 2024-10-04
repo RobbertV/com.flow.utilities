@@ -471,7 +471,7 @@ class App extends Homey.App {
 
 
     async setupWidget() {
-        const widget = this.homey.dashboards.getWidget('flow-utilities');
+        const widget = this.homey.dashboards.getWidget('flow-utilities-variables');
 
         widget.registerSettingAutocompleteListener('selectVariable', async (query, settings) => {
             return settings.VARIABLES.filter((item) => item.toLowerCase().includes(query.toLowerCase()));

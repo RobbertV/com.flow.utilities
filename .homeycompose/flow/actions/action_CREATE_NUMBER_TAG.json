@@ -1,0 +1,40 @@
+{
+  "id": "action_CREATE_NUMBER_TAG",
+  "title": {
+    "en": "Add number flow tag",
+    "nl": "Maak nummer flow tag",
+    "de": "Nummer hinzufügen flow tag",
+    "no": "Legg til nummer flow tag"
+  },
+  "titleFormatted": {
+    "en": "Create [[numberInput]] as number flow tag",
+    "nl": "Maak [[numberInput]] aan als nummer flow tag",
+    "de": "Erstellen Sie [[numberInput]] als nummer flow tag",
+    "no": "Opprett [[numberInput]] som nummer flow tag"
+  },
+  "args": [
+    {
+      "name": "numberInput",
+      "type": "number",
+      "placeholder": {
+        "en": "Number",
+        "nl": "Nummer",
+        "de": "Nummer",
+        "no": "Nummer"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "numberVal",
+      "title": {
+        "en": "Number flow value",
+        "nl": "Nummer flow waarde",
+        "de": "Nummer flow Wert",
+        "no": "Nummer flow verdi"
+      },
+      "type": "number",
+      "example": "0"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "action_START_COMPARE",
+  "title": {
+    "en": "Set start value for comparison",
+    "nl": "Maak begin waarde voor vergelijking",
+    "de": "Startwert für den Vergleich festlegen.",
+    "no": "Sett startverdi for sammenligning"
+  },
+  "titleFormatted": {
+    "en": "Start comparison with [[value]] for [[variable]]",
+    "nl": "Begin vergelijking met [[value]] voor [[variable]]",
+    "de": "Start Vergleich mit [[value]] für [[variable]]",
+    "no": "Start sammenligning med [[value]] for [[variable]]"
+  },
+  "hint": {
+    "en": "Set Start value for comparison, this can be used in the end card",
+    "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart",
+    "de": "Startwert für Vergleich festlegen, dieser kann in der Endwertkarte verwendet werden.",
+    "no": "Sett startverdi for sammenlingning, denne kan bli brukt i endekortet"
+  },
+  "args": [
+    {
+      "name": "value",
+      "type": "number",
+      "placeholder": {
+        "en": "start value",
+        "nl": "begin waarde",
+        "de": "Startwert",
+        "no": "startverdi"
+      }
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

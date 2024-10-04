@@ -1,0 +1,33 @@
+{
+  "id": "action_START_DURATION",
+  "title": {
+    "en": "Start duration for variable",
+    "nl": "Start looptijd voor variabele",
+    "de": "Start Laufzeit für Variable",
+    "no": "Start varighet for variabel"
+  },
+  "titleFormatted": {
+    "en": "Start duration for [[variable]]",
+    "nl": "Start looptijd voor [[variable]]",
+    "de": "Start Laufzeit für [[variable]]",
+    "no": "Start varighet for [[variable]]"
+  },
+  "hint": {
+    "en": "Set the begin value for the duration comparison",
+    "nl": "Sla begin tijd op voor de looptijd in de eind kaart",
+    "de": "Anfangswert für den Laufzeitvergleich festlegen",
+    "no": "Sett startverdi for varighet sammenligning"
+  },
+  "args": [
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

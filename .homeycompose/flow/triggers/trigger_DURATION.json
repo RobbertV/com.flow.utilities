@@ -1,0 +1,59 @@
+{
+  "id": "trigger_DURATION",
+  "title": {
+    "en": "Duration is set",
+    "nl": "Looptijd is berekend",
+    "de": "Laufzeit wird berechnet",
+    "no": "Varighet er innstilt"
+  },
+  "titleFormatted": {
+    "en": "Duration is set for [[variable]]",
+    "nl": "Looptijd is berekend voor [[variable]]",
+    "de": "Laufzeit wird berechnet für [[variable]]",
+    "no": "Varighet er innstilt for [[variable]]"
+  },
+  "tokens": [
+    {
+      "name": "token",
+      "type": "string",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "title": {
+        "en": "Duration",
+        "nl": "Looptijd",
+        "de": "Laufzeit",
+        "no": "Varighet"
+      }
+    },
+    {
+      "name": "durationInSeconds",
+      "type": "number",
+      "title": {
+        "en": "Duration in seconds",
+        "nl": "Looptijd in seconden",
+        "de": "Laufzeit in Sekunde",
+        "no": "Varighet i sekunder"
+      }
+    }
+  ],
+  "args": [
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

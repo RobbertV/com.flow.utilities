@@ -1,0 +1,33 @@
+{
+  "id": "action_END_DURATION",
+  "title": {
+    "en": "Stop duration time and compare with start value",
+    "nl": "Stop looptijd en vergelijk met start waarde",
+    "de": "Stopp Laufzeit und vergleiche mit Startwert",
+    "no": "Stopp varighetstid og sammenlign med startverdi"
+  },
+  "titleFormatted": {
+    "en": "Stop duration for [[variable]]",
+    "nl": "Stop looptijd voor [[variable]]",
+    "de": "Stopp Laufzeit für [[variable]]",
+    "no": "Stopp varighet for [[variable]]"
+  },
+  "hint": {
+    "en": "Make comparison with the start value set earlier. The outcome will be set in \"{variable} duration\".",
+    "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\".",
+    "de": "Führe einen Vergleich mit dem zuvor festgelegten Startwert durch. Ergebnis wird eingefügt in \"{variable} Laufzeit\".",
+    "no": "Gjør sammenligning med startverdien satt tidligere. utfallet blir satt i \"{variable} varighet\"."
+  },
+  "args": [
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

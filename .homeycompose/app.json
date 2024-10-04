@@ -1,0 +1,103 @@
+{
+  "id": "com.flow.utilities",
+  "version": "1.7.3",
+  "compatibility": ">=12.1.0",
+  "platforms": [
+    "local"
+  ],
+  "sdk": 3,
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "brandColor": "#ea951c",
+  "name": {
+    "en": "Flow Utilities",
+    "nl": "Flow Utilities",
+    "de": "Flow Utilities",
+    "no": "Flow Utilities"
+  },
+  "description": {
+    "en": "Get more out of data for in flows",
+    "nl": "Haal meer uit data voor in flows",
+    "de": "Holen Sie mehr aus Flow Daten heraus",
+    "no": "Get more out of data for in flows"
+  },
+  "tags": {
+    "en": [
+      "Flows",
+      "Tags",
+      "Duration",
+      "Timer",
+      "Currency",
+      "Costs",
+      "Energy",
+      "Checker",
+      "Security",
+      "Control",
+      "Official",
+      "Homey",
+      "Athom",
+      "Apps",
+      "Devices",
+      "Zone",
+      "Zones"
+    ]
+  },
+  "category": [
+    "tools"
+  ],
+  "images": {
+    "xlarge": "/assets/images/xlarge.png",
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Robbert Vis",
+    "email": "flowutils@robbertvis.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Robbert Vis",
+        "email": "flowutils@robbertvis.nl"
+      },
+      {
+        "name": "Martijn Poppen",
+        "email": "flowutils@martijnpoppen.nl"
+      }
+    ],
+    "translators": [
+      {
+        "name": "🇬🇧 Robbert Vis & Martijn Poppen"
+      },
+      {
+        "name": "🇳🇱 Robbert Vis & Martijn Poppen"
+      },
+      {
+        "name": "🇩🇪 Dirk Göbel"
+      },
+      {
+        "name": "🇳🇴 Kai Engvik"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "robbertvis"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://community.athom.com/t/app-pro-flow-utilities/53027"
+  },
+  "source": "https://github.com/RobbertV/com.flow.utilities",
+  "homeyCommunityTopicId": 53027,
+  "support": "https://community.athom.com/t/app-pro-flow-utilities/53027",
+  "api": {
+    "settings": {
+      "method": "put",
+      "path": "/settings/"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "action_END_COMPARE",
+  "title": {
+    "en": "Set end value and compare",
+    "nl": "Maak eind waarde en vergelijk",
+    "de": "Endwert festlegen und vergleichen",
+    "no": "Sett sluttverdi og sammenlign"
+  },
+  "titleFormatted": {
+    "en": "Compare with end value [[value]] for [[variable]]",
+    "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]",
+    "de": "Vergleiche mit Endwert [[value]] für [[variable]]",
+    "no": "Sammenlign med sluttverdi [[value]] for [[variable]]"
+  },
+  "hint": {
+    "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
+    "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\".",
+    "de": "Stellen Sie sicher, dass die Startwertkarte vorher ausgeführt wurde. Mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\".",
+    "no": "Sørg for at startverdikortet har blitt satt tidligere, med endeverdien forskjellen blir skapt og lagret i \"{variable} difference\"."
+  },
+  "args": [
+    {
+      "name": "value",
+      "type": "number",
+      "placeholder": {
+        "en": "end value",
+        "nl": "eind waarde",
+        "de": "Endwert",
+        "no": "endeverdi"
+      }
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

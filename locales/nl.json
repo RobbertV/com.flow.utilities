@@ -26,14 +26,14 @@
     "minutes": "min",
     "second": "seconde",
     "seconds": "seconden",
-    "comparison": "verschil",
-    "duration": "looptijd",
-    "durationInSeconds": "looptijd in seconden",
-    "currency": "valuta",
-    "calculation": "berekening",
-    "decimals": "decimalen",
-    "text": "geformateerde tekst",
-    "replacementString": "vervangen tekst",
+    "comparison": "Verschil",
+    "duration": "Looptijd",
+    "durationInSeconds": "Looptijd in seconden",
+    "currency": "Valuta",
+    "calculation": "Berekening",
+    "decimals": "Decimalen",
+    "text": "Geformateerde tekst",
+    "replacementString": "Vervangen tekst",
     "all": "-Alle variabelen-"
   }
 }

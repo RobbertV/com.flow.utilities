@@ -4,7 +4,7 @@
     <link rel="stylesheet" crossorigin href="./index.css">
   </head>
 
-  <body class="homey-widget-full-width">
+  <body class="homey-widget-full-width flow-utils-widget">
     <div id="results" class="container"></div>
     <script>
       function onHomeyReady(Homey) {
@@ -73,7 +73,7 @@
             }
           })
 
-          Homey.ready({ height: results.offsetHeight });
+          Homey.ready({ height: results.offsetHeight + 6 }); // Add 6px for box-shadow
         }).catch((error) => {
           console.error(error);
         });

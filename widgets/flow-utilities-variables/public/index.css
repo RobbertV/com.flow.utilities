@@ -1,6 +1,5 @@
 :root {
     background-color: var(--homey-color-mono-025) !important;
-    color: var(--homey-color-mono-1000) !important;
 }
 
 .container {
@@ -29,7 +28,7 @@
 
 .var-item .value {
     font-weight: var(--homey-font-weight-medium);
-    font-size: var(--homey-font-size-small);
+    font-size: var(--homey-font-size-default);
     width: 96px;
     white-space: nowrap;
     overflow: hidden;
@@ -39,29 +38,33 @@
 .var {}
 
 .type {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50% 50%;
     background-color: white;
-    color: white;
-    font-size: var(--homey-font-size-small);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center
+}
+.type:after {
+    color: white;
+    font-size: var(--homey-font-size-default);
+    line-height: 10px;
 }
 
 .type.string {
     background-color: #75D600;
 }
 .type.string:after {
-     content: 'a'
+     content: 'a';
 }
 .type.number {
     background-color: #2FB0FF;
 }
 .type.number:after {
-     content: '#'
+     content: '#';
+     line-height: var(--homey-font-size-default);
 }
 
 .text-left {

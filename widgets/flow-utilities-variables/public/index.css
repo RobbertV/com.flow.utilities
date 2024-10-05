@@ -1,5 +1,6 @@
-.homey-widget-full-width {
-    background-color: transparent!important;
+:root {
+    background-color: var(--homey-color-mono-025) !important;
+    color: var(--homey-color-mono-1000) !important;
 }
 
 .container {
@@ -16,7 +17,7 @@
     align-items: center;
     padding: var(--homey-su-2);
     border-radius: var(--homey-border-radius-default);
-    border: 1px solid var(--homey-line-color-light);
+    background-color: var(--homey-color-mono-050);
 }
 
 .var-item .key {

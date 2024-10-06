@@ -21,6 +21,7 @@
 
         Homey.api("GET", "/").then((response) => {
           const appSettings = response;
+          const noDataString = Homey.__(`helpers.noData`);
           const totals = getAppSetting(appSettings, "TOTALS");
           const row = totals.find(total => widgetSettings.selectVariable.id === total.token);
           const showValues = [
@@ -29,7 +30,7 @@
               "id": "duration",
               "text": Homey.__(`helpers.duration`),
               "show": widgetSettings.showDuration,
-              "value": row.duration || '',
+              "value": row.duration || noDataString,
               "type": "string"
             },
             {
@@ -37,7 +38,7 @@
               "id": "currency",
               "text": Homey.__(`helpers.currency`),
               "show": widgetSettings.showCurrency,
-              "value": row.currency || '',
+              "value": row.currency || noDataString,
               "type": "string"
             },
             {
@@ -69,7 +70,7 @@
               "id": "string",
               "text": Homey.__(`helpers.text`),
               "show": widgetSettings.showString,
-              "value": row.string || '',
+              "value": row.string || noDataString,
               "type": "string"
             },
             {
@@ -77,7 +78,7 @@
               "id": "replacementString",
               "text": Homey.__(`helpers.replacementString`),
               "show": widgetSettings.showReplacementString,
-              "value": row.replacementString || '',
+              "value": row.replacementString || noDataString,
               "type": "string"
             }
           ];

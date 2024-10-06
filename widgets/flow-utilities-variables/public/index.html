@@ -34,6 +34,14 @@
             },
             {
               "token": row.token,
+              "id": "currency",
+              "text": Homey.__(`helpers.currency`),
+              "show": widgetSettings.showCurrency,
+              "value": row.currency || '',
+              "type": "string"
+            },
+            {
+              "token": row.token,
               "id": "comparison",
               "text": Homey.__(`helpers.comparison`),
               "show": widgetSettings.showDifference,
@@ -50,10 +58,26 @@
             },
             {
               "token": row.token,
-              "id": "currency",
-              "text": Homey.__(`helpers.currency`),
-              "show": widgetSettings.showCurrency,
-              "value": row.currency || '',
+              "id": "decimals",
+              "text": Homey.__(`helpers.decimals`),
+              "show": widgetSettings.showDecimals,
+              "value": row.decimals || 0,
+              "type": "number"
+            },
+            {
+              "token": row.token,
+              "id": "string",
+              "text": Homey.__(`helpers.text`),
+              "show": widgetSettings.showString,
+              "value": row.string || '',
+              "type": "string"
+            },
+            {
+              "token": row.token,
+              "id": "replacementString",
+              "text": Homey.__(`helpers.replacementString`),
+              "show": widgetSettings.showReplacementString,
+              "value": row.replacementString || '',
               "type": "string"
             }
           ];
@@ -65,7 +89,7 @@
               results.innerHTML += `
                 <div class="var-item">
                   <div class="var">
-                    <div class="key homey-text-small-light">${k.text}</div> 
+                    <div class="key homey-text-small-light">${k.text} - ${k.token}</div> 
                     <div class="value">${k.value}</div>
                   </div>
                   <div class="type ${k.type}"></div>

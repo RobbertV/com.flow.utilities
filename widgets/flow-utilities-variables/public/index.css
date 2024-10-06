@@ -17,13 +17,14 @@
 }
 
 .var-item {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--homey-su-2);
+    display: grid;
+    grid-gap: var(--homey-su-2);
+    grid-template-columns: 1fr 24px;
     align-items: center;
     padding: var(--homey-su-2);
     border-radius: var(--homey-border-radius-default);
     background-color: var(--homey-background-color);
+
     /* Temp, because shadow is missing */
     box-shadow: var(--theme-boxShadow-default);
     box-sizing: border-box;
@@ -33,11 +34,14 @@
     background-color: var(--homey-color-mono-050);
 }
 
+.var-item .var {
+    overflow:hidden
+}
+
 .var-item .key,
 .var-item .value {
-    width: 124px;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -50,7 +54,6 @@
     width: 24px;
     height: 24px;
     border-radius: 50% 50%;
-    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;

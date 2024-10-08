@@ -681,10 +681,10 @@
           "no": "Legg til nummer flow tag"
         },
         "titleFormatted": {
-          "en": "Create [[numberInput]] as number flow tag",
-          "nl": "Maak [[numberInput]] aan als nummer flow tag",
-          "de": "Erstellen Sie [[numberInput]] als nummer flow tag",
-          "no": "Opprett [[numberInput]] som nummer flow tag"
+          "en": "Create [[numberInput]] with [[decimals]] decimals as number flow tag",
+          "nl": "Maak [[numberInput]] met [[decimals]] decimalen aan als nummer flow tag",
+          "de": "Erstellen Sie [[numberInput]] mit [[decimals]] Dezimalstellen als nummer flow tag",
+          "no": "Opprett [[numberInput]] med [[decimals]] desimaler som nummer flow tag"
         },
         "args": [
           {
@@ -695,6 +695,17 @@
               "nl": "Nummer",
               "de": "Nummer",
               "no": "Nummer"
+            }
+          },
+          {
+            "name": "decimals",
+            "type": "number",
+            "required": false,
+            "placeholder": {
+              "en": "decimals (optional)",
+              "nl": "decimalen (optioneel)",
+              "de": "Dezimalstellen",
+              "no": "desimaler"
             }
           }
         ],

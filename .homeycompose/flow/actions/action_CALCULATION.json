@@ -1,0 +1,89 @@
+{
+  "id": "action_CALCULATION",
+  "title": {
+    "en": "Calculate 2 values",
+    "nl": "Bereken 2 waardes",
+    "de": "Berechne 2 Werte",
+    "no": "Kalkuler 2 verdier"
+  },
+  "titleFormatted": {
+    "en": "Calculate [[value1]] [[calctype]] [[value2]] add to [[variable]]",
+    "nl": "Bereken [[value1]] [[calctype]] [[value2]] voeg in [[variable]]",
+    "de": "Berechne [[value1]] [[calctype]] [[value2]] und füge ein in [[variable]]",
+    "no": "Kalkuler [[value1]] [[calctype]] [[value2]] legg til [[variable]]"
+  },
+  "hint": {
+    "en": "For example use the difference of energy device and multiply with kWh price. Will be stored in \"{variable} calculation\".",
+    "nl": "Bijv. gebruik het verschil van een energie apparaat en vermenigvuldig met kWh stroom kosten. Resultaat wordt opgeslagen in \"{variable} berekening\".",
+    "de": "Verwende z.B. die Differenz eines Energiegeräts und multiplizieren diese mit den Stromkosten pro kWh. Das Ergebnis wird gespeichert in \"{variable} Berechnung\".",
+    "no": "For eksempel bruk forskjellen til en energienhet og multipliser med kWh pris. Blir lagret i \"{variable} kalkulering\"."
+  },
+  "args": [
+    {
+      "name": "value1",
+      "type": "number",
+      "placeholder": {
+        "en": "number 1",
+        "nl": "nummer 1",
+        "de": "Zahl 1",
+        "no": "nummer 1"
+      }
+    },
+    {
+      "name": "calctype",
+      "type": "dropdown",
+      "title": {
+        "en": "select calculation",
+        "nl": "kies berekening",
+        "de": "Art der Berechnung wählen",
+        "no": "velg kalkulering"
+      },
+      "values": [
+        {
+          "id": "+",
+          "label": {
+            "en": "+"
+          }
+        },
+        {
+          "id": "-",
+          "label": {
+            "en": "-"
+          }
+        },
+        {
+          "id": "*",
+          "label": {
+            "en": "*"
+          }
+        },
+        {
+          "id": "/",
+          "label": {
+            "en": "/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "value2",
+      "type": "number",
+      "placeholder": {
+        "en": "number 2",
+        "nl": "nummer 2",
+        "de": "Zahl 2",
+        "no": "nummer 2"
+      }
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

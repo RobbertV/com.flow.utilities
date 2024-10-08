@@ -1,0 +1,132 @@
+{
+  "name": {
+    "en": "Flow Utilities"
+  },
+  "settings": [
+    {
+        "id": "selectVariable",
+        "type": "autocomplete",
+        "title": {
+          "en": "Select variable",
+          "nl": "Selecteer variabele",
+          "de": "Variable auswählen",
+          "sv": "Välj variabel",
+          "no": "Velg variabel",
+          "da": "Vælg variabel"
+        }
+      },
+    {
+      "id": "showDuration",
+      "type": "checkbox",
+      "value": true,
+      "title": {
+        "en": "Show duration",
+        "nl": "Toon looptijd",
+        "de": "Zeige Dauer",
+        "sv": "Visa varaktighet",
+        "no": "Vis varighet",
+        "da": "Vis varighed"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    },
+    {
+      "id": "showCurrency",
+      "type": "checkbox",
+      "value": false,
+      "title": {
+        "en": "Show currency",
+        "nl": "Toon valuta",
+        "de": "Zeige Währung",
+        "sv": "Visa valuta",
+        "no": "Vis valuta",
+        "da": "Vis valuta"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    },
+    {
+      "id": "showDifference",
+      "type": "checkbox",
+      "value": false,
+      "title": {
+        "en": "Show comparison",
+        "nl": "Toon vergelijking",
+        "de": "Zeige Vergleich",
+        "sv": "Visa jämförelse",
+        "no": "Vis sammenligning",
+        "da": "Vis sammenligning"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    },
+    {
+      "id": "showCalculation",
+      "type": "checkbox",
+      "value": false,
+      "title": {
+        "en": "Show calculation",
+        "nl": "Toon berekening",
+        "de": "Zeige Berechnung",
+        "sv": "Visa beräkning",
+        "no": "Vis beregning",
+        "da": "Vis beregning"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    },
+    {
+      "id": "showDecimals",
+      "type": "checkbox",
+      "value": false,
+      "title": {
+        "en": "Show decimals",
+        "nl": "Toont decimalen"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    },
+    {
+      "id": "showString",
+      "type": "checkbox",
+      "value": false,
+      "title": {
+        "en": "Show formatted text",
+        "nl": "Toon geformateerde tekst"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    },
+    {
+      "id": "showReplacementString",
+      "type": "checkbox",
+      "value": false,
+      "title": {
+        "en": "Show replacement string",
+        "nl": "Toon vervangen tekst"
+      },
+      "hint": {
+        "en": "Shows the value for this variable",
+        "nl": "Toont de waarde van deze variable"
+      }
+    }
+  ],
+  "api": {
+    "getSettings": {
+      "method": "GET",
+      "path": "/"
+    }
+  }
+}

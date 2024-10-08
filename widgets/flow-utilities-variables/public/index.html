@@ -1,0 +1,109 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" crossorigin href="./index.css">
+  </head>
+
+  <body class="homey-widget-full-width flow-utils-widget">
+    <div id="results" class="container"></div>
+    <script>
+      function onHomeyReady(Homey) {
+        console.log('Widget settings:', Homey.getSettings());
+        init(Homey);
+      }
+
+      function getAppSetting(appSettings, key) {
+        return appSettings[key];
+      }
+
+      function init(Homey) {
+        const widgetSettings = Homey.getSettings();
+
+        Homey.api("GET", "/").then((response) => {
+          const appSettings = response;
+          const noDataString = Homey.__(`helpers.noData`);
+          const totals = getAppSetting(appSettings, "TOTALS");
+          const row = totals.find(total => widgetSettings.selectVariable.id === total.token);
+          const showValues = [
+            {
+              "token": row.token,
+              "id": "duration",
+              "text": Homey.__(`helpers.duration`),
+              "show": widgetSettings.showDuration,
+              "value": row.duration || noDataString,
+              "type": "string"
+            },
+            {
+              "token": row.token,
+              "id": "currency",
+              "text": Homey.__(`helpers.currency`),
+              "show": widgetSettings.showCurrency,
+              "value": row.currency || noDataString,
+              "type": "string"
+            },
+            {
+              "token": row.token,
+              "id": "comparison",
+              "text": Homey.__(`helpers.comparison`),
+              "show": widgetSettings.showDifference,
+              "value": row.comparison || 0,
+              "type": "number"
+            },
+            {
+              "token": row.token,
+              "id": "calculation",
+              "text": Homey.__(`helpers.calculation`),
+              "show": widgetSettings.showCalculation,
+              "value": row.calculation || 0,
+              "type": "number"
+            },
+            {
+              "token": row.token,
+              "id": "decimals",
+              "text": Homey.__(`helpers.decimals`),
+              "show": widgetSettings.showDecimals,
+              "value": row.decimals || 0,
+              "type": "number"
+            },
+            {
+              "token": row.token,
+              "id": "string",
+              "text": Homey.__(`helpers.text`),
+              "show": widgetSettings.showString,
+              "value": row.string || noDataString,
+              "type": "string"
+            },
+            {
+              "token": row.token,
+              "id": "replacementString",
+              "text": Homey.__(`helpers.replacementString`),
+              "show": widgetSettings.showReplacementString,
+              "value": row.replacementString || noDataString,
+              "type": "string"
+            }
+          ];
+
+          const results = document.querySelector('#results');
+          // results.innerHTML = JSON.stringify(showValues);
+          showValues.forEach((k) => {
+            if (k.show) {
+              results.innerHTML += `
+                <div class="var-item">
+                  <div class="var">
+                    <div class="key homey-text-small-light">${k.text} - ${k.token}</div> 
+                    <div class="value">${k.value}</div>
+                  </div>
+                  <div class="type ${k.type}"></div>
+                </div>`;
+            }
+          })
+
+          Homey.ready({ height: results.offsetHeight + 6 }); // Add 6px for box-shadow
+        }).catch((error) => {
+          console.error(error);
+        });
+      }
+    </script>
+  </body>
+
+</html>

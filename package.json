@@ -7,7 +7,7 @@
     "url": "https://github.com/RobbertV/com.flow.utilities"
   },
   "dependencies": {
-    "homey-api": "^3.4.35",
+    "homey-api": "^3.6.4",
     "tinycolor2": "^1.4.2"
   }
 }

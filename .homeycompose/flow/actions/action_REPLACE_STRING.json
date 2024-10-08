@@ -1,0 +1,57 @@
+{
+  "id": "action_REPLACE_STRING",
+  "title": {
+    "en": "Replace string content",
+    "nl": "Vervang tekst",
+    "de": "Ersetzen Sie den String-Inhalt",
+    "no": "Erstatt strenginnhold"
+  },
+  "titleFormatted": {
+    "en": "Replace [[stringContains]] for [[replacementString]] in [[inputString]] and add to [[variable]]",
+    "nl": "Vervang [[stringContains]] voor [[replacementString]] in [[inputString]] daarna voeg in [[variable]]",
+    "de": "Ersetzen Sie [[stringContains]] durch [[replacementString]] in [[inputString]] und fügen Sie es zu [[variable]] hinzu.",
+    "no": "Erstatt [[stringContains]] for [[replacementString]] i [[inputString]] og legg til [[variable]]"
+  },
+  "args": [
+    {
+      "name": "stringContains",
+      "type": "text",
+      "placeholder": {
+        "en": "Search text",
+        "nl": "Zoek tekst",
+        "de": "Suchtext",
+        "no": "Søk etter tekst"
+      }
+    },
+    {
+      "name": "replacementString",
+      "type": "text",
+      "placeholder": {
+        "en": "Sentence",
+        "nl": "Zin",
+        "de": "Satz",
+        "no": "Setning"
+      }
+    },
+    {
+      "name": "inputString",
+      "type": "text",
+      "placeholder": {
+        "en": "Replacement text",
+        "nl": "Vervangende tekst",
+        "de": "Ersatztext",
+        "no": "Erstatningstekst"
+      }
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

@@ -34,6 +34,7 @@
     "decimals": "decimals",
     "text": "formatted text",
     "replacementString": "replaced text",
-    "all": "-All variables-"
+    "all": "-All variables-",
+    "noData": "No data yet..."
   }
 }

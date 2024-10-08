@@ -1,0 +1,49 @@
+{
+  "id": "trigger_COMPARISON",
+  "title": {
+    "en": "Comparison is made",
+    "nl": "Vergelijking is berekend",
+    "de": "Vergleich wurde durchgeführt",
+    "no": "Sammenligning blir gjort"
+  },
+  "titleFormatted": {
+    "en": "Comparison is made for [[variable]]",
+    "nl": "Vergelijking is berekend voor [[variable]]",
+    "de": "Vergleich wird berechnet für [[variable]]",
+    "no": "Sammenligning blir gjort for [[variable]]"
+  },
+  "tokens": [
+    {
+      "name": "token",
+      "type": "string",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    },
+    {
+      "name": "comparison",
+      "type": "number",
+      "title": {
+        "en": "Comparison",
+        "nl": "Vergelijking",
+        "de": "Vergleich",
+        "no": "Sammenligning"
+      }
+    }
+  ],
+  "args": [
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

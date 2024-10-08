@@ -1,0 +1,53 @@
+{
+  "id": "action_CONVERT_NUMBER",
+  "title": {
+    "en": "Convert number to number with decimals",
+    "nl": "Converteer nummer naar nummer met decimalen",
+    "de": "Konvertiere Zahl in Zahl mit Dezimalstellen",
+    "no": "Konverter nummer til nummer med desimaler"
+  },
+  "titleFormatted": {
+    "en": "Convert [[number]] to number with [[decimals]] decimals and add to [[variable]]",
+    "nl": "Converteer [[number]] naar nummer met [[decimals]] decimalen en voeg in [[variable]]",
+    "de": "Konvertiere [[number]] in Zahl mit [[decimals]] Dezimalstellen und füge ein in [[variable]]",
+    "no": "Konverter [[number]] til nummer med [[decimals]] desimaler og legg til [[variable]]"
+  },
+  "hint": {
+    "en": "For example to convert numbers with 4 decimals to a number with only 2 decimals",
+    "nl": "Bijv. om een nummer met 4 decimalen te converteren naar een nummer met 2 decimalen.",
+    "de": "Z.B. eine Zahl mit 4 Dezimalstellen in eine Zahl mit 2 Dezimalstellen umwandeln.",
+    "no": "For eksempel å konvertere et nummer med 4 desimaler til et nummer med bare 2 desimaler"
+  },
+  "args": [
+    {
+      "name": "number",
+      "type": "number",
+      "placeholder": {
+        "en": "number",
+        "nl": "nummer",
+        "de": "Zahl",
+        "no": "nummer"
+      }
+    },
+    {
+      "name": "decimals",
+      "type": "number",
+      "placeholder": {
+        "en": "decimals",
+        "nl": "decimalen",
+        "de": "Dezimalstellen",
+        "no": "desimaler"
+      }
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

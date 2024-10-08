@@ -1,0 +1,91 @@
+{
+  "id": "action_SET_CURRENCY",
+  "title": {
+    "en": "Convert number to currency",
+    "nl": "Zet nummer naar valuta",
+    "de": "Zahl in Währung umrechnen",
+    "no": "Konverter nummer til valuta"
+  },
+  "titleFormatted": {
+    "en": "Convert [[value]] to [[currency]] notation, add to [[variable]]",
+    "nl": "Zet [[value]] om in [[currency]] notatie, voeg in [[variable]]",
+    "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]",
+    "no": "Konverter [[value]] til [[currency]] notering, legg til [[variable]]"
+  },
+  "hint": {
+    "en": "Convert a number value to selected currency notation. Outcome will be stored in \"{variable} currency\".",
+    "nl": "Conventeer een nummer waarde in geselecteerde valuta notatie. Resultaat wordt opgeslagen in \"{variable} valuta\".",
+    "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\".",
+    "no": "Konverter en nummerverdi til valgt valutanotering. Utfallet blir lagret i \"{variable} valuta\"."
+  },
+  "args": [
+    {
+      "name": "value",
+      "type": "number",
+      "placeholder": {
+        "en": "number",
+        "nl": "nummer",
+        "de": "Zahl",
+        "no": "nummer"
+      }
+    },
+    {
+      "name": "currency",
+      "type": "dropdown",
+      "title": {
+        "en": "currency",
+        "nl": "valuta",
+        "de": "Währung",
+        "no": "valuta"
+      },
+      "values": [
+        {
+          "id": "EUR",
+          "label": {
+            "en": "€ Euro"
+          }
+        },
+        {
+          "id": "USD",
+          "label": {
+            "en": "$ US Dollar"
+          }
+        },
+        {
+          "id": "GBP",
+          "label": {
+            "en": "£ GBP"
+          }
+        },
+        {
+          "id": "NOK",
+          "label": {
+            "en": "NOK"
+          }
+        },
+        {
+          "id": "SEK",
+          "label": {
+            "en": "SEK"
+          }
+        },
+        {
+          "id": "DKK",
+          "label": {
+            "en": "DKK"
+          }
+        }
+      ]
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

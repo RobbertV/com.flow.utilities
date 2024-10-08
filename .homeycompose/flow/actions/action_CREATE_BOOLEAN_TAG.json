@@ -1,0 +1,59 @@
+{
+  "id": "action_CREATE_BOOLEAN_TAG",
+  "title": {
+    "en": "Add Yes/No flow tag",
+    "nl": "Maak Ja/Nee flow tag",
+    "de": "Erstellen Sie Ja/Nein flow tag",
+    "no": "Oppret Ja/Nei flow tag"
+  },
+  "titleFormatted": {
+    "en": "Create [[booleanInput]] as yes/no flow tag",
+    "nl": "Maak [[booleanInput]] aan als ja/nee flow tag",
+    "de": "Erstellen Sie [[booleanInput]] als ja/nein flow tag",
+    "no": "Opprett [[booleanInput]] som ja/nei flow tag"
+  },
+  "args": [
+    {
+      "name": "booleanInput",
+      "type": "dropdown",
+      "title": {
+        "en": "Yes/No",
+        "nl": "Ja/Nee",
+        "de": "Ja/Nein",
+        "no": "Ja/Nei"
+      },
+      "values": [
+        {
+          "id": "yes",
+          "title": {
+            "en": "Yes",
+            "nl": "Ja",
+            "de": "Ja",
+            "no": "Ja"
+          }
+        },
+        {
+          "id": "no",
+          "title": {
+            "en": "No",
+            "nl": "Nee",
+            "de": "Nein",
+            "no": "Nei"
+          }
+        }
+      ]
+    }
+  ],
+  "tokens": [
+    {
+      "name": "booleanVal",
+      "title": {
+        "en": "Yes/No flow value",
+        "nl": "Ja/Nee flow waarde",
+        "de": "Yes/No flow Wert",
+        "no": "Ja/Nei flow verdi"
+      },
+      "type": "boolean"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "trigger_DEVICE_ZONE_ON",
+  "deprecated": true,
+  "title": {
+    "en": "A Device in zone turned on",
+    "nl": "Apparaat in zone is aangezet",
+    "de": "Gerät in Zone ist eingeschaltet",
+    "no": "En enhet i sone er slått på"
+  },
+  "titleFormatted": {
+    "en": "Device in [[zone]] turned on",
+    "nl": "Apparaat in [[zone]] is aangezet",
+    "de": "Gerät in [[zone]] ist eingeschaltet",
+    "no": "Enhet i [[zone]] slått på"
+  },
+  "tokens": [
+    {
+      "name": "name",
+      "type": "string",
+      "title": {
+        "en": "Name",
+        "nl": "Naam",
+        "de": "Name",
+        "no": "Navn"
+      }
+    },
+    {
+      "name": "ison",
+      "type": "boolean",
+      "title": {
+        "en": "Is on",
+        "nl": "Is aan",
+        "de": "Ist eingeschaltet",
+        "no": "Er på"
+      }
+    },
+    {
+      "name": "zone",
+      "type": "string",
+      "title": {
+        "en": "Zone",
+        "nl": "Zone",
+        "de": "Zone",
+        "no": "Sone"
+      }
+    }
+  ],
+  "args": [
+    {
+      "name": "zone",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "Zone",
+        "nl": "Zone",
+        "de": "Zone",
+        "no": "Sone"
+      }
+    }
+  ]
+}

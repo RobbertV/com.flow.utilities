@@ -1,7 +1,8 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.flow.utilities",
   "version": "1.7.3",
-  "compatibility": ">=5.0.0",
+  "compatibility": ">=12.1.0",
   "platforms": [
     "local"
   ],
@@ -152,107 +153,52 @@
         ]
       },
       {
-        "id": "trigger_DURATION",
+        "id": "trigger_DEVICE_ZONE_OFF",
+        "deprecated": true,
         "title": {
-          "en": "Duration is set",
-          "nl": "Looptijd is berekend",
-          "de": "Laufzeit wird berechnet",
-          "no": "Varighet er innstilt"
+          "en": "A Device in zone turned off",
+          "nl": "Apparaat in zone is uitgezet",
+          "de": "Gerät in Zone ist ausgeschaltet",
+          "no": "En enhet i sone er slått av"
         },
         "titleFormatted": {
-          "en": "Duration is set for [[variable]]",
-          "nl": "Looptijd is berekend voor [[variable]]",
-          "de": "Laufzeit wird berechnet für [[variable]]",
-          "no": "Varighet er innstilt for [[variable]]"
+          "en": "Device in [[zone]] turned off",
+          "nl": "Apparaat in [[zone]] is uitgezet",
+          "de": "Gerät in [[zone]] ist ausgeschaltet",
+          "no": "En enhet i [[zone]] er slått av"
         },
         "tokens": [
           {
-            "name": "token",
+            "name": "name",
             "type": "string",
             "title": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "no": "Navn"
             }
           },
           {
-            "name": "duration",
-            "type": "string",
+            "name": "ison",
+            "type": "boolean",
             "title": {
-              "en": "Duration",
-              "nl": "Looptijd",
-              "de": "Laufzeit",
-              "no": "Varighet"
+              "en": "Is on",
+              "nl": "Is aan",
+              "de": "Ist eingeschaltet",
+              "no": "Er på"
             }
           },
-          {
-            "name": "durationInSeconds",
-            "type": "number",
-            "title": {
-              "en": "Duration in seconds",
-              "nl": "Looptijd in seconden",
-              "de": "Laufzeit in Sekunde",
-              "no": "Varighet i sekunder"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "variable",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "trigger_ZONE_ON",
-        "deprecated": true,
-        "title": {
-          "en": "Devices in zone turned on",
-          "nl": "Apparaten in zone zijn aangezet",
-          "de": "Geräte in Zone sind eingeschaltet",
-          "no": "Enheter i sone slått på"
-        },
-        "titleFormatted": {
-          "en": "Devices in [[zone]] turned on",
-          "nl": "Apparaten in [[zone]] zijn aangezet",
-          "de": "Geräte in [[zone]] sind eingeschaltet",
-          "no": "Enheter i [[zone]] slått på"
-        },
-        "args": [
           {
             "name": "zone",
-            "type": "autocomplete",
-            "placeholder": {
+            "type": "string",
+            "title": {
               "en": "Zone",
               "nl": "Zone",
               "de": "Zone",
               "no": "Sone"
             }
           }
-        ]
-      },
-      {
-        "id": "trigger_ZONE_OFF",
-        "deprecated": true,
-        "title": {
-          "en": "Devices in zone turned off",
-          "nl": "Apparaten in zone zijn uitgezet",
-          "de": "Geräte in Zone sind ausgeschaltet",
-          "no": "Enheter i sone slått av"
-        },
-        "titleFormatted": {
-          "en": "Devices in [[zone]] turned off",
-          "nl": "Apparaten in [[zone]] zijn uitgezet",
-          "de": "Geräte in [[zone]] sind ausgeschaltet",
-          "no": "Enheter [[zone]] slått av"
-        },
+        ],
         "args": [
           {
             "name": "zone",
@@ -327,52 +273,107 @@
         ]
       },
       {
-        "id": "trigger_DEVICE_ZONE_OFF",
-        "deprecated": true,
+        "id": "trigger_DURATION",
         "title": {
-          "en": "A Device in zone turned off",
-          "nl": "Apparaat in zone is uitgezet",
-          "de": "Gerät in Zone ist ausgeschaltet",
-          "no": "En enhet i sone er slått av"
+          "en": "Duration is set",
+          "nl": "Looptijd is berekend",
+          "de": "Laufzeit wird berechnet",
+          "no": "Varighet er innstilt"
         },
         "titleFormatted": {
-          "en": "Device in [[zone]] turned off",
-          "nl": "Apparaat in [[zone]] is uitgezet",
-          "de": "Gerät in [[zone]] ist ausgeschaltet",
-          "no": "En enhet i [[zone]] er slått av"
+          "en": "Duration is set for [[variable]]",
+          "nl": "Looptijd is berekend voor [[variable]]",
+          "de": "Laufzeit wird berechnet für [[variable]]",
+          "no": "Varighet er innstilt for [[variable]]"
         },
         "tokens": [
           {
-            "name": "name",
+            "name": "token",
             "type": "string",
             "title": {
-              "en": "Name",
-              "nl": "Naam",
-              "de": "Name",
-              "no": "Navn"
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
             }
           },
           {
-            "name": "ison",
-            "type": "boolean",
+            "name": "duration",
+            "type": "string",
             "title": {
-              "en": "Is on",
-              "nl": "Is aan",
-              "de": "Ist eingeschaltet",
-              "no": "Er på"
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Laufzeit",
+              "no": "Varighet"
             }
           },
+          {
+            "name": "durationInSeconds",
+            "type": "number",
+            "title": {
+              "en": "Duration in seconds",
+              "nl": "Looptijd in seconden",
+              "de": "Laufzeit in Sekunde",
+              "no": "Varighet i sekunder"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "trigger_ZONE_OFF",
+        "deprecated": true,
+        "title": {
+          "en": "Devices in zone turned off",
+          "nl": "Apparaten in zone zijn uitgezet",
+          "de": "Geräte in Zone sind ausgeschaltet",
+          "no": "Enheter i sone slått av"
+        },
+        "titleFormatted": {
+          "en": "Devices in [[zone]] turned off",
+          "nl": "Apparaten in [[zone]] zijn uitgezet",
+          "de": "Geräte in [[zone]] sind ausgeschaltet",
+          "no": "Enheter [[zone]] slått av"
+        },
+        "args": [
           {
             "name": "zone",
-            "type": "string",
-            "title": {
+            "type": "autocomplete",
+            "placeholder": {
               "en": "Zone",
               "nl": "Zone",
               "de": "Zone",
               "no": "Sone"
             }
           }
-        ],
+        ]
+      },
+      {
+        "id": "trigger_ZONE_ON",
+        "deprecated": true,
+        "title": {
+          "en": "Devices in zone turned on",
+          "nl": "Apparaten in zone zijn aangezet",
+          "de": "Geräte in Zone sind eingeschaltet",
+          "no": "Enheter i sone slått på"
+        },
+        "titleFormatted": {
+          "en": "Devices in [[zone]] turned on",
+          "nl": "Apparaten in [[zone]] zijn aangezet",
+          "de": "Geräte in [[zone]] sind eingeschaltet",
+          "no": "Enheter i [[zone]] slått på"
+        },
         "args": [
           {
             "name": "zone",
@@ -388,249 +389,6 @@
       }
     ],
     "actions": [
-      {
-        "id": "action_START_DURATION",
-        "title": {
-          "en": "Start duration for variable",
-          "nl": "Start looptijd voor variabele",
-          "de": "Start Laufzeit für Variable",
-          "no": "Start varighet for variabel"
-        },
-        "titleFormatted": {
-          "en": "Start duration for [[variable]]",
-          "nl": "Start looptijd voor [[variable]]",
-          "de": "Start Laufzeit für [[variable]]",
-          "no": "Start varighet for [[variable]]"
-        },
-        "hint": {
-          "en": "Set the begin value for the duration comparison",
-          "nl": "Sla begin tijd op voor de looptijd in de eind kaart",
-          "de": "Anfangswert für den Laufzeitvergleich festlegen",
-          "no": "Sett startverdi for varighet sammenligning"
-        },
-        "args": [
-          {
-            "name": "variable",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_DURATION",
-        "title": {
-          "en": "Stop duration time and compare with start value",
-          "nl": "Stop looptijd en vergelijk met start waarde",
-          "de": "Stopp Laufzeit und vergleiche mit Startwert",
-          "no": "Stopp varighetstid og sammenlign med startverdi"
-        },
-        "titleFormatted": {
-          "en": "Stop duration for [[variable]]",
-          "nl": "Stop looptijd voor [[variable]]",
-          "de": "Stopp Laufzeit für [[variable]]",
-          "no": "Stopp varighet for [[variable]]"
-        },
-        "hint": {
-          "en": "Make comparison with the start value set earlier. The outcome will be set in \"{variable} duration\".",
-          "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\".",
-          "de": "Führe einen Vergleich mit dem zuvor festgelegten Startwert durch. Ergebnis wird eingefügt in \"{variable} Laufzeit\".",
-          "no": "Gjør sammenligning med startverdien satt tidligere. utfallet blir satt i \"{variable} varighet\"."
-        },
-        "args": [
-          {
-            "name": "variable",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_START_COMPARE",
-        "title": {
-          "en": "Set start value for comparison",
-          "nl": "Maak begin waarde voor vergelijking",
-          "de": "Startwert für den Vergleich festlegen.",
-          "no": "Sett startverdi for sammenligning"
-        },
-        "titleFormatted": {
-          "en": "Start comparison with [[value]] for [[variable]]",
-          "nl": "Begin vergelijking met [[value]] voor [[variable]]",
-          "de": "Start Vergleich mit [[value]] für [[variable]]",
-          "no": "Start sammenligning med [[value]] for [[variable]]"
-        },
-        "hint": {
-          "en": "Set Start value for comparison, this can be used in the end card",
-          "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart",
-          "de": "Startwert für Vergleich festlegen, dieser kann in der Endwertkarte verwendet werden.",
-          "no": "Sett startverdi for sammenlingning, denne kan bli brukt i endekortet"
-        },
-        "args": [
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "start value",
-              "nl": "begin waarde",
-              "de": "Startwert",
-              "no": "startverdi"
-            }
-          },
-          {
-            "name": "variable",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_END_COMPARE",
-        "title": {
-          "en": "Set end value and compare",
-          "nl": "Maak eind waarde en vergelijk",
-          "de": "Endwert festlegen und vergleichen",
-          "no": "Sett sluttverdi og sammenlign"
-        },
-        "titleFormatted": {
-          "en": "Compare with end value [[value]] for [[variable]]",
-          "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]",
-          "de": "Vergleiche mit Endwert [[value]] für [[variable]]",
-          "no": "Sammenlign med sluttverdi [[value]] for [[variable]]"
-        },
-        "hint": {
-          "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
-          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\".",
-          "de": "Stellen Sie sicher, dass die Startwertkarte vorher ausgeführt wurde. Mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\".",
-          "no": "Sørg for at startverdikortet har blitt satt tidligere, med endeverdien forskjellen blir skapt og lagret i \"{variable} difference\"."
-        },
-        "args": [
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "end value",
-              "nl": "eind waarde",
-              "de": "Endwert",
-              "no": "endeverdi"
-            }
-          },
-          {
-            "name": "variable",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_SET_CURRENCY",
-        "title": {
-          "en": "Convert number to currency",
-          "nl": "Zet nummer naar valuta",
-          "de": "Zahl in Währung umrechnen",
-          "no": "Konverter nummer til valuta"
-        },
-        "titleFormatted": {
-          "en": "Convert [[value]] to [[currency]] notation, add to [[variable]]",
-          "nl": "Zet [[value]] om in [[currency]] notatie, voeg in [[variable]]",
-          "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]",
-          "no": "Konverter [[value]] til [[currency]] notering, legg til [[variable]]"
-        },
-        "hint": {
-          "en": "Convert a number value to selected currency notation. Outcome will be stored in \"{variable} currency\".",
-          "nl": "Conventeer een nummer waarde in geselecteerde valuta notatie. Resultaat wordt opgeslagen in \"{variable} valuta\".",
-          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\".",
-          "no": "Konverter en nummerverdi til valgt valutanotering. Utfallet blir lagret i \"{variable} valuta\"."
-        },
-        "args": [
-          {
-            "name": "value",
-            "type": "number",
-            "placeholder": {
-              "en": "number",
-              "nl": "nummer",
-              "de": "Zahl",
-              "no": "nummer"
-            }
-          },
-          {
-            "name": "currency",
-            "type": "dropdown",
-            "title": {
-              "en": "currency",
-              "nl": "valuta",
-              "de": "Währung",
-              "no": "valuta"
-            },
-            "values": [
-              {
-                "id": "EUR",
-                "label": {
-                  "en": "€ Euro"
-                }
-              },
-              {
-                "id": "USD",
-                "label": {
-                  "en": "$ US Dollar"
-                }
-              },
-              {
-                "id": "GBP",
-                "label": {
-                  "en": "£ GBP"
-                }
-              },
-              {
-                "id": "NOK",
-                "label": {
-                  "en": "NOK"
-                }
-              },
-              {
-                "id": "SEK",
-                "label": {
-                  "en": "SEK"
-                }
-              },
-              {
-                "id": "DKK",
-                "label": {
-                  "en": "DKK"
-                }
-              }
-            ]
-          },
-          {
-            "name": "variable",
-            "type": "autocomplete",
-            "title": {
-              "en": "variable",
-              "nl": "variabele",
-              "de": "Variable",
-              "no": "variabel"
-            }
-          }
-        ]
-      },
       {
         "id": "action_CALCULATION",
         "title": {
@@ -856,6 +614,472 @@
         ]
       },
       {
+        "id": "action_CREATE_BOOLEAN_TAG",
+        "title": {
+          "en": "Add Yes/No flow tag",
+          "nl": "Maak Ja/Nee flow tag",
+          "de": "Erstellen Sie Ja/Nein flow tag",
+          "no": "Oppret Ja/Nei flow tag"
+        },
+        "titleFormatted": {
+          "en": "Create [[booleanInput]] as yes/no flow tag",
+          "nl": "Maak [[booleanInput]] aan als ja/nee flow tag",
+          "de": "Erstellen Sie [[booleanInput]] als ja/nein flow tag",
+          "no": "Opprett [[booleanInput]] som ja/nei flow tag"
+        },
+        "args": [
+          {
+            "name": "booleanInput",
+            "type": "dropdown",
+            "title": {
+              "en": "Yes/No",
+              "nl": "Ja/Nee",
+              "de": "Ja/Nein",
+              "no": "Ja/Nei"
+            },
+            "values": [
+              {
+                "id": "yes",
+                "title": {
+                  "en": "Yes",
+                  "nl": "Ja",
+                  "de": "Ja",
+                  "no": "Ja"
+                }
+              },
+              {
+                "id": "no",
+                "title": {
+                  "en": "No",
+                  "nl": "Nee",
+                  "de": "Nein",
+                  "no": "Nei"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "booleanVal",
+            "title": {
+              "en": "Yes/No flow value",
+              "nl": "Ja/Nee flow waarde",
+              "de": "Yes/No flow Wert",
+              "no": "Ja/Nei flow verdi"
+            },
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "action_CREATE_NUM-CURR_TAG",
+        "title": {
+          "en": "Convert number to currency",
+          "nl": "Zet nummer naar valuta",
+          "de": "Zahl in Währung umrechnen",
+          "no": "Konverter nummer til valuta"
+        },
+        "titleFormatted": {
+          "en": "Convert [[numberInput]] to [[currency]] notation",
+          "nl": "Zet [[numberInput]] om in [[currency]] notatie",
+          "de": "Wandle [[numberInput]] in [[currency]]",
+          "no": "Konverter [[numberInput]] til [[currency]] notering"
+        },
+        "hint": {
+          "en": "Convert a number value to selected currency notation.",
+          "nl": "Zet een nummer waarde om in geselecteerde valuta notatie.",
+          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um.",
+          "no": "Konverter en nummerverdi til valgt valutanotering."
+        },
+        "args": [
+          {
+            "name": "numberInput",
+            "type": "number",
+            "placeholder": {
+              "en": "number",
+              "nl": "nummer",
+              "de": "Zahl",
+              "no": "nummer"
+            }
+          },
+          {
+            "name": "currency",
+            "type": "dropdown",
+            "title": {
+              "en": "currency",
+              "nl": "valuta",
+              "de": "Währung",
+              "no": "valuta"
+            },
+            "values": [
+              {
+                "id": "EUR",
+                "label": {
+                  "en": "€ Euro"
+                }
+              },
+              {
+                "id": "USD",
+                "label": {
+                  "en": "$ US Dollar"
+                }
+              },
+              {
+                "id": "GBP",
+                "label": {
+                  "en": "£ GBP"
+                }
+              },
+              {
+                "id": "NOK",
+                "label": {
+                  "en": "NOK"
+                }
+              },
+              {
+                "id": "SEK",
+                "label": {
+                  "en": "SEK"
+                }
+              },
+              {
+                "id": "DKK",
+                "label": {
+                  "en": "DKK"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "currencyOutcome",
+            "title": {
+              "en": "Number in currency",
+              "nl": "Nummer in valuta",
+              "de": "Zahl in Währung",
+              "no": "Nummer in valuta"
+            },
+            "type": "string",
+            "example": "€ 0,00"
+          }
+        ]
+      },
+      {
+        "id": "action_CREATE_NUMBER_TAG",
+        "title": {
+          "en": "Add number flow tag",
+          "nl": "Maak nummer flow tag",
+          "de": "Nummer hinzufügen flow tag",
+          "no": "Legg til nummer flow tag"
+        },
+        "titleFormatted": {
+          "en": "Create [[numberInput]] with [[decimals]] decimals as number flow tag",
+          "nl": "Maak [[numberInput]] met [[decimals]] decimalen aan als nummer flow tag",
+          "de": "Erstellen Sie [[numberInput]] mit [[decimals]] Dezimalstellen als nummer flow tag",
+          "no": "Opprett [[numberInput]] med [[decimals]] desimaler som nummer flow tag"
+        },
+        "args": [
+          {
+            "name": "numberInput",
+            "type": "number",
+            "placeholder": {
+              "en": "Number",
+              "nl": "Nummer",
+              "de": "Nummer",
+              "no": "Nummer"
+            }
+          },
+          {
+            "name": "decimals",
+            "type": "number",
+            "required": false,
+            "placeholder": {
+              "en": "decimals (optional)",
+              "nl": "decimalen (optioneel)",
+              "de": "Dezimalstellen",
+              "no": "desimaler"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "numberVal",
+            "title": {
+              "en": "Number flow value",
+              "nl": "Nummer flow waarde",
+              "de": "Nummer flow Wert",
+              "no": "Nummer flow verdi"
+            },
+            "type": "number",
+            "example": "0"
+          }
+        ]
+      },
+      {
+        "id": "action_END_COMPARE",
+        "title": {
+          "en": "Set end value and compare",
+          "nl": "Maak eind waarde en vergelijk",
+          "de": "Endwert festlegen und vergleichen",
+          "no": "Sett sluttverdi og sammenlign"
+        },
+        "titleFormatted": {
+          "en": "Compare with end value [[value]] for [[variable]]",
+          "nl": "Vergelijk met eind waarde [[value]] voor [[variable]]",
+          "de": "Vergleiche mit Endwert [[value]] für [[variable]]",
+          "no": "Sammenlign med sluttverdi [[value]] for [[variable]]"
+        },
+        "hint": {
+          "en": "Make sure the start value card has been set before, with the end value the difference is made and stored in \"{variable} difference\".",
+          "nl": "Zorg dat de begin waarde kaart is gezet, met de eind waarde wordt het verschil gemaakt en gezet in \"{variable} verschil\".",
+          "de": "Stellen Sie sicher, dass die Startwertkarte vorher ausgeführt wurde. Mit dem Endwert wird die Differenz gebildet und gespeichert in \"{variable} Differenz\".",
+          "no": "Sørg for at startverdikortet har blitt satt tidligere, med endeverdien forskjellen blir skapt og lagret i \"{variable} difference\"."
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "end value",
+              "nl": "eind waarde",
+              "de": "Endwert",
+              "no": "endeverdi"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_END_DURATION",
+        "title": {
+          "en": "Stop duration time and compare with start value",
+          "nl": "Stop looptijd en vergelijk met start waarde",
+          "de": "Stopp Laufzeit und vergleiche mit Startwert",
+          "no": "Stopp varighetstid og sammenlign med startverdi"
+        },
+        "titleFormatted": {
+          "en": "Stop duration for [[variable]]",
+          "nl": "Stop looptijd voor [[variable]]",
+          "de": "Stopp Laufzeit für [[variable]]",
+          "no": "Stopp varighet for [[variable]]"
+        },
+        "hint": {
+          "en": "Make comparison with the start value set earlier. The outcome will be set in \"{variable} duration\".",
+          "nl": "Maak een vergelijking met de eerder gezette start waarde. Deze wordt toegevoegd in \"{variable} looptijd\".",
+          "de": "Führe einen Vergleich mit dem zuvor festgelegten Startwert durch. Ergebnis wird eingefügt in \"{variable} Laufzeit\".",
+          "no": "Gjør sammenligning med startverdien satt tidligere. utfallet blir satt i \"{variable} varighet\"."
+        },
+        "args": [
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_REPLACE_STRING",
+        "title": {
+          "en": "Replace string content",
+          "nl": "Vervang tekst",
+          "de": "Ersetzen Sie den String-Inhalt",
+          "no": "Erstatt strenginnhold"
+        },
+        "titleFormatted": {
+          "en": "Replace [[stringContains]] for [[replacementString]] in [[inputString]] and add to [[variable]]",
+          "nl": "Vervang [[stringContains]] voor [[replacementString]] in [[inputString]] daarna voeg in [[variable]]",
+          "de": "Ersetzen Sie [[stringContains]] durch [[replacementString]] in [[inputString]] und fügen Sie es zu [[variable]] hinzu.",
+          "no": "Erstatt [[stringContains]] for [[replacementString]] i [[inputString]] og legg til [[variable]]"
+        },
+        "args": [
+          {
+            "name": "stringContains",
+            "type": "text",
+            "placeholder": {
+              "en": "Search text",
+              "nl": "Zoek tekst",
+              "de": "Suchtext",
+              "no": "Søk etter tekst"
+            }
+          },
+          {
+            "name": "replacementString",
+            "type": "text",
+            "placeholder": {
+              "en": "Sentence",
+              "nl": "Zin",
+              "de": "Satz",
+              "no": "Setning"
+            }
+          },
+          {
+            "name": "inputString",
+            "type": "text",
+            "placeholder": {
+              "en": "Replacement text",
+              "nl": "Vervangende tekst",
+              "de": "Ersatztext",
+              "no": "Erstatningstekst"
+            }
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_CURRENCY",
+        "title": {
+          "en": "Convert number to currency",
+          "nl": "Zet nummer naar valuta",
+          "de": "Zahl in Währung umrechnen",
+          "no": "Konverter nummer til valuta"
+        },
+        "titleFormatted": {
+          "en": "Convert [[value]] to [[currency]] notation, add to [[variable]]",
+          "nl": "Zet [[value]] om in [[currency]] notatie, voeg in [[variable]]",
+          "de": "Wandle [[value]] in [[currency]] um und füge ein in [[variable]]",
+          "no": "Konverter [[value]] til [[currency]] notering, legg til [[variable]]"
+        },
+        "hint": {
+          "en": "Convert a number value to selected currency notation. Outcome will be stored in \"{variable} currency\".",
+          "nl": "Conventeer een nummer waarde in geselecteerde valuta notatie. Resultaat wordt opgeslagen in \"{variable} valuta\".",
+          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um. Ergebnis wird gespeichert in \"{variable} Währung\".",
+          "no": "Konverter en nummerverdi til valgt valutanotering. Utfallet blir lagret i \"{variable} valuta\"."
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "number",
+            "placeholder": {
+              "en": "number",
+              "nl": "nummer",
+              "de": "Zahl",
+              "no": "nummer"
+            }
+          },
+          {
+            "name": "currency",
+            "type": "dropdown",
+            "title": {
+              "en": "currency",
+              "nl": "valuta",
+              "de": "Währung",
+              "no": "valuta"
+            },
+            "values": [
+              {
+                "id": "EUR",
+                "label": {
+                  "en": "€ Euro"
+                }
+              },
+              {
+                "id": "USD",
+                "label": {
+                  "en": "$ US Dollar"
+                }
+              },
+              {
+                "id": "GBP",
+                "label": {
+                  "en": "£ GBP"
+                }
+              },
+              {
+                "id": "NOK",
+                "label": {
+                  "en": "NOK"
+                }
+              },
+              {
+                "id": "SEK",
+                "label": {
+                  "en": "SEK"
+                }
+              },
+              {
+                "id": "DKK",
+                "label": {
+                  "en": "DKK"
+                }
+              }
+            ]
+          },
+          {
+            "name": "variable",
+            "type": "autocomplete",
+            "title": {
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "action_SET_ZONE_COLOR",
+        "deprecated": true,
+        "title": {
+          "en": "Set zone light color",
+          "nl": "Maak zone lichtkleur",
+          "de": "Setze Farbe in Zone",
+          "no": "Sett lysfarge i sone"
+        },
+        "titleFormatted": {
+          "en": "Set light color to [[color]] in [[zone]]",
+          "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
+          "de": "Setze Farbe auf [[color]] in [[zone]]",
+          "no": "Sett lysfarge til[[color]] i [[zone]]"
+        },
+        "args": [
+          {
+            "name": "color",
+            "type": "color",
+            "placeholder": {
+              "en": "Color",
+              "nl": "Kleur",
+              "de": "Farbe",
+              "no": "farge"
+            }
+          },
+          {
+            "name": "zone",
+            "type": "autocomplete",
+            "title": {
+              "en": "Zone",
+              "nl": "Zone",
+              "de": "Zone",
+              "no": "sone"
+            }
+          }
+        ]
+      },
+      {
         "id": "action_SET_ZONE_PERCENTAGE",
         "deprecated": true,
         "title": {
@@ -942,92 +1166,40 @@
         ]
       },
       {
-        "id": "action_SET_ZONE_COLOR",
-        "deprecated": true,
+        "id": "action_START_COMPARE",
         "title": {
-          "en": "Set zone light color",
-          "nl": "Maak zone lichtkleur",
-          "de": "Setze Farbe in Zone",
-          "no": "Sett lysfarge i sone"
+          "en": "Set start value for comparison",
+          "nl": "Maak begin waarde voor vergelijking",
+          "de": "Startwert für den Vergleich festlegen.",
+          "no": "Sett startverdi for sammenligning"
         },
         "titleFormatted": {
-          "en": "Set light color to [[color]] in [[zone]]",
-          "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
-          "de": "Setze Farbe auf [[color]] in [[zone]]",
-          "no": "Sett lysfarge til[[color]] i [[zone]]"
+          "en": "Start comparison with [[value]] for [[variable]]",
+          "nl": "Begin vergelijking met [[value]] voor [[variable]]",
+          "de": "Start Vergleich mit [[value]] für [[variable]]",
+          "no": "Start sammenligning med [[value]] for [[variable]]"
+        },
+        "hint": {
+          "en": "Set Start value for comparison, this can be used in the end card",
+          "nl": "Zet begin waarde voor vergelijking, deze kan gebruikt worden in de eind kaart",
+          "de": "Startwert für Vergleich festlegen, dieser kann in der Endwertkarte verwendet werden.",
+          "no": "Sett startverdi for sammenlingning, denne kan bli brukt i endekortet"
         },
         "args": [
           {
-            "name": "color",
-            "type": "color",
+            "name": "value",
+            "type": "number",
             "placeholder": {
-              "en": "Color",
-              "nl": "Kleur",
-              "de": "Farbe",
-              "no": "farge"
-            }
-          },
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "title": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "sone"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_REPLACE_STRING",
-        "title": {
-          "en": "Replace string content",
-          "nl": "Vervang tekst",
-          "de": "Ersetzen Sie den String-Inhalt",
-          "no": "Erstatt strenginnhold"
-        },
-        "titleFormatted": {
-          "en": "Replace [[stringContains]] for [[replacementString]] in [[inputString]] and add to [[variable]]",
-          "nl": "Vervang [[stringContains]] voor [[replacementString]] in [[inputString]] daarna voeg in [[variable]]",
-          "de": "Ersetzen Sie [[stringContains]] durch [[replacementString]] in [[inputString]] und fügen Sie es zu [[variable]] hinzu.",
-          "no": "Erstatt [[stringContains]] for [[replacementString]] i [[inputString]] og legg til [[variable]]"
-        },
-        "args": [
-          {
-            "name": "stringContains",
-            "type": "text",
-            "placeholder": {
-              "en": "Search text",
-              "nl": "Zoek tekst",
-              "de": "Suchtext",
-              "no": "Søk etter tekst"
-            }
-          },
-          {
-            "name": "replacementString",
-            "type": "text",
-            "placeholder": {
-              "en": "Sentence",
-              "nl": "Zin",
-              "de": "Satz",
-              "no": "Setning"
-            }
-          },
-          {
-            "name": "inputString",
-            "type": "text",
-            "placeholder": {
-              "en": "Replacement text",
-              "nl": "Vervangende tekst",
-              "de": "Ersatztext",
-              "no": "Erstatningstekst"
+              "en": "start value",
+              "nl": "begin waarde",
+              "de": "Startwert",
+              "no": "startverdi"
             }
           },
           {
             "name": "variable",
             "type": "autocomplete",
-            "title": {
+            "placeholder": {
               "en": "variable",
               "nl": "variabele",
               "de": "Variable",
@@ -1037,104 +1209,173 @@
         ]
       },
       {
-        "id": "action_CREATE_BOOLEAN_TAG",
+        "id": "action_START_DURATION",
         "title": {
-          "en": "Add Yes/No flow tag",
-          "nl": "Maak Ja/Nee flow tag",
-          "de": "Erstellen Sie Ja/Nein flow tag",
-          "no": "Oppret Ja/Nei flow tag"
+          "en": "Start duration for variable",
+          "nl": "Start looptijd voor variabele",
+          "de": "Start Laufzeit für Variable",
+          "no": "Start varighet for variabel"
         },
         "titleFormatted": {
-          "en": "Create [[booleanInput]] as yes/no flow tag",
-          "nl": "Maak [[booleanInput]] aan als ja/nee flow tag",
-          "de": "Erstellen Sie [[booleanInput]] als ja/nein flow tag",
-          "no": "Opprett [[booleanInput]] som ja/nei flow tag"
+          "en": "Start duration for [[variable]]",
+          "nl": "Start looptijd voor [[variable]]",
+          "de": "Start Laufzeit für [[variable]]",
+          "no": "Start varighet for [[variable]]"
+        },
+        "hint": {
+          "en": "Set the begin value for the duration comparison",
+          "nl": "Sla begin tijd op voor de looptijd in de eind kaart",
+          "de": "Anfangswert für den Laufzeitvergleich festlegen",
+          "no": "Sett startverdi for varighet sammenligning"
         },
         "args": [
           {
-            "name": "booleanInput",
-            "type": "dropdown",
-            "title": {
-              "en": "Yes/No",
-              "nl": "Ja/Nee",
-              "de": "Ja/Nein",
-              "no": "Ja/Nei"
-            },
-            "values": [
-              {
-                "id": "yes",
-                "title": {
-                  "en": "Yes",
-                  "nl": "Ja",
-                  "de": "Ja",
-                  "no": "Ja"
-                }
-              },
-              {
-                "id": "no",
-                "title": {
-                  "en": "No",
-                  "nl": "Nee",
-                  "de": "Nein",
-                  "no": "Nei"
-                }
-              }
-            ]
-          }
-        ],
-        "tokens": [
-          {
-            "name": "booleanVal",
-            "title": {
-              "en": "Yes/No flow value",
-              "nl": "Ja/Nee flow waarde",
-              "de": "Yes/No flow Wert",
-              "no": "Ja/Nei flow verdi"
-            },
-            "type": "boolean"
-          }
-        ]
-      },
-      {
-        "id": "action_CREATE_NUMBER_TAG",
-        "title": {
-          "en": "Add number flow tag",
-          "nl": "Maak nummer flow tag",
-          "de": "Nummer hinzufügen flow tag",
-          "no": "Legg til nummer flow tag"
-        },
-        "titleFormatted": {
-          "en": "Create [[numberInput]] as number flow tag",
-          "nl": "Maak [[numberInput]] aan als nummer flow tag",
-          "de": "Erstellen Sie [[numberInput]] als nummer flow tag",
-          "no": "Opprett [[numberInput]] som nummer flow tag"
-        },
-        "args": [
-          {
-            "name": "numberInput",
-            "type": "number",
+            "name": "variable",
+            "type": "autocomplete",
             "placeholder": {
-              "en": "Number",
-              "nl": "Nummer",
-              "de": "Nummer",
-              "no": "Nummer"
+              "en": "variable",
+              "nl": "variabele",
+              "de": "Variable",
+              "no": "variabel"
             }
-          }
-        ],
-        "tokens": [
-          {
-            "name": "numberVal",
-            "title": {
-              "en": "Number flow value",
-              "nl": "Nummer flow waarde",
-              "de": "Nummer flow Wert",
-              "no": "Nummer flow verdi"
-            },
-            "type": "number",
-            "example": "0"
           }
         ]
       }
     ]
+  },
+  "widgets": {
+    "flow-utilities-variables": {
+      "name": {
+        "en": "Flow Utilities"
+      },
+      "settings": [
+        {
+          "id": "selectVariable",
+          "type": "autocomplete",
+          "title": {
+            "en": "Select variable",
+            "nl": "Selecteer variabele",
+            "de": "Variable auswählen",
+            "sv": "Välj variabel",
+            "no": "Velg variabel",
+            "da": "Vælg variabel"
+          }
+        },
+        {
+          "id": "showDuration",
+          "type": "checkbox",
+          "value": true,
+          "title": {
+            "en": "Show duration",
+            "nl": "Toon looptijd",
+            "de": "Zeige Dauer",
+            "sv": "Visa varaktighet",
+            "no": "Vis varighet",
+            "da": "Vis varighed"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        },
+        {
+          "id": "showCurrency",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show currency",
+            "nl": "Toon valuta",
+            "de": "Zeige Währung",
+            "sv": "Visa valuta",
+            "no": "Vis valuta",
+            "da": "Vis valuta"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        },
+        {
+          "id": "showDifference",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show comparison",
+            "nl": "Toon vergelijking",
+            "de": "Zeige Vergleich",
+            "sv": "Visa jämförelse",
+            "no": "Vis sammenligning",
+            "da": "Vis sammenligning"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        },
+        {
+          "id": "showCalculation",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show calculation",
+            "nl": "Toon berekening",
+            "de": "Zeige Berechnung",
+            "sv": "Visa beräkning",
+            "no": "Vis beregning",
+            "da": "Vis beregning"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        },
+        {
+          "id": "showDecimals",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show decimals",
+            "nl": "Toont decimalen"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        },
+        {
+          "id": "showString",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show formatted text",
+            "nl": "Toon geformateerde tekst"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        },
+        {
+          "id": "showReplacementString",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show replacement string",
+            "nl": "Toon vervangen tekst"
+          },
+          "hint": {
+            "en": "Shows the value for this variable",
+            "nl": "Toont de waarde van deze variable"
+          }
+        }
+      ],
+      "api": {
+        "getSettings": {
+          "method": "GET",
+          "path": "/"
+        }
+      },
+      "id": "flow-utilities-variables"
+    }
   }
 }

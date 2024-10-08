@@ -53,6 +53,8 @@ class App extends Homey.App {
         await flowActions.init(this);
         await flowTriggers.init(this);
         await this.setCheckZoneOnOffInterval();
+        
+        await this.setupWidget();
     }
     // -------------------- Notification updates ----------------------
     async sendNotifications() {
@@ -465,6 +467,23 @@ class App extends Homey.App {
         } else {
             this.error('Input format not string type');
         }
+    }
+
+
+    async setupWidget() {
+        const widget = this.homey.dashboards.getWidget('flow-utilities-variables');
+
+        widget.registerSettingAutocompleteListener('selectVariable', async (query, settings) => {
+            this.log('[setupWidget] - Autocomplete query:', query, this.appSettings.VARIABLES);
+            const variables = this.appSettings.VARIABLES.map((item) => {
+                return {
+                    id: item,
+                    name: item
+                };
+            });
+
+            return variables.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
+        });
     }
 }
 

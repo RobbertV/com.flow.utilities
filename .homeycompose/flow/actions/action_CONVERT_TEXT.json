@@ -1,0 +1,82 @@
+{
+  "id": "action_CONVERT_TEXT",
+  "title": {
+    "en": "Transform text",
+    "nl": "Tekst transformeren",
+    "de": "Texte verwandeln",
+    "no": "Transformere tekst"
+  },
+  "titleFormatted": {
+    "en": "Transform [[text]] to [[type]] add to [[variable]]",
+    "nl": "Transformeer [[text]] naar [[type]] voeg in [[variable]]",
+    "de": "Verwandeln [[text]] zu [[type]] und füge ein in [[variable]]",
+    "no": "Transformer [[text]] til [[type]] legg til [[variable]]"
+  },
+  "args": [
+    {
+      "name": "text",
+      "type": "text",
+      "placeholder": {
+        "en": "Text",
+        "nl": "Tekst",
+        "de": "Texte",
+        "no": "Tekst"
+      }
+    },
+    {
+      "name": "type",
+      "type": "dropdown",
+      "title": {
+        "en": "Type"
+      },
+      "values": [
+        {
+          "id": "uppercase",
+          "label": {
+            "en": "UPPERCASE",
+            "nl": "HOOFDLETTERS",
+            "de": "GROßBUCHSTABEN",
+            "no": "STORE BOKSTAVER"
+          }
+        },
+        {
+          "id": "lowercase",
+          "label": {
+            "en": "lowercase",
+            "nl": "kleine letters",
+            "de": "Kleinbuchstaben",
+            "no": "små bokstaver"
+          }
+        },
+        {
+          "id": "capitalizeFirstLetter",
+          "label": {
+            "en": "Capitalize first letter",
+            "nl": "Eerste letter hoofdletter",
+            "de": "Anfangsbuchstaben groß schreiben",
+            "no": "Stor forbokstav"
+          }
+        },
+        {
+          "id": "titleCase",
+          "label": {
+            "en": "Capitalize First Letter Every Word",
+            "nl": "Begin Elk Woord Met Hoofdletter",
+            "de": "Anfangsbuchstaben jedes Wortes groß schreiben",
+            "no": "Stor forbokstav i hvert ord"
+          }
+        }
+      ]
+    },
+    {
+      "name": "variable",
+      "type": "autocomplete",
+      "title": {
+        "en": "variable",
+        "nl": "variabele",
+        "de": "Variable",
+        "no": "variabel"
+      }
+    }
+  ]
+}

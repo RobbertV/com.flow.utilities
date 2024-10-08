@@ -1,0 +1,28 @@
+{
+  "id": "trigger_ZONE_OFF",
+  "deprecated": true,
+  "title": {
+    "en": "Devices in zone turned off",
+    "nl": "Apparaten in zone zijn uitgezet",
+    "de": "Geräte in Zone sind ausgeschaltet",
+    "no": "Enheter i sone slått av"
+  },
+  "titleFormatted": {
+    "en": "Devices in [[zone]] turned off",
+    "nl": "Apparaten in [[zone]] zijn uitgezet",
+    "de": "Geräte in [[zone]] sind ausgeschaltet",
+    "no": "Enheter [[zone]] slått av"
+  },
+  "args": [
+    {
+      "name": "zone",
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "Zone",
+        "nl": "Zone",
+        "de": "Zone",
+        "no": "Sone"
+      }
+    }
+  ]
+}

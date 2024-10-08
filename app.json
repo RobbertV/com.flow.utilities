@@ -673,6 +673,100 @@
         ]
       },
       {
+        "id": "action_CREATE_NUM-CURR_TAG",
+        "title": {
+          "en": "Convert number to currency",
+          "nl": "Zet nummer naar valuta",
+          "de": "Zahl in Währung umrechnen",
+          "no": "Konverter nummer til valuta"
+        },
+        "titleFormatted": {
+          "en": "Convert [[numberInput]] to [[currency]] notation",
+          "nl": "Zet [[numberInput]] om in [[currency]] notatie",
+          "de": "Wandle [[numberInput]] in [[currency]]",
+          "no": "Konverter [[numberInput]] til [[currency]] notering"
+        },
+        "hint": {
+          "en": "Convert a number value to selected currency notation.",
+          "nl": "Zet een nummer waarde om in geselecteerde valuta notatie.",
+          "de": "Berechnet einen Zahlenwert in die ausgewählte Währung um.",
+          "no": "Konverter en nummerverdi til valgt valutanotering."
+        },
+        "args": [
+          {
+            "name": "numberInput",
+            "type": "number",
+            "placeholder": {
+              "en": "number",
+              "nl": "nummer",
+              "de": "Zahl",
+              "no": "nummer"
+            }
+          },
+          {
+            "name": "currency",
+            "type": "dropdown",
+            "title": {
+              "en": "currency",
+              "nl": "valuta",
+              "de": "Währung",
+              "no": "valuta"
+            },
+            "values": [
+              {
+                "id": "EUR",
+                "label": {
+                  "en": "€ Euro"
+                }
+              },
+              {
+                "id": "USD",
+                "label": {
+                  "en": "$ US Dollar"
+                }
+              },
+              {
+                "id": "GBP",
+                "label": {
+                  "en": "£ GBP"
+                }
+              },
+              {
+                "id": "NOK",
+                "label": {
+                  "en": "NOK"
+                }
+              },
+              {
+                "id": "SEK",
+                "label": {
+                  "en": "SEK"
+                }
+              },
+              {
+                "id": "DKK",
+                "label": {
+                  "en": "DKK"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "currencyOutcome",
+            "title": {
+              "en": "Number in currency",
+              "nl": "Nummer in valuta",
+              "de": "Zahl in Währung",
+              "no": "Nummer in valuta"
+            },
+            "type": "string",
+            "example": "€ 0,00"
+          }
+        ]
+      },
+      {
         "id": "action_CREATE_NUMBER_TAG",
         "title": {
           "en": "Add number flow tag",

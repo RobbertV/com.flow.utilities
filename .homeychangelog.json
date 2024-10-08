@@ -175,5 +175,8 @@
   },
   "1.7.3": {
     "en": "Chore: update dependecies & homey api"
+  },
+  "1.8.0": {
+    "en": "NEW: Added widget & conversion action card for advanced flows"
   }
 }

@@ -257,9 +257,9 @@ class App extends Homey.App {
         const newC = newZones.filter((d) => !oldZones.includes(d));
         const that = this;
         for (const device of devices) {
-            if (device.capabilitiesObj && device.capabilitiesObj.onoff && newC.includes(device.zone)) {
+            if (device.capabilitiesObj && device.capabilitiesObj?.onoff && newC.includes(device.zone)) {
                 device.makeCapabilityInstance('onoff', () => {
-                    that.checkZoneOnOff(devices, device.zone);
+                    that.checkZoneOnOff(device, device.zone);
                     that.checkDeviceOnOff(device, device.zone);
                 });
             }

@@ -256,7 +256,7 @@ class App extends Homey.App {
         const devices = Object.values(await this._api.devices.getDevices());
         const newC = newZones.filter((d) => !oldZones.includes(d));
         const that = this;
-        const filteredDevices = devices.filter((d) => device.capabilitiesObj && d.capabilitiesObj.onoff && newC.includes(device.zone));
+        const filteredDevices = devices.filter((d) => d.capabilitiesObj && d.capabilitiesObj.onoff && newC.includes(d.zone));
         for (const device of filteredDevices) {
                 device.makeCapabilityInstance('onoff', () => {
                     that.checkZoneOnOff(filteredDevices, device.zone);

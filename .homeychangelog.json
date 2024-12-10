@@ -178,5 +178,8 @@
   },
   "1.8.0": {
     "en": "NEW: Added widget & conversion action card for advanced flows"
+  },
+  "1.8.1": {
+    "en": "FIX Zone onoff capability error"
   }
 }

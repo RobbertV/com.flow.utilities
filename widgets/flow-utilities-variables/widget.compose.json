@@ -2,6 +2,7 @@
   "name": {
     "en": "Flow Utilities"
   },
+"transparent": true,
   "settings": [
     {
         "id": "selectVariable",

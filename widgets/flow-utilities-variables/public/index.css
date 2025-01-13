@@ -4,16 +4,15 @@
 
 .flow-utils-widget { 
     --theme-boxShadow-default: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-}
 
-.homey-widget-full-width {
-    background-color: var(--homey-color-mono-025);
+     height: fit-content;
 }
 
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--homey-su-3);
+    padding-bottom: 6px;
 }
 
 .var-item {
@@ -79,15 +78,3 @@
 .text-left {
     text-align: left;
 }
-
-/* @media screen and (max-width: 1024px) {
-    :root {
-        --homey-font-size-small: 12px;
-        --homey-font-size-default: 14px;
-    }
-
-    .var-item .key,
-    .var-item .value {
-        width: 90px;
-    }
-} */

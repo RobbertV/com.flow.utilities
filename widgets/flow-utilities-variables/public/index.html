@@ -98,7 +98,9 @@
             }
           })
 
-          Homey.ready({ height: results.offsetHeight + 6 }); // Add 6px for box-shadow
+            const widgetContainer = document.querySelector('.flow-utils-widget');
+
+            Homey.ready({ height: widgetContainer.offsetHeight });
         }).catch((error) => {
           console.error(error);
         });

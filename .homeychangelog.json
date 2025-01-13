@@ -181,5 +181,8 @@
   },
   "1.8.1": {
     "en": "FIX Zone onoff capability error"
+  },
+  "1.8.2": {
+    "en": "FIX widget styling"
   }
 }

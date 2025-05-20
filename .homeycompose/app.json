@@ -6,9 +6,7 @@
     "local"
   ],
   "sdk": 3,
-  "permissions": [
-    "homey:manager:api"
-  ],
+"permissions": [],
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
@@ -38,9 +36,7 @@
       "Homey",
       "Athom",
       "Apps",
-      "Devices",
-      "Zone",
-      "Zones"
+    "Devices"
     ]
   },
   "category": [

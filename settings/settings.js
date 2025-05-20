@@ -112,8 +112,7 @@ function initClear() {
                 const settings = {
                     COMPARISONS: [],
                     TOTALS: [],
-                    VARIABLES: [],
-                    ZONES: {}
+                    VARIABLES: []
                 };
 
                 saveSettings(settings, { successMessage: Homey.__('settings.cleared') });

@@ -7,9 +7,7 @@
     "local"
   ],
   "sdk": 3,
-  "permissions": [
-    "homey:manager:api"
-  ],
+  "permissions": [],
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
@@ -39,9 +37,7 @@
       "Homey",
       "Athom",
       "Apps",
-      "Devices",
-      "Zone",
-      "Zones"
+      "Devices"
     ]
   },
   "category": [
@@ -153,126 +149,6 @@
         ]
       },
       {
-        "id": "trigger_DEVICE_ZONE_OFF",
-        "deprecated": true,
-        "title": {
-          "en": "A Device in zone turned off",
-          "nl": "Apparaat in zone is uitgezet",
-          "de": "Gerät in Zone ist ausgeschaltet",
-          "no": "En enhet i sone er slått av"
-        },
-        "titleFormatted": {
-          "en": "Device in [[zone]] turned off",
-          "nl": "Apparaat in [[zone]] is uitgezet",
-          "de": "Gerät in [[zone]] ist ausgeschaltet",
-          "no": "En enhet i [[zone]] er slått av"
-        },
-        "tokens": [
-          {
-            "name": "name",
-            "type": "string",
-            "title": {
-              "en": "Name",
-              "nl": "Naam",
-              "de": "Name",
-              "no": "Navn"
-            }
-          },
-          {
-            "name": "ison",
-            "type": "boolean",
-            "title": {
-              "en": "Is on",
-              "nl": "Is aan",
-              "de": "Ist eingeschaltet",
-              "no": "Er på"
-            }
-          },
-          {
-            "name": "zone",
-            "type": "string",
-            "title": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
-            }
-          }
-        ]
-      },
-      {
-        "id": "trigger_DEVICE_ZONE_ON",
-        "deprecated": true,
-        "title": {
-          "en": "A Device in zone turned on",
-          "nl": "Apparaat in zone is aangezet",
-          "de": "Gerät in Zone ist eingeschaltet",
-          "no": "En enhet i sone er slått på"
-        },
-        "titleFormatted": {
-          "en": "Device in [[zone]] turned on",
-          "nl": "Apparaat in [[zone]] is aangezet",
-          "de": "Gerät in [[zone]] ist eingeschaltet",
-          "no": "Enhet i [[zone]] slått på"
-        },
-        "tokens": [
-          {
-            "name": "name",
-            "type": "string",
-            "title": {
-              "en": "Name",
-              "nl": "Naam",
-              "de": "Name",
-              "no": "Navn"
-            }
-          },
-          {
-            "name": "ison",
-            "type": "boolean",
-            "title": {
-              "en": "Is on",
-              "nl": "Is aan",
-              "de": "Ist eingeschaltet",
-              "no": "Er på"
-            }
-          },
-          {
-            "name": "zone",
-            "type": "string",
-            "title": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
-            }
-          }
-        ],
-        "args": [
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
-            }
-          }
-        ]
-      },
-      {
         "id": "trigger_DURATION",
         "title": {
           "en": "Duration is set",
@@ -327,62 +203,6 @@
               "nl": "variabele",
               "de": "Variable",
               "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "trigger_ZONE_OFF",
-        "deprecated": true,
-        "title": {
-          "en": "Devices in zone turned off",
-          "nl": "Apparaten in zone zijn uitgezet",
-          "de": "Geräte in Zone sind ausgeschaltet",
-          "no": "Enheter i sone slått av"
-        },
-        "titleFormatted": {
-          "en": "Devices in [[zone]] turned off",
-          "nl": "Apparaten in [[zone]] zijn uitgezet",
-          "de": "Geräte in [[zone]] sind ausgeschaltet",
-          "no": "Enheter [[zone]] slått av"
-        },
-        "args": [
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
-            }
-          }
-        ]
-      },
-      {
-        "id": "trigger_ZONE_ON",
-        "deprecated": true,
-        "title": {
-          "en": "Devices in zone turned on",
-          "nl": "Apparaten in zone zijn aangezet",
-          "de": "Geräte in Zone sind eingeschaltet",
-          "no": "Enheter i sone slått på"
-        },
-        "titleFormatted": {
-          "en": "Devices in [[zone]] turned on",
-          "nl": "Apparaten in [[zone]] zijn aangezet",
-          "de": "Geräte in [[zone]] sind eingeschaltet",
-          "no": "Enheter i [[zone]] slått på"
-        },
-        "args": [
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "placeholder": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
             }
           }
         ]
@@ -1037,130 +857,6 @@
               "nl": "variabele",
               "de": "Variable",
               "no": "variabel"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_SET_ZONE_COLOR",
-        "deprecated": true,
-        "title": {
-          "en": "Set zone light color",
-          "nl": "Maak zone lichtkleur",
-          "de": "Setze Farbe in Zone",
-          "no": "Sett lysfarge i sone"
-        },
-        "titleFormatted": {
-          "en": "Set light color to [[color]] in [[zone]]",
-          "nl": "Zet lichtkleur naar [[color]] in [[zone]]",
-          "de": "Setze Farbe auf [[color]] in [[zone]]",
-          "no": "Sett lysfarge til[[color]] i [[zone]]"
-        },
-        "args": [
-          {
-            "name": "color",
-            "type": "color",
-            "placeholder": {
-              "en": "Color",
-              "nl": "Kleur",
-              "de": "Farbe",
-              "no": "farge"
-            }
-          },
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "title": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "sone"
-            }
-          }
-        ]
-      },
-      {
-        "id": "action_SET_ZONE_PERCENTAGE",
-        "deprecated": true,
-        "title": {
-          "en": "Set device percentage in zone",
-          "nl": "Zet apparaat percentage in zone",
-          "de": "Geräteprozentsatz in Zone einstellen",
-          "no": "Sett enhetsprosent i sone"
-        },
-        "titleFormatted": {
-          "en": "Set [[type]] percentage to [[percentage]]% in [[zone]]",
-          "nl": "Zet [[type]] percentage naar [[percentage]]% in [[zone]]",
-          "de": "Setze [[type]] Prozentsatz auf [[percentage]]% in [[zone]]",
-          "no": "Sett [[type]] prosent til [[percentage]]% i [[zone]]"
-        },
-        "args": [
-          {
-            "name": "type",
-            "type": "dropdown",
-            "title": {
-              "en": "Type"
-            },
-            "values": [
-              {
-                "id": "dim",
-                "label": {
-                  "en": "Dim",
-                  "nl": "Dim",
-                  "de": "Dim",
-                  "no": "Dim"
-                }
-              },
-              {
-                "id": "light_temperature",
-                "label": {
-                  "en": "Temperature",
-                  "nl": "Temperatuur",
-                  "de": "Temperatur",
-                  "no": "Temperatur"
-                }
-              },
-              {
-                "id": "volume_set",
-                "label": {
-                  "en": "Volume",
-                  "nl": "Volume",
-                  "de": "Lautstärke",
-                  "no": "lydstyrke"
-                }
-              },
-              {
-                "id": "windowcoverings_set",
-                "label": {
-                  "en": "Window Coverings",
-                  "nl": "Gordijnen",
-                  "de": "Fensterabdeckungen",
-                  "no": "Window Coverings"
-                }
-              }
-            ]
-          },
-          {
-            "name": "percentage",
-            "type": "number",
-            "placeholder": {
-              "en": "Percentage",
-              "nl": "Percentage",
-              "de": "Prozent",
-              "no": "prosent"
-            },
-            "min": 0,
-            "max": 100,
-            "step": 1
-          },
-          {
-            "name": "zone",
-            "type": "autocomplete",
-            "title": {
-              "en": "Zone",
-              "nl": "Zone",
-              "de": "Zone",
-              "no": "Sone"
             }
           }
         ]

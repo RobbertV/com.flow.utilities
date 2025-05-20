@@ -1,12 +1,12 @@
 {
   "id": "com.flow.utilities",
-  "version": "1.8.2",
+  "version": "2.0.0",
   "compatibility": ">=12.1.0",
   "platforms": [
     "local"
   ],
   "sdk": 3,
-"permissions": [],
+  "permissions": [],
   "brandColor": "#ea951c",
   "name": {
     "en": "Flow Utilities",
@@ -36,7 +36,7 @@
       "Homey",
       "Athom",
       "Apps",
-    "Devices"
+      "Devices"
     ]
   },
   "category": [

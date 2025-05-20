@@ -1,8 +1,6 @@
 'use strict';
 
 const Homey = require('homey');
-const { HomeyAPI } = require('homey-api');
-const tinycolor = require('tinycolor2');
 const flowActions = require('./lib/flows/actions');
 const flowTriggers = require('./lib/flows/triggers');
 const { calculateDuration, calculateComparison, formatToken, calculationType, convertNumber, convertText } = require('./lib/helpers');
@@ -21,11 +19,6 @@ class App extends Homey.App {
     // -------------------- INIT ----------------------
 
     async onInit() {
-        // Fix Homey API bug for version <= 8
-        const myHomey = this.homey.platform ? this.homey : { ...this.homey, platform: 'local', platformVersion: 1 };
-
-        this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
-
         this.TOKENS = {};
 
         this.SRC_LIST = [
@@ -39,11 +32,6 @@ class App extends Homey.App {
             { name: 'replacementString', type: 'string' }
         ];
 
-        this._api = await HomeyAPI.createAppAPI({
-            homey: myHomey,
-            debug: false
-        });
-
         await this.initSettings();
 
         this.log('[onInit] - Loaded settings', this.appSettings);
@@ -52,8 +40,7 @@ class App extends Homey.App {
         await this.setTokens(this.appSettings.VARIABLES, this.appSettings.VARIABLES);
         await flowActions.init(this);
         await flowTriggers.init(this);
-        await this.setCheckZoneOnOffInterval();
-        
+
         await this.setupWidget();
     }
     // -------------------- Notification updates ----------------------
@@ -86,14 +73,27 @@ class App extends Homey.App {
             this.log('[initSettings] - Found settings key', _settingsKey);
             this.appSettings = this.homey.settings.get(_settingsKey);
 
-            if (!('ZONES' in this.appSettings)) {
+            // Temporary fix for remmoval of ZONE functions
+            if (this.appSettings?.ZONES) {
                 try {
+                    this.log('[initSettings][ZONES] - Found settings update to new specification');
+                    const allowed = ['COMPARISONS', 'TOTALS', 'VARIABLES'];
+
+                    const filteredSettings = Object.keys(this.appSettings)
+                        .filter((key) => allowed.includes(key))
+                        .reduce((obj, key) => {
+                            return {
+                                ...obj,
+                                [key]: this.appSettings[key]
+                            };
+                        }, {});
+
+                    // this.log('[Settings cleanup] - Filtered settings', filteredSettings);
                     await this.updateSettings({
-                        ...this.appSettings,
-                        ZONES: {}
+                        ...filteredSettings
                     });
                 } catch (err) {
-                    this.error('[initSettings][ZONES]', err);
+                    this.error('[initSettings]', err);
                 }
             }
         } else {
@@ -102,8 +102,7 @@ class App extends Homey.App {
                 await this.updateSettings({
                     VARIABLES: [],
                     COMPARISONS: [],
-                    TOTALS: [],
-                    ZONES: {}
+                    TOTALS: []
                 });
             } catch (err) {
                 this.error('[initSettings][init with defaults]', err);
@@ -251,70 +250,6 @@ class App extends Homey.App {
     }
 
     // -------------------- FUNCTIONS ----------------------
-    // ToDo: Remove deprecated
-    async setCheckZoneOnOffInterval(oldZones = [], newZones = Object.keys(this.appSettings.ZONES)) {
-        const devices = Object.values(await this._api.devices.getDevices());
-        const newC = newZones.filter((d) => !oldZones.includes(d));
-        const that = this;
-        const filteredDevices = devices.filter((d) => d.capabilitiesObj && d.capabilitiesObj.onoff && newC.includes(d.zone));
-        for (const device of filteredDevices) {
-                device.makeCapabilityInstance('onoff', () => {
-                    that.checkZoneOnOff(filteredDevices, device.zone);
-                    that.checkDeviceOnOff(device, device.zone);
-                });
-        }
-    }
-    // ToDo: Remove deprecated
-    async checkDeviceOnOff(device, zoneId) {
-        const onoffDevice = device.zone == zoneId && device.capabilitiesObj.onoff && !device.settings.energy_alwayson && !device.settings.override_onoff;
-
-        if (onoffDevice) {
-            const value = device.capabilitiesObj.onoff.value;
-            const key = value ? 'DEVICE_ZONE_ON' : 'DEVICE_ZONE_OFF';
-
-            const zone = await device.getZone();
-
-            const name = device.name ? device.name : 'Unknown';
-            const zoneName = zone ? zone.name : 'Unknown';
-
-            this.homey.app[`trigger_${key}`]
-                .trigger({ name, zone: zoneName, ison: value }, { zone: zoneId })
-                .catch((err) => this.error(`[Device][trigger_${key}]`, err))
-                .then((res) => this.log(`[trigger_${key}] - Triggered - ${name} - ${zoneId} - ${zoneName} - ${value}`));
-        }
-    }
-    // ToDo: Remove deprecated
-    async checkZoneOnOff(devices, zone) {
-        const onoffDevices = devices.filter((d) => d.zone == zone && d.capabilitiesObj.onoff && !d.settings.energy_alwayson && !d.settings.override_onoff);
-        if (onoffDevices) {
-            const isOn = onoffDevices.every((v) => v.settings && v.capabilitiesObj.onoff.value === true);
-            const isOff = onoffDevices.every((v) => v.capabilitiesObj.onoff.value === false);
-
-            let zoneChanges = this.appSettings.ZONES;
-            let key = null;
-            let value = null;
-
-            if (isOn && !this.appSettings.ZONES[zone]) {
-                value = true;
-                key = 'ZONE_ON';
-            } else if (isOff && !!this.appSettings.ZONES[zone]) {
-                value = false;
-                key = 'ZONE_OFF';
-            }
-
-            if (key) {
-                await this.updateSettings({
-                    ...this.appSettings,
-                    ZONES: { ...zoneChanges, [zone]: value }
-                });
-
-                this.homey.app[`trigger_${key}`]
-                    .trigger({}, { zone })
-                    .catch((err) => this.error(`[Zone][trigger_${key}]`, err))
-                    .then((res) => this.log(`[trigger_${key}] - Triggered - ${zone} - ${value}`));
-            }
-        }
-    }
 
     async action_START(token, paramOptions) {
         const defaultOptions = {
@@ -407,50 +342,6 @@ class App extends Homey.App {
         await this.createToken(token, { src: 'text', value: result });
     }
 
-    // ToDo: Remove deprecated
-    async action_SET_ZONE_PERCENTAGE(zoneId, type, percentage) {
-        this.homey.app.log('[action_SET_ZONE_PERCENTAGE] - args', zoneId, type, percentage);
-
-        const devices = await this._api.devices.getDevices();
-        for (const device of Object.values(devices)) {
-            if (device.zone === zoneId && device.capabilities.includes(type)) {
-                try {
-                    await device.setCapabilityValue(type, percentage / 100);
-                } catch (error) {
-                    this.error('[action_SET_ZONE_PERCENTAGE][setCapabilityValue]', error);
-                }
-            }
-        }
-    }
-    // ToDo: Remove deprecated
-    async action_SET_ZONE_COLOR(zoneId, color) {
-        this.homey.app.log('[action_SET_ZONE_COLOR] - args', zoneId, color);
-
-        const hsv = tinycolor(color).toHsv();
-        const hue = Number((hsv.h / 360).toFixed(2));
-
-        this.homey.app.log('[action_SET_ZONE_COLOR] - setting color to ', hsv.s, hue);
-
-        const devices = await this._api.devices.getDevices();
-        for (const device of Object.values(devices)) {
-            if (device.zone === zoneId && device.capabilities.includes('light_hue')) {
-                try {
-                    await device.setCapabilityValue('light_hue', hue);
-                } catch (error) {
-                    this.error('[action_SET_ZONE_COLOR][light_hue][setCapabilityValue]', error);
-                }
-            }
-
-            if (device.zone === zoneId && device.capabilities.includes('light_saturation')) {
-                try {
-                    await device.setCapabilityValue('light_saturation', hsv.s);
-                } catch (error) {
-                    this.error('[action_SET_ZONE_COLOR][light_saturation][setCapabilityValue]', error);
-                }
-            }
-        }
-    }
-
     async action_REPLACE_STRING(token, stringContains, replacementString, inputString) {
         if (typeof stringContains === 'string' && typeof replacementString === 'string' && typeof inputString === 'string') {
             const result = inputString.replaceAll(stringContains, replacementString);
@@ -467,7 +358,6 @@ class App extends Homey.App {
             this.error('Input format not string type');
         }
     }
-
 
     async setupWidget() {
         const widget = this.homey.dashboards.getWidget('flow-utilities-variables');
